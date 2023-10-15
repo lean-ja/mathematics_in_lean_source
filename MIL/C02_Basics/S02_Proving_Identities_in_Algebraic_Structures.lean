@@ -12,8 +12,10 @@ Proving Identities in Algebraic Structures
 ------------------------------------------
 OMIT. -/
 /- TEXT:
+
 代数的構造における恒等性の証明
-----------------------------
+-------------------------------
+
 .. index:: ring (algebraic structure)
 
 TEXT. -/
@@ -24,8 +26,8 @@ and :math:`1`, and an operation :math:`x \mapsto -x` such that:
 
 OMIT. -/
 /- TEXT:
-数学的に，環は対象の集まりである:math:`R`と演算子:math:`+` :math:`\times`，定数:math:`0`，:math:`1`，
-そして演算子:math:`x \mapsto -x`から構成され，以下を満たします:
+数学的に，環は対象の集まりである :math:`R` と演算子 :math:`+` :math:`\times`，定数 :math:`0`，:math:`1`，
+そして演算子 :math:`x \mapsto -x` から構成され，以下を満たします:
 
 TEXT. -/
 /- OMIT:
@@ -36,8 +38,8 @@ TEXT. -/
 
 OMIT. -/
 /- TEXT:
-* :math:`R`と:math:`+`は*アーベル群*で，:math:`0`は加法の単位元，減算が逆元になります．
-* 乗法は単位元:math:`1`について結合的で，また乗法は加法に対して分配されます．
+* :math:`R` と :math:`+` は *アーベル群* で， :math:`0` は加法の単位元，減算が逆元になります．
+* 乗法は単位元 :math:`1` について結合的で，また乗法は加法に対して分配されます．
 
 TEXT. -/
 /- OMIT:
@@ -45,7 +47,7 @@ In Lean, the collection of objects is represented as a *type*, ``R``.
 The ring axioms are as follows:
 OMIT. -/
 /- TEXT:
-Leanでは対象のあつまりは*型*として表現され，環は``R``と表記します．
+Leanでは対象のあつまりは *型* として表現され，環は ``R`` と表記します．
 環の公理は以下のようになります．
 
 TEXT. -/
@@ -77,8 +79,8 @@ and to make use of a library of theorems about rings.
 OMIT. -/
 /- TEXT:
 上記の1行目に出てきた角括弧については後ほど学びますが，
-今のところはこの書き方で型``R``に対して環の構造が与えられるようにする定義だと思ってもらえれば十分です．
-これによりLeanは``R``の元について環の一般的な記法を使うことが出来るようにし，ライブラリ中の環についての定理も使えるようになります．
+今のところはこの書き方で型 ``R`` に対して環の構造が与えられるようにする定義だと思ってもらえれば十分です．
+これによりLeanは ``R`` の元について環の一般的な記法を使うことが出来るようにし，ライブラリ中の環についての定理も使えるようになります．
 
 TEXT. -/
 /- OMIT:
@@ -103,8 +105,8 @@ OMIT. -/
 /- TEXT:
 これらの定理の中にはなじみ深い名前のものもあるでしょう，それもそのはずで，これらはまさに前章で実数について計算したものと同じだからです．
 Leanは実際の自然数や整数のような数学構造について証明をするだけでなく，環のような公理的に特徴づけられた抽象構造の証明にも長けています．
-さらに，Leanは抽象と具象の構造どちらに対しても*一般的な推論*のサポートを備えており，適切なインスタンスを認識できるように調節できます．
-そのため環についての定理を整数``Z``や有理数``Q``，複素数``C``のような具体的な環に適用することができます．
+さらに，Leanは抽象と具象の構造どちらに対しても *一般的な推論* のサポートを備えており，適切なインスタンスを認識できるように調節できます．
+そのため環についての定理を整数 ``Z`` や有理数 ``Q`` ，複素数 ``C`` のような具体的な環に適用することができます．
 またさらに任意の順序環や体などの拡張された環構造のインスタンスに適用することもできます．
 
 .. index:: commutative ring
@@ -129,7 +131,7 @@ OMIT. -/
 例えば実数の乗算は可換ですが，これは一般の環では成り立ちません．
 線形代数の講義を受けたことがある人なら，実数の :math:`n` 行列が :math:`n` × :math:`n` の環を形成し，
 その環では通常可換性が成り立たないことがわかります．
-もし ``R`` を*可換*環であると宣言すれば，実際に ``ℝ`` を ``R`` に置き換えても，前節の定理はすべて成り立ち続ける．
+もし ``R`` を *可換* 環であると宣言すれば，実際に ``ℝ`` を ``R`` に置き換えても，前節の定理はすべて成り立ち続ける．
 TEXT. -/
 section
 -- QUOTE:
@@ -200,7 +202,7 @@ OMIT. -/
 /- TEXT:
 Leanは一般的なプログラミング言語で使われるものと似たようなコードの組織化のメカニズムを提供します．
 定義や定理 ``foo`` が *名前空間* ``bar`` に導入されると，その完全な名前は ``bar.foo`` となります．
-コマンド ``open bar`` で名前空間を *開く*ことで，より短い名前 ``foo`` を使うことができます．
+コマンド ``open bar`` で名前空間を *開く* ことで，より短い名前 ``foo`` を使うことができます．
 名前の衝突によるエラーを避けるために，次の例ではライブラリの定理を ``MyRing.`` という新しい名前空間に置きます．
 
 TEXT. -/
@@ -269,6 +271,9 @@ theorem neg_add_cancel_left (a b : R) : -a + (a + b) = b := by
 /- OMIT:
 Prove the companion version:
 OMIT. -/
+/- TEXT:
+上記の定理に類似した以下の定理を証明してください:
+TEXT. -/
 -- Prove these:
 -- QUOTE:
 theorem add_neg_cancel_right (a b : R) : a + b + -b = a := by
@@ -282,6 +287,9 @@ theorem add_neg_cancel_rightαα (a b : R) : a + b + -b = a := by
 /- OMIT:
 Use these to prove the following:
 OMIT. -/
+/- TEXT:
+これらを以下の証明に用いてください:
+TEXT. -/
 -- QUOTE:
 theorem add_left_cancel {a b c : R} (h : a + b = a + c) : b = c := by
   sorry
@@ -300,8 +308,14 @@ theorem add_right_cancelαα {a b c : R} (h : a + b = c + b) : a = c := by
 /- OMIT:
 With enough planning, you can do each of them with three rewrites.
 
+OMIT. -/
+/- TEXT:
+この２つの証明はそれぞれ３回の書き換えにまとめることが可能です．
+
 .. index:: implicit argument
 
+TEXT. -/
+/- OMIT:
 We will now explain the use of the curly braces.
 Imagine you are in a situation where you have ``a``, ``b``, and ``c``
 in your context,
@@ -325,9 +339,29 @@ The curly brackets in ``{a b c : R}`` do exactly that.
 So, given the statement of the theorem above,
 the correct expression is simply ``add_left_cancel h``.
 
+OMIT. -/
+/- TEXT:
+ここで中括弧の使い方について説明しましょう．
+例えば証明の文脈中に ``a`` ， ``b`` ， ``c`` ，仮説 ``h : a + b = a + c`` があり，結論 ``b = c`` を導きたいとしましょう．
+Leanでは，定理を ``a`` や ``b`` 等の対象に適用するのと同じように仮説や事実に適用することができるため，
+``add_left_cancel a b c h`` が ``b = c`` の証明だと思われるかもしれません．
+しかし， ``a`` ， ``b`` ， ``c`` を明示的に書くことは冗長であることに注意してください．
+なぜなら，仮説 ``h`` にはこれらの対象を含んでいるため，この仮説のみでどういう対象を想定しているかが明確だからです．
+今回の場合，数文字書くかどうか程度ですので大した負担にはなりませんが，
+``add_left_cancel`` をさらに複雑な式に適用していく場合には面倒になることでしょう．
+このような場合のためにLeanでは引数を *暗黙的* なものとしてマークすることができます．
+つまり，引数は省略され，その引数を用いている別の引数や仮説などの他の要素から推測されるようになっているのです．
+これがまさに ``{a b c : R}`` での中括弧です．
+以上より，上記の定理の型から考えると正しい式は ``add_left_cancel h`` とシンプルなものとなります．
+
+TEXT. -/
+/- OMIT:
 To illustrate, let us show that ``a * 0 = 0``
 follows from the ring axioms.
 OMIT. -/
+/- TEXT:
+このことを説明するために，環の公理から ``a * 0 = 0`` が成り立つことを示しましょう．
+TEXT. -/
 -- QUOTE:
 theorem mul_zero (a : R) : a * 0 = 0 := by
   have h : a * 0 + a * 0 = a * 0 + 0 := by
@@ -336,8 +370,6 @@ theorem mul_zero (a : R) : a * 0 = 0 := by
 -- QUOTE.
 
 /- OMIT:
-.. index:: have, tactics ; have
-
 We have used a new trick!
 If you step through the proof,
 you can see what is going on.
@@ -355,8 +387,23 @@ except a new hypothesis ``h`` has been added:
 having proved it, we are now free to use it.
 At this point, the goal is exactly the result of ``add_left_cancel h``.
 
+OMIT. -/
+/- TEXT:
+.. index:: have, tactics ; have
+
+ここでは新しいトリックを使っています！
+上記の証明をステップごとにinfoviewを見ていけば，この証明で何が起こっているかわかるでしょう．
+この ``have`` タクティクは新しいゴール ``a * 0 + a * 0 = a * 0 + 0`` を導入しています．
+この次の行でインデントが1段深くなっているのは，
+Leanがこの新しいゴールの証明をするためのタクティクによるブロックが続くことを期待していることを示しています．
+つまりこのインデントによってモジュール化した証明，すなわち ``have`` で導入されたインデントされたサブ証明のゴールというスタイルを導入しているのです．
+このインデントの後，証明はもとのゴールの証明へと戻りますが，先程証明した新しい仮説 ``h`` が追加され，これを自由に使うことができます．
+この新しい仮説の追加をした時点で，ゴールはまさに ``add_left_cancel h`` となります．
+
 .. index:: apply, tactics ; apply, exact, tactics ; exact
 
+TEXT. -/
+/- OMIT:
 We could equally well have closed the proof with
 ``apply add_left_cancel h`` or ``exact add_left_cancel h``.
 The ``exact`` tactic takes as argument a proof term which completely proves the
@@ -367,9 +414,24 @@ While the ``exact`` tactic is technically redundant since it is strictly less po
 than ``apply``, it makes proof scripts slightly clearer to
 human readers and easier to maintain when the library evolves.
 
+OMIT. -/
+/- TEXT:
+上記の証明の終わりにおいて ``rw`` を用いていますが，これの代わりに ``apply add_left_cancel h`` もしくは ``exact add_left_cancel h`` で証明を終えることもできます．
+``exact`` タクティクは新しいゴールを作らずに，現在のゴールを完全に証明できている項を引数にとります．
+これに対し ``apply`` タクティクはもう少し広く，引数は完全な証明である必要はありません．
+完全な証明ではない場合，足りない部分はLeanが自動的に推測するか，証明すべき新たなゴールとなります．
+``exact`` は厳密には ``apply`` よりも弱いため技術的に冗長なタクティクですが，これにより証明のスクリプトが読む人にとって若干わかりやすくなり，
+ライブラリが進化したときのメンテナスも容易になります．
+
+TEXT. -/
+/- OMIT:
 Remember that multiplication is not assumed to be commutative,
 so the following theorem also requires some work.
 OMIT. -/
+/- TEXT:
+ところで乗算は可換であるとは仮定されていないことを思い出してください．
+このため次の定理は公理から直接導かれず，証明にもひと工夫必要になります．
+TEXT. -/
 -- QUOTE:
 theorem zero_mul (a : R) : 0 * a = 0 := by
   sorry
@@ -386,6 +448,9 @@ exercise with a proof,
 still using only facts about rings that we have
 established in this section.
 OMIT. -/
+/- TEXT:
+ここまでくれば，次の練習問題でもこのセクションで確立した環に関する事実だけを用いて各``sorry``を証明に置き換えることができるでしょう．
+TEXT. -/
 -- QUOTE:
 theorem neg_eq_of_add_eq_zero {a b : R} (h : a + b = 0) : -a = b := by
   sorry
@@ -427,9 +492,19 @@ because without specifying ``R``
 it is impossible for Lean to infer which ``0`` we have in mind,
 and by default it would be interpreted as a natural number.
 
+OMIT. -/
+/- TEXT:
+ここで3つ目の定理においては単に ``0`` とするのではなく， ``(-0 : R)`` という注釈を使う必要があります．
+なぜなら ``R`` を指定しなければLeanはどの環での ``0`` を念頭においているかを推測することができず，結果としてデフォルトの自然数として解釈してしまうからです．
+
+TEXT. -/
+/- OMIT:
 In Lean, subtraction in a ring is provably equal to
 addition of the additive inverse.
 OMIT. -/
+/- TEXT:
+Leanでは，環においての引き算は加法の逆元との足し算と等しいことが証明できます．
+TEXT. -/
 -- Examples.
 section
 variable {R : Type*} [Ring R]
@@ -444,6 +519,9 @@ end
 /- OMIT:
 On the real numbers, it is *defined* that way:
 OMIT. -/
+/- TEXT:
+実数においてはまさにそのように*定義されています*．
+TEXT. -/
 -- QUOTE:
 example (a b : ℝ) : a - b = a + -b :=
   rfl
@@ -453,9 +531,7 @@ example (a b : ℝ) : a - b = a + -b := by
 -- QUOTE.
 
 /- OMIT:
-.. index:: rfl, reflexivity, tactics ; refl and reflexivity, definitional equality
-
-The proof term ``rfl`` is short for "reflexivity".
+The proof term  ``rfl`` is short for "reflexivity".
 Presenting it as a proof of ``a - b = a + -b`` forces Lean
 to unfold the definition and recognize both sides as being the same.
 The ``rfl`` tactic does the same.
@@ -468,6 +544,16 @@ you can use the two sides of the equation interchangeably.
 For example, you now have enough information to prove the theorem
 ``self_sub`` from the last section:
 OMIT. -/
+/- TEXT:
+.. index:: rfl, reflexivity, tactics ; refl and reflexivity, definitional equality
+
+証明の用語として ``rfl`` は「反射性（reflexivity）」の略です．
+これを ``a - b = a + -b`` の証明として提示することで，Leanにその定義を展開させ，両辺が同じであることを認識させます．
+``rfl`` タクティクもこれと同様です．
+これはLeanの基礎となっている論理で， *定義として同値* として知られているものです．
+つまり ``sub_eq_add_neg`` を用いて ``a - b = a + -b`` を置き換えることができるだけでなく，文脈によっては実数を扱うときに等式の両辺を入れ替えて使うこともできます．
+例えば前節の定理 ``self_sub`` を証明するにあたって十分な情報を得たとしましょう:
+TEXT. -/
 -- BOTH:
 namespace MyRing
 variable {R : Type*} [Ring R]
@@ -488,11 +574,20 @@ but if you replace the arbitrary ring ``R`` by
 the real numbers, you can also prove it
 using either ``apply`` or ``exact``.
 
+OMIT. -/
+/- TEXT:
+この証明では ``rw`` を用いて証明できることを示しますが，ここで任意の環 ``R`` ではなく実数とすれば， ``apply`` または ``exact`` を使って証明することができます．
+TEXT. -/
+/- OMIT:
 Lean knows that ``1 + 1 = 2`` holds in any ring.
 With a bit of effort,
 you can use that to prove the theorem ``two_mul`` from
 the last section:
 OMIT. -/
+/- TEXT:
+Leanはどんな環でも ``1 + 1 = 2`` が成り立つことを知っています．
+そしてさらに少し努力すれば，この事実を使って最後のセクションの定理 ``two_mul`` を証明することができます:
+TEXT. -/
 -- QUOTE:
 -- BOTH:
 theorem one_add_one_eq_two : 1 + 1 = (2 : R) := by
@@ -519,6 +614,12 @@ need the full strength of the ring axioms, or even
 commutativity of addition. The weaker notion of a *group*
 can be axiomatized as follows:
 OMIT. -/
+/- TEXT:
+.. index:: group (algebraic structure)
+
+本節を締めくくるにあたって上記で証明した加算と減算に関するいくつかの事実は環のすべての公理や加算の可換性さえも必要としない点について見ていきましょう．
+この環よりも弱い概念である *群* は次のように公理化できます:
+TEXT. -/
 section
 -- QUOTE:
 variable (A : Type*) [AddGroup A]
@@ -538,6 +639,11 @@ So Lean defines a multiplicative version as well as the
 additive version (and also their abelian variants,
 ``AddCommGroup`` and ``CommGroup``).
 OMIT. -/
+/- TEXT:
+群の演算において可換の場合は加法の表記を使い，そうでない場合は乗法の記法を使うのが一般的です．
+そのためLeanは加法バージョンの群と同様に乗法バージョンの群も定義しています．
+（またこれらのアーベルなバリエーションである ``AddCommGroup`` と ``CommGroup`` についても定義しています．）
+TEXT. -/
 -- BOTH:
 section
 -- QUOTE:
@@ -555,6 +661,11 @@ groups, using only these axioms.
 You will need to prove a number of helper lemmas along the way.
 The proofs we have carried out in this section provide some hints.
 OMIT. -/
+/- TEXT:
+もし腕に自信があるならこれらの公理だけを用いて群に関する以下の事実を証明してみましょう．
+その過程でいくつか補助的な補題を証明する必要があります．
+またこれらの証明には本節でこれまで行ってきた証明がヒントになります．
+TEXT. -/
 -- BOTH:
 namespace MyGroup
 
@@ -589,8 +700,6 @@ end MyGroup
 end
 
 /- OMIT:
-.. index:: group (tactic), tactics ; group, tactics ; noncomm_ring, tactics ; abel
-
 Explicitly invoking those lemmas is tedious, so Mathlib provides
 tactics similar to `ring` in order to cover most uses: `group`
 is for non-commutative multiplicative groups, `abel` for abelian
@@ -601,3 +710,11 @@ It may seem odd that the algebraic structures are called
 but also for the convenience of using a shorter name for the
 tactic that deals with commutative rings, since it is used more often.
 OMIT. -/
+/- TEXT:
+.. index:: group (tactic), tactics ; group, tactics ; noncomm_ring, tactics ; abel
+
+これらの補題を明示的に呼び出すのは面倒であるため，Mathlibは上記の補題のほとんどすべての用途をカバーするような `ring` と同じようなタクティクを提供しています:
+`group` は非可換乗法群， `abel` は加法群，そして `noncomm_ring` は非可換環です．
+代数的な構造が `Ring` や `CommRing` と呼ばれている一方で，タクティクが `noncomm_ring` と `ring` と名付けられているのは奇妙に感じられるかもしれません．
+これには歴史的な理由もありますが，可換環を扱う場合のほうが多いため，それに合わせて便宜上短い名前を可換環につけているという理由もあります．
+TEXT. -/
