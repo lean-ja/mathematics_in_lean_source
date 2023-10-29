@@ -9,17 +9,16 @@ open Nat
 /- OMIT:
 Overview
 --------
+
 OMIT. -/
 /- TEXT:
 概要
 ----
+
 TEXT. -/
 /- OMIT:
-
 Put simply, Lean is a tool for building complex expressions in a formal language
 known as *dependent type theory*.
-
-.. index:: check, commands ; check
 
 Every expression has a *type*, and you can use the `#check` command to
 print it.
@@ -27,12 +26,11 @@ Some expressions have types like `ℕ` or `ℕ → ℕ`.
 These are mathematical objects.
 OMIT. -/
 /- TEXT:
+一言で言うならば，Leanは *依存型理論* と呼ばれる形式言語を用いて複雑な式を構築するためのツールです．
 
-一言で言うならば，Leanは*依存型理論*と呼ばれる形式言語を用いて複雑な式を構築するためのツールです．
+.. index:: check, commands ; check
 
-それぞれの式は*型*を持ち，そしてそれは`#check`コマンドで表示することが出来ます．
-これらの型の表現のうち，`ℕ`や`ℕ → ℕ`のような型を持つものが存在します．
-これらは数学的な対象です．
+それぞれの式は *型* を持ち，そしてそれは `#check` コマンドで表示することが出来ます．これらの型の表現のうち， `ℕ` や `ℕ → ℕ` のような型を持つものが存在します．これらは数学的な対象です．
 TEXT. -/
 -- These are pieces of data.
 -- QUOTE:
@@ -49,8 +47,7 @@ Some expressions have type `Prop`.
 These are mathematical statements.
 OMIT. -/
 /- TEXT:
-式の中には型として`Prop`を持つものも存在します．
-これらは数学的な命題です．
+式の中には型として `Prop` を持つものも存在します．これらは数学的な命題です．
 TEXT. -/
 -- These are propositions, of type `Prop`.
 -- QUOTE:
@@ -67,8 +64,7 @@ Some expressions have a type, `P`, where `P` itself has type `Prop`.
 Such an expression is a proof of the proposition `P`.
 OMIT. -/
 /- TEXT:
-また式の中には`Prop`型の式`P`自体を型としてもつものもあります．
-このような式は命題`P`の証明です．
+また式の中には `Prop` 型の式 `P` 自体を型としてもつものもあります．このような式は命題 `P` の証明です．
 TEXT. -/
 -- These are proofs of propositions.
 -- QUOTE:
@@ -93,10 +89,7 @@ All that is left to learn are the rules.
 
 OMIT. -/
 /- TEXT:
-もし``FermatLastTheorem``型の式を構成でき、かつLeanがその式をその型を持った項として取り扱ってくれるなら，
-貴方はとても素晴らしいことを成し遂げたことになるでしょう．
-（ここで``sorry``を使うのはズルで，Leanもそのことを知っています．）
-これでLeanがどういうものであるかわかったでしょう．
+もし ``FermatLastTheorem`` 型の式を構成でき、かつLeanがその式をその型を持った項として取り扱ってくれるなら，貴方はとても素晴らしいことを成し遂げたことになるでしょう．（ここで ``sorry`` を使うのはズルで，Leanもそのことを知っています．）これでLeanがどういうものであるかわかったでしょう．
 あとはルールを覚えるだけです．
 
 TEXT. -/
@@ -114,11 +107,7 @@ it makes more sense to start here and refer back to
 
 OMIT. -/
 /- TEXT:
-本書は同種のチュートリアルである`Theorem Proving in Lean <https://leanprover.github.io/theorem_proving_in_lean4/>`_を補完するものです．
-そちらのチュートリアルはLeanについてその内部にある論理についてのフレームワークとコアな記法についてより包括的な説明をしています．
-*Theorem Proving in Lean*は新しい食洗器を使う前に取説を隅から隅まで読みたい人向けです．
-もし読者がとりあえず*スタート*ボタンを押してから食洗器内の洗浄用のタワシがどう動くのか考えたいタイプであるならば，
-本書から始めて必要に応じて*Theorem Proving in Lean*を参照しに行く方が理にかなっているでしょう．
+本書は同種のチュートリアルである `Theorem Proving in Lean <https://leanprover.github.io/theorem_proving_in_lean4/>`_ を補完するものです．そちらのチュートリアルはLeanについてその内部にある論理についてのフレームワークとコアな記法についてより包括的な説明をしています． *Theorem Proving in Lean* は新しい食洗器を使う前に取説を隅から隅まで読みたい人向けです．もし読者がとりあえず *スタート* ボタンを押してから食洗器内の洗浄用のタワシがどう動くのか考えたいタイプであるならば，本書から始めて必要に応じて *Theorem Proving in Lean* を参照しに行く方が理にかなっているでしょう．
 
 TEXT. -/
 /- OMIT:
@@ -134,11 +123,7 @@ For example, the following expression represents a proof of the fact that
 if ``n`` is even then so is ``m * n``:
 OMIT. -/
 /- TEXT:
-*Mathematics in Lean*と*Theorem Proving in Lean*の異なるもう一つの点は，本書では*タクティク*の使い方により重点を置いていることです．
-複雑な式を作り上げたい時，Leanは2種類の方法を提供します:
-まず式を直接書き下すことが出来ます．（これはテキストの記述に向いているでしょう）
-もしくはLeanに式をどのように構成するかを*指示*することも可能です．
-例えば以下の式は``n``が偶数なら``m * n``も偶数であることの証明を表しています．
+*Mathematics in Lean* と *Theorem Proving in Lean* の異なるもう一つの点は，本書では *タクティク* の使い方により重点を置いていることです．複雑な式を作り上げたい時，Leanは2種類の方法を提供します:まず式を直接書き下すことが出来ます．（これはテキストの記述に向いているでしょう）もしくはLeanに式をどのように構成するかを *指示* することも可能です．例えば以下の式は ``n`` が偶数なら ``m * n`` も偶数であることの証明を表しています．
 TEXT. -/
 -- Here are some proofs.
 -- QUOTE:
@@ -151,7 +136,7 @@ example : ∀ m n : Nat, Even n → Even (m * n) := fun m n ⟨k, (hk : n = k + 
 The *proof term* can be compressed to a single line:
 OMIT. -/
 /- TEXT:
-この*証明の項*は1行に圧縮することができます:
+この *証明の項* は1行に圧縮することができます:
 TEXT. -/
 -- QUOTE:
 example : ∀ m n : Nat, Even n → Even (m * n) :=
@@ -163,8 +148,7 @@ The following is, instead, a *tactic-style* proof of the same theorem, where lin
 starting with ``--`` are comments, hence ignored by Lean:
 OMIT. -/
 /- TEXT:
-上記の代わりに，以下が同じ定理についての*タクティクスタイル*の証明です．
-ここで``--``で始まる行はコメントで，Leanに無視されます．
+上記の代わりに，以下が同じ定理についての *タクティクスタイル* の証明です．ここで ``--`` で始まる行はコメントで，Leanに無視されます．
 TEXT. -/
 -- QUOTE:
 example : ∀ m n : Nat, Even n → Even (m * n) := by
@@ -204,13 +188,7 @@ and the ``ring`` tactic solves the resulting goal ``m * (2 * k) = 2 * (m * k)``.
 
 OMIT. -/
 /- TEXT:
-VSCode上でこのような証明の各行にカーソルを合わせると，Leanは*証明の状態*を別画面に表示し，
-その時点までで証明をどこまで構築したか，そして証明する定理について残っているタスクを教えてくれます．
-またこうしてLeanがカーソル位置での証明の状態を表示しているため、行をたどることで証明を再生することができます．
-この例では，証明の1行目で``m``と``n``（必要があればここで別の名前にすることもできます），
-そして仮定``Even n``を``k``と``n = 2 * k``の仮定の二つに分割して導入しています．
-2行目の``use m * k``ではここから``m * n``が偶数である証明を``m * n = 2 * (m * k)``を示すことで行うことを宣言しています．
-次の行では``rewrite``タクティクを用いてゴール中の``n``を``2 * k``に置き換え，そして``ring``タクティクが``m * (2 * k) = 2 * (m * k)``を解いています．
+VSCode上でこのような証明の各行にカーソルを合わせると，Leanは *証明の状態* を別画面に表示し，その時点までで証明をどこまで構築したか，そして証明する定理について残っているタスクを教えてくれます．またこうしてLeanがカーソル位置での証明の状態を表示しているため、行をたどることで証明を再生することができます．この例では，証明の1行目で ``m`` と ``n`` （必要があればここで別の名前にすることもできます），そして仮定 ``Even n`` を ``k`` と ``n = 2 * k`` の仮定の二つに分割して導入しています．2行目の ``use m * k`` ではここから ``m * n`` が偶数である証明を ``m * n = 2 * (m * k)`` を示すことで行うことを宣言しています．次の行では ``rewrite`` タクティクを用いてゴール中の ``n`` を ``2 * k`` に置き換え，そして ``ring`` タクティクが ``m * (2 * k) = 2 * (m * k)`` を解いています．
 
 TEXT. -/
 /- OMIT:
@@ -227,12 +205,7 @@ That said, in this book, our emphasis will be on the use of tactics.
 
 OMIT. -/
 /- TEXT:
-このように段階的なフィードバックを受けながら細かいステップを積み重ねて証明を組み立てることのできる能力は非常に強力です．
-このためタクティクによる証明はしばしば証明の項を書き下すことより簡単で早くなります．
-とはいえ二つのモードの間に明確な線引きは存在しません:
-上記の例で``by rw [hk, mul_left_comm]``というフレーズで実演したように，タクティクを用いる証明は項による証明中に入れることが可能です．
-そして反対に，この後見ていくようにタクティクによる証明中で短い項による証明を用いることも時として有用になります．
-とはいえ，本書ではタクティクの使用に重点を置くこととしています．
+このように段階的なフィードバックを受けながら細かいステップを積み重ねて証明を組み立てることのできる能力は非常に強力です．このためタクティクによる証明はしばしば証明の項を書き下すことより簡単で早くなります．とはいえ二つのモードの間に明確な線引きは存在しません:上記の例で ``by rw [hk, mul_left_comm]`` というフレーズで実演したように，タクティクを用いる証明は項による証明中に入れることが可能です．そして反対に，この後見ていくようにタクティクによる証明中で短い項による証明を用いることも時として有用になります．とはいえ，本書ではタクティクの使用に重点を置くこととしています．
 
 TEXT. -/
 /- OMIT:
@@ -255,9 +228,7 @@ specific rules for simplifying statements about parity to
 prove our theorem automatically.
 OMIT. -/
 /- TEXT:
-ここまで小さなステップごとに証明を行うためにタクティクを用いてきました．
-しかしLeanには実質的な自動化も提供されており，長い計算と巨大な推論ステップを正当化することが出来ます．
-例えば，我々の定理を自動的に証明するために同値性について命題を簡約する定理とともにLeanの簡約化を利用することが出来ます．
+ここまで小さなステップごとに証明を行うためにタクティクを用いてきました．しかしLeanには実質的な自動化も提供されており，長い計算と巨大な推論ステップを正当化することが出来ます．例えば，我々の定理を自動的に証明するために同値性について命題を簡約する定理とともにLeanの簡約化を利用することが出来ます．
 TEXT. -/
 -- QUOTE:
 example : ∀ m n : Nat, Even n → Even (m * n) := by
@@ -282,14 +253,7 @@ finding things on your own.
 
 OMIT. -/
 /- TEXT:
-本書と*Theorem Proving in Lean*の間のもうひとつの大きな違いは，
-*Theorem Proving in Lean*はLeanのコアと組み込みのタクティクのみに依存しているのに対し，
-*Mathematics in Lean*はLeanの強力で現在も発展中のライブラリである*Mathlib*の上に構築されていることです．
-その結果として，ライブラリにある数学的オブジェクトや定理，そして非常に便利な戦術の使い方を紹介することができます．
-本書ではライブラリの完全な概要として利用されることを意図していません;
-その代わりに`コミュニティ<https://leanprover-community.github.io/>`_ のページには広範なドキュメントが掲載されています．
-むしろ，本書のゴールはその形式化の根底にある考え方を紹介し基本的な入り口を提示することで，
-ライブラリを快適に閲覧し，その中から自分自身で必要なものを見つけられるようにすることです．
+本書と *Theorem Proving in Lean* の間のもうひとつの大きな違いは， *Theorem Proving in Lean* はLeanのコアと組み込みのタクティクのみに依存しているのに対し， *Mathematics in Lean* はLeanの強力で現在も発展中のライブラリである *Mathlib* の上に構築されていることです．その結果として，ライブラリにある数学的オブジェクトや定理，そして非常に便利な戦術の使い方を紹介することができます．本書ではライブラリの完全な概要として利用されることを意図していません;その代わりに `community <https://leanprover-community.github.io/>`_ のページには広範なドキュメントが掲載されています．むしろ，本書のゴールはその形式化の根底にある考え方を紹介し基本的な入り口を提示することで，ライブラリを快適に閲覧し，その中から自分自身で必要なものを見つけられるようにすることです．
 
 TEXT. -/
 /- OMIT:
@@ -305,9 +269,7 @@ and contribute to the development of *Mathlib*.
 
 OMIT. -/
 /- TEXT:
-対話的な定理証明はなかなか思い通りにいかず，学習曲線は険しいものになるでしょう．
-しかしLeanコミュニティは初心者をとても歓迎しており，`Lean Zulipチャットグループ<https://leanprover.zulipchat.com/>`_では24時間体制で質問に答えています．
-そこであなたにお会いできることを期待していますし，あなたもすぐにそのような質問に答え，*Mathlib*の発展に貢献できるようになることを確信しています．
+対話的な定理証明はなかなか思い通りにいかず，学習曲線は険しいものになるでしょう．しかしLeanコミュニティは初心者をとても歓迎しており， `Lean Zulip chat group <https://leanprover.zulipchat.com/>`_ では24時間体制で質問に答えています．そこであなたにお会いできることを期待していますし，あなたもすぐにそのような質問に答え， *Mathlib* の発展に貢献できるようになることを確信しています．
 
 TEXT. -/
 /- OMIT:
@@ -320,9 +282,7 @@ Your life may never be the same.
 
 OMIT. -/
 /- TEXT:
-そしてそうなるために読者がするべきことは，とにかくやってみて，練習問題に取り組み，Zulipで質問をし，そして楽しむことです．
-しかし先に注意しておくこととして，対話的な定理証明は読者が数学や数学的な証明に際して根本的に新しい方法で考える意欲を書き立てることでしょう．
-読者の人生はもはや以前のものとは全く異なることでしょう．
+そしてそうなるために読者がするべきことは，とにかくやってみて，練習問題に取り組み，Zulipで質問をし，そして楽しむことです．しかし先に注意しておくこととして，対話的な定理証明は読者が数学や数学的な証明に際して根本的に新しい方法で考える意欲を書き立てることでしょう．読者の人生はもはや以前のものとは全く異なることでしょう．
 
 *Acknowledgments.* We are grateful to Gabriel Ebner for setting up the
 infrastructure for running this tutorial in VS Code,
