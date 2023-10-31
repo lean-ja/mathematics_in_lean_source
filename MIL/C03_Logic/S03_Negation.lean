@@ -4,12 +4,19 @@ import Mathlib.Data.Real.Basic
 
 namespace C03S03
 
-/- TEXT:
-.. _negation:
-
+/- OMIT:
 Negation
 --------
 
+OMIT. -/
+/- TEXT:
+.. _negation:
+
+否定
+-----
+
+TEXT. -/
+/- OMIT:
 The symbol ``¬`` is meant to express negation,
 so ``¬ x < y`` says that ``x`` is not less than ``y``,
 ``¬ x = y`` (or, equivalently, ``x ≠ y``) says that
@@ -25,12 +32,21 @@ and proving ``False``,
 and if you have ``h : ¬ A`` and ``h' : A``,
 then applying ``h`` to ``h'`` yields ``False``.
 
+OMIT. -/
+/- TEXT:
+記号 ``¬`` は否定を表すもので， ``¬ x < y`` は ``x`` が ``y`` より小さくないことを表し， ``¬ x = y`` （または同じことですが ``x ≠ y`` ）は ``x`` が ``y`` と等しくないことを表し， ``¬ ∃ z, x < z ∧ z < y`` は ``x`` と ``y`` の間に厳密に ``z`` が存在しないことを表します．Leanでは， ``¬ A`` という表記は ``A → False`` を省略したもので， ``A`` から矛盾が導かれると考えることができます．実用的に言えば，これはもうすでに否定を扱う方法を知っているとも言えます: ``¬ A`` を証明するにあたっては ``h : A`` を導入してから ``False`` を示せば良く，また ``h : ¬ A`` と ``h' : A`` があれば， ``h'`` に ``h`` を適用することで ``False`` を得ることができます．
+
+TEXT. -/
+/- OMIT:
 To illustrate, consider the irreflexivity principle ``lt_irrefl``
 for a strict order,
 which says that we have ``¬ a < a`` for every ``a``.
 The asymmetry principle ``lt_asymm`` says that we have
 ``a < b → ¬ b < a``. Let's show that ``lt_asymm`` follows
 from ``lt_irrefl``.
+OMIT. -/
+/- TEXT:
+これを説明するために，厳密な順序に対する非反射律 ``lt_irrefl`` を考えてみましょう．これはすべての``a`` に対して ``¬ a < a`` であることを指します．反対称律 ``lt_asymm`` は ``a < b → ¬ b < a`` となることを言います．ここで ``lt_asymm`` が ``lt_irrefl`` から導かれることを示しましょう．
 TEXT. -/
 -- BOTH:
 section
@@ -44,9 +60,7 @@ example (h : a < b) : ¬b < a := by
   apply lt_irrefl a this
 -- QUOTE.
 
-/- TEXT:
-.. index:: this, have, tactics ; have, from, tactics ; from
-
+/- OMIT:
 This example introduces a couple of new tricks.
 First, when you use ``have`` without providing
 a label,
@@ -59,10 +73,22 @@ which leaves a goal of ``False``,
 and the fact that we eventually prove ``False``
 by applying ``lt_irrefl`` to a proof of ``a < a``.
 
+OMIT. -/
+/- TEXT:
+.. index:: this, have, tactics ; have, from, tactics ; from
+
+この例ではいくつか新しい技法を初めて使用しました．まず，ラベルを付けずに ``have`` を用いることでLeanはここで作られる対象に ``this`` という名前を使用します．これはこの対象を後から参照するにあたって便利です．今回の証明はとても短いため，明示的な証明項を用意しています．しかしこの証明において最も注目すべきなのは ``intro`` タクティクによってゴールが ``False`` となっていること，そして ``lt_irrefl`` を ``a < a`` に適用することで最終的に ``False`` を証明していることです．
+
+TEXT. -/
+/- OMIT:
 Here is another example, which uses the
 predicate ``FnHasUb`` defined in the last section,
 which says that a function has an upper bound.
+OMIT. -/
+/- TEXT:
+ここで前節で定義した関数が上限を持つことを示す述語 ``FnHasUb`` を用いた別の例を見てみましょう．
 TEXT. -/
+
 -- BOTH:
 def FnUb (f : ℝ → ℝ) (a : ℝ) : Prop :=
   ∀ x, f x ≤ a
@@ -88,12 +114,21 @@ example (h : ∀ a, ∃ x, f x > a) : ¬FnHasUb f := by
   linarith
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 Remember that it is often convenient to use ``linarith``
 when a goal follows from linear equations and
 inequalities that in the context.
 
+OMIT. -/
+/- TEXT:
+ゴールがその文脈に置いて線形な等式と不等式から導かれるとき， ``linarith`` を使うのがしばしば便利であることを覚えておきましょう．
+
+TEXT. -/
+/- OMIT:
 See if you can prove these in a similar way:
+OMIT. -/
+/- TEXT:
+以下でも同じように証明できるかやってみましょう:
 TEXT. -/
 -- QUOTE:
 example (h : ∀ a, ∃ x, f x < a) : ¬FnHasLb f :=
@@ -115,9 +150,12 @@ example : ¬FnHasUb fun x ↦ x := by
   have : a + 1 ≤ a := ha (a + 1)
   linarith
 
-/- TEXT:
+/- OMIT:
 Mathlib offers a number of useful theorems for relating orders
 and negations:
+OMIT. -/
+/- TEXT:
+Mathlibは順序と否定に関連した便利な定理を多数提供しています:
 TEXT. -/
 -- QUOTE:
 #check (not_le_of_gt : a > b → ¬a ≤ b)
@@ -126,10 +164,13 @@ TEXT. -/
 #check (le_of_not_gt : ¬a > b → a ≤ b)
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 Recall the predicate ``Monotone f``,
 which says that ``f`` is nondecreasing.
 Use some of the theorems just enumerated to prove the following:
+OMIT. -/
+/- TEXT:
+``f`` が減少しないことを表す ``Monotone f`` という述語を思い出してください．今挙げた定理の中からいくつか使って以下を証明してください:
 TEXT. -/
 -- QUOTE:
 example (h : Monotone f) (h' : f a < f b) : a < b := by
@@ -152,12 +193,15 @@ example (h : a ≤ b) (h' : f b < f a) : ¬Monotone f := by
   apply not_lt_of_ge
   apply h'' h
 
-/- TEXT:
+/- OMIT:
 We can show that the first example in the last snippet
 cannot be proved if we replace ``<`` by ``≤``.
 Notice that we can prove the negation of a universally
 quantified statement by giving a counterexample.
 Complete the proof.
+OMIT. -/
+/- TEXT:
+もし ``<`` を ``≤`` で置き換えると，直上の1つ目の例が証明できないことが示せます．全称量化子の否定による命題を証明するには反例を示すことでできることに注意してください．この証明を完成させてみましょう．
 TEXT. -/
 -- QUOTE:
 example : ¬∀ {f : ℝ → ℝ}, Monotone f → ∀ {a b}, f a ≤ f b → a ≤ b := by
@@ -179,9 +223,7 @@ example : ¬∀ {f : ℝ → ℝ}, Monotone f → ∀ {a b}, f a ≤ f b → a �
   have : (1 : ℝ) ≤ 0 := h monof h'
   linarith
 
-/- TEXT:
-.. index:: let, tactics ; let
-
+/- OMIT:
 This example introduces the ``let`` tactic,
 which adds a *local definition* to the context.
 If you put the cursor after the ``let`` command,
@@ -191,7 +233,18 @@ Lean will unfold the definition of ``f`` when it has to.
 In particular, when we prove ``f 1 ≤ f 0`` with ``le_refl``,
 Lean reduces ``f 1`` and ``f 0`` to ``0``.
 
+OMIT. -/
+/- TEXT:
+.. index:: let, tactics ; let
+
+この例では *局所的な定義* を文脈に追加する ``let`` タクティクを紹介しています． ``let`` コマンドの後ろにカーソルを置くと，ゴールウィンドウに ``f : ℝ → ℝ := fun x ↦ 0`` という定義が文脈に追加されていることがわかるでしょう．Leanは必要なときに ``f`` の定義を展開します．特に ``f 1 ≤ f 0`` を ``le_refl`` で証明するとき，Leanは ``f 1`` と ``f 0`` を ``0`` に展開します．
+
+TEXT. -/
+/- OMIT:
 Use ``le_of_not_gt`` to prove the following:
+OMIT. -/
+/- TEXT:
+``le_of_not_gt`` を用いて以下を証明しましょう:
 TEXT. -/
 -- QUOTE:
 example (x : ℝ) (h : ∀ ε > 0, x < ε) : x ≤ 0 := by
@@ -207,7 +260,7 @@ example (x : ℝ) (h : ∀ ε > 0, x < ε) : x ≤ 0 := by
 -- BOTH:
 end
 
-/- TEXT:
+/- OMIT:
 Implicit in many of the proofs we have just done
 is the fact that if ``P`` is any property,
 saying that there is nothing with property ``P``
@@ -218,6 +271,9 @@ is equivalent to saying that something fails to have property ``P``.
 In other words, all four of the following implications
 are valid (but one of them cannot be proved with what we explained so
 far):
+OMIT. -/
+/- TEXT:
+今までの証明の多くの中で暗黙のうちに用いてきた事実として，次の2つがあります．もし任意の性質 ``P`` について，「性質 ``P`` を満たすものが何もない」ということは，「すべてのものが性質 ``P`` を持たない」ということと同義であり，また「すべてのものが性質 ``P`` を持たないわけではない」ということは，「ある特定の何かが性質 ``P`` を持たない」ということと同義という事実です．言い換えるならば，以下の4つの含意がすべて成立するということです（ただし，そのうちの1つはこれまでに説明した内容では証明できません）:
 TEXT. -/
 -- BOTH:
 section
@@ -254,7 +310,7 @@ example (h : ∃ x, ¬P x) : ¬∀ x, P x := by
   apply nPx
   apply h'
 
-/- TEXT:
+/- OMIT:
 The first, second, and fourth are straightforward to
 prove using the methods you have already seen.
 We encourage you to try it.
@@ -264,6 +320,9 @@ from the fact that its nonexistence is contradictory.
 This is an instance of *classical* mathematical reasoning.
 We can use proof by contradiction
 to prove the third implication as follows.
+OMIT. -/
+/- TEXT:
+1つ目と2つ目，そして4つ目はこれまでに見てきた方法でそのまま証明することができます．ぜひ試してみてください．しかし，3つ目はより難しいです．なぜなら「あるものが存在しないことが矛盾する」という事実からそのものが存在すると結論付けなければならないからです．これは *古典的な* 数学的推論の一例です．矛盾による証明を用いて3つ目の含意を次のように証明することができます．
 TEXT. -/
 -- QUOTE:
 example (h : ¬∀ x, P x) : ∃ x, ¬P x := by
@@ -275,9 +334,7 @@ example (h : ¬∀ x, P x) : ∃ x, ¬P x := by
   exact h' ⟨x, h''⟩
 -- QUOTE.
 
-/- TEXT:
-.. index:: by_contra, tactics ; by_contra and by_contradiction,
-
+/- OMIT:
 Make sure you understand how this works.
 The ``by_contra`` tactic
 allows us to prove a goal ``Q`` by assuming ``¬ Q``
@@ -288,6 +345,11 @@ Confirm that you can prove the forward direction
 of this equivalence using ``by_contra``,
 while the reverse direction follows from the
 ordinary rules for negation.
+OMIT. -/
+/- TEXT:
+.. index:: by_contra, tactics ; by_contra and by_contradiction,
+
+これがどのように機能しているかどうかをちゃんと理解しておきましょう． ``by_contra`` タクティクは ``¬ Q`` を仮定し，そこから矛盾を導くことでゴール ``Q`` を証明できるようにしてくれます．実際，これは ``not_not : ¬ ¬ Q ↔ Q`` という同値性を使うのと等価です．この同値の順方向は ``by_contra`` を使って証明することができ，逆方向は通常の否定のルールから導かれることを確認しましょう．
 TEXT. -/
 -- QUOTE:
 example (h : ¬¬Q) : Q := by
@@ -309,10 +371,13 @@ example (h : Q) : ¬¬Q := by
 -- BOTH:
 end
 
-/- TEXT:
+/- OMIT:
 Use proof by contradiction to establish the following,
 which is the converse of one of the implications we proved above.
 (Hint: use ``intro`` first.)
+OMIT. -/
+/- TEXT:
+矛盾による証明を使って上で証明した含意の1つの逆である以下を証明してください．（ヒント: 最初に ``intro`` を用います．）
 TEXT. -/
 -- BOTH:
 section
@@ -336,9 +401,7 @@ example (h : ¬FnHasUb f) : ∀ a, ∃ x, f x > a := by
   apply h'
   use x
 
-/- TEXT:
-.. index:: push_neg, tactics ; push_neg
-
+/- OMIT:
 It is often tedious to work with compound statements with
 a negation in front,
 and it is a common mathematical pattern to replace such
@@ -347,6 +410,11 @@ has been pushed inward.
 To facilitate this, Mathlib offers a ``push_neg`` tactic,
 which restates the goal in this way.
 The command ``push_neg at h`` restates the hypothesis ``h``.
+OMIT. -/
+/- TEXT:
+.. index:: push_neg, tactics ; push_neg
+
+否定が先頭についている複合的な命題を扱うのは面倒なことが多く，否定を内側に押し込んだ等価な形に置き換えるのが一般的な数学のパターンです．これを容易にするために，Mathlibはこれをゴールに適用する ``push_neg`` というタクティクを提供しています．コマンド ``push_neg at h`` は仮説 ``h`` を再定義します．
 TEXT. -/
 -- QUOTE:
 example (h : ¬∀ a, ∃ x, f x > a) : FnHasUb f := by
@@ -359,7 +427,7 @@ example (h : ¬FnHasUb f) : ∀ a, ∃ x, f x > a := by
   exact h
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 In the second example, we use dsimp to
 expand the definitions of ``FnHasUb`` and ``FnUb``.
 (We need to use ``dsimp`` rather than ``rw``
@@ -372,6 +440,9 @@ Without even knowing how to use the conjunction
 symbol,
 you should be able to use ``push_neg``
 to prove the following:
+OMIT. -/
+/- TEXT:
+2つ目の例では， ``FnHasUb`` と ``FnUb`` の定義を展開するためにdsimpを使っています．（ ``FnUb`` を展開するにはスコープに量化子が現れるため ``rw`` ではなく ``dsimp`` を用いる必要があります．）上記の ``¬∃ x, P x`` と ``¬∀ x, P x`` の例では， ``push_neg`` タクティクが期待通り動作することを確認できます．連言の記号の使い方を知らずとも， ``push_neg`` を使って次のことが証明できるはずです:
 TEXT. -/
 -- QUOTE:
 example (h : ¬Monotone f) : ∃ x y, x ≤ y ∧ f y < f x := by
@@ -384,9 +455,7 @@ example (h : ¬Monotone f) : ∃ x y, x ≤ y ∧ f y < f x := by
   push_neg  at h
   exact h
 
-/- TEXT:
-.. index:: contrapose, tactics ; contrapose
-
+/- OMIT:
 Mathlib also has a tactic, ``contrapose``,
 which transforms a goal ``A → B`` to ``¬B → ¬A``.
 Similarly, given a goal of proving ``B`` from
@@ -396,6 +465,11 @@ hypothesis ``h : A``,
 Using ``contrapose!`` instead of ``contrapose``
 applies ``push_neg`` to the goal and the relevant
 hypothesis as well.
+OMIT. -/
+/- TEXT:
+.. index:: contrapose, tactics ; contrapose
+
+Mathlibには ``contrapose`` というタクティクもあり，これは ``A → B`` というゴールを ``¬B → ¬A`` に変換します．同様に，仮説 ``h : A`` から ``B`` を証明するというゴールがある場合， ``contrapose h`` を使うと仮説 ``¬B`` から ``¬A`` を証明するというゴールになります． ``contrapose`` の代わりに ``contrapose!`` を使うと，ゴールとそれに関連する仮説にも ``push_neg`` が適用されます．
 TEXT. -/
 -- QUOTE:
 example (h : ¬FnHasUb f) : ∀ a, ∃ x, f x > a := by
@@ -411,11 +485,17 @@ example (x : ℝ) (h : ∀ ε > 0, x ≤ ε) : x ≤ 0 := by
 -- BOTH:
 end
 
-/- TEXT:
+/- OMIT:
 We have not yet explained the ``constructor`` command
 or the use of the semicolon after it,
 but we will do that in the next section.
 
+OMIT. -/
+/- TEXT:
+ここまでまだ ``constructor`` コマンドやその後のセミコロンの使い方について説明していませんが，それは次の節で行いましょう．
+
+TEXT. -/
+/- OMIT:
 We close this section with
 the principle of *ex falso*,
 which says that anything follows from a contradiction.
@@ -431,10 +511,19 @@ establishes the goal so we can move on to the next one.
 (We will see instances of reasoning by cases in
 :numref:`disjunction`.)
 
+OMIT. -/
+/- TEXT:
+本節の最後に，矛盾からはなんでも導かれるという *爆発律* の原理について述べましょう．Leanではこれは ``False.elim`` で表現され，任意の命題 ``P`` に対して ``False → P`` を成立させます．これは奇妙な原理のように思えるかもしれませんが，かなり頻繁に出てきます．何かしらの定理を証明する際にはよく場合分けを行いますが，その際ときおりそのうちの一つのケースが矛盾していることを示す場合があります．そのような場合，矛盾がゴールを成立させていることを主張する必要があり，そうして初めて次のケースに移ることができます．（場合分けによる推論の例は :numref:`disjunction` で見ていきます．）
+
 .. index:: exfalso, contradiction, absurd, tactics ; exfalso, tactics ; contradiction
 
+TEXT. -/
+/- OMIT:
 Lean provides a number of ways of closing
 a goal once a contradiction has been reached.
+OMIT. -/
+/- TEXT:
+Leanは矛盾に到達したらゴールを閉じる方法をいくつか用意しています．
 TEXT. -/
 section
 variable (a : ℕ)
@@ -454,7 +543,7 @@ example (h : 0 < 0) : a > 37 := by
 
 end
 
-/- TEXT:
+/- OMIT:
 The ``exfalso`` tactic replaces the current goal with
 the goal of proving ``False``.
 Given ``h : P`` and ``h' : ¬ P``,
@@ -463,4 +552,7 @@ Finally, the ``contradiction`` tactic tries to close a goal
 by finding a contradiction in the hypotheses,
 such as a pair of the form ``h : P`` and ``h' : ¬ P``.
 Of course, in this example, ``linarith`` also works.
+OMIT. -/
+/- TEXT:
+``exfalso`` タクティクは現在のゴールを ``False`` と証明するゴールに置き換えます． ``h : P`` と ``h' : ¬ P`` が与えられたとき， ``absurd h h'`` という項は任意の命題を確立します．最後に， ``contradiction`` タクティクは ``h : P`` と ``h' : ¬ P`` の形式のペアのような仮説の矛盾を見つけることによってゴールを閉じようとします．もちろん，この例では ``linarith`` も有効です．
 TEXT. -/

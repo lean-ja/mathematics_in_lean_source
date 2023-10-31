@@ -19,6 +19,7 @@
 | divisibility relation | 整除関係 |
 | domain | 始域 |
 | exercises | 演習 |
+| ex falso | 爆発律 |
 | existential quantifier | 存在量化子 |
 | greatest common divisor | 最大公約数 |
 | greatest lower bound | 最大下界 |
