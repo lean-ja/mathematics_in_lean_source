@@ -25,6 +25,7 @@
 | greatest lower bound | 最大下界 |
 | identity | 恒等式, 等式 |
 | if-and-only-if statement | 同値性を主張する文 |
+| iff | 必要十分条件 |
 | inclusion | 包含 |
 | infimum | 下限 |
 | intersection | 共通部分 |
