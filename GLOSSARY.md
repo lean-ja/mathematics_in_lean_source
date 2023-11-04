@@ -19,6 +19,7 @@
 | distributive lattice | 分配束 |
 | divisibility relation | 整除関係 |
 | domain | 始域 |
+| excluded middle | 排中律 |
 | exercises | 演習 |
 | ex falso | 爆発律 |
 | existential quantifier | 存在量化子 |
@@ -29,6 +30,7 @@
 | iff | 必要十分条件 |
 | inclusion | 包含 |
 | infimum | 下限 |
+| integral domain | 整域 |
 | intersection | 共通部分 |
 | join | 結び |
 | lattice | 束 |
@@ -59,3 +61,4 @@
 | union | 非交和 |
 | universal quantifier | 全称量化子 |
 | well-formed formula | 論理式 |
+| zero divisor | 零因子 |
