@@ -13,6 +13,7 @@
 | conjunction | 連言 |
 | context | コンテキスト |
 | continuum hypothesis | 連続体仮説 |
+| convergence | 収束 |
 | curly brackets | 波括弧 |
 | dependent type theory | 依存型理論 |
 | disjunction | 選言 |
@@ -48,6 +49,7 @@
 | proof by contradiction | 背理法 |
 | reflexivity | 反射性 |
 | section | 節 |
+| sequence | 数列 |
 | simplify | 単純化 |
 | statement | 命題 |
 | strict partial order | 狭義半順序 |
