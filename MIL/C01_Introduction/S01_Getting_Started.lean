@@ -42,7 +42,7 @@ if you haven't already.
 
 OMIT. -/
 /- TEXT:
-Leanについての詳細な情報は `Lean project page <https://leanprover.github.io>`_ や `Lean community web pages <https://leanprover-community.github.io/>`_ で得られます．このチュートリアルはLeanの大規模で，今もなお成長し続けているライブラリである*Mathlib*に基づいています．またもしまだ参加していないのでしたら， `Lean Zulip online chat group <https://leanprover.zulipchat.com/>`_ に参加することを強く推奨します．そこはLeanの熱狂的なファンによる誰でも歓迎する活気に満ちたコミュニティで，喜んで読者の質問に答えたり精神的なサポートをしてくれるでしょう．
+`Lean project page <https://leanprover.github.io>`_ や `Lean community web pages <https://leanprover-community.github.io/>`_ から、leanについてのより詳細な情報を得ることができます．このチュートリアルはLeanの大規模で，今もなお成長し続けているライブラリである*Mathlib*に基づいています．また，もしまだ参加していないのでしたら， `Lean Zulip online chat group <https://leanprover.zulipchat.com/>`_ に参加することを強く推奨します．そこはLeanの熱狂的なファンによる誰でも歓迎する活気に満ちたコミュニティで，喜んで読者の質問に答えたり精神的なサポートをしてくれるでしょう．
 
 TEXT. -/
 /- OMIT:
@@ -112,7 +112,7 @@ as described above.
 
 OMIT. -/
 /- TEXT:
-また，LeanとVSCodeを `Gitpod <https://gitpod.io/>`_ を使ってクラウド上で実行することも可能です．Mathematics in Leanについてこの方法を行うにはGithub上の `project page <https://github.com/leanprover-community/mathematics_in_lean>`_ に手順があります．この場合も前述したとおり`MIL`フォルダの複製上で学習を行うことをお勧めします．
+また，LeanとVSCodeを `Gitpod <https://gitpod.io/>`_ を使ってクラウド上で実行することも可能です．Mathematics in Leanについてこの方法を行うにはGithub上の `project page <https://github.com/leanprover-community/mathematics_in_lean>`_ に手順があります．この方法で学習する場合も，前述したとおり`MIL`フォルダをコピーして学習することをお勧めします．
 
 TEXT. -/
 /- OMIT:
