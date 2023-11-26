@@ -24,6 +24,7 @@
 | exercises | 演習 |
 | ex falso | 爆発律 |
 | existential quantifier | 存在量化子 |
+| extensionality | 外延性 |
 | greatest common divisor | 最大公約数 |
 | greatest lower bound | 最大下界 |
 | identity | 恒等式, 等式 |
@@ -50,6 +51,7 @@
 | reflexivity | 反射性 |
 | section | 節 |
 | sequence | 数列 |
+| set-builder notation | 内包表記 |
 | simplify | 単純化 |
 | statement | 命題 |
 | strict partial order | 狭義半順序 |
@@ -60,7 +62,7 @@
 | transitivity | 推移性 |
 | triangle inequality | 三角不等式 |
 | well-formed | 合法 |
-| union | 非交和 |
+| union | 合併, 非交和 |
 | universal quantifier | 全称量化子 |
 | well-formed formula | 論理式 |
 | zero divisor | 零因子 |
