@@ -28,6 +28,7 @@
 | ex falso | 爆発律 |
 | existential quantifier | 存在量化子 |
 | extensionality | 外延性 |
+| factorial | 階乗 |
 | Galois connection | ガロア接続 |
 | greatest common divisor | 最大公約数 |
 | greatest lower bound | 最大下界 |
@@ -63,6 +64,7 @@
 | proof term | 証明項 |
 | proof by contradiction | 背理法 |
 | reflexivity | 反射性 |
+| recursion | 再帰 |
 | root | 根 |
 | section | 節 |
 | sequence | 数列 |
