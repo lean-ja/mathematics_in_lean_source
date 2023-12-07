@@ -1,18 +1,39 @@
 import MIL.Common
 import Mathlib.Data.Real.Basic
-/- TEXT:
+/- OMIT:
 Calculating
 -----------
+OMIT. -/
 
+/- TEXT:
+計算
+-----------
+TEXT. -/
+
+
+/- OMIT:
 We generally learn to carry out mathematical calculations
 without thinking of them as proofs.
 But when we justify each step in a calculation,
 as Lean requires us to do,
 the net result is a proof that the left-hand side of the calculation
 is equal to the right-hand side.
+OMIT. -/
 
+/- TEXT:
+私たちは通常,数学的な計算のことを証明と考えずに行うよう学びます.しかし,計算の各ステップを正当化する必要があるLeanの要件に従うと,最終的な結果は計算の左辺が右辺に等しいという証明になります.
+TEXT. -/
+
+
+/- OMIT:
 .. index:: rewrite, rw, tactics ; rw and rewrite
+OMIT. -/
 
+/- TEXT:
+.. 目次::rewrite, rw, tactics ; rw and rewrite
+TEXT. -/
+
+/- OMIT:
 In Lean, stating a theorem is tantamount to stating a goal,
 namely, the goal of proving the theorem.
 Lean provides the rewriting tactic ``rw``,
@@ -29,9 +50,23 @@ However, it is generally good style to be mindful of Lean's
 notational conventions and leave out parentheses when Lean does as well.
 
 Let's try out ``rw``.
+OMIT. -/
 
-.. index:: real numbers
+/- TEXT:
+Leanにおいて,定理を述べるということは,その定理を証明するという目標を述べることと同等です.Leanは,ゴールの左辺を右辺に置き換える書き換えタクティックである``rw`` を提供しています.``a``, ``b``,,``c``が実数の時,``mul_assoc a b c``は``a * b * c = a * (b * c)``という恒等式であり,``mul_comm a b``は``a * b = b * a``という恒等式を表しています.Leanは,一般的にこうした事実を明示的に参照する必要をなくす自動化を提供していますが,説明を行うという目的ではこれらが役立ちます.Leanにおいて,掛け算は左側から計算されます.よって左側にある ``mul_assoc`` は``(a * b) * c``と書くことも可能です.しかしながら,一般的にはLeanの表記規則を意識してLeanが括弧を省略する場合はそれに倣って括弧を省略するのが一般的に良いスタイルです.
+'rw'を試してみましょう！
 TEXT. -/
+
+
+/- OMIT:
+.. index:: real numbers
+OMIT. -/
+
+/- TEXT:
+.. 目次:: 実数
+TEXT. -/
+
+
 -- An example.
 -- QUOTE:
 example (a b c : ℝ) : a * b * c = b * (a * c) := by
@@ -39,7 +74,7 @@ example (a b c : ℝ) : a * b * c = b * (a * c) := by
   rw [mul_assoc b a c]
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 The ``import`` lines at the beginning of the associated examples file
 import the theory of the real numbers from Mathlib, as well as useful automation.
 For the sake of brevity,
@@ -100,7 +135,24 @@ For example, ``rw [← mul_assoc a b c]``
 replaces ``a * (b * c)`` by ``a * b * c`` in the current goal. Note that
 the left-pointing arrow refers to going from right to left in the identity provided
 by ``mul_assoc``, it has nothing to do with the left or right side of the goal.
+OMIT. -/
+
+/- TEXT:
+例題ファイルの先頭にある ``import`` 行は,Mathlib から実数の理論や便利なオートメーションをインポートします.簡潔のため,教科書では一般的にこのような情報は抑えられています.何が起こるのか確認するために変更を加えることは自由です.VSコードで``ℝ``を``\R``または``\real``と入力することができます.記号はスペースかタブキーを押すまで表示されません.Leanファイルを読むときにシンボルの上にカーソルを置くと,VS Codeはそのシンボルを入力するために使用できる構文を表示します.使用可能な略語をすべて見たい場合は、Ctrl-Shift-p を押しながら略語を入力すると、``Lean 4: Show all abbreviations`` コマンドにアクセスできます.キーボードにバックスラッシュがない場合は,``lean4.input.leader`` の設定を変更することで,先頭の文字を変更することができます.
+.. 目次:: proof state, local context, goal
+カーソルがタクティックの途中にあるとき,Lean は現在の証明の状態を*Lean infoview*ウィンドウに表示します.カーソルを証明の各ステップを通り過ぎて動かすと,状態が変化するのがわかります.Leanの典型的な証明の状態は以下のようになります：
+
+.. code-block::
+
+    1 goal
+    x y : ℕ,
+    h₁ : Prime x,
+    h₂ : ¬Even x,
+    h₃ : y > x
+    ⊢ y ≥ 4
+``⊢`` で始まる行の前の行は*コンテキスト*を表しています.この例では,2つの変数``x`` と ``y`` が含まれており,それぞれが自然数です.また,``h₁``,```h₂``,``h₃``とラベル付けされた3つの仮定も含まれます.Leanでは,コンテキスト内のすべてのものに識別子が付けられます,``\h1``, ``\h2``, ``\h3`` の代わりに ``h1``, ``h2``, ``h3`` や ``foo``, ``bar``, ``baz`` を使うことが可能です.最後の行はゴール,つまり証明されるべき事実を表しています.証明されるべき事実を*target*とし,文脈と目標の組み合わせを*goal*とすることもあります.実際には,意図する意味はたいてい自明です.それぞれのケースで ``sorry`` をタクティックの証明に置き換えて、これらの恒等式を証明してみましょう.rw`` を使うと,左矢印 (``l``) を使って恒等式を逆にすることができます.例えば, ``rw [← mul_assoc a b c]`` は現在のゴールで ``a * (b * c)`` を ``a * b * c`` に置き換えます.左向きの矢印は ``mul_assoc`` が提供する同一性において右から左へ進むことを意味し,ゴールの左側や右側とは関係ないことに注意してください。
 TEXT. -/
+
 -- Try these.
 -- QUOTE:
 example (a b c : ℝ) : c * b * a = b * (a * c) := by
@@ -121,12 +173,17 @@ example (a b c : ℝ) : a * (b * c) = b * (a * c) := by
   rw [mul_comm a b]
   rw [mul_assoc b a c]
 
-/- TEXT:
+/- OMIT:
 You can also use identities like ``mul_assoc`` and ``mul_comm`` without arguments.
 In this case, the rewrite tactic tries to match the left-hand side with
 an expression in the goal,
 using the first pattern it finds.
+OMIT. -/
+
+/- TEXT:
+``mul_assoc``や``mul_comm``のような恒等式を引数なしで使うことも可能です.この場合,書き換えを行うタクティクスは最初に見つけたパターンを使って,左辺とゴールの式をマッチさせようとします.
 TEXT. -/
+
 -- An example.
 -- QUOTE:
 example (a b c : ℝ) : a * b * c = b * c * a := by
@@ -134,16 +191,29 @@ example (a b c : ℝ) : a * b * c = b * c * a := by
   rw [mul_comm]
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 You can also provide *partial* information.
 For example, ``mul_comm a`` matches any pattern of the form
 ``a * ?`` and rewrites it to ``? * a``.
 Try doing the first of these examples without
 providing any arguments at all,
 and the second with only one argument.
-TEXT. -/
+OMIT. -/
+
+/- TEXT:
+*部分的な情報*を提供することも可能です.例えば,``mul_comm a``は``a * ?``という形式に一致する全てのパターンにマッチします.そして,それを``? * a``に書き直します.1個めは1つも引数を使用せずに,2個めの例は1つの引数のみを使用して証明してみましょう.
+TEXT. -/  
+
+
+/- OMIT:
 /- Try doing the first of these without providing any arguments at all,
    and the second with only one argument. -/
+OMIT. -/  
+
+/- TEXT:
+1個めは1つも引数を使用せずに,2個めの例は1つの引数のみを使用して証明してみましょう.
+TEXT. -/  
+
 -- QUOTE:
 example (a b c : ℝ) : a * (b * c) = b * (c * a) := by
   sorry
@@ -162,9 +232,14 @@ example (a b c : ℝ) : a * (b * c) = b * (a * c) := by
   rw [mul_comm a]
   rw [mul_assoc]
 
-/- TEXT:
+/- OMIT:
 You an also use ``rw`` with facts from the local context.
+OMIT. -/
+
+/- TEXT:
+ローカルな文脈から導かれた事実を用いて``rw``を使用することも可能です.
 TEXT. -/
+
 -- Using facts from the local context.
 -- QUOTE:
 example (a b c d e f : ℝ) (h : a * b = c * d) (h' : e = f) : a * (b * e) = c * (d * f) := by
@@ -174,9 +249,14 @@ example (a b c d e f : ℝ) (h : a * b = c * d) (h' : e = f) : a * (b * e) = c *
   rw [mul_assoc]
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 Try these, using the theorem ``sub_self`` for the second one:
+OMIT. -/
+
+/- TEXT:
+2番目の定理である``sub_self``を使用してこれらを証明してみましょう.
 TEXT. -/
+
 -- QUOTE:
 example (a b c d e f : ℝ) (h : b * c = e * f) : a * b * c * d = a * e * f * d := by
   sorry
@@ -197,22 +277,32 @@ example (a b c d : ℝ) (hyp : c = b * a - d) (hyp' : d = a * b) : c = 0 := by
   rw [mul_comm]
   rw [sub_self]
 
-/- TEXT:
+/- OMIT:
 Multiple rewrite commands can be carried out with a single command,
 by listing the relevant identities separated by commas inside the square brackets.
+OMIT. -/
+
+/- TEXT:
+複数の書き換えコマンドを1つのコマンドで実行するには,関連する恒等式を角括弧の中にカンマで区切って列挙します.
 TEXT. -/
+
 -- QUOTE:
 example (a b c d e f : ℝ) (h : a * b = c * d) (h' : e = f) : a * (b * e) = c * (d * f) := by
   rw [h', ← mul_assoc, h, mul_assoc]
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 You still see the incremental progress by placing the cursor after
 a comma in any list of rewrites.
 
 Another trick is that we can declare variables once and for all outside
 an example or theorem. Lean then includes them automatically.
+OMIT. -/
+
+/- TEXT:
+書き換えのリストのカンマの後にカーソルを置くと,インクリメンタル・プログレスが表示されます.もう一つのトリックは,例や定理の外側で変数を一度だけ宣言できることです.Leanはそれを自動的に取り込みます.
 TEXT. -/
+
 section
 
 -- QUOTE:
@@ -224,14 +314,19 @@ example (h : a * b = c * d) (h' : e = f) : a * (b * e) = c * (d * f) := by
 
 end
 
-/- TEXT:
+/- OMIT:
 Inspection of the tactic state at the beginning of the above proof
 reveals that Lean indeed included all variables.
 We can delimit the scope of the declaration by putting it
 in a ``section ... end`` block.
 Finally, recall from the introduction that Lean provides us with a
 command to determine the type of an expression:
+OMIT. -/
+
+/- TEXT:
+上記の証明の最初にあるタクティックの状態を調べると,Leanが確かにすべての変数を含んでいることがわかります.宣言のスコープは ``section ... end`` ブロックに入れることで区切ることができます.最後に、Leanが式の型を決定するコマンドを提供していることを思い出してください：
 TEXT. -/
+
 -- QUOTE:
 section
 variable (a b c : ℝ)
@@ -248,7 +343,7 @@ variable (a b c : ℝ)
 end
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 The ``#check`` command works for both objects and facts.
 In response to the command ``#check a``, Lean reports that ``a`` has type ``ℝ``.
 In response to the command ``#check mul_comm a b``,
@@ -267,7 +362,14 @@ and the theorem ``add_assoc`` expresses the associativity of addition.
 Use the ``#check`` command to see the precise statements.
 
 .. index:: calc, tactics ; calc
+OMIT. -/
+
+/- TEXT:
+コマンドはオブジェクトと事実の両方で動作します.コマンド ``#check a`` に対して、Lean は ``a`` が ``ℝ`` 型であることを報告します.コマンド ``#check mul_comm a b`` に対して、Lean は ``mul_comm a b`` が ``a * b = b * a`` という事実の証明であることを報告します.コマンド ``#check (a : ℝ)`` は ``a`` の型が ``ℝ`` であることを期待するもので,もしそうでなければLeanはエラーを出します.最後の3つの``#check``コマンドの出力については後ほど説明しますが,その間にこれらのコマンドを見て,自分なりの``#check``コマンドを試してみることができます.
+もう少し例を挙げてみましょう.定理 ``two_mul a`` は ``2 * a = a + a`` を表しています.定理 ``add_mul`` と ``mul_add`` は足し算に対する掛け算の分配性を表し,定理 ``add_assoc`` は足し算の連想性を表しています.正確な記述を見るには ``#check`` コマンドを使ってください。
+.. 目次:: calc, tactics ; calc
 TEXT. -/
+
 section
 variable (a b : ℝ)
 
@@ -278,13 +380,19 @@ example : (a + b) * (a + b) = a * a + 2 * (a * b) + b * b := by
   rw [mul_comm b a, ← two_mul]
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 Whereas it is possible to figure out what it going on in this proof
 by stepping through it in the editor,
 it is hard to read on its own.
 Lean provides a more structured way of writing proofs like this
 using the ``calc`` keyword.
+OMIT. -/
+
+/- TEXT:
+この証明で何が起こっているのかをエディターで読み進めることで理解することは可能ですが,それだけでは読みにくいです.Leanでは``calc``というキーワードを使用して,このような証明をより構造的に書くことができます.
 TEXT. -/
+
+
 -- QUOTE:
 example : (a + b) * (a + b) = a * a + 2 * (a * b) + b * b :=
   calc
@@ -296,7 +404,7 @@ example : (a + b) * (a + b) = a * a + 2 * (a * b) + b * b :=
       rw [mul_comm b a, ← two_mul]
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 Notice that the proof does *not* begin with ``by``:
 an expression that begins with ``calc`` is a *proof term*.
 A ``calc`` expression can also be used inside a tactic proof,
@@ -312,7 +420,13 @@ One way to write a ``calc`` proof is to outline it first
 using the ``sorry`` tactic for justification,
 make sure Lean accepts the expression modulo these,
 and then justify the individual steps using tactics.
+OMIT. -/
+
+/- TEXT:
+この証明が``by``で始まっていないことに注意してください.``calc``で始まる式は*proof term*です.``calc``式はタクティク・プルーフの中で使うこともできますが,Leanはそれを,結果として得られるproof項を使ってゴールを解くという指示として解釈します.``calc``の文法は複雑です.アンダースコアと正当化は上記の形式でなければなりません.インデントを使って,タクティックのブロックや``calc``ブロックの始まりと終わりを決定します.上の証明のインデントを変えてみてどうなるか見てみましょう.
+``calc``証明の書き方の1つは,まず正当化のために``sorry``タクティックを使ってアウトラインを書き,リーンがmodulo式を受け入れることを確認し,次に戦術を使って個々のステップを正当化することです.
 TEXT. -/
+
 -- QUOTE:
 example : (a + b) * (a + b) = a * a + 2 * (a * b) + b * b :=
   calc
@@ -326,10 +440,16 @@ example : (a + b) * (a + b) = a * a + 2 * (a * b) + b * b :=
 
 end
 
-/- TEXT:
+/- OMIT:
 Try proving the following identity using both a pure ``rw`` proof
 and a more structured ``calc`` proof:
+OMIT. -/
+
+/- TEXT:
+純粋な``rw``の証明と,より構造化された ``calc`` の証明の両方を使用して,以下の恒等式を証明してください.
 TEXT. -/
+
+
 -- Try these. For the second, use the theorems listed underneath.
 section
 variable (a b c d : ℝ)
@@ -339,10 +459,15 @@ example : (a + b) * (c + d) = a * c + a * d + b * c + b * d := by
   sorry
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 The following exercise is a little more challenging.
 You can use the theorems listed underneath.
+OMIT. -/
+
+/- TEXT:
+この後の練習問題は少し難しいです.下部にあげられている定理を使用することができます.
 TEXT. -/
+
 -- QUOTE:
 example (a b : ℝ) : (a + b) * (a - b) = a ^ 2 - b ^ 2 := by
   sorry
@@ -357,13 +482,20 @@ example (a b : ℝ) : (a + b) * (a - b) = a ^ 2 - b ^ 2 := by
 
 end
 
-/- TEXT:
+/- OMIT:
 .. index:: rw, tactics ; rw and rewrite
 
 We can also perform rewriting in an assumption in the context.
 For example, ``rw [mul_comm a b] at hyp`` replaces ``a * b`` by ``b * a``
 in the assumption ``hyp``.
+OMIT. -/
+
+/- TEXT:
+.. 目次:: rw, tactics ; rw and rewrite
+
+また,コンテキストで提供されている仮定で書き換えを行うことも可能です.例えば,``rw [mul_comm a b] at hyp`` は ``hyp`` という仮定の下で ``a * b`` を ``b * a`` に置き換えます.
 TEXT. -/
+
 -- Examples.
 
 section
@@ -378,7 +510,7 @@ example (a b c d : ℝ) (hyp : c = d * a + b) (hyp' : b = a * d) : c = 2 * a * d
   exact hyp
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 .. index:: exact, tactics ; exact
 
 In the last step, the ``exact`` tactic can use ``hyp`` to solve the goal
@@ -390,7 +522,16 @@ We close this section by noting that Mathlib provides a
 useful bit of automation with a ``ring`` tactic,
 which is designed to prove identities in any commutative ring as long as they follow
 purely from the ring axioms, without using any local assumption.
+OMIT. -/
+
+/- TEXT:
+.. 目次:: exact, tactics ; exact
+最後の段階で ``exact``タクティックはゴールを達成するために``hyp``を使用することができます.なぜなら,その時点で``hyp``はゴールと完全に一致するからです.
+
+.. 目次:: ring (tactic), tactics ; ring
+このセクションの最後に,Mathlibが ``ring`` タクティクスという便利な自動化機能を提供していることに触れておきます.これは,任意の可換環における恒等式を,局所的な仮定を用いることなく,純粋に環公理に従う限り証明できるように設計されています.
 TEXT. -/
+
 -- QUOTE:
 example : c * b * a = b * (a * c) := by
   ring
@@ -408,7 +549,7 @@ example (hyp : c = d * a + b) (hyp' : b = a * d) : c = 2 * a * d := by
 
 end
 
-/- TEXT:
+/- OMIT:
 The ``ring`` tactic is imported indirectly when we
 import ``Mathlib.Data.Real.Basic``,
 but we will see in the next section that it can be used
@@ -422,6 +563,12 @@ There is a variation of ``rw`` called ``nth_rewrite`` that allows you to replace
 Possible matches are enumerated starting with 1,
 so in the following example, ``nth_rewrite 2 h`` replaces the second
 occurrence of ``a + b`` with ``c``.
+OMIT. -/
+
+/- TEXT:
+``ring``タクティックは``Mathlib.Data.Real.Basic``をインポートしたときに直接インポートされています.しかし,次章では実数以外の構造体の計算にも``ring``タクティックを使用することができることを解説していきます.それは``import Mathlib.Tactic``コマンドを使用して明示的にインポートすることができます.他の代数的対象にも同様のタクティックがあることを今後見ていきます.``nth_rewrite``と呼ばれる``rw`` の亜種が存在し,それを使用するとゴール(証明したい命題)の中にある表現のうち特定のものだけを置換することができます.ありうる組み合わせは1から順番に列挙されます.そのため,後述の例では ``nth_rewrite 2 h``は2番目に出現する``a + b``を ``c``に置換しています.
+TEXT. -/
+
 EXAMPLES: -/
 -- QUOTE:
 example (a b c : ℕ) (h : a + b = c) : (a + b) * (a + b) = a * c + b * c := by
