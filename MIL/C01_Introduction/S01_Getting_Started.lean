@@ -39,10 +39,12 @@ This tutorial is based on Lean's large and ever-growing library, *Mathlib*.
 We also strongly recommend joining the
 `Lean Zulip online chat group <https://leanprover.zulipchat.com/>`_
 if you haven't already.
+You'll find a lively and welcoming community of Lean enthusiasts there,
+happy to answer questions and offer moral support.
 
 OMIT. -/
 /- TEXT:
-`Lean project page <https://leanprover.github.io>`_ や `Lean community web pages <https://leanprover-community.github.io/>`_ から、leanについてのより詳細な情報を得ることができます．このチュートリアルはLeanの大規模で，今もなお成長し続けているライブラリである*Mathlib*に基づいています．また，もしまだ参加していないのでしたら， `Lean Zulip online chat group <https://leanprover.zulipchat.com/>`_ に参加することを強く推奨します．そこはLeanの熱狂的なファンによる誰でも歓迎する活気に満ちたコミュニティで，喜んで読者の質問に答えたり精神的なサポートをしてくれるでしょう．
+`Lean project page <https://leanprover.github.io>`_ や `Lean community web pages <https://leanprover-community.github.io/>`_ から、leanについてのより詳細な情報を得ることができます．このチュートリアルはLeanの大規模で，今もなお成長し続けているライブラリである*Mathlib*に基づいています．また，もしまだ参加していないのでしたら， `Lean Zulip online chat group <https://leanprover.zulipchat.com/>`_ に参加することを強く推奨します．ZulipはLeanマニアによるウェルカムで活気に満ちたコミュニティで，喜んで読者の質問に答えたり気持ちの面でもサポートをしてくれたりするでしょう．
 
 TEXT. -/
 /- OMIT:
@@ -69,7 +71,7 @@ To get started:
 
 OMIT. -/
 /- TEXT:
-本書はPDF版もしくはHTML版をオンラインで読むことができるようになっていますが，同時にVSCode内でLeanを実行しながら対話的に読めるようにも設計されています．この方法は以下の手順で始められます:
+本書はPDF版もしくはHTML版をオンラインで読むことができるようになっていますが，同時にVSCode内でLeanを実行しながら対話的に読めるようにも設計されています．始め方:
 
 1. Lean4とVSCodeを `installation instructions <https://leanprover-community.github.io/get_started.html>`_ に従ってインストールします．
 
@@ -77,7 +79,7 @@ OMIT. -/
 
 3. `instructions <https://leanprover-community.github.io/install/project.html#working-on-an-existing-project>`_ に従って ``mathematics_in_lean`` リポジトリをフェッチしてVSCodeで開いてください．
 
-4. 本書の各セクションには例題や練習問題を含むLeanファイルが対応付けられています．これらのファイルは ``MIL`` フォルダ内にチャプタごとで格納されています．本書ではこのフォルダをコピーし，そこで動作確認や練習を行うことを強くお勧めします．これによりオリジナルのファイルはそのまま残り，リポジトリの変更に伴う更新も容易になります．（詳細は下記を参照）読者はこのコピーに``my_files``等の名前をつけ、これを使って新たに独自のLeanファイルを追加することもできます．
+4. 本書の各節には例や演習問題を含むLeanファイルが対応付けられています．これらのファイルは ``MIL`` フォルダ内に章ごとで格納されています．本書ではこのフォルダをコピーし，そこで動作確認や演習を行うことを強くお勧めします．これによりオリジナルのファイルはそのまま残り，リポジトリの変更に伴う更新も容易になります．（詳細は後述）読者はこのコピーに ``my_files`` 等の名前をつけ、これを使って新たに独自のLeanファイルを追加することもできます．
 
 TEXT. -/
 /- OMIT:
@@ -93,11 +95,11 @@ At that point, you can open the textbook in a side panel in VS Code as follows:
 
 OMIT. -/
 /- TEXT:
-この時点で，以下のようにVSCodeのサイドパネルで教科書を開くことが出来ます:
+この時点で，以下のようにVSCodeのサイドパネルで本書を開くことが出来ます:
 
-1. ``ctrl-shift-P`` (Macの場合は ``command-shift-P`` )を押下します．
+1. ``ctrl+shift+P`` (Macの場合は ``command+shift+P`` )を押します．
 
-2. 上記手順で現れたバーで ``Lean 4: Open Documentation View`` と打ち込み，エンターキーを押下します．（もしくはメニュー内で上記の文字列が選択されてハイライトされている場合はそのままエンターキーを押下することも可能です．）
+2. 上記手順で現れたバーで ``Lean 4: Open Documentation View`` と打ち込み，エンターキーを押します．（もしくはメニュー内で上記の文字列が選択されてハイライトされている場合はそのままエンターキーを押しても良いです．）
 
 3. これで開いたウィンドウで ``Open documentation of current project`` をクリックします．
 
@@ -112,7 +114,7 @@ as described above.
 
 OMIT. -/
 /- TEXT:
-また，LeanとVSCodeを `Gitpod <https://gitpod.io/>`_ を使ってクラウド上で実行することも可能です．Mathematics in Leanについてこの方法を行うにはGithub上の `project page <https://github.com/leanprover-community/mathematics_in_lean>`_ に手順があります．この方法で学習する場合も，前述したとおり`MIL`フォルダをコピーして学習することをお勧めします．
+また，LeanとVSCodeを `Gitpod <https://gitpod.io/>`_ を使ってクラウド上で実行することも可能です．この手順の説明がGithub上のMathematics in Leanの `project page <https://github.com/leanprover-community/mathematics_in_lean>`_ にあります．この方法で取り組む場合も，前述したとおり `MIL` フォルダをコピーすることをお勧めします．
 
 TEXT. -/
 /- OMIT:
@@ -124,7 +126,7 @@ which is why we suggested making a copy.)
 
 OMIT. -/
 /- TEXT:
-本書とこれに関連するリポジトリは現在も開発中です．リポジトリを更新するには ``mathematics_in_lean`` フォルダ内で ``git pull`` と打ち込み， ``lake exe cache get`` を実行します．（この手順は``MIL``フォルダ内のコンテンツを変更していないことを仮定しています．これがフォルダをコピーすることを推奨している理由です．）
+本書とこれに関連するリポジトリは現在も開発中です．リポジトリを更新するには ``mathematics_in_lean`` フォルダ内で ``git pull`` と打ち込み，次に ``lake exe cache get`` を実行します．（この手順は ``MIL`` フォルダ内のコンテンツを変更していないことを前提としています．これがフォルダをコピーすることを推奨している理由です．）
 
 TEXT. -/
 /- OMIT:
@@ -133,7 +135,7 @@ textbook, which contains explanations, instructions, and hints.
 The text will often include examples, like this one:
 OMIT. -/
 /- TEXT:
-``MIL`` フォルダ内の練習問題は教科書中にある解説や指示，ヒントを読みながら取り組むことを想定しています．また本書ではしばしば次のような例を記載しています:
+``MIL`` フォルダ内の演習問題は本書中にある解説や指示，ヒントを読みながら取り組むことを想定しています．また本書ではしばしば次のような例を記載しています:
 TEXT. -/
 -- QUOTE:
 #eval "Hello, World!"
@@ -150,7 +152,7 @@ You are encouraged to edit the file and try examples of your own.
 
 OMIT. -/
 /- TEXT:
-このような例を関連するLeanファイル中に見つけることができるでしょう．この行をクリックすると，VSCodeは ``Lean Goal`` ウィンドウ内にLeanによるフィードバックを表示し，また ``#eval`` コマンドにカーソルを合わせるとポップアップでこのコマンドに対するLeanの出力結果を表示します．試しにこのファイルを編集して挙動を確認することをお勧めします．
+本書で扱った内容のコード例が，リポジトリの対応するLeanファイルの中にあります．この行をクリックすると，VSCodeは ``Lean Goal`` ウィンドウ内にLeanによるフィードバックを表示し，また ``#eval`` コマンドにカーソルを合わせるとポップアップでこのコマンドに対するLeanの出力結果を表示します．試しにLeanファイルを編集して挙動を確認してみましょう．
 
 TEXT. -/
 /- OMIT:
@@ -164,5 +166,5 @@ You can always compare your solutions to the ones in the ``solutions``
 folder associated with each section.
 OMIT. -/
 /- TEXT:
-本書ではさらに挑戦し甲斐のある練習問題をたくさん掲載しています．しかし焦ってはいけません！Leanは数学を対話的に *実行する* ものであり，読むだけのものではありません．実際に練習をこなすことがLean学習における必要な経験の中心です．全ての練習問題をこなす必要はありません．もし関連するスキルが身に着いたと感じたら，遠慮なく次に進んでください．そして読者はいつでも自身の回答と各セクションに関連する ``solutions`` フォルダにある回答と比較することが出来ます．
+本書はさらに挑戦し甲斐のある演習問題をたくさん掲載しています．しかし焦ってはいけません！Leanは数学を対話的に *実行する* ためのものであり，読むためだけのものではありません．演習なしでは身につきません．全ての演習問題をこなす必要はありません．もし関連するスキルが身に着いたと感じたら，遠慮なく次に進んでください．そして読者はいつでも自身の解答と各節に関連する ``solutions`` フォルダにある解答とを見比べることが出来ます．
 TEXT. -/
