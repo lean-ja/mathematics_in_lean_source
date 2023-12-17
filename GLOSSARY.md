@@ -8,10 +8,16 @@
 | arithmetic | 算術 |
 | associativity | 結合性 |
 | axiom of choice | 選択公理 |
+| bijection | 双射 |
 | bi-implication | 双方向の含意 |
+| bipartite graph | 2部グラフ |
+| canonical topology | 正準位相 |
 | cardinality | 濃度 |
+| carrier set | 台集合 |
+| carrier type | 台の型 |
 | chapter | 章 |
 | codomain | 終域 |
+| coercion | 型の強制 |
 | conjunction | 連言 |
 | context | コンテキスト |
 | continuum hypothesis | 連続体仮説 |
@@ -54,17 +60,21 @@
 | measure theory | 測度論 |
 | meet | 交わり |
 | metric space | 距離空間 |
+| metric space topology | 距離空間位相 |
 | monotone | 単調 |
 | natural domain | 自然な定義域 |
 | norm | ノルム |
 | number systems | 数体系 |
 | number theory | 数論 |
 | operator | 演算子（中置記法の定義等なにかしら特殊な記法が用意されている場合）、関数（それ以外） |
+| ordered ring | 順序環 |
 | preimage | 逆像 |
 | partial order | 半順序 |
+| partially bundled structure | 部分的に束ねられた構造体 |
 | proof term | 証明項 |
 | proof by contradiction | 背理法 |
 | r-simplex | r単体 |
+| real analysis | 実解析 |
 | reflexivity | 反射性 |
 | recursion | 再帰 |
 | root | 根 |
@@ -81,6 +91,7 @@
 | support | 台 |
 | supremum | 上限 |
 | surjective | 全射 |
+| topological space | 位相空間 |
 | total order | 全順序 |
 | transitivity | 推移性 |
 | triangle inequality | 三角不等式 |
