@@ -30,7 +30,7 @@ OMIT. -/
 
 .. index:: check, commands ; check
 
-それぞれの式は *型* を持ち，そしてそれは `#check` コマンドで表示することが出来ます．これらの型の表現のうち， `ℕ` や `ℕ → ℕ` のような型を持つものが存在します．これらは数学的な対象です．
+それぞれの式は *型* を持ち，そしてそれは `#check` コマンドで表示することが出来ます．例えば `ℕ` や `ℕ → ℕ` のような型があります．これらは数学的な対象です．
 TEXT. -/
 -- These are pieces of data.
 -- QUOTE:
@@ -89,8 +89,7 @@ All that is left to learn are the rules.
 
 OMIT. -/
 /- TEXT:
-もし ``FermatLastTheorem`` 型の式を構成でき、かつLeanがその式をその型を持った項として取り扱ってくれるなら，貴方はとても素晴らしいことを成し遂げたことになるでしょう．（ここで ``sorry`` を使うのはズルで，Leanもそのことを知っています．）これでLeanがどういうものであるかわかったでしょう．
-あとはルールを覚えるだけです．
+もしなんとかして ``FermatLastTheorem`` 型の式を構成でき，Leanに受け入れさせることができたら，とても素晴らしいことを成し遂げたことになります．（ここで ``sorry`` を使うのはズルで，Leanもそのことを知っています．）これでLeanがどういうものであるかわかったでしょう．あとはルールを覚えるだけです．
 
 TEXT. -/
 /- OMIT:
@@ -107,7 +106,7 @@ it makes more sense to start here and refer back to
 
 OMIT. -/
 /- TEXT:
-本書は同種のチュートリアルである `Theorem Proving in Lean <https://leanprover.github.io/theorem_proving_in_lean4/>`_ を補完するものです．そちらのチュートリアルはLeanについてその内部にある論理についてのフレームワークとコアな記法についてより包括的な説明をしています． *Theorem Proving in Lean* は新しい食洗器を使う前に取説を隅から隅まで読みたい人向けです．もし読者がとりあえず *スタート* ボタンを押してから食洗器内の洗浄用のタワシがどう動くのか考えたいタイプであるならば，本書から始めて必要に応じて *Theorem Proving in Lean* を参照しに行く方が理にかなっているでしょう．
+本書は同種のチュートリアルである `Theorem Proving in Lean <https://leanprover.github.io/theorem_proving_in_lean4/>`_ を補完するものです． (訳注: 有志による日本語訳が `こちら <https://aconite-ac.github.io/theorem_proving_in_lean4_ja/>`_ にあります.)あちらはLeanの根幹にある論理フレームワークとコア構文についてより包括的に説明しています． *Theorem Proving in Lean* は新しい食洗器を使う前に取説を隅から隅まで読みたい人向けです．もし読者がとりあえず *スタート* ボタンを押してから食洗器内の洗浄ブラシがどう動くのかみてみたいタイプであるならば，本書から始めて必要に応じて *Theorem Proving in Lean* を参照する方が理にかなっているでしょう．
 
 TEXT. -/
 /- OMIT:
@@ -123,7 +122,7 @@ For example, the following expression represents a proof of the fact that
 if ``n`` is even then so is ``m * n``:
 OMIT. -/
 /- TEXT:
-*Mathematics in Lean* と *Theorem Proving in Lean* の異なるもう一つの点は，本書では *タクティク* の使い方により重点を置いていることです．複雑な式を作り上げたい時，Leanは2種類の方法を提供します:まず式を直接書き下すことが出来ます．（これはテキストの記述に向いているでしょう）もしくはLeanに式をどのように構成するかを *指示* することも可能です．例えば以下の式は ``n`` が偶数なら ``m * n`` も偶数であることの証明を表しています．
+*Mathematics in Lean* と *Theorem Proving in Lean* のもう一つの違いは，本書では *タクティク* の使用にずっと重点を置いていることです．Leanで複雑な式を作り上げたい時，2種類の方法があります:1つ目は式を直接書き下す方法．（これはテキストの記述に向いています）2つ目はLeanに式をどのように構成するかを *指示* する方法です．例えば以下の式は ``n`` が偶数なら ``m * n`` も偶数であることの証明を表しています．
 TEXT. -/
 -- Here are some proofs.
 -- QUOTE:
