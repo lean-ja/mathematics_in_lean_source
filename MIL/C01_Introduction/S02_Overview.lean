@@ -147,21 +147,21 @@ The following is, instead, a *tactic-style* proof of the same theorem, where lin
 starting with ``--`` are comments, hence ignored by Lean:
 OMIT. -/
 /- TEXT:
-上記の代わりに，以下が同じ定理についての *タクティクスタイル* の証明です．ここで ``--`` で始まる行はコメントで，Leanに無視されます．
+以下は，同じ定理を証明項の代わりに *タクティクスタイル* で証明したものです．ここで ``--`` で始まる行はコメントで，Leanに無視されます．
 TEXT. -/
 -- QUOTE:
 example : ∀ m n : Nat, Even n → Even (m * n) := by
   -- Say m and n are natural numbers, and assume n=2*k.
-  -- mとnを自然数とし，n=2*kを仮定．
+  -- mとnを自然数とし，n=2*kと仮定．
   rintro m n ⟨k, hk⟩
   -- We need to prove m*n is twice a natural number. Let's show it's twice m*k.
-  -- m*nがとある自然数の2倍であることを証明する必要がある．そこでm*kの二倍であることを示す．
+  -- m*nがある自然数の2倍であることを証明する必要がある．そこでm*kの2倍であることを示す．
   use m * k
   -- Substitute for n,
-  -- nに代入する．
+  -- nを置換する．
   rw [hk]
   -- and now it's obvious.
-  -- そしてこの式が成り立つのは明白である．
+  -- 後は明らか．
   ring
 -- QUOTE.
 
@@ -187,7 +187,7 @@ and the ``ring`` tactic solves the resulting goal ``m * (2 * k) = 2 * (m * k)``.
 
 OMIT. -/
 /- TEXT:
-VSCode上でこのような証明の各行にカーソルを合わせると，Leanは *証明の状態* を別画面に表示し，その時点までで証明をどこまで構築したか，そして証明する定理について残っているタスクを教えてくれます．またこうしてLeanがカーソル位置での証明の状態を表示しているため、行をたどることで証明を再生することができます．この例では，証明の1行目で ``m`` と ``n`` （必要があればここで別の名前にすることもできます），そして仮定 ``Even n`` を ``k`` と ``n = 2 * k`` の仮定の二つに分割して導入しています．2行目の ``use m * k`` ではここから ``m * n`` が偶数である証明を ``m * n = 2 * (m * k)`` を示すことで行うことを宣言しています．次の行では ``rewrite`` タクティクを用いてゴール中の ``n`` を ``2 * k`` に置き換え，そして ``ring`` タクティクが ``m * (2 * k) = 2 * (m * k)`` を解いています．
+VSCode上でこのような証明の各行にカーソルを合わせると，Leanは *証明の状態* を別画面に表示し，その時点までで証明をどこまで構築したか，そして目指す定理のためにあと何を示せばよいかを教えてくれます．また，Leanはカーソル位置での証明の状態を表示し続けるので，VSCode上で証明を一行一行たどることで，証明を追いかけることができます．この例では，証明の1行目で ``m`` と ``n`` （必要があればここで別の名前にすることもできます）を導入し，そして ``Even n`` を ``k`` と仮定 ``n = 2 * k`` の二つに分割しています．2行目の ``use m * k`` では ``m * n`` が偶数であることを ``m * n = 2 * (m * k)`` を示すことで証明していくと宣言しています．次の行では ``rewrite`` タクティクを用いてゴール中の ``n`` を ``2 * k`` に置換しています．そして ``ring`` タクティクで ``m * (2 * k) = 2 * (m * k)`` を解いています．[#f1]_
 
 TEXT. -/
 /- OMIT:
@@ -296,4 +296,6 @@ Giovanni Mascellani, Isaiah Mindich, Hunter Monroe, Pietro Monticone, Oliver Nas
 Bartosz Piotrowski, Nicolas Rolland, Guilherme Silva, Floris van Doorn, and Eric Wieser.
 Our work has been partially supported by the Hoskinson Center for
 Formal Mathematics.
+
+.. [#f1] 訳注: コード中で使用されているのは ``rw`` ですが，これは ``rewrite`` の後に ``rfl`` を実行するというタクティクで，ほぼ ``rewrite`` と同じものだと思ってください．
 TEXT. -/
