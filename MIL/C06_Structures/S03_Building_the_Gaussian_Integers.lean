@@ -3,24 +3,40 @@ import Mathlib.Algebra.EuclideanDomain.Basic
 import Mathlib.RingTheory.PrincipalIdealDomain
 import MIL.Common
 
-/- TEXT:
-.. _section_building_the_gaussian_integers:
-
+/- OMIT:
 Building the Gaussian Integers
 ------------------------------
 
+OMIT. -/
+/- TEXT:
+.. _section_building_the_gaussian_integers:
+
+ガウス整数の構築
+-----------------
+
+TEXT. -/
+/- OMIT:
 We will now illustrate the use of the algebraic hierarchy in Lean by
 building an important mathematical object, the *Gaussian integers*,
 and showing that it is a Euclidean domain. In other words, according to
 the terminology we have been using, we will define the Gaussian integers
 and show that they are an instance of the Euclidean domain structure.
 
+OMIT. -/
+/- TEXT:
+ここで重要な数学的対象である *ガウス整数* を構成し，そしてこれがユークリッド整域であることを示すことでLeanにおける代数的な階層の使い方を説明しましょう．これまで使ってきた用語に従って言い換えると，ガウス整数を定義し，それがユークリッド整域構造のインスタンスであることを示します．
+
+TEXT. -/
+/- OMIT:
 In ordinary mathematical terms, the set of Gaussian integers :math:`\Bbb{Z}[i]`
 is the set of complex numbers :math:`\{ a + b i \mid a, b \in \Bbb{Z}\}`.
 But rather than define them as a subset of the complex numbers, our goal
 here is to define them as a data type in their own right. We do this by
 representing a Gaussian integer as a pair of integers, which we think of as the
 *real* and *imaginary* parts.
+OMIT. -/
+/- TEXT:
+通常の数学用語では，ガウス整数の集合 :math:`\Bbb{Z}[i]` は複素数の集合 :math:`\{ a + b i \mid a, b \in \Bbb{Z}\}` のことです．しかしこの集合を複素数の部分集合として定義するのではなく，複素数をそれ自体のデータ型として定義することがここでの目標です．これにあたってガウス整数を2つの整数の組をそれぞれ *実部* と *虚部* と考えることで表現します．
 BOTH: -/
 -- QUOTE:
 @[ext]
@@ -29,19 +45,28 @@ structure gaussInt where
   im : ℤ
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 We first show that the Gaussian integers have the structure of a ring,
 with ``0`` defined to be ``⟨0, 0⟩``, ``1`` defined to be ``⟨1, 0⟩``, and
 addition defined pointwise. To work out the definition of multiplication,
 remember that we want the element :math:`i`, represented by ``⟨0, 1⟩``, to
 be a square root of :math:`-1`. Thus we want
 
+OMIT. -/
+/- TEXT:
+まずガウス整数が環の構造を持ち， ``0`` は ``⟨0, 0⟩`` で， ``1`` は ``⟨1, 0⟩`` と定義され，加法が実部と虚部それぞれにおいて定義されることを示します．乗法の定義を考えるには， ``⟨0, 1⟩`` で表される要素 :math:`i` を :math:`-1` の平方根としたいことを思い出してください．したがって次のように定義したいわけです．
+
 .. math::
 
    (a + bi) (c + di) & = ac + bci + adi + bd i^2 \\
      & = (ac - bd) + (bc + ad)i.
 
+TEXT. -/
+/- OMIT:
 This explains the definition of ``hasMul`` below.
+OMIT. -/
+/- TEXT:
+これは以下の ``hasMul`` の定義を説明するものです．
 BOTH: -/
 namespace gaussInt
 
@@ -62,17 +87,26 @@ instance : Mul gaussInt :=
   ⟨fun x y ↦ ⟨x.re * y.re - x.im * y.im, x.re * y.im + x.im * y.re⟩⟩
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 As noted in :numref:`section_structures`, it is a good idea to put all the definitions
 related to a data type in a namespace with the same name. Thus in the Lean
 files associated with this chapter, these definitions are made in the
 ``GaussInt`` namespace.
 
+OMIT. -/
+/- TEXT:
+:numref:`section_structures` で述べたように，データ型に関連するすべての定義を同じ名前の名前空間に置くと良いでしょう．これに従い，この章に対応するLeanファイルではこれらの定義は ``GaussInt`` 名前空間内で行われています．
+
+TEXT. -/
+/- OMIT:
 Notice that here we are defining the interpretations of the notation ``0``,
 ``1``, ``+``, ``-``, and ``*`` directly, rather than naming them
 ``GaussInt.zero`` and the like and assigning the notation to those.
 It is often useful to have an explicit name for the definitions, for example,
 to use with ``simp`` and ``rewrite``.
+OMIT. -/
+/- TEXT:
+ここで ``0`` と ``1`` ， ``+`` ， ``-`` ， ``*`` の記法の解釈について， ``GaussInt.zero`` などの名前をつけてそれらに記法を割り当てるのではなく，直接定義していることに注意してください．この方法は，例えば ``simp`` や ``rewrite`` で使用する際に定義に明示的な名前をつけたい際にしばしば便利です．
 BOTH: -/
 -- QUOTE:
 theorem zero_def : (0 : gaussInt) = ⟨0, 0⟩ :=
@@ -92,9 +126,12 @@ theorem mul_def (x y : gaussInt) :
   rfl
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 It is also useful to name the rules that compute the real and imaginary
 parts, and to declare them to the simplifier.
+OMIT. -/
+/- TEXT:
+また実部と虚部を計算する規則に名前をつけ，簡約化で用いるよう宣言することも有益です．
 BOTH: -/
 -- QUOTE:
 @[simp]
@@ -138,7 +175,7 @@ theorem mul_im (x y : gaussInt) : (x * y).im = x.re * y.im + x.im * y.re :=
   rfl
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 It is now surprisingly easy to show that the Gaussian integers are an instance
 of a commutative ring. We are putting the structure concept to good use.
 Each particular Gaussian integer is an instance of the ``gaussInt`` structure,
@@ -147,6 +184,12 @@ instance of the ``CommRing`` structure. The ``CommRing`` structure, in turn,
 extends the notational structures ``Zero``, ``One``, ``Add``,
 ``Neg``, and ``Mul``.
 
+OMIT. -/
+/- TEXT:
+ガウス整数が可換環のインスタンスであることを示すのは驚くほど簡単です．秘訣は構造の概念にあります．それぞれのガウス整数は ``gaussInt`` 構造体のインスタンスであり， ``gaussInt`` 型自体と関連する演算は ``CommRing`` 構造体のインスタンスです．この ``CommRing`` 構造体は ``Zero`` と ``One`` ， ``Add`` ， ``Neg`` ， ``Mul`` という表記構造を拡張したものです．
+
+TEXT. -/
+/- OMIT:
 If you type ``instance : CommRing gaussInt := _``, click on the light bulb
 that appears in VS Code, and then ask Lean to fill in a skeleton for the
 structure definition, you will see a scary number of entries.
@@ -157,6 +200,9 @@ identity is proved by unfolding definitions, using the ``ext`` tactic
 to reduce the identities to their real and imaginary components,
 simplifying, and, if necessary, carrying out the relevant ring calculation in
 the integers.
+OMIT. -/
+/- TEXT:
+もし ``instance : CommRing gaussInt := _`` と入力してvscodeに表示される電球マークをクリックし，Leanに構造体定義のスケルトンを埋めてもらうと，おびただしい数の項目が表示されます．しかし，構造体の定義に飛ぶと，多くのフィールドにはデフォルトの定義があり，これらはLeanが自動的に埋めてくれます．重要なものは以下の定義にあります．それぞれの場合に置いて，関連する恒等式は定義を展開し， ``ext`` を使って恒等式を実部と虚部に戻し，簡約し，必要であれば整数で関連する環の計算を行うことで証明されます．
 BOTH: -/
 -- QUOTE:
 instance instCommRing : CommRing gaussInt where
@@ -210,11 +256,14 @@ theorem sub_re (x y : gaussInt) : (x - y).re = x.re - y.re :=
 theorem sub_im (x y : gaussInt) : (x - y).im = x.im - y.im :=
   rfl
 
-/- TEXT:
+/- OMIT:
 Lean's library defines the class of *nontrivial* types to be types with at
 least two distinct elements. In the context of a ring, this is equivalent
 to saying that the zero is not equal to the one. Since some common theorems
 depend on that fact, we may as well establish it now.
+OMIT. -/
+/- TEXT:
+Leanのライブラリでは少なくとも2つの異なる要素を持つ型を *nontrivial* 型のクラスとして定義しています．環の文脈においては，これは0が1に等しくないということと同じです．いくつかの一般的な定理はこの事実に依存しているため，これは今確立したほうがよいでしょう．
 BOTH: -/
 -- QUOTE:
 instance : Nontrivial gaussInt := by
@@ -225,22 +274,43 @@ instance : Nontrivial gaussInt := by
 
 end gaussInt
 
-/- TEXT:
+/- OMIT:
 We will now show that the Gaussian integers have an important additional
 property. A *Euclidean domain* is a ring :math:`R` equipped with a *norm*
 function :math:`N : R \to \mathbb{N}` with the following two properties:
 
+OMIT. -/
+/- TEXT:
+ここでガウス整数が追加で重要な性質を持つことを示します． *ユークリッド整域* とは以下の2つの性質を持つ *ノルム* 関数 :math:`N : R \to \mathbb{N}` を備えた環 :math:`R` のことです:
+
+TEXT. -/
+/- OMIT:
 - For every :math:`a` and :math:`b \ne 0` in :math:`R`, there are
   :math:`q` and :math:`r` in :math:`R` such that :math:`a = bq + r` and
   either :math:`r = 0` or `N(r) < N(b)`.
+OMIT. -/
+/- TEXT:
+- :math:`R` の各 :math:`a` と :math:`b \ne 0` に対して， :math:`a = bq + r` と :math:`r = 0` または `N(r) < N(b)` のどちらかを満たす :math:`R` の :math:`q` と :math:`r` が存在する．
+
+TEXT. -/
+/- OMIT:
 - For every :math:`a` and :math:`b \ne 0`, :math:`N(a) \le N(ab)`.
 
+OMIT. -/
+/- TEXT:
+- すべての :math:`a` と :math:`b \ne 0` について， :math:`N(a) \le N(ab)` ．
+
+TEXT. -/
+/- OMIT:
 The ring of integers :math:`\Bbb{Z}` with :math:`N(a) = |a|` is an
 archetypal example of a Euclidean domain.
 In that case, we can take :math:`q` to be the
 result of integer division of :math:`a` by :math:`b` and :math:`r`
 to be the remainder. These functions are defined in Lean so that the
 satisfy the following:
+TEXT. -/
+/- OMIT:
+:math:`N(a) = |a|` となる整数の環 :math:`\Bbb{Z}` はユークリッド整域の典型的な例です．この場合， :math:`a` を :math:`b` で整除した商を :math:`q` ，その余りを :math:`r` とすることができます．これらの関数は以下を満たすようにLeanで定義されています:
 EXAMPLES: -/
 -- QUOTE:
 example (a b : ℤ) : a = b * (a / b) + a % b :=
@@ -253,7 +323,7 @@ example (a b : ℤ) : b ≠ 0 → a % b < |b| :=
   Int.emod_lt a
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 In an arbitrary ring, an element :math:`a` is said to be a *unit* if it divides
 :math:`1`. A nonzero element :math:`a` is said to be *irreducible* if it cannot
 be written in the form :math:`a = bc`
@@ -263,10 +333,16 @@ divides a product :math:`bc`, it divides either :math:`b` or :math:`c`. But
 in other rings this property can fail. In the ring
 :math:`\Bbb{Z}[\sqrt{-5}]`, we have
 
+OMIT. -/
+/- TEXT:
+任意の環において，元 :math:`a` が :math:`1` を割る場合，その元は *単位* であると言います．0ではない元 :math:`a` がどちらも単位ではない :math:`b` と :math:`c` を用いて :math:`a = bc` の形で書けない場合， :math:`a` は *既約* であるといいます．つまり，整数においては :math:`a` が積 :math:`bc` を割るときは必ず :math:`b` か :math:`c` のどちらかを割ることになるため，すべての既約元 :math:`a` は *素数* のことです．しかし他の環ではこの性質が破綻することがあります．環 :math:`\Bbb{Z}[\sqrt{-5}]` では次のようになります．
+
 .. math::
 
   6 = 2 \cdot 3 = (1 + \sqrt{-5})(1 - \sqrt{-5}),
 
+TEXT. -/
+/- OMIT:
 and the elements :math:`2`, :math:`3`, :math:`1 + \sqrt{-5}`, and
 :math:`1 - \sqrt{-5}` are all irreducible, but they are not prime. For example,
 :math:`2` divides the product :math:`(1 + \sqrt{-5})(1 - \sqrt{-5})`,
@@ -274,6 +350,12 @@ but it does not divide either factor. In particular, we no longer have
 unique factorization: the number :math:`6` can be factored into irreducible
 elements in more than one way.
 
+OMIT. -/
+/- TEXT:
+そして元 :math:`2` と :math:`3` ， :math:`1 + \sqrt{-5}` ， :math:`1 - \sqrt{-5}` はすべて既約元ですが，素数ではありません．例えば :math:`2` は積 :math:`(1 + \sqrt{-5})(1 - \sqrt{-5})` を割りますが，どちらの因数も割ることができません．もっと言うなら数 :math:`6` が複数の方法で既約元の因数に分解できることから，もはや一意な因数分解もできません．
+
+TEXT. -/
+/- OMIT:
 In contrast, every Euclidean domain is a unique factorization domain, which
 implies that every irreducible element is prime.
 The axioms for a Euclidean domain imply that one can write any nonzero element
@@ -283,47 +365,83 @@ nonzero elements ``a`` and ``b``, i.e.~an element that is divisible by any
 other common divisor. This, in turn, implies that factorization
 into irreducible elements is unique up to multiplication by units.
 
+OMIT. -/
+/- TEXT:
+これと対照的に，すべてのユークリッド整域は一意に因数分解ができる領域です．これはすべての既約元が素数であることを意味します．ユークリッド整域の公理はどんな0でない元も既約元の有限積として書けることを課します．またユークリッドの互助法を使って任意の2つの非零元 ``a`` と ``b`` の最大公約数，つまり他の公約数すべてを割り切れる元を求められることも要求します．このことは既約元への因数分解は単位の冪まで一意であることを意味します．
+
+TEXT. -/
+/- OMIT:
 We now show that the Gaussian integers are a Euclidean domain with
 the norm defined by :math:`N(a + bi) = (a + bi)(a - bi) = a^2 + b^2`.
 The Gaussian integer :math:`a - bi` is called the *conjugate* of :math:`a + bi`.
 It is not hard to check that for any complex numbers :math:`x` and :math:`y`,
 we have :math:`N(xy) = N(x)N(y)`.
 
+OMIT. -/
+/- TEXT:
+ここでガウス整数は :math:`N(a + bi) = (a + bi)(a - bi) = a^2 + b^2` で定義されるノルムを持つユークリッド整域であることを示します．ガウス整数 :math:`a - bi` は :math:`a + bi` の *共役* と呼ばれます．任意の複素数 :math:`x` と :math:`y` に対して :math:`N(xy) = N(x)N(y)` が成り立つことを確認するのは難しくありません．
+
+TEXT. -/
+/- OMIT:
 To see that this definition of the norm makes the complex numbers a Euclidean
 domain, only the first property is challenging. Suppose
 we want to write :math:`a + bi = (c + di) q + r` for suitable :math:`q`
 and :math:`r`. Treating :math:`a + bi` and :math:`c + di` are complex
 numbers, carry out the division
 
+OMIT. -/
+/- TEXT:
+このノルムの定義で複素数がユークリッド整域となることを見るにあたっては，最初の性質だけが難しいです．例えば適当な:math:`q` と :math:`r` に対して :math:`a + bi = (c + di)q + r` と書きたいとしましょう． :math:`a + bi` と :math:`c + di` は複素数であるとして次の除算を行います．
+
 .. math::
 
   \frac{a + bi}{c + di} = \frac{(a + bi)(c - di)}{(c + di)(c-di)} =
     \frac{ac + bd}{c^2 + d^2} + \frac{bc -ad}{c^2+d^2} i.
 
+TEXT. -/
+/- OMIT:
 The real and imaginary parts might not be integers, but we can round
 them to the nearest integers :math:`u` and :math:`v`. We can then express the
 right-hand size as :math:`(u + vi) + (u' + v'i)`, where
 :math:`u' + v'i` is the part left over. Note that we have
 :math:`|u'| \le 1/2` and :math:`|v'| \le 1/2`, and hence
 
+OMIT. -/
+/- TEXT:
+実部と虚部は整数ではないかもしれませんが，最も近い整数 :math:`u` と :math:`v` に丸めることが出来ます．丸めた際の余った部分を :math:`u'+v'i` として，右辺の大きさを :math:`(u + vi) + (u' + v'i)` と表現できます．ここで :math:`|u'| \le 1/2` と :math:`|v'| \le 1/2` という条件があることに注意すると以下のようになります．
+
 .. math::
 
   N(u' + v' i) = (u')^2 + (v')^2 \le 1/4 + 1/4 \le 1/2.
 
+TEXT. -/
+/- OMIT:
 Multiplying through by :math:`c + di`, we have
+
+OMIT. -/
+/- TEXT:
+:math:`c + di` を掛けると次のようになります．
 
 .. math::
 
   a + bi = (c + di) (u + vi) + (c + di) (u' + v'i).
 
+TEXT. -/
+/- OMIT:
 Setting :math:`q = u + vi` and :math:`r = (c + di) (u' + v'i)`, we have
 :math:`a + bi = (c + di) q + r`, and we only need to
 bound :math:`N(r)`:
+
+OMIT. -/
+/- TEXT:
+:math:`q = u + vi` と :math:`r = (c + di) (u' + v'i)` を設定すると， :math:`a + bi = (c + di) q + r` となり， :math:`N(r)` を束縛するだけで良いことになります．
 
 .. math::
 
   N(r) = N(c + di)N(u' + v'i) \le N(c + di) \cdot 1/2 < N(c + di).
 
+TEXT. -/
+/- OMIT:
 The argument we just carried out requires viewing the Gaussian integers
 as a subset of the complex numbers. One option for formalizing it in Lean
 is therefore to embed the Gaussian integers in the complex numbers, embed
@@ -336,6 +454,12 @@ of a ring of *quadratic integers*.
 See the file `GaussianInt.lean
 <https://github.com/leanprover-community/mathlib4/blob/master/Mathlib/NumberTheory/Zsqrtd/GaussianInt.lean>`_.
 
+OMIT. -/
+/- TEXT:
+ここまでの議論はガウス整数を複素数の部分集合としてみることを要求しています．したがって，これをLeanで形式化する1つの選択肢は，ガウス整数を複素数の中に埋め込み，整数をガウス整数の中に埋め込み，実数から整数への丸め関数を定義し，これらの数系の間を適切に行き来するよう細心の注意を払うことです．実際，これはMathlibで行われているアプローチと全く同じで，ガウス整数そのものは *二次体の整数* の環の特殊な場合として構成されています．詳しくはファイル `GaussianInt.lean <https://github.com/leanprover-community/mathlib4/blob/master/Mathlib/NumberTheory/Zsqrtd/GaussianInt.lean>`_ を見てください．
+
+TEXT. -/
+/- OMIT:
 Here we will instead carry out an argument that stays in the integers.
 This illustrates an choice one commonly faces when formalizing mathematics.
 Given an argument that requires concepts or machinery that is not already
@@ -347,6 +471,12 @@ can be used in other contexts.
 Pragmatically speaking, however, sometimes seeking a more elementary proof
 is more efficient.
 
+OMIT. -/
+/- TEXT:
+ただ，ここでは上記の選択肢の代わりに整数に留める議論を行います．この選択は数学を形式化する際によく直面するものです．ライブラリにない概念や機構を必要とする論題が与えられた時，それらを形式化するか，すでに持っている概念や機構を利用するように論題を適応させるかの2つの選択肢があります．最初の選択肢は，その結果が他の文脈でも使えるのであれば，一般的に見て時間を費やす価値があるでしょう．しかし実用的に言えば，より初歩的な証明を求めるほうが効率的な場合もあります．
+
+TEXT. -/
+/- OMIT:
 The usual quotient-remainder theorem for the integers says that for
 every :math:`a` and nonzero :math:`b`, there are :math:`q` and :math:`r`
 such that :math:`a = b q + r` and :math:`0 \le r < b`.
@@ -360,6 +490,9 @@ We are grateful to Heather Macbeth for suggesting the following more
 elegant approach, which avoids definition by cases.
 We simply add ``b / 2`` to ``a`` before dividing and then subtract it
 from the remainder.
+OMIT. -/
+/- TEXT:
+整数の通常の商と剰余の定理はすべての :math:`a` と0ではない :math:`b` に対して， :math:`a = b q + r` と :math:`0 \le r < b` を満たす :math:`q` と :math:`r` が存在するというものです．ここでは， :math:`a = bq' + r'` かつ :math:`|r'| \le b/2` となるような :math:`q'` と :math:`r'` が存在するという以下の変種を利用します．最初の文の :math:`r` の値が :math:`r \le b/2` を満たす場合， :math:`q' = q` と :math:`r' = r` とすることができ，そうでない場合は :math:`q' = q + 1` と :math:`r' = r - b` とすることができることを確認できます．この形式化にあたってHeather Macbeth氏にはケース分割による定義を避けた，よりエレガントなアプローチを提案してもらい感謝しています．単純に割る前に ``a`` に ``b / 2`` を加え，余りから引くのです．
 BOTH: -/
 namespace Int
 
@@ -385,9 +518,12 @@ theorem abs_mod'_le (a b : ℤ) (h : 0 < b) : |mod' a b| ≤ b / 2 := by
   linarith
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 Note the use of our old friend, ``linarith``. We will also need to express
 ``mod'`` in terms of ``div'``.
+OMIT. -/
+/- TEXT:
+ここでおなじみの ``linarith`` を使っていることに注意してください．また， ``mod'`` を ``div'`` で表現する必要があります．
 BOTH: -/
 -- QUOTE:
 theorem mod'_eq (a b : ℤ) : mod' a b = a - b * div' a b := by linarith [div'_add_mod' a b]
@@ -395,10 +531,13 @@ theorem mod'_eq (a b : ℤ) : mod' a b = a - b * div' a b := by linarith [div'_a
 
 end Int
 
-/- TEXT:
+/- OMIT:
 We will use the fact that :math:`x^2 + y^2` is equal to zero if and only if
 :math:`x` and :math:`y` are both zero. As an exercise, we ask you to prove
 that this holds in any ordered ring.
+OMIT. -/
+/- TEXT:
+ここでは :math:`x^2 + y^2` が0に等しいのは， :math:`x` と :math:`y` の両方が0である場合だけであるという事実を用いています．演習としてこれが任意の順序環で成り立つことを証明してみましょう．
 SOLUTIONS: -/
 private theorem aux {α : Type*} [LinearOrderedRing α] {x y : α} (h : x ^ 2 + y ^ 2 = 0) : x = 0 :=
   haveI h' : x ^ 2 = 0 := by
@@ -425,12 +564,15 @@ SOLUTIONS: -/
 -- QUOTE.
 
 -- BOTH:
-/- TEXT:
+/- OMIT:
 We will put all the remaining definitions and theorems in this section
 in the ``gaussInt`` namespace.
 First, we define the ``norm`` function and ask you to establish
 some of its properties.
 The proofs are all short.
+OMIT. -/
+/- TEXT:
+この節の残りの定義と定理はすべて ``gaussInt`` 名前空間に置くことにします．まず， ``norm`` 関数を定義し，その性質をいくつか定義してみましょう．これらの証明はすべて短く済みます．
 BOTH: -/
 namespace gaussInt
 
@@ -472,8 +614,11 @@ SOLUTIONS: -/
 
 -- BOTH:
 -- QUOTE.
-/- TEXT:
+/- OMIT:
 Next we define the conjugate function:
+OMIT. -/
+/- TEXT:
+次に共役を取る関数を定義します．
 BOTH: -/
 -- QUOTE:
 def conj (x : gaussInt) : gaussInt :=
@@ -490,13 +635,19 @@ theorem conj_im (x : gaussInt) : (conj x).im = -x.im :=
 theorem norm_conj (x : gaussInt) : norm (conj x) = norm x := by simp [norm]
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 Finally, we define division for the Gaussian integers
 with the notation ``x / y``, that rounds the complex quotient to the nearest
 Gaussian integer. We use our bespoke ``Int.div'`` for that purpose.
 As we calculated above, if ``x`` is :math:`a + bi` and ``y`` is :math:`c + di`,
 then the real and imaginary parts of ``x / y`` are the nearest integers to
 
+OMIT. -/
+/- TEXT:
+最後に，複素数の商を最も近いガウス整数に丸めるガウス整数の除算を ``x / y`` という記法で定義します．そのために， ``Int.div`` を今回のためにこしらえて用います．上で計算したように， ``x`` が :math:`a + bi` で ``y`` が :math:`c + di` の場合， ``x / y`` の実部と虚部はそれぞれ最も近い整数となります．
+
+TEXT. -/
+/- OMIT:
 .. math::
 
   \frac{ac + bd}{c^2 + d^2} \quad \text{and} \quad \frac{bc -ad}{c^2+d^2},
@@ -504,17 +655,23 @@ then the real and imaginary parts of ``x / y`` are the nearest integers to
 respectively. Here the numerators are the real and imaginary parts of
 :math:`(a + bi) (c - di)`, and the denominators are both equal to the norm
 of :math:`c + di`.
+OMIT. -/
+/- TEXT:
+ここで，分子は :math:`(a + bi)(c + di)` の実部と虚部であり，分母はどちらも :math:`c + di` のノルムに等しくなります．
 BOTH: -/
 -- QUOTE:
 instance : Div gaussInt :=
   ⟨fun x y ↦ ⟨Int.div' (x * conj y).re (norm y), Int.div' (x * conj y).im (norm y)⟩⟩
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 Having defined ``x / y``, We define ``x % y`` to be the remainder,
 ``x - (x / y) * y``. As above, we record the definitions in the
 theorems ``div_def`` and
 ``mod_def`` so that we can use them with ``simp`` and ``rewrite``.
+OMIT. -/
+/- TEXT:
+``x / y`` を定義した後， ``x % y`` を ``x - (x / y) * y`` の余りとして定義します．上記のように，定義の ``div_def`` と ``mod_def`` に定義を記録し， ``simp`` と ``rewrite`` で使用できるようにします．
 BOTH: -/
 -- QUOTE:
 instance : Mod gaussInt :=
@@ -528,34 +685,67 @@ theorem mod_def (x y : gaussInt) : x % y = x - y * (x / y) :=
   rfl
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 These definitions immediately yield ``x = y * (x / y) + x % y`` for every
 ``x`` and ``y``, so all we need to do is show that the norm of ``x % y`` is
 less than the norm of ``y`` when ``y`` is not zero.
 
+OMIT. -/
+/- TEXT:
+これらの定義から，すべての ``x`` と ``y`` に対して， ``x = y * (x / y) + x % y`` がすぐに得られるため，あとは ``y`` が0ではない時， ``x % y`` のノルムが ``y`` のノルムより小さいことを示せば良いです．
+
+TEXT. -/
+/- OMIT:
 We just defined the real and imaginary parts of ``x / y`` to be
 ``div' (x * conj y).re (norm y)`` and ``div' (x * conj y).im (norm y)``,
 respectively.
 Calculating, we have
 
+OMIT. -/
+/- TEXT:
+先程 ``x / y`` の実部と虚部をそれぞれ ``div' (x * conj y).re (norm y)`` と ``div' (x * conj y).im (norm y)`` と定義しました．これを用いて計算すると以下のようになります．
+
   ``(x % y) * conj y = (x - x / y * y) * conj y = x * conj y - x * (y * conj j)``
 
+TEXT. -/
+/- OMIT:
 The real and imaginary parts of the right-hand side are exactly ``mod' (x * conj y).re (norm y)`` and ``mod' (x * conj y).im (norm y)``.
 By the properties of ``div'`` and ``mod'``,
 these are guaranteed to be less than or equal to ``norm y / 2``.
 So we have
 
+OMIT. -/
+/- TEXT:
+右辺の実部と虚部は ``mod' (x * conj y).re (norm y)`` と ``mod' (x * conj y).im (norm y)`` です． ``div'`` と ``mod'`` の性質により，これらは ``norm y / 2`` 以下であることが保証されています．従って以下のようになります．
+
   ``norm ((x % y) * conj y) ≤ (norm y / 2)^2 + (norm y / 2)^2 ≤ (norm y / 2) * norm y``.
 
+TEXT. -/
+/- OMIT:
 On the other hand, we have
+
+OMIT. -/
+/- TEXT:
+また一方で以下を得ます．
 
   ``norm ((x % y) * conj y) = norm (x % y) * norm (conj y) = norm (x % y) * norm y``.
 
+TEXT. -/
+/- OMIT:
 Dividing through by ``norm y`` we have ``norm (x % y) ≤ (norm y) / 2 < norm y``,
 as required.
 
+OMIT. -/
+/- TEXT:
+``norm y`` で割ることで求めていた``norm (x % y) ≤ (norm y) / 2 < norm y`` を得ます．
+
+TEXT. -/
+/- OMIT:
 This messy calculation is carried out in the next proof. We encourage you
 to step through the details and see if you can find a nicer argument.
+OMIT. -/
+/- TEXT:
+この面倒な計算は次にお証明で行われます．証明をたどってみて，もっとすっきりした証明を見つけられるかどうか試してみることをお勧めします．
 BOTH: -/
 -- QUOTE:
 theorem norm_mod_lt (x : gaussInt) {y : gaussInt} (hy : y ≠ 0) :
@@ -578,7 +768,7 @@ theorem norm_mod_lt (x : gaussInt) {y : gaussInt} (hy : y ≠ 0) :
         · linarith
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 We are in the home stretch. Our ``norm`` function maps Gaussian integers to
 nonnegative integers. We need a function that maps Gaussian integers to natural
 numbers, and we obtain that by composing ``norm`` with the function
@@ -586,6 +776,9 @@ numbers, and we obtain that by composing ``norm`` with the function
 The first of the next two lemmas establishes that mapping the norm to the
 natural numbers and back to the integers does not change the value.
 The second one re-expresses the fact that the norm is decreasing.
+OMIT. -/
+/- TEXT:
+いよいよ本番です．上記で定義した ``norm`` 関数はガウス整数を非負整数に写します．ここでさらにガウス整数を自然数に移す関数が必要であり，これは整数を自然数に移す関数 ``Int.natAbs`` と ``norm`` 関数を組み合わせることで実現できます．次の2つの補題のうち，最初の補題はノルムを自然数に写し，整数に戻しても値が変わらないことを証明するものです．2番めの定理はノルムが減少するという事実を再表現しています．
 BOTH: -/
 -- QUOTE:
 theorem coe_natAbs_norm (x : gaussInt) : (x.norm.natAbs : ℤ) = x.norm :=
@@ -598,9 +791,12 @@ theorem natAbs_norm_mod_lt (x y : gaussInt) (hy : y ≠ 0) :
   apply norm_mod_lt x hy
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 We also need to establish the second key property of the norm function
 on a Euclidean domain.
+OMIT. -/
+/- TEXT:
+またユークリッド整域上のノルム関数の2つ目の重要な性質を確立する必要があります．
 BOTH: -/
 -- QUOTE:
 theorem not_norm_mul_left_lt_norm (x : gaussInt) {y : gaussInt} (hy : y ≠ 0) :
@@ -613,7 +809,7 @@ theorem not_norm_mul_left_lt_norm (x : gaussInt) {y : gaussInt} (hy : y ≠ 0) :
   exact Int.add_one_le_of_lt ((norm_pos _).mpr hy)
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 We can now put it together to show that the Gaussian integers are an
 instance of a Euclidean domain. We use the quotient and remainder function we
 have defined.
@@ -624,6 +820,9 @@ Comparing the values of a norm function that returns natural numbers is
 just one instance of such a measure,
 and in that case, the required properties are the theorems
 ``natAbs_norm_mod_lt`` and ``not_norm_mul_left_lt_norm``.
+OMIT. -/
+/- TEXT:
+これをまとめて，ガウス整数がユークリッド整域のインスタンスであることを示しましょう．ここでは定義した商と剰余の関数を使います．Mathlibのユークリッド整域の定義は上の定義よりも一般的で，剰余が任意の整礎関係の測度に関しても減少することを示すことができます．自然数を返すノルム関数の値を比較することはそのような測度の一例にすぎず，その場合に必要な性質は定理 ``natAbs_norm_mod_lt`` と ``not_norm_mul_left_lt_norm`` になります．
 BOTH: -/
 -- QUOTE:
 instance : EuclideanDomain gaussInt :=
@@ -641,9 +840,12 @@ instance : EuclideanDomain gaussInt :=
     mul_left_not_lt := not_norm_mul_left_lt_norm }
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 An immediate payoff is that we now know that, in the Gaussian integers,
 the notions of being prime and being irreducible coincide.
+OMIT. -/
+/- TEXT:
+これらのことから直ちに得られる成果は，ガウス整数に置いて素数であることと既約数であることが一致するということです．
 BOTH: -/
 -- QUOTE:
 example (x : gaussInt) : Irreducible x ↔ Prime x :=
