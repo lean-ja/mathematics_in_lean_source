@@ -5,6 +5,7 @@
 | analysis | 解析学 |
 | arguments | 引数 |
 | chapter | 章 |
+| context | コンテキスト |
 | dependent type theory | 依存型理論 |
 | exercises | 演習 |
 | identity | 恒等式, 等式 |
