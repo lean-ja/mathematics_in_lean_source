@@ -9,6 +9,7 @@
 | associativity | 結合性 |
 | axiom of choice | 選択公理 |
 | bi-implication | 双方向の含意 |
+| cardinality | 濃度 |
 | chapter | 章 |
 | codomain | 終域 |
 | conjunction | 連言 |
@@ -29,7 +30,6 @@
 | Galois connection | ガロア接続 |
 | greatest common divisor | 最大公約数 |
 | greatest lower bound | 最大下界 |
-| identity | 恒等式, 等式 |
 | identity | 恒等式, 等式 |
 | if-and-only-if statement | 同値性を主張する文 |
 | iff | 必要十分条件 |
