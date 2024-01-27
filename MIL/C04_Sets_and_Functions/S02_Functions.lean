@@ -4,18 +4,28 @@ import Mathlib.Data.Set.Lattice
 import Mathlib.Data.Set.Function
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
 
-/- TEXT:
-.. _functions:
-
+/- OMIT:
 Functions
 ---------
 
+OMIT. -/
+/- TEXT:
+.. _functions:
+
+関数
+-----
+
+TEXT. -/
+/- OMIT:
 If ``f : α → β`` is a function and  ``p`` is a set of
 elements of type ``β``,
 the library defines ``preimage f p``, written ``f ⁻¹' p``,
 to be ``{x | f x ∈ p}``.
 The expression ``x ∈ f ⁻¹' p`` reduces to ``f x ∈ p``.
 This is often convenient, as in the following example:
+OMIT. -/
+/- TEXT:
+``f : α → β`` が関数で ``p`` が ``β`` 型の集合である時， ``{x | f x ∈ p}`` を意味し， ``f ⁻¹' p`` と表記される ``preimage f p`` がライブラリに定義されています．式 ``x ∈ f ⁻¹' p`` は ``f x ∈ p`` に簡約されます．この事実は以下の例でみるように便利であることが多いです．
 TEXT. -/
 -- BOTH:
 section
@@ -35,7 +45,7 @@ example : f ⁻¹' (u ∩ v) = f ⁻¹' u ∩ f ⁻¹' v := by
   rfl
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 If ``s`` is a set of elements of type ``α``,
 the library also defines ``image f s``,
 written ``f '' s``,
@@ -45,6 +55,9 @@ So a hypothesis  ``y ∈ f '' s`` decomposes to a triple
 and ``xeq : f x = y``.
 The ``rfl`` tag in the ``rintro`` tactic (see :numref:`the_existential_quantifier`) was made precisely
 for this sort of situation.
+OMIT. -/
+/- TEXT:
+また ``s`` が ``α`` 型の集合である時， ``{y | ∃ x, x ∈ s ∧ f x = y}`` を意味し， ``f '' s`` と表記される ``image f s`` もライブラリに定義されています．よって仮定 ``y ∈ f '' s`` は ``⟨x, xs, xeq⟩`` の3つへと分解されます．これは ``x : α`` が仮定 ``xs : x ∈ s`` と ``xeq : f x = y`` を満たすことを意味しています． ``rintro`` タクティク内で用いられている ``rfl`` タグ（ :numref:`the_existential_quantifier` 参照）はまさにこのような状況のために設計されています．
 TEXT. -/
 -- QUOTE:
 example : f '' (s ∪ t) = f '' s ∪ f '' t := by
@@ -59,11 +72,20 @@ example : f '' (s ∪ t) = f '' s ∪ f '' t := by
   use x, Or.inr xt
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 Notice also that the ``use`` tactic applies ``rfl``
 to close goals when it can.
 
+OMIT. -/
+/- TEXT:
+また ``use`` タクティクはゴールに近い位置にある場合は ``rfl`` を適用できることにも注意してください．
+
+TEXT. -/
+/- OMIT:
 Here is another example:
+OMIT. -/
+/- TEXT:
+また別の例を見てみましょう．
 TEXT. -/
 -- QUOTE:
 example : s ⊆ f ⁻¹' (f '' s) := by
@@ -72,14 +94,23 @@ example : s ⊆ f ⁻¹' (f '' s) := by
   use x, xs
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 We can replace the line ``use x, xs`` by
 ``apply mem_image_of_mem f xs`` if we want to
 use a theorem specifically designed for that purpose.
 But knowing that the image is defined in terms
 of an existential quantifier is often convenient.
 
+OMIT. -/
+/- TEXT:
+``use x, xs`` の行で示している事実専用として設計された定理を使いたい場合は ``mem_image_of_mem f xs`` で置き換えることができます．しかし，像が存在量化子で定義されていることを知っていると何かと便利なことが多いものです．
+
+TEXT. -/
+/- OMIT:
 The following equivalence is a good exercise:
+OMIT. -/
+/- TEXT:
+これにあたって次の等価は良い演習です．
 TEXT. -/
 -- QUOTE:
 example : f '' s ⊆ v ↔ s ⊆ f ⁻¹' v := by
@@ -97,7 +128,7 @@ example : f '' s ⊆ v ↔ s ⊆ f ⁻¹' v := by
   rw [← fxeq]
   apply h xs
 
-/- TEXT:
+/- OMIT:
 It shows that ``image f`` and ``preimage f`` are
 an instance of what is known as a *Galois connection*
 between ``Set α`` and ``Set β``,
@@ -110,11 +141,20 @@ because ``y ∈ f ⁻¹' t`` unfolds to ``f y ∈ t``
 whereas working with ``x ∈ f '' s`` requires
 decomposing an existential quantifier.
 
+OMIT. -/
+/- TEXT:
+上記は ``image f`` と ``preimage f`` がそれぞれ部分集合の関係において半順序をなす ``Set α`` と ``Set β`` の間の *ガロア接続(Galois connection)* として知られているインスタンスであることを示しています．ライブラリでは，この等価性は ``image_subset_iff`` と名付けられています．実際に使う場合には右辺がより便利であることが多いです．なぜなら， ``y ∈ f ⁻¹' t`` は ``f y ∈ t`` に展開されるのに対し， ``x ∈ f '' s`` を扱うには存在量化子を分解する必要があるからです．
+
+TEXT. -/
+/- OMIT:
 Here is a long list of set-theoretic identities for
 you to enjoy.
 You don't have to do all of them at once;
 do a few of them,
 and set the rest aside for a rainy day.
+OMIT. -/
+/- TEXT:
+ここで読者のお楽しみとして集合についての等式をたくさん用意しました．これらすべてを一度にやる必要はありません．いくつかやったら，残りは雨の日のためにとっておきましょう．
 TEXT. -/
 -- QUOTE:
 example (h : Injective f) : f ⁻¹' (f '' s) ⊆ s := by
@@ -240,7 +280,7 @@ example : s ∪ f ⁻¹' u ⊆ f ⁻¹' (f '' s ∪ u) := by
     exact ⟨x, xs, rfl⟩
   right; exact fxu
 
-/- TEXT:
+/- OMIT:
 You can also try your hand at the next group of exercises,
 which characterize the behavior of images and preimages
 with respect to indexed unions and intersections.
@@ -249,6 +289,9 @@ to guarantee that the index set is nonempty.
 To prove any of these, we recommend using ``ext`` or ``intro``
 to unfold the meaning of an equation or inclusion between sets,
 and then calling ``simp`` to unpack the conditions for membership.
+OMIT. -/
+/- TEXT:
+また次に列挙した添字付けられた合併と共通部分にまつわる像と逆像の挙動についての演習に挑戦するのもよいでしょう．3番目の演習問題では，添字集合が空でないことを保証するために ``i : I`` という引数が必要です．これらの証明にあたっては， ``ext`` や ``intro`` を使って集合間の等式や包含の意味を展開し，次いで ``simp`` を使って要素の帰属についての条件を展開することをお勧めします．
 BOTH: -/
 -- QUOTE:
 variable {I : Type*} (A : I → Set α) (B : I → Set β)
@@ -338,6 +381,12 @@ In mathematics, when we write an expression of the form ``s / t``,
 we should have implicitly or explicitly ruled out
 the case that ``t`` is zero.
 
+OMIT. -/
+/- TEXT:
+型理論では，関数 ``f : α → β`` は始域 ``α`` の任意の要素に適用することができますが，一部の要素にのみ意味のある関数を表現したいこともあります．例えば， ``ℝ → ℝ → ℝ`` 型の関数として，除算は第2引数が0でないときのみ意味を持ちます．数学をする上で， ``s / t`` という形の式を書く時は， ``t`` が0である場合を暗黙的または明示的に除外しているはずです．
+
+TEXT. -/
+/- OMIT:
 But since division has type ``ℝ → ℝ → ℝ`` in Lean,
 it also has to return a value when the second argument is zero.
 The strategy generally followed by the library is to assign such
@@ -346,6 +395,12 @@ For example, defining ``x / 0`` to be ``0`` means that the
 identity ``(x + y) / z = x / z + y / z`` holds for every
 ``x``, ``y``, and ``z``.
 
+OMIT. -/
+/- TEXT:
+しかし，Leanでは除算は ``ℝ → ℝ → ℝ`` 型を持つので第2引数が0のときにも値を返さなければなりません．このような問題に対してライブラリでは，このような関数の自然な定義域外にある便利な値を代入する戦略が一般的に取られています．例えば， ``x / 0`` を ``0`` と定義することはすべての ``x`` ， ``y`` ， ``z`` に対して， ``(x + y) / z = x / z + y / z`` という等式が成り立つことを意味します．
+
+TEXT. -/
+/- OMIT:
 As a result, when we read an expression ``s / t`` in Lean,
 we should not assume that ``t`` is a meaningful input value.
 When we need to, we can restrict the statement of a theorem to
@@ -353,6 +408,12 @@ guarantee that it is.
 For example, theorem ``div_mul_cancel`` asserts ``x ≠ 0 → x / y * y = x`` for
 ``x`` and ``y`` in suitable algebraic structures.
 
+OMIT. -/
+/- TEXT:
+その結果，Leanで ``s / t`` という式を読むときに ``t`` が意味のある入力値であることを仮定すべきではありません．もしその仮定が必要である場合は，定理の内容を制限して，それが意味のある値であることを保証することができます．例えば，定理 ``div_mul_cancel`` は適切な代数構造の ``x`` と ``y`` に対して ``x ≠ 0 → x / y * y = x`` を保証するものです．
+
+TEXT. -/
+/- OMIT:
 .. TODO: previous text (delete eventually)
 
 .. The fact that in type theory a function is always totally
@@ -399,10 +460,13 @@ For example, theorem ``div_mul_cancel`` asserts ``x ≠ 0 → x / y * y = x`` fo
 .. the reals and that subtype.
 -/
 
-/- TEXT:
+/- OMIT:
 The library defines a predicate ``InjOn f s`` to say that
 ``f`` is injective on ``s``.
 It is defined as follows:
+OMIT. -/
+/- TEXT:
+ライブラリでは ``f`` が ``s`` 上で単射であることを示す ``InjOn f s`` という述語を定義しています．これは以下のように定義されています:
 TEXT. -/
 -- QUOTE:
 example : InjOn f s ↔ ∀ x₁ ∈ s, ∀ x₂ ∈ s, f x₁ = f x₂ → x₁ = x₂ :=
@@ -412,7 +476,7 @@ example : InjOn f s ↔ ∀ x₁ ∈ s, ∀ x₂ ∈ s, f x₁ = f x₂ → x₁
 -- BOTH:
 end
 
-/- TEXT:
+/- OMIT:
 The statement ``Injective f`` is provably equivalent
 to ``InjOn f univ``.
 Similarly, the library defines ``range f`` to be
@@ -424,7 +488,16 @@ to their full domain,
 there are often relativized versions that restrict
 the statements to a subset of the domain type.
 
+OMIT. -/
+/- TEXT:
+``Injective f`` は ``InjOn f univ`` に等価であることが証明可能です．同様にライブラリは ``range f`` を ``{x | ∃y, f y = x}`` と定義しているため， ``range f`` と ``f '' univ`` と等しいことも証明可能です．これはMathlibではよく見られる方針です．関数の多くの特性は定義域全体に対して定義されますが，なかには定理の内容を定義域の部分集合に制限する相対化されたバージョンも存在します．
+
+TEXT. -/
+/- OMIT:
 Here is are some examples of ``InjOn`` and ``range`` in use:
+OMIT. -/
+/- TEXT:
+以下に ``InjOn`` と ``range`` の使用例を示します:
 BOTH: -/
 section
 
@@ -451,8 +524,11 @@ example : range exp = { y | y > 0 } := by
   rw [exp_log ypos]
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 Try proving these:
+OMIT. -/
+/- TEXT:
+以下を証明してみましょう:
 EXAMPLES: -/
 -- QUOTE:
 example : InjOn sqrt { x | x ≥ 0 } := by
@@ -513,7 +589,7 @@ example : (range fun x ↦ x ^ 2) = { y : ℝ | y ≥ 0 } := by
 -- BOTH:
 end
 
-/- TEXT:
+/- OMIT:
 To define the inverse of a function ``f : α → β``,
 we will use two new ingredients.
 First, we need to deal with the fact that
@@ -531,6 +607,9 @@ This requires an appeal to the *axiom of choice*.
 Lean allows various ways of accessing it;
 one convenient method is to use the classical ``choose``
 operator, illustrated below.
+OMIT. -/
+/- TEXT:
+関数 ``f : α → β`` の逆関数を定義するにあたって，新しい概念を2つ用意しましょう．まず，Leanの任意の方が空である可能性があるという事実に対処する必要があります． ``f`` の逆関数を定義するにあたって，ある ``y`` に対して ``f x = y`` を満たすような ``x`` が無い場合， ``α`` 型のデフォルト値を割り当てたいところです．注釈 ``[Inhabited α]`` を変数として追加することは ``α`` 型がまさにこのような要素を持つことと同義であり，この要素は ``default`` と表記されます．次に， ``f x = y`` を満たすような ``x`` が複数存在する場合，逆関数はそのうちの1つだけを *選択* する必要があります．これには *選択公理(axiom of choice)* の力を借りる必要があります．Leanでは様々な方法で選択公理にアクセスすることができます．1つの便利な方法は，以下に示す古典的な ``choose`` 演算子を使用することです．
 TEXT. -/
 -- BOTH:
 section
@@ -548,14 +627,23 @@ example : P (Classical.choose h) :=
   Classical.choose_spec h
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 Given ``h : ∃ x, P x``, the value of ``Classical.choose h``
 is some ``x`` satisfying ``P x``.
 The theorem ``Classical.choose_spec h`` says that ``Classical.choose h``
 meets this specification.
 
+OMIT. -/
+/- TEXT:
+``h : ∃ x, P x`` が与えられた時， ``Classical.choose h`` の値は ``P x`` を満たすような ``x`` です．定理 ``Classical.choose_spec h`` は， ``Classical.choose h`` がこの仕様を満たすことを意味しています．
+
+TEXT. -/
+/- OMIT:
 With these in hand, we can define the inverse function
 as follows:
+OMIT. -/
+/- TEXT:
+これらをもとに，以下のように逆関数を定義することができます:
 BOTH: -/
 -- QUOTE:
 noncomputable section
@@ -570,7 +658,7 @@ theorem inverse_spec {f : α → β} (y : β) (h : ∃ x, f x = y) : f (inverse 
   exact Classical.choose_spec h
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 The lines ``noncomputable theory`` and ``open Classical``
 are needed because we are using classical logic in an essential way.
 On input ``y``, the function ``inverse f``
@@ -585,6 +673,12 @@ and, similarly, ``dif_neg h`` rewrites it to ``b`` given ``h : ¬ e``.
 The theorem ``inverse_spec`` says that ``inverse f``
 meets the first part of this specification.
 
+OMIT. -/
+/- TEXT:
+``noncomputable section`` と ``open Classical`` の行は古典論理を本質的な意味で使う上で必要です．入力 ``y`` に対して，関数 ``inverse f`` は ``f x = y`` を満たす ``x`` の値があればそれを返し，なければ ``α`` のデフォルトの要素を返します．これは *依存的なif（dependent if）* の構成のインスタンスです．というのも条件が真の場合，返される値 ``Classical.choose`` は仮定 ``h`` に依存するからです．条件式 ``if h : e then a else b`` は，等式 ``dif_pos h`` によって ``h : e`` が与えられると ``a`` に書き換えられ，同様に ``dif_neg h`` によって ``h : ¬ e`` が与えられると ``b`` に書き換えられます．定理 ``inverse_spec`` は ``inverse f`` がこの仕様の最初の部分を満たすことを述べています．
+
+TEXT. -/
+/- OMIT:
 Don't worry if you do not fully understand how these work.
 The theorem ``inverse_spec`` alone should be enough to show
 that ``inverse f`` is a left inverse if and only if ``f`` is injective
@@ -600,6 +694,9 @@ You should be able to prove each of them with about a half-dozen
 short lines.
 If you are looking for an extra challenge,
 try to condense each proof to a single-line proof term.
+OMIT. -/
+/- TEXT:
+これらがどのように働くか完全に理解できなくても心配しないでください．定理 ``inverse_spec`` だけで ``f`` が単射である場合にのみ ``inverse f`` が左逆であり， ``f`` が全射である場合にのみ ``inverse f`` が右逆であることを示すことができます．vscodeで ``LeftInverse`` と ``RightInverse`` の定義をダブルクリックか右クリック，もしくは ``#print LeftInverse`` と ``#print RightInverse`` コマンドを使って調べてみてください．それから以下の2つの定理を証明してください．これらは厄介です！細部を試行錯誤する前に，紙の上で証明することをお勧めします．それぞれの証明は6行で行えるはずです．更に挑戦したい場合は，それぞれの証明を1行の証明項に凝縮してみましょう．
 BOTH: -/
 -- QUOTE:
 variable (f : α → β)
@@ -671,12 +768,15 @@ end
 
 .. We should also tie this to the "function are global" discussion, and the whole thread of deferring proofs to lemmas instead of definitions. There is a lot going on here, and all of it is crucial for formalization.
 -/
-/- TEXT:
+/- OMIT:
 We close this section with a type-theoretic statement of Cantor's
 famous theorem that there is no surjective function from a set
 to its power set.
 See if you can understand the proof,
 and then fill in the two lines that are missing.
+OMIT. -/
+/- TEXT:
+本節を終えるにあたって，ある集合からその冪集合への全射が存在しないというカントールの有名な定理を型理論的に述べましょう．この証明を理解した上で，描けている2行を埋めてみてください．
 TEXT. -/
 -- BOTH:
 section
