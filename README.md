@@ -68,7 +68,7 @@
 | C04_Sets_and_Functions.rst ||
 | S01_Sets.lean | [s-taiga](https://github.com/s-taiga) |
 | S02_Functions.lean | [s-taiga](https://github.com/s-taiga) |
-| S03_The_Schroeder_Bernstein_Theorem.lean | [Seasawher](https://github.com/Seasawher) |
+| S03_The_Schroeder_Bernstein_Theorem.lean | [s-taiga](https://github.com/s-taiga) |
 
 * C05_Elementary_Number_Theory
 
