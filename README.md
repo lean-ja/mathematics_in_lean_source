@@ -95,7 +95,7 @@
 | C07_Hierarchies.rst ||
 | S01_Basics.lean | [s-taiga](https://github.com/s-taiga)  |
 | S02_Morphisms.lean | [s-taiga](https://github.com/s-taiga)  |
-| S03_Subobjects.lean ||
+| S03_Subobjects.lean | [s-taiga](https://github.com/s-taiga)  |
 
 * C08_Topology
 
