@@ -7,8 +7,10 @@
 | chapter | 章 |
 | dependent type theory | 依存型理論 |
 | exercises | 演習 |
+| higher-order unification | 高階ユニフィケーション |
 | identity | 恒等式, 等式 |
 | measure theory | 測度論 |
+| morphism | 射 |
 | number theory | 数論 |
 | proof term | 証明項 |
 | section | 節 |
