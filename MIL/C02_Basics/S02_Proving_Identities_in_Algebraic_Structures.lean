@@ -401,7 +401,7 @@ still using only facts about rings that we have
 established in this section.
 OMIT. -/
 /- TEXT:
-ここまでくれば，次の練習問題でもこの節で確立した環に関する事実だけを用いて各 ``sorry`` を証明に置き換えることができるでしょう．
+ここまでくれば，次の演習問題でも各 ``sorry`` を証明に置き換えることができるでしょう．この節で示した環に関する事実だけを用います．
 TEXT. -/
 -- QUOTE:
 theorem neg_eq_of_add_eq_zero {a b : R} (h : a + b = 0) : -a = b := by
@@ -446,7 +446,7 @@ and by default it would be interpreted as a natural number.
 
 OMIT. -/
 /- TEXT:
-ここで3つ目の定理においては単に ``0`` とするのではなく， ``(-0 : R)`` という注釈を使う必要があります．なぜなら ``R`` を指定しなければLeanはどの環での ``0`` を念頭においているかを推測することができず，結果としてデフォルトの自然数として解釈してしまうからです．
+ここで3つ目の定理においては単に ``0`` とするのではなく， ``(-0 : R)`` と注釈をつける必要があります．なぜなら ``R`` を指定しなければLeanはどの環での ``0`` を念頭においているかを推測することができず，結果デフォルトの挙動として ``0`` を自然数として解釈してしまうからです．
 
 TEXT. -/
 /- OMIT:
@@ -454,7 +454,7 @@ In Lean, subtraction in a ring is provably equal to
 addition of the additive inverse.
 OMIT. -/
 /- TEXT:
-Leanでは，環においての引き算は加法の逆元との足し算と等しいことが証明できます．
+環においての引き算は加法の逆元との足し算と等しいことがLeanで証明できます．
 TEXT. -/
 -- Examples.
 section
@@ -498,7 +498,8 @@ OMIT. -/
 /- TEXT:
 .. index:: rfl, reflexivity, tactics ; refl and reflexivity, definitional equality
 
-証明の用語として ``rfl`` は「反射性（reflexivity）」の略です．これを ``a - b = a + -b`` の証明として提示することで，Leanにその定義を展開させ，両辺が同じであることを認識させます．``rfl`` タクティクもこれと同様です．これはLeanの基礎となっている論理で， *定義として同値* として知られているものです．つまり ``sub_eq_add_neg`` を用いて ``a - b = a + -b`` を置き換えることができるだけでなく，文脈によっては実数を扱うときに等式の両辺を入れ替えて使うこともできます．例えば前節の定理 ``self_sub`` を証明するにあたって十分な情報を得たとしましょう:
+証明項 ``rfl`` は「反射性（reflexivity）」の略です．これを ``a - b = a + -b`` の証明として提示すると，Leanはその定義を展開し，両辺が同じであることを認識します．``rfl`` タクティクもこれと同様です．これは *definitional equality(定義からの等価性)* として知られているLeanの基礎にある論理の一例です．つまり ``sub_eq_add_neg`` を用いて等式 ``a - b = a + -b`` を示せるだけでなく，実数を扱うときなど文脈によってはこの等式の両辺を同じ意味で使うことができます．ここまでの情報で，例えば前節の定理 ``self_sub`` はもう証明できます:
+
 TEXT. -/
 -- BOTH:
 namespace MyRing
@@ -522,7 +523,8 @@ using either ``apply`` or ``exact``.
 
 OMIT. -/
 /- TEXT:
-この証明では ``rw`` を用いて証明できることを示しますが，ここで任意の環 ``R`` ではなく実数とすれば， ``apply`` または ``exact`` を使って証明することができます．
+``rw`` を用いて証明してみましょう．また ``R`` を任意の環ではなく実数とすれば， ``apply`` または ``exact`` を使っても証明することができます．
+
 TEXT. -/
 /- OMIT:
 Lean knows that ``1 + 1 = 2`` holds in any ring.
@@ -531,7 +533,7 @@ you can use that to prove the theorem ``two_mul`` from
 the last section:
 OMIT. -/
 /- TEXT:
-Leanはどんな環でも ``1 + 1 = 2`` が成り立つことを知っています．そしてさらに少し努力すれば，この事実を使って最後の節の定理 ``two_mul`` を証明することができます:
+Leanはどんな環でも ``1 + 1 = 2`` が成り立つことを知っています．そしてさらに少し努力すれば，この事実を使って前節の定理 ``two_mul`` を証明することができます:
 TEXT. -/
 -- QUOTE:
 -- BOTH:
@@ -562,7 +564,7 @@ OMIT. -/
 /- TEXT:
 .. index:: group (algebraic structure)
 
-本節を締めくくるにあたって上記で証明した加算と減算に関するいくつかの事実は環のすべての公理や加算の可換性さえも必要としない点について見ていきましょう．この環よりも弱い概念である *群* は次のように公理化できます:
+本節を締めくくるにあたって，上で証明した加算と減算に関する事実の中には，環の公理のすべてを必要とするわけではないものや，加算の可換性さえも必要としないものがあることについて見ていきましょう．この環よりも弱い概念である *群* は次のように公理化できます:
 TEXT. -/
 section
 -- QUOTE:
@@ -584,7 +586,7 @@ additive version (and also their abelian variants,
 ``AddCommGroup`` and ``CommGroup``).
 OMIT. -/
 /- TEXT:
-群の演算において可換の場合は加法の表記を使い，そうでない場合は乗法の記法を使うのが一般的です．そのためLeanは加法バージョンの群と同様に乗法バージョンの群も定義しています．（またこれらのアーベルなバリエーションである ``AddCommGroup`` と ``CommGroup`` についても定義しています．）
+群の演算が可換な場合は加法的表記を使い，そうでない場合は乗法的表記を使うのが一般的です．そのためLeanは加法バージョンの群と同様に乗法バージョンの群も定義しています．（またこれらのアーベリアンなバリエーションである ``AddCommGroup`` と ``CommGroup`` についても定義しています．）
 TEXT. -/
 -- BOTH:
 section
@@ -604,7 +606,7 @@ You will need to prove a number of helper lemmas along the way.
 The proofs we have carried out in this section provide some hints.
 OMIT. -/
 /- TEXT:
-もし腕に自信があるならこれらの公理だけを用いて群に関する以下の事実を証明してみましょう．その過程でいくつか補助的な補題を証明する必要があります．またこれらの証明には本節でこれまで行ってきた証明がヒントになります．
+もし腕に自信があるならこれらの公理だけを用いて群に関する以下の事実を証明してみましょう．その過程でいくつか補助的な補題を証明する必要があります．また本節でこれまで行ってきた証明がヒントになります．
 TEXT. -/
 -- BOTH:
 namespace MyGroup
