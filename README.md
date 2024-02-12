@@ -103,7 +103,7 @@
 | --- | --- |
 | C08_Topology.rst ||
 | S01_Filters.lean | [s-taiga](https://github.com/s-taiga)  |
-| S02_Metric_Spaces.lean ||
+| S02_Metric_Spaces.lean | [s-taiga](https://github.com/s-taiga)  |
 | S03_Topological_Spaces.lean ||
 
 * C09_Differential_Calculus
