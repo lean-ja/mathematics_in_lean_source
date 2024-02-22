@@ -44,7 +44,7 @@ happy to answer questions and offer moral support.
 
 OMIT. -/
 /- TEXT:
-`Lean project page <https://leanprover.github.io>`_ や `Lean community web pages <https://leanprover-community.github.io/>`_ から、leanについてのより詳細な情報を得ることができます．このチュートリアルはLeanの大規模で，今もなお成長し続けているライブラリである*Mathlib*に基づいています．また，もしまだ参加していないのでしたら， `Lean Zulip online chat group <https://leanprover.zulipchat.com/>`_ に参加することを強く推奨します．ZulipはLeanマニアによるウェルカムで活気に満ちたコミュニティで，喜んで読者の質問に答えたり気持ちの面でもサポートをしてくれたりするでしょう．
+`Lean project page <https://leanprover.github.io>`_ や `Lean community web pages <https://leanprover-community.github.io/>`_ から、leanについてのより詳細な情報を得ることができます．このチュートリアルはLeanの大規模で，今もなお成長し続けているライブラリである *Mathlib* に基づいています．また，もしまだ参加していないのでしたら， `Lean Zulip online chat group <https://leanprover.zulipchat.com/>`_ に参加することを強く推奨します．ZulipはLeanマニアによるウェルカムで活気に満ちたコミュニティで，喜んで読者の質問に答えたり気持ちの面でもサポートをしてくれたりするでしょう．
 
 TEXT. -/
 /- OMIT:
@@ -71,7 +71,9 @@ To get started:
 
 OMIT. -/
 /- TEXT:
-本書はPDF版もしくはHTML版をオンラインで読むことができるようになっていますが，同時にVSCode内でLeanを実行しながら対話的に読めるようにも設計されています．始め方:
+本書はPDF版もしくはHTML版をオンラインで読むことができるようになっていますが，同時にVSCode内でLeanを実行しながら対話的に読めるようにも設計されています．
+
+始め方:
 
 1. Lean4とVSCodeを `installation instructions <https://leanprover-community.github.io/get_started.html>`_ に従ってインストールします．
 
