@@ -104,7 +104,7 @@ it makes more sense to start here and refer back to
 
 OMIT. -/
 /- TEXT:
-本書は同種のチュートリアルである `Theorem Proving in Lean <https://leanprover.github.io/theorem_proving_in_lean4/>`_ を補完するものです． (訳注: 有志による日本語訳が `こちら <https://aconite-ac.github.io/theorem_proving_in_lean4_ja/>`_ にあります.)あちらはLeanの根幹にある論理フレームワークとコア構文についてより包括的に説明しています． *Theorem Proving in Lean* は新しい食洗器を使う前に取説を隅から隅まで読みたい人向けです．もし読者がとりあえず *スタート* ボタンを押してから食洗器内の洗浄ブラシがどう動くのかみてみたいタイプであるならば，本書から始めて必要に応じて *Theorem Proving in Lean* を参照する方が理にかなっているでしょう．
+本書は同種のチュートリアルである `Theorem Proving in Lean <https://leanprover.github.io/theorem_proving_in_lean4/>`_ を補完するものです．[#f2]_ あちらはLeanの根幹にある論理フレームワークとコア構文についてより包括的に説明しています． *Theorem Proving in Lean* は新しい食洗器を使う前に取説を隅から隅まで読みたい人向けです．もし読者がとりあえず *スタート* ボタンを押してから食洗器内の洗浄ブラシがどう動くのかみてみたいタイプであるならば，本書から始めて必要に応じて *Theorem Proving in Lean* を参照する方が理にかなっているでしょう．
 
 TEXT. -/
 /- OMIT:
@@ -310,5 +310,6 @@ and others.
 Our work has been partially supported by the Hoskinson Center for
 Formal Mathematics.
 
+.. [#f2] 訳注: 有志による日本語訳が `こちら <https://aconite-ac.github.io/theorem_proving_in_lean4_ja/>`_ にあります.
 .. [#f1] 訳注: コード中で使用されているのは ``rw`` ですが，これは ``rewrite`` の後に ``rfl`` を実行するというタクティクで，ほぼ ``rewrite`` と同じものだと思ってください．
 TEXT. -/
