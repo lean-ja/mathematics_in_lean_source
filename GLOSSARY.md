@@ -30,6 +30,7 @@
 | convergence | 収束 |
 | coprime | 互いに素 |
 | curly brackets | 波括弧 |
+| dense | 稠密 |
 | dependent type theory | 依存型理論 |
 | direct image | 順像 |
 | disjunction | 選言 |
@@ -48,6 +49,7 @@
 | factorial | 階乗 |
 | filter | フィルタ |
 | filter basis | フィルタ基底 |
+| functoriality | 関手性 |
 | Galois connection | ガロア接続 |
 | gaussian integer | ガウス整数 |
 | greatest common divisor | 最大公約数 |
@@ -122,6 +124,7 @@
 | total order | 全順序 |
 | transitivity | 推移性 |
 | triangle inequality | 三角不等式 |
+| uncountable | 不可算 |
 | uniformly continuous | 一様連続 |
 | uniform space | 一様空間 |
 | union | 合併, 非交和 |
