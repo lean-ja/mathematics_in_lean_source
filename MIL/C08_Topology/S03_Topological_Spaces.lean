@@ -37,7 +37,7 @@ a somewhat categorical point of view.
 
 OMIT. -/
 /- TEXT:
-ここでは一般性を高めて、位相空間を紹介しましょう。まず位相空間を定義する主な方法のうち2つを復習し、位相空間の圏が距離空間の圏よりもずっと良い振る舞いをしていることを説明します。ここでは、Mathlibの圏論ライブラリを使うのではなく、圏論的な視点を持つだけにとどまることに注意してください。
+ここでは一般性を高めて，位相空間を紹介しましょう．まず位相空間を定義する主な方法のうち2つを復習し，位相空間の圏が距離空間の圏よりもずっと良い振る舞いをしていることを説明します．ここでは，Mathlibの圏論ライブラリを使うのではなく，圏論的な視点を持つだけにとどまることに注意してください．
 
 TEXT. -/
 /- OMIT:
@@ -47,7 +47,7 @@ a topological space is a type equipped with a collection of sets that are called
 has to satisfy a number of axioms presented below (this collection is slightly redundant but we will ignore that).
 OMIT. -/
 /- TEXT:
-距離空間から位相空間への移行を考え方の1つ目は、開集合の概念（あるいはそれに準ずる閉集合の概念）だけを覚えておくことです。この観点から、位相空間は開集合と呼ばれる集合の集まりを備えた型です。この集合は、以下に示すいくつかの公理を満たす必要があります（これらは若干冗長ですが、置いておくこととします）。
+距離空間から位相空間への移行を考え方の1つ目は，開集合の概念（あるいはそれに準ずる閉集合の概念）だけを覚えておくことです．この観点から，位相空間は開集合と呼ばれる集合の集まりを備えた型です．この集合は，以下に示すいくつかの公理を満たす必要があります（これらは若干冗長ですが，置いておくこととします）．
 BOTH: -/
 -- QUOTE:
 section
@@ -73,7 +73,7 @@ Closed sets are then defined as sets whose complement  is open. A function betwe
 is (globally) continuous if all preimages of open sets are open.
 OMIT. -/
 /- TEXT:
-また、閉集合はその補集合が開である集合として定義されます。位相空間の間の関数は開集合の逆像がずべて開であれば（大域的に）連続です。
+また，閉集合はその補集合が開である集合として定義されます．位相空間の間の関数は開集合の逆像がずべて開であれば（大域的に）連続です．
 BOTH: -/
 -- QUOTE:
 variable {Y : Type*} [TopologicalSpace Y]
@@ -90,7 +90,7 @@ be continuous in both direction if and only if the two structures have the same 
 
 OMIT. -/
 /- TEXT:
-この定義から、距離空間と比較して位相空間は連続関数について議論するのに十分な情報しか保有していないことがわかるでしょう。つまり、ある型上の2つの位相構造が同じであるのは、それらが同じ連続関数を持つ場合に限ります（実際、恒等関数は2つの構造が同じ開集合を持つ場合に限り両方向に連続です）。
+この定義から，距離空間と比較して位相空間は連続関数について議論するのに十分な情報しか保有していないことがわかるでしょう．つまり，ある型上の2つの位相構造が同じであるのは，それらが同じ連続関数を持つ場合に限ります（実際，恒等関数は2つの構造が同じ開集合を持つ場合に限り両方向に連続です）．
 
 TEXT. -/
 /- OMIT:
@@ -108,7 +108,7 @@ or ``Tendsto f (𝓝 x) (𝓝 (f x))``.
 
 OMIT. -/
 /- TEXT:
-しかし、ある点での連続性について考えると、すぐに開集合に基づくアプローチの限界が見えてきます。Mathlibでは、位相空間を、各点 ``x`` に対応する近傍フィルタ ``𝓝 x`` を備えた型として考えることが多いです（対応する関数 ``X → Filter X`` はこの後で説明するある条件を満たします）。フィルタのセクションで、これらの道具が2つの関連した役割を果たしていたことを思い出してください。まず、 ``𝓝 x`` は ``x`` に近い ``X`` の点の一般化された集合だとみなされます。また、任意の述語 ``P : X → Prop`` に対して、この述語が ``x`` に十分近い点に対して成り立つことを示す方法を与えるものともみなされます。これらを用いて ``f : X → Y`` が ``x`` で連続であることを定義しましょう。純粋にフィルタ的な言い方をすれば、 ``x`` に近い点からなる一般化された集合に対する ``f`` の順像が、 ``f x`` に近い点からなる一般化された集合に含まれるということです。これは ``map f (𝓝 x) ≤ 𝓝 (f x)`` 、または ``Tendsto f (𝓝 x) (𝓝 (f x))`` と表記されたことを思い出してください。
+しかし，ある点での連続性について考えると，すぐに開集合に基づくアプローチの限界が見えてきます．Mathlibでは，位相空間を，各点 ``x`` に対応する近傍フィルタ ``𝓝 x`` を備えた型として考えることが多いです（対応する関数 ``X → Filter X`` はこの後で説明するある条件を満たします）．フィルタのセクションで，これらの道具が2つの関連した役割を果たしていたことを思い出してください．まず， ``𝓝 x`` は ``x`` に近い ``X`` の点の一般化された集合だとみなされます．また，任意の述語 ``P : X → Prop`` に対して，この述語が ``x`` に十分近い点に対して成り立つことを示す方法を与えるものともみなされます．これらを用いて ``f : X → Y`` が ``x`` で連続であることを定義しましょう．純粋にフィルタ的な言い方をすれば， ``x`` に近い点からなる一般化された集合に対する ``f`` の順像が， ``f x`` に近い点からなる一般化された集合に含まれるということです．これは ``map f (𝓝 x) ≤ 𝓝 (f x)`` ，または ``Tendsto f (𝓝 x) (𝓝 (f x))`` と表記されたことを思い出してください．
 BOTH: -/
 -- QUOTE:
 example {f : X → Y} {x : X} : ContinuousAt f x ↔ map f (𝓝 x) ≤ 𝓝 (f x) :=
@@ -123,7 +123,7 @@ equivalent to the previous one.
 
 OMIT. -/
 /- TEXT:
-また近傍を通常の集合、近傍フィルタを一般化された集合としてみなすことを両方もちいて、次のように記述することもできます。「 ``f x`` の任意の近傍 ``U`` に対して、 ``x`` に近い点はすべて ``U`` に送られる」。この証明も ``iff.rfl`` で与えられ、この観点は前のものと定義上等価であることに注意してください。
+また近傍を通常の集合，近傍フィルタを一般化された集合としてみなすことを両方もちいて，次のように記述することもできます．「 ``f x`` の任意の近傍 ``U`` に対して， ``x`` に近い点はすべて ``U`` に送られる」．この証明も ``iff.rfl`` で与えられ，この観点は前のものと定義上等価であることに注意してください．
 
 BOTH: -/
 -- QUOTE:
@@ -138,7 +138,7 @@ simply define members of ``𝓝 x`` as sets that contain an open set containing 
 
 OMIT. -/
 /- TEXT:
-ここで上記の2つの観点について、一方の視点から他方の視点に移る方法を説明しましょう。開集合の観点からは、単純に ``x`` を含む開集合を含む集合を ``𝓝 x`` の要素と定義することができます。
+ここで上記の2つの観点について，一方の視点から他方の視点に移る方法を説明しましょう．開集合の観点からは，単純に ``x`` を含む開集合を含む集合を ``𝓝 x`` の要素と定義することができます．
 BOTH: -/
 -- QUOTE:
 example {x : X} {s : Set X} : s ∈ 𝓝 x ↔ ∃ t, t ⊆ s ∧ IsOpen t ∧ x ∈ t :=
@@ -151,7 +151,7 @@ in order to be the neighborhood function of a topology.
 
 OMIT. -/
 /- TEXT:
-上記の反対方向へ行くにあたって、位相の近傍関数であるためには、 ``𝓝 : X → Filter X`` が満たすべき条件について議論する必要があります。
+上記の反対方向へ行くにあたって，位相の近傍関数であるためには， ``𝓝 : X → Filter X`` が満たすべき条件について議論する必要があります．
 
 TEXT. -/
 /- OMIT:
@@ -161,7 +161,7 @@ Another way to say it is that if a predicate holds for points close to ``x`` the
 
 OMIT. -/
 /- TEXT:
-最初の制約は、一般化された集合としてみた ``𝓝 x`` は、集合 ``{x}`` を一般化された集合としてみた ``pure x`` を含むということです（この奇妙な名前を説明すると余談が多くなるため、今はただそういうものなんだと思ってください）。別の言い方をすれば、ある述語 ``x`` に近い点で成り立つなら、それは ``x`` で成り立つということです。
+最初の制約は，一般化された集合としてみた ``𝓝 x`` は，集合 ``{x}`` を一般化された集合としてみた ``pure x`` を含むということです（この奇妙な名前を説明すると余談が多くなるため，今はただそういうものなんだと思ってください）．別の言い方をすれば，ある述語 ``x`` に近い点で成り立つなら，それは ``x`` で成り立つということです．
 BOTH: -/
 -- QUOTE:
 example (x : X) : pure x ≤ 𝓝 x :=
@@ -176,7 +176,7 @@ Then a more subtle requirement is that, for any predicate ``P : X → Prop`` and
 to ``x`` then for ``y`` close to ``x`` and ``z`` close to ``y``, ``P z`` holds. More precisely we have:
 OMIT. -/
 /- TEXT:
-そして、より微妙な要件は、任意の述語 ``P : X → Prop`` と任意の ``x`` について、 ``x`` に近い ``y`` に対して ``P y`` が成り立つなら、 ``x`` に近い ``y`` と ``y`` に近い ``z`` に対して ``P z`` が成り立つということです。より正確には次のように成ります：
+そして，より微妙な要件は，任意の述語 ``P : X → Prop`` と任意の ``x`` について， ``x`` に近い ``y`` に対して ``P y`` が成り立つなら， ``x`` に近い ``y`` と ``y`` に近い ``z`` に対して ``P z`` が成り立つということです．より正確には次のように成ります：
 BOTH: -/
 -- QUOTE:
 example {P : X → Prop} {x : X} (h : ∀ᶠ y in 𝓝 x, P y) : ∀ᶠ y in 𝓝 x, ∀ᶠ z in 𝓝 y, P z :=
@@ -191,7 +191,7 @@ More precisely we have a lemma ``TopologicalSpace.nhds_mkOfNhds`` saying that in
 next exercise deduces this different way from how we stated it above.
 OMIT. -/
 /- TEXT:
-この2つの結果から ``X → Filter X`` の型をもつ関数が ``X`` 上の位相空間構造の近傍関数であることが特徴づけられます。これ以外に ``TopologicalSpace.mkOfNhds : (X → Filter X) → TopologicalSpace X`` という関数も存在しますが、これは上記の2つの制約を満たす場合にのみ入力を近傍関数として返します。より正確にはこのことを別の方法で述べている ``TopologicalSpace.nhds_mkOfNhds`` があり、次の演習ではこの方法を導きます。
+この2つの結果から ``X → Filter X`` の型をもつ関数が ``X`` 上の位相空間構造の近傍関数であることが特徴づけられます．これ以外に ``TopologicalSpace.mkOfNhds : (X → Filter X) → TopologicalSpace X`` という関数も存在しますが，これは上記の2つの制約を満たす場合にのみ入力を近傍関数として返します．より正確にはこのことを別の方法で述べている ``TopologicalSpace.nhds_mkOfNhds`` があり，次の演習ではこの方法を導きます．
 BOTH: -/
 #check TopologicalSpace.mkOfNhds
 
@@ -223,7 +223,7 @@ precise sense the neighborhood filters is all there is in a topological space st
 
 OMIT. -/
 /- TEXT:
-``TopologicalSpace.mkOfNhds`` はそれほど頻繁に使われるものではありませんが、位相空間の構造において近傍フィルタの正確な意味での定義を知っておくことは良いことでしょう。
+``TopologicalSpace.mkOfNhds`` はそれほど頻繁に使われるものではありませんが，位相空間の構造において近傍フィルタの正確な意味での定義を知っておくことは良いことでしょう．
 
 TEXT. -/
 /- OMIT:
@@ -236,7 +236,7 @@ already discussed that metric spaces contain a lot of geometrical information th
 
 OMIT. -/
 /- TEXT:
-Mathlibで位相空間を効率的に使うために知っておくべきことの2番目は、 ``TopologicalSpace : Type u → Type u`` の形式的性質をたくさん使うということです。純粋数学の観点から見ると、これらの形式的特性は位相空間による距離空間が持つ問題の解決策を説明する非常に綺麗な方法です。この観点からすると、距離空間が関手性ほとんど満たしておらず、一般に圏としての性質が非常に悪いという問題が位相空間によって解決されます。このことは、既に述べたように距離空間には位相には関係ない幾何学的な情報がたくさん含まれている事実の上に成り立っています。
+Mathlibで位相空間を効率的に使うために知っておくべきことの2番目は， ``TopologicalSpace : Type u → Type u`` の形式的性質をたくさん使うということです．純粋数学の観点から見ると，これらの形式的特性は位相空間による距離空間が持つ問題の解決策を説明する非常に綺麗な方法です．この観点からすると，距離空間が関手性ほとんど満たしておらず，一般に圏としての性質が非常に悪いという問題が位相空間によって解決されます．このことは，既に述べたように距離空間には位相には関係ない幾何学的な情報がたくさん含まれている事実の上に成り立っています．
 
 TEXT. -/
 /- OMIT:
@@ -246,7 +246,7 @@ They cannot be pulled back by general map or pushed forward, even by surjective 
 
 OMIT. -/
 /- TEXT:
-まず関手性に着目しましょう。距離空間の構造は部分集合に誘導することができ、また同様に単射な写像によって引き戻すこともできます。しかし、これらの条件がほぼ全てになります。一般的な写像によって引き戻されることはなく、またたとえ全射な写像であっても押し出されることもありません。
+まず関手性に着目しましょう．距離空間の構造は部分集合に誘導することができ，また同様に単射な写像によって引き戻すこともできます．しかし，これらの条件がほぼ全てになります．一般的な写像によって引き戻されることはなく，またたとえ全射な写像であっても押し出されることもありません．
 
 TEXT. -/
 /- OMIT:
@@ -259,7 +259,7 @@ a map ``f : X → (ℝ → ℝ)`` is continuous if and only ``fun x ↦ f x t`` 
 
 OMIT. -/
 /- TEXT:
-特に、距離空間の商や、距離空間の不可算積上の実用的な距離は存在しません。例えば ``ℝ → ℝ`` という型を考えてみましょう。これは ``ℝ`` をインデックスとする ``ℝ`` のコピーの積として見ることができます。関数列の点ごとの収束は、立派に収束の概念であると言いたいところです。しかし、 ``ℝ → ℝ`` 上にはこの収束の概念を与える距離は存在しません。これに関連して、写像 ``f : X → (ℝ → ℝ)`` がすべての ``t : ℝ`` に対して ``fun x ↦ f x t`` が連続である場合だけ連続であることを保証する距離は存在しません。
+特に，距離空間の商や，距離空間の不可算積上の実用的な距離は存在しません．例えば ``ℝ → ℝ`` という型を考えてみましょう．これは ``ℝ`` をインデックスとする ``ℝ`` のコピーの積として見ることができます．関数列の点ごとの収束は，立派に収束の概念であると言いたいところです．しかし， ``ℝ → ℝ`` 上にはこの収束の概念を与える距離は存在しません．これに関連して，写像 ``f : X → (ℝ → ℝ)`` がすべての ``t : ℝ`` に対して ``fun x ↦ f x t`` が連続である場合だけ連続であることを保証する距離は存在しません．
 
 TEXT. -/
 /- OMIT:
@@ -268,7 +268,7 @@ push or pull topologies from one side to the other. Those two operations form a 
 
 OMIT. -/
 /- TEXT:
-ここでこれらの問題を解決するための情報を見直しましょう。まず、任意の写像 ``f : X → Y`` をつかって位相を一方から他方へ押し出したり引き戻したりすることができます。この2つの操作はガロア接続を形成します。
+ここでこれらの問題を解決するための情報を見直しましょう．まず，任意の写像 ``f : X → Y`` をつかって位相を一方から他方へ押し出したり引き戻したりすることができます．この2つの操作はガロア接続を形成します．
 BOTH: -/
 -- QUOTE:
 variable {X Y : Type*}
@@ -291,7 +291,7 @@ On paper we will use notations :math:`f_*T` for ``TopologicalSpace.coinduced f T
 :math:`f^*T` for ``TopologicalSpace.induced f T``.
 OMIT. -/
 /- TEXT:
-これらの操作は関数の合成でコンパクトにできます。例によって押し出しは共編であり、引き戻しは反変です（ ``coinduced_compose`` と ``induced_compose`` を参照）。本書では、 ``TopologicalSpace.coinduced f T`` に対して :math:`f_*T` 、 ``TopologicalSpace.induced f T`` に対して :math:`f^*T` という表記を使用します。
+これらの操作は関数の合成でコンパクトにできます．例によって押し出しは共編であり，引き戻しは反変です（ ``coinduced_compose`` と ``induced_compose`` を参照）．本書では， ``TopologicalSpace.coinduced f T`` に対して :math:`f_*T` ， ``TopologicalSpace.induced f T`` に対して :math:`f^*T` という表記を使用します．
 BOTH: -/
 #check coinduced_compose
 
@@ -311,7 +311,7 @@ So the order relation we do use on  ``TopologicalSpace X`` is opposite to the on
 
 OMIT. -/
 /- TEXT:
-次の大きなピースは、任意の構造に対する ``TopologicalSpace X`` 上の完備束構造です。位相が主に開集合のあつまりであると考えるなら、 ``TopologicalSpace X`` 上の順序関係は ``Set (Set X)`` から導かれると予想されます。つまり、集合 ``u`` が ``t'`` に対して開であれば、 ``t`` に対して開である時に ``t ≤ t'`` になると予想するでしょう。しかし、Mathlibは開集合よりも近傍に重点を置いているので、任意の ``x : X`` に対して、位相空間から近傍への写像 ``fun T : TopologicalSpace X ↦ @nhds X T x`` は順序を保存してほしいです。そして、 ``Filter X`` の順序関係は ``principal : Set X → Filter X`` が順序を保存するように設計されており、またフィルタを一般化した集合と見ることができることは既に見ました。つまり、  ``TopologicalSpace X`` の順序関係は ``Set (Set X)`` の順序関係とは逆向きになります。
+次の大きなピースは，任意の構造に対する ``TopologicalSpace X`` 上の完備束構造です．位相が主に開集合のあつまりであると考えるなら， ``TopologicalSpace X`` 上の順序関係は ``Set (Set X)`` から導かれると予想されます．つまり，集合 ``u`` が ``t'`` に対して開であれば， ``t`` に対して開である時に ``t ≤ t'`` になると予想するでしょう．しかし，Mathlibは開集合よりも近傍に重点を置いているので，任意の ``x : X`` に対して，位相空間から近傍への写像 ``fun T : TopologicalSpace X ↦ @nhds X T x`` は順序を保存してほしいです．そして， ``Filter X`` の順序関係は ``principal : Set X → Filter X`` が順序を保存するように設計されており，またフィルタを一般化した集合と見ることができることは既に見ました．つまり，  ``TopologicalSpace X`` の順序関係は ``Set (Set X)`` の順序関係とは逆向きになります．
 BOTH: -/
 -- QUOTE:
 example {T T' : TopologicalSpace X} : T ≤ T' ↔ ∀ s, T'.IsOpen s → T.IsOpen s :=
@@ -324,7 +324,7 @@ Now we can recover continuity by combining the push-forward (or pull-back) opera
 
 OMIT. -/
 /- TEXT:
-ここで押し出し（もしくは引き戻し）操作と順序関係を組み合わせることで、連続性を再度示すことができます。
+ここで押し出し（もしくは引き戻し）操作と順序関係を組み合わせることで，連続性を再度示すことができます．
 BOTH: -/
 -- QUOTE:
 example (T_X : TopologicalSpace X) (T_Y : TopologicalSpace Y) (f : X → Y) :
@@ -339,7 +339,7 @@ a function :math:`g : Y → Z` is continuous for the topology :math:`f_*T_X` if 
 :math:`g ∘ f` is continuous.
 OMIT. -/
 /- TEXT:
-この定義と、押し出しと合成の互換性によって、任意の位相空間 :math:`Z` に対して、関数 :math:`g : Y → Z` が :math:`f_*T_X` において連続であるのは :math:`g ∘ f` が連続である場合に限るという普遍的な性質をただで手に入れることができます。
+この定義と，押し出しと合成の互換性によって，任意の位相空間 :math:`Z` に対して，関数 :math:`g : Y → Z` が :math:`f_*T_X` において連続であるのは :math:`g ∘ f` が連続である場合に限るという普遍的な性質をただで手に入れることができます．
 
 .. math::
   g \text{ continuous } &⇔ g_*(f_*T_X) ≤ T_Z \\
@@ -367,7 +367,7 @@ Let us explore that constraint "on paper" using notation :math:`p_i` for the pro
 
 OMIT. -/
 /- TEXT:
-つまり、すでに（射影写像として ``f`` を使うことで）商位相を得ているのです。これは ``TopologicalSpace X`` がすべての ``X`` に対して完備束であるという事実を利用したものではありません。ではこのような構造によって抽象的な無意味から積位相の存在がどのように証明されるか見てみましょう。上では ``ℝ → ℝ`` の場合だけを考えましたが、ここでは ``ι : Type*`` と ``X : ι → Type*`` に対する ``Π i, X i`` の一般的な場合を考えてみましょう。任意の位相空間 ``Z`` と任意の関数 ``f : Z → Π i, X i`` に対して、 ``f`` が連続であるのは、すべての ``ι`` に対して ``(fun x ↦ x i) ∘ f`` が連続である場合に限ってほしいです。ここでは射影 ``(fun (x : Π i, X i) ↦ x i)`` の表記 :math:`p_i` を用いて、その制約を「紙の上で」調べてみましょう：
+つまり，すでに（射影写像として ``f`` を使うことで）商位相を得ているのです．これは ``TopologicalSpace X`` がすべての ``X`` に対して完備束であるという事実を利用したものではありません．ではこのような構造によって抽象的な無意味から積位相の存在がどのように証明されるか見てみましょう．上では ``ℝ → ℝ`` の場合だけを考えましたが，ここでは ``ι : Type*`` と ``X : ι → Type*`` に対する ``Π i, X i`` の一般的な場合を考えてみましょう．任意の位相空間 ``Z`` と任意の関数 ``f : Z → Π i, X i`` に対して， ``f`` が連続であるのは，すべての ``ι`` に対して ``(fun x ↦ x i) ∘ f`` が連続である場合に限ってほしいです．ここでは射影 ``(fun (x : Π i, X i) ↦ x i)`` の表記 :math:`p_i` を用いて，その制約を「紙の上で」調べてみましょう：
 
 TEXT. -/
 /- OMIT:
@@ -380,7 +380,7 @@ TEXT. -/
 So we see that what is the topology we want on ``Π i, X i``:
 OMIT. -/
 /- TEXT:
-したがって、 ``Π i, X i`` の位相が求まります。
+したがって， ``Π i, X i`` の位相が求まります．
 BOTH: -/
 -- QUOTE:
 example (ι : Type*) (X : ι → Type*) (T_X : ∀ i, TopologicalSpace (X i)) :
@@ -396,7 +396,7 @@ by being a more functorial theory and having a complete lattice structure for an
 
 OMIT. -/
 /- TEXT:
-以上でMathlibが位相空間をより関手的な理論であり、任意の固定された型に対して完備束構造を持つことで、距離空間の理論の欠点を埋めようとする思想についてのツアーを終了します。
+以上でMathlibが位相空間をより関手的な理論であり，任意の固定された型に対して完備束構造を持つことで，距離空間の理論の欠点を埋めようとする思想についてのツアーを終了します．
 
 TEXT. -/
 /- OMIT:
@@ -420,7 +420,7 @@ each point has a basis of closed neighborhoods.
 
 OMIT. -/
 /- TEXT:
-位相空間の圏には非常に優れた性質があることを見てきました。その代償として、かなり病的な位相空間が存在します。位相空間には、その振る舞いが距離空間の振る舞いに近くなるようにするための仮定がいくつか存在します。最も重要なものは ``T2Space`` で、これは「ハウスドルフ性」とも呼ばれ、極限が一意であることを保証します。より強力な分離特性は ``T3Space`` で、これは `RegularSpace` の特性に加えて、各店が閉近傍の基底を持つことを保証します。
+位相空間の圏には非常に優れた性質があることを見てきました．その代償として，かなり病的な位相空間が存在します．位相空間には，その振る舞いが距離空間の振る舞いに近くなるようにするための仮定がいくつか存在します．最も重要なものは ``T2Space`` で，これは「ハウスドルフ性」とも呼ばれ，極限が一意であることを保証します．より強力な分離特性は ``T3Space`` で，これは `RegularSpace` の特性に加えて，各店が閉近傍の基底を持つことを保証します．
 BOTH: -/
 -- QUOTE:
 example [TopologicalSpace X] [T2Space X] {u : ℕ → X} {a b : X} (ha : Tendsto u atTop (𝓝 a))
@@ -437,7 +437,7 @@ Note that, in every topological space, each point has a basis of open neighborho
 
 OMIT. -/
 /- TEXT:
-どの位相空間においても、定義上、各点は開近傍の基底を持つことに注意してください。
+どの位相空間においても，定義上，各点は開近傍の基底を持つことに注意してください．
 BOTH: -/
 -- QUOTE:
 example [TopologicalSpace X] {x : X} :
@@ -451,7 +451,7 @@ From Bourbaki's general topology book, I.8.5, Theorem 1 (taking only the non-tri
 
 OMIT. -/
 /- TEXT:
-ここでの主な目的は、連続性による拡張を可能にする基本定理を証明することです。ブルバキのgeneral topologyの本、1.8.5、定理1より（自明でない含意のみをとります）：
+ここでの主な目的は，連続性による拡張を可能にする基本定理を証明することです．ブルバキのgeneral topologyの本，1.8.5，定理1より（自明でない含意のみをとります）：
 
 TEXT. -/
 /- OMIT:
@@ -463,7 +463,7 @@ while remaining in :math:`A` then there exists a continuous extension :math:`φ`
 
 OMIT. -/
 /- TEXT:
-:math:`X` を位相空間、 :math:`A` を :math:`X` の稠密部分集合、 :math:`f : A → Y` を :math:`A` から :math:`T_3` 空間 :math:`Y` への連続写像とする。もし、 :math:`X` 内の各 :math:`x` に対して、 :math:`y` が :math:`A` に留まりながら :math:`x` に限りなく近づく時に :math:`f(y)` が :math:`Y` 内の極限に収束するならば、 :math:`f` を :math:`X` に連続に拡張した :math:`φ` が存在する。
+:math:`X` を位相空間， :math:`A` を :math:`X` の稠密部分集合， :math:`f : A → Y` を :math:`A` から :math:`T_3` 空間 :math:`Y` への連続写像とする．もし， :math:`X` 内の各 :math:`x` に対して， :math:`y` が :math:`A` に留まりながら :math:`x` に限りなく近づく時に :math:`f(y)` が :math:`Y` 内の極限に収束するならば， :math:`f` を :math:`X` に連続に拡張した :math:`φ` が存在する．
 
 TEXT. -/
 /- OMIT:
@@ -472,7 +472,7 @@ but we'll stick to Bourbaki's version here.
 
 OMIT. -/
 /- TEXT:
-実際には、Mathlibには上記の補題のより一般的なバージョンである ``DenseInducing.continuousAt_extend`` が含まれていますが、ここではブルバキのバージョンにこだわることにします。
+実際には，Mathlibには上記の補題のより一般的なバージョンである ``DenseInducing.continuousAt_extend`` が含まれていますが，ここではブルバキのバージョンにこだわることにします．
 
 TEXT. -/
 /- OMIT:
@@ -483,7 +483,7 @@ The assumption "tends to :math:`x` while remaining in :math:`A`" corresponds to 
 
 OMIT. -/
 /- TEXT:
-``A : Set X`` が与えられると、 ``↥A`` は ``A`` に関連する部分型であり、Leanは必要な時は自動的にこのちょっと変な上向き矢印を挿入することを覚えておいてください。そして、この（包含な）型強制の対応は ``(↑) : A → X`` です。「 :math:`A` に留まりながら :math:`x` に限りなく近づく」という仮定は引き戻しのフィルタ ``comap (↑) (𝓝 x)`` に対応します。
+``A : Set X`` が与えられると， ``↥A`` は ``A`` に関連する部分型であり，Leanは必要な時は自動的にこのちょっと変な上向き矢印を挿入することを覚えておいてください．そして，この（包含な）型強制の対応は ``(↑) : A → X`` です．「 :math:`A` に留まりながら :math:`x` に限りなく近づく」という仮定は引き戻しのフィルタ ``comap (↑) (𝓝 x)`` に対応します．
 
 TEXT. -/
 /- OMIT:
@@ -492,7 +492,7 @@ Let's prove first an auxiliary lemma, extracted to simplify the context
 
 OMIT. -/
 /- TEXT:
-まず文脈を簡単にするために抽出した補助的な補題を証明しましょう。（特にここではYが位相空間である必要はありません）。
+まず文脈を簡単にするために抽出した補助的な補題を証明しましょう．（特にここではYが位相空間である必要はありません）．
 BOTH: -/
 -- QUOTE:
 theorem aux {X Y A : Type*} [TopologicalSpace X] {c : A → X}
@@ -511,7 +511,7 @@ Let's now turn to the main proof of the extension by continuity theorem.
 
 OMIT. -/
 /- TEXT:
-それでは、連続性定理による拡張のメインの証明に移りましょう。
+それでは，連続性定理による拡張のメインの証明に移りましょう．
 
 TEXT. -/
 /- OMIT:
@@ -522,7 +522,7 @@ The only relevant lemma is
 
 OMIT. -/
 /- TEXT:
-Leanが ``↥A`` 上の位相を必要とする場合、自動的に誘導位相を使用します。関連する唯一の補題は、 ``nhds_induced (↑) : ∀ a : ↥A, 𝓝 a = comap (↑) (𝓝 ↑a)`` です（これは実際には誘導位相に関する一般的な補題です）。
+Leanが ``↥A`` 上の位相を必要とする場合，自動的に誘導位相を使用します．関連する唯一の補題は， ``nhds_induced (↑) : ∀ a : ↥A, 𝓝 a = comap (↑) (𝓝 ↑a)`` です（これは実際には誘導位相に関する一般的な補題です）．
 
 TEXT. -/
 /- OMIT:
@@ -541,7 +541,7 @@ prove that ``φ`` indeed extends ``f``).
 
 OMIT. -/
 /- TEXT:
-メインの仮定と選択公理から、 ``∀ x, Tendsto f (comap (↑) (𝓝 x)) (𝓝 (φ x))`` となる関数 ``φ`` が与えられます。（ ``Y`` はハウスドルフであるため、 ``φ`` は完全に決定されますが、 ``φ`` が実際に ``f`` を拡張することを証明するまではこの性質は必要ありません）。
+メインの仮定と選択公理から， ``∀ x, Tendsto f (comap (↑) (𝓝 x)) (𝓝 (φ x))`` となる関数 ``φ`` が与えられます．（ ``Y`` はハウスドルフであるため， ``φ`` は完全に決定されますが， ``φ`` が実際に ``f`` を拡張することを証明するまではこの性質は必要ありません）．
 
 TEXT. -/
 /- OMIT:
@@ -559,7 +559,7 @@ Because we know ``Tendsto f (comap (↑) (𝓝 y)) (𝓝 (φ y))`` this implies
 
 OMIT. -/
 /- TEXT:
-まず ``φ`` が連続であることを証明しましょう。任意の ``x : X`` を固定します。 ``Y`` は正則であるので、 ``φ x`` の *閉* 近傍 ``V'`` に対して、 ``φ ⁻¹' V' ∈ 𝓝 x`` が成り立つことを確認すれば十分です。極限の仮定は（上の補助的な補題によって） ``IsOpen V ∧ (↑) ⁻¹' V ⊆ f ⁻¹' V'`` を満たす ``V ∈ 𝓝 x`` を与えます。 ``V ∈ 𝓝 x`` であるため、 ``V ⊆ φ ⁻¹' V'`` 、すなわち  ``∀ y ∈ V, φ y ∈ V'`` を証明すれば十分です。ここで ``V`` の要素 ``y`` を固定しましょう。 ``V`` は *開* であるため、 ``y`` の近傍です。特に ``(↑) ⁻¹' V ∈ comap (↑) (𝓝 y)`` となり、また ``f ⁻¹' V' ∈ comap (↑) (𝓝 y)`` となります。さらに ``A`` は稠密であるため、 ``comap (↑) (𝓝 y) ≠ ⊥`` です。そして ``Tendsto f (comap (↑) (𝓝 y)) (𝓝 (φ y))`` は既知であるため、 ``φ y ∈ closure V'`` が導かれ、 ``V'`` が閉じていることから ``φ y ∈ V'`` が証明されたことになります。
+まず ``φ`` が連続であることを証明しましょう．任意の ``x : X`` を固定します． ``Y`` は正則であるので， ``φ x`` の *閉* 近傍 ``V'`` に対して， ``φ ⁻¹' V' ∈ 𝓝 x`` が成り立つことを確認すれば十分です．極限の仮定は（上の補助的な補題によって） ``IsOpen V ∧ (↑) ⁻¹' V ⊆ f ⁻¹' V'`` を満たす ``V ∈ 𝓝 x`` を与えます． ``V ∈ 𝓝 x`` であるため， ``V ⊆ φ ⁻¹' V'`` ，すなわち  ``∀ y ∈ V, φ y ∈ V'`` を証明すれば十分です．ここで ``V`` の要素 ``y`` を固定しましょう． ``V`` は *開* であるため， ``y`` の近傍です．特に ``(↑) ⁻¹' V ∈ comap (↑) (𝓝 y)`` となり，また ``f ⁻¹' V' ∈ comap (↑) (𝓝 y)`` となります．さらに ``A`` は稠密であるため， ``comap (↑) (𝓝 y) ≠ ⊥`` です．そして ``Tendsto f (comap (↑) (𝓝 y)) (𝓝 (φ y))`` は既知であるため， ``φ y ∈ closure V'`` が導かれ， ``V'`` が閉じていることから ``φ y ∈ V'`` が証明されたことになります．
 
 TEXT. -/
 /- OMIT:
@@ -567,7 +567,7 @@ It remains to prove that ``φ`` extends ``f``. This is were continuity of ``f`` 
 together with the fact that ``Y`` is Hausdorff.
 OMIT. -/
 /- TEXT:
-あとは ``φ`` が ``f`` から拡張されていることを証明するだけです。これは ``Y`` がハウスドルフであるという事実とともに、 ``f`` の連続性が議論に出てきます。
+あとは ``φ`` が ``f`` から拡張されていることを証明するだけです．これは ``Y`` がハウスドルフであるという事実とともに， ``f`` の連続性が議論に出てきます．
 BOTH: -/
 -- QUOTE:
 example [TopologicalSpace X] [TopologicalSpace Y] [T3Space Y] {A : Set X}
@@ -609,6 +609,7 @@ of sets can be understood using sequences.
 
 OMIT. -/
 /- TEXT:
+分離の性質に加えて，位相空間を距離空間に近づけるための主な仮定として，可算性の仮定があります．主なものは第一可算で，これはすべての点が可算な基本近傍を持つことを求めるものです．特にこれは，集合の閉包が数列を使って理解できることを保証します．
 
 BOTH: -/
 -- QUOTE:
@@ -624,6 +625,8 @@ Compactness
 
 OMIT. -/
 /- TEXT:
+コンパクト性
+^^^^^^^^^^^^^
 
 TEXT. -/
 /- OMIT:
@@ -632,6 +635,7 @@ to think about it and Mathlib goes for the filter version.
 
 OMIT. -/
 /- TEXT:
+ここで，位相空間におけるコンパクト性の定義について説明しましょう．一般的に，コンパクト性にはいくつかの考え方がありますが，Mathlibではフィルターを用いたバージョンを使うことにしています．
 
 TEXT. -/
 /- OMIT:
@@ -641,6 +645,7 @@ with the generalized set of points that are close to ``x``.
 
 OMIT. -/
 /- TEXT:
+まず，フィルターの集積点を定義する必要があります．位相空間 ``X`` 上のフィルター ``F`` が与えられたとき，点 ``x : X`` が ``F`` の集積点であるとは，一般化された集合として見た ``F`` と ``x`` に近い点の一般化された集合の共通部分が空でないことです．
 
 TEXT. -/
 /- OMIT:
@@ -649,6 +654,7 @@ ie such that ``F ≤ 𝓟 s``, has a cluster point in ``s``.
 
 OMIT. -/
 /- TEXT:
+したがって，集合 ``s`` は， ``s`` に含まれるすべての空でない一般化された集合 ``F`` ，つまり ``F ≤ 𝓟 s`` が ``s`` にクラスター点を持つとき，コンパクトであると言うことができます．
 
 BOTH: -/
 -- QUOTE:
@@ -671,7 +677,7 @@ interpret this as saying that ``u`` has a subsequence converging to ``x``, and w
 looks like in metric spaces.
 OMIT. -/
 /- TEXT:
-
+例えば，``F`` が ``map u atTop`` であり， ``atTop`` の ``u : ℕ → X`` による像，つまり一般化された非常に大きな自然数の集合であるとすると， ``F ≤ 𝓟 s`` という仮定は， ``n`` が十分な大きさであれば ``u n`` が ``s`` に属することを意味します． ``x`` が ``map u atTop`` の集積点であるということは，非常に大きな数による像が ``x`` に近い点の集合と交差していることを意味します． ``𝓝 x`` が可算基底を持つ場合，これは ``u`` が ``x`` に収束する部分列を持つと解釈することができ，距離空間におけるコンパクト性がどのようなものかを再現することができます．
 BOTH: -/
 -- QUOTE:
 example [TopologicalSpace.FirstCountableTopology X] {s : Set X} {u : ℕ → X} (hs : IsCompact s)
@@ -684,6 +690,7 @@ Cluster points behave nicely with continuous functions.
 
 OMIT. -/
 /- TEXT:
+集積点は連続写像に対して非常によくふるまいます．
 
 BOTH: -/
 -- QUOTE:
@@ -700,7 +707,7 @@ compact. In addition to what we saw already, you should use ``Filter.push_pull``
 ``NeBot.of_map``.
 OMIT. -/
 /- TEXT:
-
+演習として，連続写像の下のコンパクト集合の像がコンパクトであることを証明しましょう．すでに見たことに加えて， ``Filter.push_pull`` と ``NeBot.of_map`` を使う必要があります．
 BOTH: -/
 -- QUOTE:
 -- EXAMPLES:
@@ -734,7 +741,7 @@ cover ``s`` has a finite covering sub-family.
 
 OMIT. -/
 /- TEXT:
-
+また，開集合の被覆という観点からコンパクト性を表現することもできます：もし ``s`` をカバーするすべての開集合の族が有限被覆の部分族を持つならば， ``s`` はコンパクトです．
 BOTH: -/
 -- QUOTE:
 example {ι : Type*} {s : Set X} (hs : IsCompact s) (U : ι → Set X) (hUo : ∀ i, IsOpen (U i))

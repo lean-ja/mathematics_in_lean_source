@@ -20,6 +20,7 @@
 | closed sets | 閉集合 |
 | closure | 閉包 |
 | chapter | 章 |
+| cluster point | 集積点 |
 | codomain | 終域 |
 | coercion | 型の強制 |
 | complete lattice | 完備束 |
@@ -49,6 +50,7 @@
 | factorial | 階乗 |
 | filter | フィルタ |
 | filter basis | フィルタ基底 |
+| first countability | 第一可算 |
 | functoriality | 関手性 |
 | Galois connection | ガロア接続 |
 | gaussian integer | ガウス整数 |
@@ -81,6 +83,7 @@
 | monotone | 単調 |
 | morphism | 射 |
 | natural domain | 自然な定義域 |
+| neighborhood basic | 基本近傍 |
 | norm | ノルム |
 | number systems | 数体系 |
 | number theory | 数論 |
