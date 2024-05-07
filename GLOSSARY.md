@@ -5,13 +5,16 @@
 | analysis | 解析学 |
 | arguments | 引数 |
 | chapter | 章 |
+| cluster point | 集積点 |
 | context | コンテキスト |
 | dense | 稠密 |
 | dependent type theory | 依存型理論 |
 | exercises | 演習 |
+| first countability | 第一可算 |
 | functoriality | 関手性 |
 | identity | 恒等式, 等式 |
 | measure theory | 測度論 |
+| neighborhood basic | 基本近傍 |
 | number theory | 数論 |
 | proof term | 証明項 |
 | section | 節 |
