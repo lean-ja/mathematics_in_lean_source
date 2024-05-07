@@ -4,6 +4,7 @@
 | --- | --- |
 | analysis | 解析学 |
 | arguments | 引数 |
+| arithmetic | 算術 |
 | chapter | 章 |
 | context | コンテキスト |
 | dependent type theory | 依存型理論 |
