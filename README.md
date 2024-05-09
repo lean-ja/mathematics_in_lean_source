@@ -112,7 +112,7 @@
 | --- | --- |
 | C09_Differential_Calculus.rst ||
 | S01_Elementary_Differential_Calculus.lean | [s-taiga](https://github.com/s-taiga) |
-| S02_Differential_Calculus_in_Normed_Spaces.lean ||
+| S02_Differential_Calculus_in_Normed_Spaces.lean | [s-taiga](https://github.com/s-taiga) |
 
 * C10_Integration_and_Measure_Theory
 
