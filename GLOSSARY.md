@@ -8,6 +8,8 @@
 | chapter | 章 |
 | context | コンテキスト |
 | dependent type theory | 依存型理論 |
+| derivative function | 導関数 |
+| derivative of ~ | ~での微分係数 |
 | exercises | 演習 |
 | identity | 恒等式, 等式 |
 | measure theory | 測度論 |
