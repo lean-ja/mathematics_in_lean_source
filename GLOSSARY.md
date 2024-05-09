@@ -33,6 +33,8 @@
 | curly brackets | 波括弧 |
 | dense | 稠密 |
 | dependent type theory | 依存型理論 |
+| derivative function | 導関数 |
+| derivative of ~ | ~での微分係数 |
 | direct image | 順像 |
 | disjunction | 選言 |
 | distributive lattice | 分配束 |
