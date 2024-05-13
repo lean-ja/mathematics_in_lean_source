@@ -12,22 +12,39 @@ open Topology Filter
 
 noncomputable section
 
+/- OMIT:
+Differential Calculus in Normed Spaces
+--------------------------------------
+
+OMIT. -/
 /- TEXT:
 .. index:: normed space
 
 .. _normed_spaces:
 
-Differential Calculus in Normed Spaces
+ノルム空間の微分法
 --------------------------------------
 
+TEXT. -/
+/- OMIT:
 Normed spaces
 ^^^^^^^^^^^^^
 
+OMIT. -/
+/- TEXT:
+ノルム空間
+^^^^^^^^^^^^^
+
+TEXT. -/
+/- OMIT:
 Differentiation can be generalized beyond ``ℝ`` using the notion of a
 *normed vector space*, which encapsulates both direction and distance.
 We start with the notion of a *normed group*, which as an additive commutative
 group equipped with a real-valued norm function
 satisfying the following conditions.
+OMIT. -/
+/- TEXT:
+微分は，方向と距離の両方を備えた *ノルム線形空間* の概念を用いることで ``ℝ`` を超えて一般化することができます．まず *ノルム化された群* の概念から始めましょう．これは以下の条件を満たす実数値ノルム関数を備えた加法可換群です．
 EXAMPLES: -/
 section
 
@@ -44,10 +61,13 @@ example (x y : E) : ‖x + y‖ ≤ ‖x‖ + ‖y‖ :=
   norm_add_le x y
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 Every normed space is a metric space with distance function
 :math:`d(x, y) = \| x - y \|`, and hence it is also a topological space.
 Lean and Mathlib know this.
+OMIT. -/
+/- TEXT:
+すべてのノルム空間は距離関数 :math:`d(x, y) = \| x - y \|` を持つ距離空間であり，したがって位相空間でもあります．LeanとMathlibはこの事実を知っています．
 EXAMPLES: -/
 -- QUOTE:
 example : MetricSpace E := by infer_instance
@@ -57,11 +77,14 @@ example {X : Type*} [TopologicalSpace X] {f : X → E} (hf : Continuous f) :
   hf.norm
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 In order to use the notion of a norm with concepts from linear algebra,
 we add the assumption ``NormedSpace ℝ E`` on top of ``NormedAddGroup E``.
 This stipulates that ``E`` is a vector space over ``ℝ`` and that
 scalar multiplication satisfies the following condition.
+OMIT. -/
+/- TEXT:
+線形代数からのコンセプトとノルムの概念を使うために， ``NormedAddGroup E`` の上に ``NormedSpace ℝ E`` という仮定を追加します．これは ``E`` が ``ℝ`` 上のベクトル空間であり，スカラー倍が以下の条件を満たすことを定めます．
 EXAMPLES: -/
 -- QUOTE:
 variable [NormedSpace ℝ E]
@@ -70,21 +93,27 @@ example (a : ℝ) (x : E) : ‖a • x‖ = |a| * ‖x‖ :=
   norm_smul a x
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 A complete normed space is known as a *Banach space*.
 Every finite-dimensional vector space is complete.
+OMIT. -/
+/- TEXT:
+完備なノルム空間は *バナッハ空間* として知られています．すべての有限次元ベクトル空間は完備です．
 EXAMPLES: -/
 -- QUOTE:
 example [FiniteDimensional ℝ E] : CompleteSpace E := by infer_instance
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 In all the previous examples, we used the real numbers as the base field.
 More generally, we can make sense of calculus with a vector space over any
 *nontrivially normed field*. These are fields that are equipped with a
 real-valued norm that is multiplicative and has the property that
 not every element has norm zero or one
 (equivalently, there is an element whose norm is bigger than one).
+OMIT. -/
+/- TEXT:
+これまでの例はすべてベースの体として実数を使いました．より一般的には，任意の *非自明なノルム化された体* 上のベクトル空間を使って微積分を理解することができます．これは乗法的ですべての要素のノルムが0か1ではない（つまり，ノルムが1より大きい要素が存在する）という性質を持つ実数値ノルムを備えた体です．
 EXAMPLES: -/
 -- QUOTE:
 example (𝕜 : Type*) [NontriviallyNormedField 𝕜] (x y : 𝕜) : ‖x * y‖ = ‖x‖ * ‖y‖ :=
@@ -94,9 +123,12 @@ example (𝕜 : Type*) [NontriviallyNormedField 𝕜] : ∃ x : 𝕜, 1 < ‖x�
   NormedField.exists_one_lt_norm 𝕜
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 A finite-dimensional vector space over a nontrivially normed field is
 complete as long as the field itself is complete.
+OMIT. -/
+/- TEXT:
+非自明なノルム化された体上の有限次元ベクトル空間はその体自体が完備である場合に限り完備です．
 EXAMPLES: -/
 -- QUOTE:
 example (𝕜 : Type*) [NontriviallyNormedField 𝕜] (E : Type*) [NormedAddCommGroup E]
@@ -106,10 +138,17 @@ example (𝕜 : Type*) [NontriviallyNormedField 𝕜] (E : Type*) [NormedAddComm
 
 end
 
-/- TEXT:
+/- OMIT:
 Continuous linear maps
 ^^^^^^^^^^^^^^^^^^^^^^
 
+OMIT. -/
+/- TEXT:
+連続線形写像
+^^^^^^^^^^^^^^^^^^^^^^
+
+TEXT. -/
+/- OMIT:
 We now turn to the morphisms in the category of normed spaces, namely,
 continuous linear maps.
 In Mathlib, the type of ``𝕜``-linear continuous maps between normed spaces
@@ -119,6 +158,9 @@ a structure that that includes the function itself and the properties
 of being linear and continuous.
 Lean will insert a coercion so that a continuous linear map can be treated
 as a function.
+OMIT. -/
+/- TEXT:
+次にノルム空間の圏における射，つまり連続線形写像について説明します．Mathlibでは，ノルム空間 ``E`` と ``F`` の間の ``𝕜`` 線形連続写像の型を ``E →L[𝕜] F`` と表記します．これらは *束縛写像* として実装されます．束縛写像とは，この型の要素が関数そのものと線形で連続であるという性質を含む構造を持つことを意味します．Leanは連続線形写像を関数として扱えるように型強制を備えています．
 EXAMPLES: -/
 section
 
@@ -142,9 +184,12 @@ example (f : E →L[𝕜] F) (a : 𝕜) (x : E) : f (a • x) = a • f x :=
   f.map_smul a x
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 Continuous linear maps have an operator norm that is characterized by the
 following properties.
+OMIT. -/
+/- TEXT:
+連続線形写像は以下の性質で特徴づけられる作用素ノルムを持ちます．
 EXAMPLES: -/
 -- QUOTE:
 variable (f : E →L[𝕜] F)
@@ -158,10 +203,16 @@ example {M : ℝ} (hMp : 0 ≤ M) (hM : ∀ x, ‖f x‖ ≤ M * ‖x‖) : ‖f
 
 end
 
-/- TEXT:
+/- OMIT:
 There is also a notion of bundled continuous linear *isomorphism*.
 Their type of such isomorphisms is ``E ≃L[𝕜] F``.
 
+OMIT. -/
+/- TEXT:
+また束縛された連続線形 *同型* という概念が存在します．この型は ``E ≃L[𝕜] F`` です．
+
+TEXT. -/
+/- OMIT:
 As a challenging exercise, you can prove the Banach-Steinhaus theorem, also
 known as the Uniform Boundedness Principle.
 The principle states that a family of continuous linear maps from a Banach space
@@ -171,6 +222,9 @@ The main ingredient is Baire's theorem
 ``nonempty_interior_of_iUnion_of_closed``. (You proved a version of this in the topology chapter.)
 Minor ingredients include ``continuous_linear_map.op_norm_le_of_shell``,
 ``interior_subset`` and ``interior_iInter_subset`` and ``is_closed_le``.
+OMIT. -/
+/- TEXT:
+発展的な演習として，一様有界性原理としても知られているバナッハ-シュタインハウスの定理を証明してみましょう．この原理はバナッハ空間からノルム空間への連続線形写像の族が点ごとに有界であれば，これらの線形写像のノルムは一様に有界であることを述べています．この証明の主成分はベールの定理 ``nonempty_interior_of_iUnion_of_closed`` です．（位相の章でこれを証明しました．）それ以外の材料として ``continuous_linear_map.op_norm_le_of_shell`` と ``interior_subset`` ， ``interior_iInter_subset`` ， ``is_closed_le`` が含まれます．
 BOTH: -/
 section
 
@@ -249,16 +303,26 @@ example {ι : Type*} [CompleteSpace E] {g : ι → E →L[𝕜] F} (h : ∀ x, �
 -- BOTH:
 end
 
-/- TEXT:
+/- OMIT:
 Asymptotic comparisons
 ^^^^^^^^^^^^^^^^^^^^^^
 
+OMIT. -/
+/- TEXT:
+漸近比較
+^^^^^^^^^^^^^^^^^^^^^^
+
+TEXT. -/
+/- OMIT:
 Defining differentiability also requires asymptotic comparisons.
 Mathlib has an extensive library covering the big O and little o relations,
 whose definitions are shown below.
 Opening the ``asymptotics`` locale allows us to use the corresponding
 notation.
 Here we will only use little o to define differentiability.
+OMIT. -/
+/- TEXT:
+微分可能性の定義には漸近比較も必要です．Mathlibにはビッグオーとリトルオーの関係をカバーする広範なライブラリがあり，その定義を以下に示されるものです． ``asymptotics`` 名前空間を開くと，対応する表記法を使うことができます．ここでは微分可能性を定義するためにリトルオーのみを使用します．
 EXAMPLES: -/
 -- QUOTE:
 open Asymptotics
@@ -280,15 +344,25 @@ example {α : Type*} {E : Type*} [NormedAddCommGroup E] (l : Filter α) (f g : �
   Iff.rfl
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 Differentiability
 ^^^^^^^^^^^^^^^^^
 
+OMIT. -/
+/- TEXT:
+微分可能性
+^^^^^^^^^^^^^^^^^
+
+TEXT. -/
+/- OMIT:
 We are now ready to discuss differentiable functions between normed spaces.
 In analogy the elementary one-dimensional,
 Mathlib defines a predicate ``HasFDerivAt`` and a function ``fderiv``.
 Here the letter
 "f" stands for *Fréchet*.
+OMIT. -/
+/- TEXT:
+これでノルム空間のあいだの微分可能な関数について議論する準備が整いました．初等的な一次元の場合になぞらえて，Mathlibでは ``HasFDerivAt`` という述語と ``fderiv`` という関数と定義しています．ここで ``f`` は *フレシェ(Fréchet)* を表します．
 EXAMPLES: -/
 section
 
@@ -306,7 +380,7 @@ example (f : E → F) (f' : E →L[𝕜] F) (x₀ : E) (hff' : HasFDerivAt f f' 
   hff'.fderiv
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 We also have iterated derivatives that take values in the type of multilinear maps
 ``E [×n]→L[𝕜] F``,
 and we have continuously differential functions.
@@ -314,6 +388,9 @@ The type ``WithTop ℕ`` is ``ℕ`` with an additional element ``⊤`` that
 is bigger than every natural number.
 So :math:`\mathcal{C}^\infty` functions are functions ``f`` that satisfy
 ``ContDiff 𝕜 ⊤ f``.
+OMIT. -/
+/- TEXT:
+またMathlibには，多重線形写像 ``E [×n]→L[𝕜] F`` 型で値をとる反復微分や，連続微分関数も存在します．型 ``WithTop ℕ`` は ``ℕ`` にすべての自然数より大きい要素 ``⊤`` を加えたものです．つまり関数 :math:`\mathcal{C}^\infty` は ``ContDiff 𝕜 ⊤ f`` を満たす関数 ``f`` です．
 EXAMPLES: -/
 -- QUOTE:
 example (n : ℕ) (f : E → F) : E → E[×n]→L[𝕜] F :=
@@ -326,13 +403,16 @@ example (n : WithTop ℕ) {f : E → F} :
   contDiff_iff_continuous_differentiable
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 There is a stricter notion of differentiability called
 ``HasStrictFDerivAt``, which is used in the statement
 of the inverse function theorem and the statement of the implicit function
 theorem, both of which are in Mathlib.
 Over ``ℝ`` or ``ℂ``, continuously differentiable
 functions are strictly differentiable.
+OMIT. -/
+/- TEXT:
+より狭義な微分可能性の概念で ``HasStrictFDerivAt`` と呼ばれるものがあります．これはMathlibにある逆関数定理と陰関数定理の記述で使われています． ``ℝ`` もしくは ``ℂ`` 上の連続微分可能な関数は狭義微分可能です．
 EXAMPLES: -/
 -- QUOTE:
 example {𝕂 : Type*} [IsROrC 𝕂] {E : Type*} [NormedAddCommGroup E] [NormedSpace 𝕂 E] {F : Type*}
@@ -341,15 +421,24 @@ example {𝕂 : Type*} [IsROrC 𝕂] {E : Type*} [NormedAddCommGroup E] [NormedS
   hf.hasStrictFDerivAt hn
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 The local inverse theorem is stated using an operation that produces an
 inverse function from a
 function and the assumptions that the function is strictly differentiable at a
 point ``a`` and that its derivative is an isomorphism.
 
+OMIT. -/
+/- TEXT:
+局所的な逆関数定理は，ある関数から逆関数を生成する操作と，その関数がある点 ``a`` において狭義微分可能であり，その導関数と同型であるという仮定を用いて述べられます．
+
+TEXT. -/
+/- OMIT:
 The first example below gets this local inverse.
 The next one states that it is indeed a local inverse
 from the left and from the right, and that it is strictly differentiable.
+OMIT. -/
+/- TEXT:
+以下の最初の例は，この局所的な逆関数を求めるためのものです．その次の例はこれが左右どちらからも局所的な逆であることを確かめ，そして狭義微分可能であることを述べています．
 EXAMPLES: -/
 -- QUOTE:
 section LocalInverse
@@ -374,13 +463,16 @@ example {f : E → F} {f' : E ≃L[𝕜] F} {a : E}
 end LocalInverse
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 This has been only a quick tour of the differential calculus in Mathlib.
 The library contains many variations that we have not discussed.
 For example, you may want to use one-sided derivatives in the
 one-dimensional setting. The means to do so are found in Mathlib in a more
 general context;
 see ``HasFDerivWithinAt`` or the even more general ``HasFDerivAtFilter``.
+OMIT. -/
+/- TEXT:
+以上，Mathlibの微分をざっと見てきました．Mathlibにはこれまでに説明しなかった多くの情報が含まれています．例えば，1次元の設定での片側微分を使いたいとしましょう．これについてMathlibにはより一般的な文脈のものがあります; ``HasFDerivWithinAt`` や，さらに一般的な ``HasFDerivAtFilter`` を参照してください．
 EXAMPLES: -/
 #check HasFDerivWithinAt
 
