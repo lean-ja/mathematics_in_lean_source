@@ -9,6 +9,7 @@
 | chapter | 章 |
 | context | コンテキスト |
 | dependent type theory | 依存型理論 |
+| disjunction | 選言 |
 | divisibility relation | 整除関係 |
 | exercises | 演習 |
 | greatest common divisor | 最大公約数 |
@@ -23,5 +24,5 @@
 | transitivity | 推移性 |
 | triangle inequality | 三角不等式 |
 | well-formed | 合法 |
-| universal quantifier | 全称記号 |
+| universal quantifier | 全称量化子 |
 | well-formed formula | 論理式 |
