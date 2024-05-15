@@ -2,6 +2,7 @@
 
 | 英語 | 日本語 |
 | --- | --- |
+| almost everywhere | ほとんどいたるところ |
 | analysis | 解析学 |
 | arguments | 引数 |
 | arithmetic | 算術 |
