@@ -121,4 +121,4 @@
 | C10_Integration_and_Measure_Theory.rst ||
 | S01_Elementary_Integration.lean | [s-taiga](https://github.com/s-taiga) |
 | S02_Measure_Theory.lean | [s-taiga](https://github.com/s-taiga) |
-| S03_Integration.lean ||
+| S03_Integration.lean | [s-taiga](https://github.com/s-taiga) |
