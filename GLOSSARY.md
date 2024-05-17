@@ -21,6 +21,7 @@
 | cauchy sequence | コーシー列 |
 | closed sets | 閉集合 |
 | closure | 閉包 |
+| change-of-variables | 変数変換 |
 | chapter | 章 |
 | cluster point | 集積点 |
 | codomain | 終域 |
@@ -43,6 +44,7 @@
 | distributive lattice | 分配束 |
 | divisibility relation | 整除関係 |
 | domain | 始域 |
+| dominated convergence theorem | 優収束定理 |
 | entourage | 近縁 |
 | eta-reduction | η簡約 |
 | Euclidean algorithm | ユークリッドの互助法 |
@@ -80,6 +82,7 @@
 | least upper bound | 最小上界 |
 | library | Mathlib（Mathlibを指していることが明白である場合） |
 | logical connective | 論理結合子 |
+| mass | 体積量 |
 | measure theory | 測度論 |
 | meet | 交わり |
 | metric space | 距離空間 |
