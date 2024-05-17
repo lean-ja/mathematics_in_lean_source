@@ -5,11 +5,14 @@
 | analysis | 解析学 |
 | arguments | 引数 |
 | arithmetic | 算術 |
+| change-of-variables | 変数変換 |
 | chapter | 章 |
 | context | コンテキスト |
 | dependent type theory | 依存型理論 |
+| dominated convergence theorem | 優収束定理 |
 | exercises | 演習 |
 | identity | 恒等式, 等式 |
+| mass | 体積量 |
 | measure theory | 測度論 |
 | number theory | 数論 |
 | proof term | 証明項 |
