@@ -42,7 +42,7 @@
 
 | 章名 | 担当 |
 | --- | --- |
-| C02_Basics.rst | |
+| C02_Basics.rst | [s-taiga](https://github.com/s-taiga)  |
 | S01_Calculating.lean | [Taka](https://github.com/Taka0007) |
 | S02_Proving_Identities_in_Algebraic_Structures.lean | [s-taiga](https://github.com/s-taiga) |
 | S03_Using_Theorems_and_Lemmas.lean | [s-taiga](https://github.com/s-taiga) |
@@ -53,7 +53,7 @@
 
 | 章名 | 担当 |
 | --- | --- |
-| C03_Logic.rst ||
+| C03_Logic.rst | [s-taiga](https://github.com/s-taiga) |
 | S01_Implication_and_the_Universal_Quantifier.lean | [s-taiga](https://github.com/s-taiga) |
 | S02_The_Existential_Quantifier.lean | [s-taiga](https://github.com/s-taiga) |
 | S03_Negation.lean | [s-taiga](https://github.com/s-taiga) |
@@ -65,7 +65,7 @@
 
 | 章名 | 担当 |
 | --- | --- |
-| C04_Sets_and_Functions.rst ||
+| C04_Sets_and_Functions.rst | [s-taiga](https://github.com/s-taiga) |
 | S01_Sets.lean | [s-taiga](https://github.com/s-taiga) |
 | S02_Functions.lean | [s-taiga](https://github.com/s-taiga) |
 | S03_The_Schroeder_Bernstein_Theorem.lean | [s-taiga](https://github.com/s-taiga) |
@@ -74,7 +74,7 @@
 
 | 章名 | 担当 |
 | --- | --- |
-| C05_Elementary_Number_Theory.rst ||
+| C05_Elementary_Number_Theory.rst | [s-taiga](https://github.com/s-taiga) |
 | S01_Irrational_Roots.lean | [s-taiga](https://github.com/s-taiga) |
 | S02_Induction_and_Recursion.lean | [s-taiga](https://github.com/s-taiga) |
 | S03_Infinitely_Many_Primes.lean | [s-taiga](https://github.com/s-taiga)  |
@@ -83,7 +83,7 @@
 
 | 章名 | 担当 |
 | --- | --- |
-| C06_Structures.rst ||
+| C06_Structures.rst | [s-taiga](https://github.com/s-taiga) |
 | S01_Structures.lean |[Taka](https://github.com/Taka0007)|
 | S02_Algebraic_Structures.lean | [s-taiga](https://github.com/s-taiga)  |
 | S03_Building_the_Gaussian_Integers.lean | [s-taiga](https://github.com/s-taiga)  |
@@ -92,7 +92,7 @@
 
 | 章名 | 担当 |
 | --- | --- |
-| C07_Hierarchies.rst ||
+| C07_Hierarchies.rst | [s-taiga](https://github.com/s-taiga) |
 | S01_Basics.lean | [s-taiga](https://github.com/s-taiga)  |
 | S02_Morphisms.lean | [s-taiga](https://github.com/s-taiga)  |
 | S03_Subobjects.lean | [s-taiga](https://github.com/s-taiga)  |
@@ -101,7 +101,7 @@
 
 | 章名 | 担当 |
 | --- | --- |
-| C08_Topology.rst ||
+| C08_Topology.rst | [s-taiga](https://github.com/s-taiga) |
 | S01_Filters.lean | [s-taiga](https://github.com/s-taiga)  |
 | S02_Metric_Spaces.lean | [s-taiga](https://github.com/s-taiga)  |
 | S03_Topological_Spaces.lean | [s-taiga](https://github.com/s-taiga)  |
@@ -110,7 +110,7 @@
 
 | 章名 | 担当 |
 | --- | --- |
-| C09_Differential_Calculus.rst ||
+| C09_Differential_Calculus.rst | [s-taiga](https://github.com/s-taiga) |
 | S01_Elementary_Differential_Calculus.lean | [s-taiga](https://github.com/s-taiga) |
 | S02_Differential_Calculus_in_Normed_Spaces.lean | [s-taiga](https://github.com/s-taiga) |
 
@@ -118,7 +118,7 @@
 
 | 章名 | 担当 |
 | --- | --- |
-| C10_Integration_and_Measure_Theory.rst ||
+| C10_Integration_and_Measure_Theory.rst | [s-taiga](https://github.com/s-taiga) |
 | S01_Elementary_Integration.lean | [s-taiga](https://github.com/s-taiga) |
 | S02_Measure_Theory.lean | [s-taiga](https://github.com/s-taiga) |
 | S03_Integration.lean | [s-taiga](https://github.com/s-taiga) |
