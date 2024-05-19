@@ -2,5 +2,8 @@
 
 .. index:: integration
 
-Integration and Measure Theory
+積分と測度論
 ==============================
+
+.. Integration and Measure Theory
+.. ==============================
