@@ -297,8 +297,7 @@ and the ``linarith`` tactic.
 
 OMIT. -/
 /- TEXT:
-ここで等式を示すために必要な2つの不等式のうち ``aux`` がその片方を示しているのは明白ですが，
-適切な値に適用することでもう一方向の不等式も得られます．この証明のヒントとして定理 ``add_neg_cancel_right`` と ``linarith`` タクティクを用います．
+ここで等式を示すために必要な2つの不等式のうち ``aux`` がその片方を示しているのは明白ですが，適切な値に適用することでもう一方向の不等式も得られます．ヒント: 定理 ``add_neg_cancel_right`` と ``linarith`` タクティクが役に立つでしょう．
 
 .. index:: absolute value
 
@@ -352,7 +351,7 @@ You can use the theorem ``sub_add_cancel``.
 
 OMIT. -/
 /- TEXT:
-この証明を3行以内にできるかどうか試してみましょう．この証明では ``sub_add_cancel`` を用います．
+この証明を3行以内にできるかどうか試してみましょう．この証明では ``sub_add_cancel`` を用いると良いでしょう．
 
 .. index:: divisibility
 
@@ -369,7 +368,7 @@ By convention, Mathlib uses ``dvd``
 to refer to it in theorem names.
 OMIT. -/
 /- TEXT:
-本節で取り上げるもう一つの重要な関係として ``x ∣ y`` で表される自然数の整除関係があります．要注意: 整除記号はキーボードにある普通の縦棒 *ではありません* ．これはVSCodeでは ``\|`` で入力されるUnicode文字です．慣例としてこの整除関係にまつわるMathlibの定理名には ``dvd`` が含まれます．
+本節で取り上げるもう一つの重要な関係として ``x ∣ y`` で表される自然数の整除関係があります．要注意: 整除記号はキーボードにある普通の縦棒 *ではありません* ．これはVSCodeでは ``\|`` で入力されるUnicode文字です．慣例としてMathlibでは定理名の中で整除関係を表すのに ``dvd`` を使用します．
 TEXT. -/
 -- BOTH:
 section
@@ -396,7 +395,7 @@ See if you can guess the names of the theorems
 you need to prove the following:
 OMIT. -/
 /- TEXT:
-最後の例にて，指数が自然数であることと ``dvd_mul_left`` を適用することでLeanに ``x^2`` の定義を ``x * x^1`` に展開させています．次の例を証明するのに必要な定理名を推測してみましょう:
+最後の例では，指数が自然数であり ``dvd_mul_left`` を ``apply`` することでLeanに ``x^2`` の定義を ``x * x^1`` に展開させています．次の例を証明するのに必要な定理名を推測してみましょう:
 TEXT. -/
 -- QUOTE:
 -- BOTH:
@@ -427,7 +426,7 @@ OMIT. -/
 /- TEXT:
 .. index:: gcd, lcm
 
-整除について *最大公約数* ``gcd`` と *最小公倍数* ``lcm`` はそれぞれ ``min`` と ``max`` に類似しています．すべての数は ``0`` を割れるため， ``0`` は整除において最大の要素です:
+整除について *最大公約数* ``gcd`` と *最小公倍数* ``lcm`` はそれぞれ ``min`` と ``max`` に対応しています．すべての数は ``0`` を割り切るため，実際 ``0`` は整除において最大の要素です:
 TEXT. -/
 -- BOTH:
 section
