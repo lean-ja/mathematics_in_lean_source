@@ -25,6 +25,7 @@
 | lattice | 束 |
 | least common multiple | 最小公倍数 |
 | least upper bound | 最小上界 |
+| logical connective | 論理結合子 |
 | measure theory | 測度論 |
 | meet | 交わり |
 | metric space | 距離空間 |

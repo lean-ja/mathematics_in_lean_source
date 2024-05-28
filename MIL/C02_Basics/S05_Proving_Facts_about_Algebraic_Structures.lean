@@ -93,7 +93,7 @@ has the properties indicated.
 
 OMIT. -/
 /- TEXT:
-この例では，記号 ``∧`` は"かつ"を表し， ``¬`` は"否定"を， ``x ≠ y`` は ``¬ (x = y)`` の省略形をそれぞれ表しています．:numref:`Chapter %s <logic>` では，これらの論理接続詞を用いて ``<`` が上記で示された性質を持っていることを *証明* する方法を学びます．
+この例では，記号 ``∧`` は「かつ」を表し， ``¬`` は「否定」を， ``x ≠ y`` は ``¬ (x = y)`` の省略形をそれぞれ表しています．:numref:`Chapter %s <logic>` では，これらの論理結合子を用いて ``<`` が上記で示された性質を持っていることを *証明* する方法を学びます．
 
 .. index:: lattice
 
@@ -104,7 +104,7 @@ order with operations ``⊓`` and ``⊔`` that are
 analogous to ``min`` and ``max`` on the real numbers:
 OMIT. -/
 /- TEXT:
-*束* は実数における ``min`` と ``max`` に対応する演算子 ``⊓`` と ``⊔`` からなる半順序を発展させた構造です．
+半順序集合の構造に加えて，実数上の ``min`` と ``max`` に対応するような演算子 ``⊓`` と ``⊔`` を持つ構造を *束* と呼びます:
 TEXT. -/
 -- BOTH:
 section
@@ -138,7 +138,7 @@ you have to keep the following dictionary in mind:
 
 OMIT. -/
 /- TEXT:
-``⊓`` と ``⊔`` はその特徴からそれぞれ *最大下界* と *最小上界* と呼ばれます．VSCodeでは ``\glb`` と ``\lub`` と打ち込むことで使用できます．またこれらの記号はしばしば *下限* と *上限* と呼ばれ，Mathlibでは定理名で ``inf`` や ``sup`` と呼んでいます．さらにややこしいことに，これらは *交わり* と *結び* とも呼ばれます．そのため，束を扱う際には以下の辞書を頭に入れておく必要があります:
+``⊓`` と ``⊔`` はその特徴からそれぞれ *最大下界* と *最小上界* と呼ばれます．VSCodeでは ``\glb`` と ``\lub`` と打ち込むことで使用できます．またこれらの記号はしばしば *下限* と *上限* と呼ばれ，Mathlibの定理名では ``inf`` や ``sup`` と書かれます．さらにややこしいことに，これらは *交わり* と *結び* とも呼ばれます．そのため，束を扱う際には以下の辞書を頭に入れておく必要があります:
 
 TEXT. -/
 /- OMIT:
@@ -170,7 +170,7 @@ TEXT. -/
 
 OMIT. -/
 /- TEXT:
-* 整数や実数などの ``≤`` のような任意の全順序での ``min`` と ``max``．
+* 整数や実数上の ``≤`` のような任意の全順序での ``min`` と ``max``．
 
 TEXT. -/
 /- OMIT:
@@ -178,7 +178,7 @@ TEXT. -/
 
 OMIT. -/
 /- TEXT:
-* 始域の部分集合のあつまりについての順序 ``⊆`` での ``∩`` と ``∪``．
+* 部分集合のあつまりにおける順序 ``⊆`` での ``∩`` と ``∪``．
 
 TEXT. -/
 /- OMIT:
@@ -186,7 +186,7 @@ TEXT. -/
 
 OMIT. -/
 /- TEXT:
-* 真偽値について ``x ≤ y`` を ``x`` が偽か ``y`` が真であるという関係としたときの ``∧`` と ``∨``．
+* 真偽値について ``x ≤ y`` を ``x`` が偽か ``y`` が真である [#f2]_ という関係としたときの ``∧`` と ``∨``．
 
 TEXT. -/
 /- OMIT:
@@ -194,7 +194,7 @@ TEXT. -/
 
 OMIT. -/
 /- TEXT:
-* 自然数（やもしくは正の整数）についての整除関係 ``∣`` での ``gcd`` と ``lcm``．
+* 自然数（やもしくは正の整数）についての整除関係 ``∣`` による半順序での ``gcd`` と ``lcm``．
 
 TEXT. -/
 /- OMIT:
@@ -205,7 +205,7 @@ TEXT. -/
 
 OMIT. -/
 /- TEXT:
-* ベクトル空間の線形部分空間のあつまりでは最大下界は共通部分で与えられ，最小上界は2つの空間の和で与えられます．順序は包含です．
+* ベクトル空間の線形部分空間のあつまりも包含関係を半順序として束になります: 最大下界は共通部分で与えられ，最小上界は2つの空間の和で与えられます．
 
 TEXT. -/
 /- OMIT:
@@ -217,7 +217,7 @@ TEXT. -/
 
 OMIT. -/
 /- TEXT:
-* 集合（もしくはLeanではTypeのこと）上の位相のあつまりでは，2つの位相の最大下界はその2つの非交和から生成され，最小上界はその2つの共通部分となり，順序は包含の逆になります．
+* ある集合（もしくはLeanではTypeのこと）上の位相のあつまりは，包含関係の逆を順序として束になります: 2つの位相の最大下界はその和から生成される位相で，最小上界はその2つの共通部分です．
 
 TEXT. -/
 /- OMIT:
@@ -306,7 +306,7 @@ You can find these theorems in the Mathlib as ``inf_comm``, ``inf_assoc``,
 
 OMIT. -/
 /- TEXT:
-これらの定理はそれぞれ ``inf_comm`` ， ``inf_assoc`` ， ``sup_comm`` ， ``sup_assoc`` という名前でライブラリ中に定義されています．
+これらの定理はそれぞれ ``inf_comm`` ， ``inf_assoc`` ， ``sup_comm`` ， ``sup_assoc`` という名前でMathlib中に定義されています．
 
 TEXT. -/
 /- OMIT:
@@ -314,7 +314,7 @@ Another good exercise is to prove the *absorption laws*
 using only those axioms:
 OMIT. -/
 /- TEXT:
-これらの公理のみを用いて *吸収則* を証明するのもまたいい練習となるでしょう:
+これらの公理のみを用いて *吸収則* を証明するのもまたいい演習となるでしょう:
 TEXT. -/
 -- QUOTE:
 theorem absorb1 : x ⊓ (x ⊔ y) = x := by
@@ -347,7 +347,7 @@ These can be found in Mathlib with the names ``inf_sup_self`` and ``sup_inf_self
 
 OMIT. -/
 /- TEXT:
-これらの定理はMathlib中では ``inf_sup_self`` と ``sup_inf_self`` という名前で見つけることができます．
+これらの定理はMathlib中に ``inf_sup_self`` と ``sup_inf_self`` という名前で存在します．
 
 TEXT. -/
 /- OMIT:
@@ -357,7 +357,7 @@ A lattice that satisfies the additional identities
 is called a *distributive lattice*. Lean knows about these too:
 OMIT. -/
 /- TEXT:
-束の中でも追加で ``x ⊓ (y ⊔ z) = (x ⊓ y) ⊔ (x ⊓ z)`` と ``x ⊔ (y ⊓ z) = (x ⊔ y) ⊓ (x ⊔ z)`` を満たすものを *分配束* と呼びます．
+束の中でも追加で ``x ⊓ (y ⊔ z) = (x ⊓ y) ⊔ (x ⊓ z)`` と ``x ⊔ (y ⊓ z) = (x ⊔ y) ⊓ (x ⊔ z)`` を満たすものを *分配束* と呼びます．Leanはこれらも表現できます:
 TEXT. -/
 -- BOTH:
 section
@@ -383,7 +383,7 @@ It is also a good exercise to show that in any lattice,
 either distributivity law implies the other:
 OMIT. -/
 /- TEXT:
-``⊓`` と ``⊔`` の可換性を用いることで上記の左と右のバージョンが等価であることは簡単に示されます．ここで有限子の元を持つ分配ではない束を明示的に記述することで，すべての束が分配的ではないことを示すのは良い練習になります．そして任意の束で ``⊓`` と ``⊔`` のどちらかの分配則がもう片方を包含することを示すのも良い練習になるでしょう:
+``⊓`` と ``⊔`` の可換性を用いることで上記の左と右のバージョンが等価であることは簡単に示せます．ここで有限個の元を持つ分配的ではない束を明示的に記述することで，すべての束が分配的ではないことを示すのは良い演習になります．そして任意の束で ``⊓`` と ``⊔`` のどちらかの分配則がもう片方を包含することを示すのも良い演習になるでしょう:
 TEXT. -/
 -- BOTH:
 section
@@ -419,7 +419,7 @@ satisfying additional axioms that say that the ring operations
 are compatible with the order:
 OMIT. -/
 /- TEXT:
-こうした公理に基づく構造をより大きい構造に組み込むことも可能です．例えば *狭義順序環* は可換環に順序と，環についての演算が適合しているという追加の公理を満たすキャリア型の半順序から構成されます:
+公理に基づく構造をより大きい構造に組み込むことも可能です．例えば *狭義順序環* は半順序が定義された可換環であり，かつその順序が環の和と積に対して整合的であるという追加の公理を満たすものです:
 TEXT. -/
 -- BOTH:
 section
@@ -452,7 +452,7 @@ using only properties of rings, partial orders, and the facts
 enumerated in the last two examples:
 OMIT. -/
 /- TEXT:
-ここまでの内容からさらに発展問題として，実数上の算術と順序についての推論に使われる多くの一般的な事実が任意の順序環で一般的に成り立つことが示せます．ここでは環の性質と半順序，そして最後に列挙した2つの事実だけを用いていくつかの例を挙げましょう:
+ここまでの内容からさらに発展問題として，実数上の算術と順序についての推論に使われるよくある事実の多くが任意の順序環で一般的に成り立つことが示せます．ここでは環と半順序の性質，そして最後の2つの例で使われている事実だけを用いていくつかの例を示しましょう:
 TEXT. -/
 -- QUOTE:
 example (h : a ≤ b) : 0 ≤ b - a := by
@@ -535,4 +535,6 @@ As you may have guessed, this theorem is called ``dist_nonneg`` in Mathlib.
 OMIT. -/
 /- TEXT:
 この証明を行うに当たって ``nonneg_of_mul_nonneg_left`` という定理を利用することをお勧めします．またお察しの通り，この定理はMathlibでは ``dist_nonneg`` と呼ばれています．
+
+.. [#f2] 訳注: つまり ``x → y`` のことです
 TEXT. -/
