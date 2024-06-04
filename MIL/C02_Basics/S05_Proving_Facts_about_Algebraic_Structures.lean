@@ -492,7 +492,7 @@ OMIT. -/
 /- TEXT:
 .. index:: metric space
 
-最後のもう一つ例を挙げましょう． *距離空間* とは距離に関する概念である ``dist x y`` という任意の実数のペアについての写像を備えた集合で構成されます．距離関数は以下の公理を満たすものとします:
+最後にもう一つ例を挙げましょう． *距離空間* とは，集合とその集合上の距離と呼ばれる，任意の2つの要素 ``x, y`` から実数 ``dist x y`` を対応させる写像の組のことです．距離関数は以下の公理を満たすものとします:
 TEXT. -/
 -- BOTH:
 section
@@ -534,7 +534,7 @@ We recommend making use of the theorem ``nonneg_of_mul_nonneg_left``.
 As you may have guessed, this theorem is called ``dist_nonneg`` in Mathlib.
 OMIT. -/
 /- TEXT:
-この証明を行うに当たって ``nonneg_of_mul_nonneg_left`` という定理を利用することをお勧めします．またお察しの通り，この定理はMathlibでは ``dist_nonneg`` と呼ばれています．
+この証明を行うに当たって ``nonneg_of_mul_nonneg_left`` という定理を利用することをお勧めします．またお察しの通り，上記の定理 ``0 ≤ dist x y`` はMathlibでは ``dist_nonneg`` と呼ばれています．
 
 .. [#f2] 訳注: つまり ``x → y`` のことです
 TEXT. -/
