@@ -21,7 +21,7 @@
 | greatest common divisor | 最大公約数 |
 | greatest lower bound | 最大下界 |
 | identity | 恒等式, 等式 |
-| if-and-only-if | 〜かつ，そのときに限る |
+| if-and-only-if statement | 同値性を主張する文 |
 | inclusion | 包含 |
 | infimum | 下限 |
 | intersection | 共通部分 |
@@ -39,6 +39,7 @@
 | proof term | 証明項 |
 | reflexivity | 反射性 |
 | section | 節 |
+| simplify | 単純化 |
 | statement | 命題 |
 | strict partial order | 狭義半順序 |
 | subset | 部分集合 |
