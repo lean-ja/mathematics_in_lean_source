@@ -330,7 +330,7 @@ So if we prove the theorem ``fnUb_add`` at that level of generality,
 it will apply in all these instances.
 OMIT. -/
 /- TEXT:
-実数から実数への関数に対して ``FnUb`` と ``FnLb`` を定義しましたが，この定義と証明はもっと一般的です．この定義は終域に順序の概念がある任意の2つの型間の関数でも意味を持ちます．定理 ``add_le_add`` の型を調べると，この定理が「順序付き加法可換モノイド」であればどんな構造でも成り立つことがわかります;この構造が何を意味するのかの詳細は今の段階では重要ではありませんが，自然数，整数，有理数，実数すべてがこの構造のインスタンスであることを知っておいて損はありません．そのため，この一般性のレベルで定理 ``fnUb_add`` を証明すれば，これらのインスタンス全てに適用できます．
+``FnUb`` と ``FnLb`` を実数から実数への関数に対して定義しましたが，この定義と証明はもっと一般的です．これらは終域に順序の概念があれば，任意の2つの型の間の関数に対して定義できます．定理 ``add_le_add`` の型を調べると，この定理が「順序付き加法的可換モノイド」であればどんな構造でも成り立つことがわかります;この構造が何を意味するのかの詳細は今の段階では重要ではありませんが，自然数，整数，有理数，実数すべてがこの構造のインスタンスであることは知っておくと良いでしょう．そのため，この一般性のレベルで定理 ``fnUb_add`` を証明すれば，これらのインスタンス全てに適用できます．
 TEXT. -/
 section
 -- QUOTE:
@@ -358,7 +358,7 @@ that work at a high level of generality.
 
 OMIT. -/
 /- TEXT:
-このような角括弧はすでに :numref:`proving_identities_in_algebraic_structures` で見たことがあると思いますが，その意味についてはまだ説明していませんでした．実用性を考えて，これからも例としては実数を対象にしていきますが，Mathlibにはより一般性の高い定義や定理が含まれていることは知っておく価値があるでしょう．
+このような角括弧はすでに :numref:`proving_identities_in_algebraic_structures` で見たことがあると思いますが，その意味についてはまだ説明していませんでした．具体的にするために，これからも例としては実数を対象にしていきますが，Mathlibにはより一般性の高い定義や定理が含まれていることは知っておくと良いでしょう．
 
 .. index:: monotone function
 
@@ -369,7 +369,7 @@ Mathlib defines a predicate ``Monotone``,
 which says that a function is nondecreasing in its arguments:
 OMIT. -/
 /- TEXT:
-隠された全称量化子のもう一つの例として，Mathlibは関数が引数に対して減少しないことを意味する述語 ``Monotone`` （単調）を定義しています:
+隠された全称量化子のもう一つの例として，Mathlibに定義されている ``Monotone`` （単調）という述語をみてみましょう．これは関数が，引数が減少しなければ減少しないということを意味します:
 TEXT. -/
 -- QUOTE:
 example (f : ℝ → ℝ) (h : Monotone f) : ∀ {a b}, a ≤ b → f a ≤ f b :=
@@ -397,9 +397,10 @@ and then apply the resulting expression to the goal.
 Or you can apply it to the goal and let Lean help you
 work backwards by displaying the remaining hypotheses
 as new subgoals.
+
 OMIT. -/
 /- TEXT:
-単調性についての命題の証明では， ``intro`` を使って2つの変数，例えば ``a`` と ``b`` を導入し， ``a ≤ b`` という仮定を立てます．単調性についての仮定を *用いる* ために，適切な引数と仮定に適用し，得られた式をゴールに適用することができます．もしくは直接ゴールに適用し，Leanに残りの仮定を新しいサブゴールとして表示してもらって証明をサポートしてもらうこともできます．
+単調性の証明には， ``intro`` を使って2つの変数，例えば ``a`` と ``b`` を導入し， ``a ≤ b`` と仮定します．単調性の仮定を *用いる* には，適切な引数や仮定に適用し，その結果得られた式をゴールに適用すればよいです．あるいは，直接ゴールに適用すれば，残りの仮定が新しいサブゴールとして表示されて，後方推論のサポートを得ることができます．
 BOTH: -/
 section
 variable (f g : ℝ → ℝ)
@@ -429,7 +430,7 @@ The ``apply`` commands then correspond to building
 the application of the theorem to its arguments.
 OMIT. -/
 /- TEXT:
-証明がこれくらい短い場合は，証明の項を直接与えるほうが便利であることが多いです．この際対象 ``a`` と ``b`` ，仮定 ``aleb`` を一時的に導入するような証明を書くためには，Leanでは ``fun a b aleb ↦ ...`` という表記を用います．これは ``fun x ↦ x^2`` のような式が一時的な対象に ``x`` と名付けてそれを用いて関数の値を記述するのと似ています．つまり，前の証明の ``intro`` コマンドは次の証明項のラムダ抽象に対応しています．そして ``apply`` コマンドは定理への引数の適用を構築することに対応しています．
+証明がこれくらい短い場合は，証明項を直接与えるほうが便利であることが多いです．証明項の中で対象 ``a`` と ``b`` ，仮定 ``aleb`` を一時的に導入するには，Leanでは ``fun a b aleb ↦ ...`` という表記を用います．たとえば式 ``fun x ↦ x^2`` は，引数に一時的に ``x`` と名前を付けてそれを用いて返り値を記述することで関数を定義していますが，これと似ています．つまり，前の証明の ``intro`` コマンドは以下の証明項のラムダ抽象に対応しています．そして ``apply`` コマンドは定理の引数への適用に対応しています．
 TEXT. -/
 -- QUOTE:
 example (mf : Monotone f) (mg : Monotone g) : Monotone fun x ↦ f x + g x :=
@@ -450,14 +451,14 @@ expression has to solve.
 
 OMIT. -/
 /- TEXT:
-ここで便利な小技をご紹介しましょう: 式の残り部分にアンダースコアを使って ``fun a b aleb ↦ _`` 証明項を書き始めると，Leanはその式の値を推測できないことを示すエラーを出します．VSCodeのゴールウィンドウを見るか，四角いエラーマーカーにカーソルを合わせると，Leanが出した残っている未解決のゴールを表示します．
+ここで便利な小技をご紹介しましょう: 式の残り部分にアンダースコアを使って ``fun a b aleb ↦ _`` と証明項を書き始めると，Leanはその式の値を推測できないというエラーを出します．VSCodeのゴールウィンドウを見るか，エラーマーカーの波線にカーソルを合わせると，残っている未解決のゴールが表示されます．
 
 TEXT. -/
 /- OMIT:
 Try proving these, with either tactics or proof terms:
 OMIT. -/
 /- TEXT:
-ここで次の定理をタクティクか証明項を用いて証明してみましょう:
+ここで次の定理をタクティクか証明項のどちらかを用いて証明してみましょう:
 TEXT. -/
 -- QUOTE:
 example {c : ℝ} (mf : Monotone f) (nnc : 0 ≤ c) : Monotone fun x ↦ c * f x :=
