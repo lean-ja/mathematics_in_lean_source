@@ -2,13 +2,16 @@
 
 | 英語 | 日本語 |
 | --- | --- |
-| absorption laws 吸収則 |
+| absorption laws | 吸収則 |
 | analysis | 解析学 |
 | arguments | 引数 |
 | arithmetic | 算術 |
 | associativity | 結合性 |
 | chapter | 章 |
+| codomain | 終域 |
 | context | コンテキスト |
+| continuum hypothesis | 連続体仮説 |
+| curly brackets | 波括弧 |
 | dependent type theory | 依存型理論 |
 | disjunction | 選言 |
 | distributive lattice | 分配束 |
@@ -18,6 +21,7 @@
 | greatest common divisor | 最大公約数 |
 | greatest lower bound | 最大下界 |
 | identity | 恒等式, 等式 |
+| if-and-only-if statement | 同値性を主張する文 |
 | inclusion | 包含 |
 | infimum | 下限 |
 | intersection | 共通部分 |
@@ -29,11 +33,13 @@
 | measure theory | 測度論 |
 | meet | 交わり |
 | metric space | 距離空間 |
+| monotone | 単調 |
 | number theory | 数論 |
 | partial order | 半順序 |
 | proof term | 証明項 |
 | reflexivity | 反射性 |
 | section | 節 |
+| simplify | 単純化 |
 | statement | 命題 |
 | strict partial order | 狭義半順序 |
 | subset | 部分集合 |
