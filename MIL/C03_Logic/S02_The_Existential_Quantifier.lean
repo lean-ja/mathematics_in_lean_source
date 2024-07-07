@@ -406,7 +406,7 @@ integers and use them to provide an alternative proof.
 
 OMIT. -/
 /- TEXT:
-この証明ではたいした洞察を得られませんでしたが，この事実に動機づけられる例が一つあります． *ガウス整数* とは :math:`a + bi` の形式で表される数で， :math:`a` と :math:`b` は整数で :math:`i = \sqrt{-1}` です．ガウス整数 :math:`a + bi` の *ノルム* は :math:`a^2 + b^2` で定義されます．したがってガウス整数のノルムは2乗の和で，どんな2乗の和も同じように表すことができるのでした．上記の定理はガウス整数の積のノルムがそれらのノルムの積であるという事実を反映します: もし :math:`x` が :math:`a + bi` のノルムで :math:`y` が :math:`c + di` のノルムであるならば， :math:`xy` は :math:`(a + bi) (c + di)` のノルムとなります．この不可解な証明は形式化するのが最も簡単な証明が最も明瞭なものになるとは限らないという事実を示しています． :numref:`section_building_the_gaussian_integers` ではガウス整数を定義し，それを用いて別の証明を行う方法を提供します．
+この証明ではたいした洞察を得られませんでしたが，この事実に動機づけられる例が一つあります． *ガウス整数* とは :math:`a + bi` の形式で表される数で，ここで :math:`a` と :math:`b` は整数で :math:`i = \sqrt{-1}` です．ガウス整数 :math:`a + bi` の *ノルム* は定義から :math:`a^2 + b^2` に一致します．したがってガウス整数のノルムは2乗の和で，逆にどんな2乗の和もノルムとして表すことができます．上記の定理はガウス整数の積のノルムはそれらのノルムの積であるという事実を反映しています: もし :math:`x` が :math:`a + bi` のノルムで :math:`y` が :math:`c + di` のノルムであるならば， :math:`xy` は :math:`(a + bi) (c + di)` のノルムとなります．上記の不可解な証明は形式化するのが最も簡単な証明が最も明瞭なものになるとは限らないという事実を示しています． :numref:`section_building_the_gaussian_integers` ではガウス整数を定義し，それを用いて別の証明を行う方法を提供します．
 
 TEXT. -/
 /- OMIT:
@@ -420,7 +420,7 @@ if you use the keyword ``rfl`` in place of a new identifier,
 with pattern-matching lambdas).
 OMIT. -/
 /- TEXT:
-存在量化子中のパターンの展開とそれをゴールの式の書き換えに用いることは頻繁に行われるため， ``rcases`` タクティクは省略形を提供しています: ``rfl`` キーワードを新しい識別子の代わりに使うと， ``rcases`` が自動的に式を書き換えてくれます．（この技はラムダ抽象中のパターンマッチでは使うことができません．）
+存在量化子の中のパターンの展開とそれをゴールの式の書き換えに用いることは頻繁に行われるため， ``rcases`` タクティクは省略形を提供しています: ``rfl`` キーワードを新しい識別子の代わりに使うと， ``rcases`` が自動的に式を書き換えてくれます．（この技はラムダ式の中のパターンマッチでは使うことができません．）
 TEXT. -/
 -- QUOTE:
 theorem sumOfSquares_mul' {x y : α} (sosx : SumOfSquares x) (sosy : SumOfSquares y) :
@@ -440,7 +440,7 @@ if you know how to spot them.
 For example, divisibility is implicitly an "exists" statement.
 OMIT. -/
 /- TEXT:
-全称量化子と同様，存在量化子も見分け方さえわかってしまえばあちこちに隠れていることがわかるでしょう．例えば整除関係は暗黙的な「存在」についての命題です．
+全称量化子と同様，存在量化子も見付け方さえわかってしまえばあちこちに隠れていることがわかるでしょう．例えば整除関係は暗黙的な「存在」についての命題です．
 TEXT. -/
 -- BOTH:
 section
@@ -564,7 +564,7 @@ Note that you can use ``rcases`` with any expression,
 not just a hypothesis.
 OMIT. -/
 /- TEXT:
-次の例は適切な値に全射な仮説を適用しています．ここで ``rcases`` が仮説だけでなくどんな式にでも使えることに注意してください．
+次の例は適切な値に全射性の仮定を適用しています．ここで ``rcases`` が仮定だけでなくどんな式にでも使えることに注意してください．
 TEXT. -/
 -- QUOTE:
 example {f : ℝ → ℝ} (h : Surjective f) : ∃ x, f x ^ 2 = 4 := by
