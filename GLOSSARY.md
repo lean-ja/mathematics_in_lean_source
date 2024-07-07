@@ -9,6 +9,7 @@
 | associativity | 結合性 |
 | chapter | 章 |
 | codomain | 終域 |
+| conjunction | 連言 |
 | context | コンテキスト |
 | continuum hypothesis | 連続体仮説 |
 | curly brackets | 波括弧 |
@@ -18,6 +19,7 @@
 | divisibility relation | 整除関係 |
 | domain | 始域 |
 | exercises | 演習 |
+| existential quantifier | 存在量化子 |
 | greatest common divisor | 最大公約数 |
 | greatest lower bound | 最大下界 |
 | identity | 恒等式, 等式 |
@@ -34,6 +36,7 @@
 | meet | 交わり |
 | metric space | 距離空間 |
 | monotone | 単調 |
+| norm | ノルム |
 | number theory | 数論 |
 | partial order | 半順序 |
 | proof term | 証明項 |
@@ -44,6 +47,7 @@
 | strict partial order | 狭義半順序 |
 | subset | 部分集合 |
 | supremum | 上限 |
+| surjective | 全射 |
 | total order | 全順序 |
 | transitivity | 推移性 |
 | triangle inequality | 三角不等式 |
