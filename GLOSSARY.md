@@ -41,6 +41,7 @@
 | number theory | 数論 |
 | partial order | 半順序 |
 | proof term | 証明項 |
+| proof by contradiction | 背理法 |
 | reflexivity | 反射性 |
 | section | 節 |
 | simplify | 単純化 |
