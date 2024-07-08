@@ -19,6 +19,7 @@
 | divisibility relation | 整除関係 |
 | domain | 始域 |
 | exercises | 演習 |
+| ex falso | 爆発律 |
 | existential quantifier | 存在量化子 |
 | greatest common divisor | 最大公約数 |
 | greatest lower bound | 最大下界 |
@@ -40,6 +41,7 @@
 | number theory | 数論 |
 | partial order | 半順序 |
 | proof term | 証明項 |
+| proof by contradiction | 背理法 |
 | reflexivity | 反射性 |
 | section | 節 |
 | simplify | 単純化 |
