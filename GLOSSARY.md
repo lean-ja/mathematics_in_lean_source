@@ -7,6 +7,7 @@
 | arguments | 引数 |
 | arithmetic | 算術 |
 | associativity | 結合性 |
+| bi-implication | 双方向の含意 |
 | chapter | 章 |
 | codomain | 終域 |
 | conjunction | 連言 |
