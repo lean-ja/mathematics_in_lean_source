@@ -12,7 +12,7 @@
 .. Since functions and relations can be defined in terms of sets,
 .. axiomatic set theory can be used as a foundation for mathematics.
 
-集合，関係，関数の用語は，数学の全分野を構成するための統一的な言語を提供します．関数と関数は集合で定義できるので，数学の基礎として公理的集合論を利用することができます．
+集合，関係，関数の用語は，数学の全分野を構成するための統一的な言語を提供します．関数と関係は集合で定義できるので，数学の基礎として公理的集合論を利用することができます．
 
 .. Lean's foundation is based instead on the primitive notion of a *type*,
 .. and it includes ways of defining functions between types.
@@ -25,7 +25,7 @@
 .. Lean and Mathlib provide ways of defining new types,
 .. and ways of defining objects of those types.
 
-Leanの基礎では集合の代わりに *型* という原始的な概念に基づいており，型間の関数を定義する方法を含んでいます．Leanでのすべての式は型を持ちます: 例えば自然数，実数，実数から実数への関数，群，ベクトル空間などがあります．いくつかの式は型 *そのもの* であり，それらの型は ``Type`` です．LeanとMathlibは新しい型を定義する方法と，それらの型のオブジェクトを定義する方法を提供します．
+Leanの基礎では集合の代わりに *型* という原始的な概念に基づいており，型間の関数を定義することができます．Leanでのすべての式は型を持ちます: 例えば自然数，実数，実数から実数への関数，群，ベクトル空間などはすべて型です．式の中には型 *そのもの* であるものもあり，それらの型は ``Type`` です．LeanとMathlibは新しい型を定義する方法と，それらの型のオブジェクトを定義する方法を提供します．
 
 .. Conceptually, you can think of a type as just a set of objects.
 .. Requiring every object to have a type has some advantages.
@@ -37,7 +37,7 @@ Leanの基礎では集合の代わりに *型* という原始的な概念に基
 .. apply a function to the wrong number of arguments,
 .. or apply a function to arguments of the wrong type.
 
-概念的には，型はオブジェクトの単なる集合と考えることができます．すべてのオブジェクトに型を要求することにはいくつかの利点があります．例えば， ``+`` のような記法をオーバーロードできるようになり，またLeanがオブジェクトの型から多くの情報を推測できることから入力が冗長にならないこともあります．また，型システムによって，間違った数の引数に関数を適用したり，間違った型の引数に関数を適用した場合にLeanがエラーを出すことができます．
+概念的には，型はオブジェクトの単なる集合と考えることができます．すべてのオブジェクトに型を要求することにはいくつかの利点があります．例えば， ``+`` のような記法をオーバーロードできるようになり，またLeanがオブジェクトの型から多くの情報を推測できることから入力が冗長にならないようにすることもできます．また，型システムによって，間違った数の引数に関数を適用したり，間違った型の引数に関数を適用した場合にLeanがエラーを出すことができます．
 
 .. Lean's library does define elementary set-theoretic notions.
 .. In contrast to set theory,
