@@ -40,7 +40,7 @@ You can type ``∈`` as ``\in`` or ``\mem`` and ``∉`` as ``\notin``.
 
 OMIT. -/
 /- TEXT:
-もし ``α`` が任意の型であれば， ``Set α`` 型は ``α`` 型の要素からなる集合から構成されます．この型では通常の集合論的な操作や関係をサポートしています．例えば ``s ⊆ t`` は ``s`` が ``t`` の部分集合であること， ``s ∩ t`` は ``s`` と ``t`` の共通部分， ``s ∪ t`` は ``s`` と ``t`` の合併を表します．部分集合の関係は ``\ss`` か ``\sub`` で，共通部分は ``\i`` もしくは ``\cap`` ，合併は ``\un`` か ``\cup`` で入力できます．またライブラリは ``univ`` という集合も定義しています．これは ``α`` 型のすべての要素からなる集合です．そして ``\empty`` で入力される空集合 ``∅`` も定義しています． ``x : α`` と ``s : Set α`` が与えられた時，式 ``x ∈ s`` は ``x`` が ``s`` のメンバーであることを表します．集合の所属要素に言及する定理は，しばしばその名前に ``mem`` を含みます．式 ``x ∉ s`` は ``¬ x ∈ s`` を省略したものです． ``∈`` は ``\in`` か ``\mem`` で， ``∉`` は ``\notin`` で入力できます．
+もし ``α`` が任意の型であれば， ``Set α`` 型は ``α`` 型の要素からなる集合として構成されます．この型では通常の集合論的な操作や関係をサポートしています．例えば ``s ⊆ t`` は ``s`` が ``t`` の部分集合であること， ``s ∩ t`` は ``s`` と ``t`` の共通部分， ``s ∪ t`` は ``s`` と ``t`` の合併を表します．部分集合の関係は ``\ss`` か ``\sub`` で，共通部分は ``\i`` もしくは ``\cap`` ，合併は ``\un`` か ``\cup`` で入力できます．またライブラリは ``univ`` という集合も定義しています．これは ``α`` 型のすべての要素からなる集合です．そして ``\empty`` で入力される空集合 ``∅`` も定義しています． ``x : α`` と ``s : Set α`` が与えられた時，式 ``x ∈ s`` は ``x`` が ``s`` のメンバーであることを表します．集合の所属要素に言及する定理は，しばしばその名前に ``mem`` を含みます．式 ``x ∉ s`` は ``¬ x ∈ s`` を省略したものです． ``∈`` は ``\in`` か ``\mem`` で， ``∉`` は ``\notin`` で入力できます．
 
 .. index:: simp, tactics ; simp
 
@@ -58,7 +58,7 @@ If you step through the proof,
 you can see the effects of these commands.
 OMIT. -/
 /- TEXT:
-集合について証明する一つの方法は， ``rw`` や簡約化を使って定義を展開することです．以下の2つ目の例では， ``simp only`` を使ってライブラリに存在するすべての等式ではなく，簡約化器に我々が与えた等式のリストだけを使うように指示しています． ``rw`` とは異なり， ``simp`` は全称量化子や存在量化子野中でも簡約を行うことができます．以下の証明を一行ずつたどれば，これらのコマンドの効果を見ることができます．
+集合について証明する一つの方法は， ``rw`` や単純化を使って定義を展開することです．以下の2つ目の例では， ``simp only`` を使ってライブラリに存在するすべての等式ではなく，単純化器に我々が与えた等式のリストだけを使うように指示しています． ``rw`` とは異なり， ``simp`` は全称量化子や存在量化子野中でも単純化を行うことができます．以下の証明を一行ずつたどれば，これらのコマンドの効果を見ることができます．
 TEXT. -/
 -- BOTH:
 section
@@ -103,7 +103,7 @@ Lean is forced to expand the definitions.
 The following examples also illustrate the phenomenon:
 OMIT. -/
 /- TEXT:
-ここで行われたことは *定義的簡約* として知られるもので， ``intro`` コマンドと匿名コンストラクタの意味を理解するためにLeanは定義を展開させられています．下記の例も同じ現象を示しています:
+ここで行われたことは *定義的簡約* として知られるもので， ``intro`` コマンドとその後の無名コンストラクタの意味が通るようにLeanは定義を自動で展開しています．下記の例でも同じ現象が発生しています:
 TEXT. -/
 -- QUOTE:
 theorem foo (h : s ⊆ t) : s ∩ u ⊆ t ∩ u :=
@@ -123,7 +123,7 @@ but sometimes we have to fall back on unfolding definitions manually.
 
 OMIT. -/
 /- TEXT:
-Leanの独特な入力に対する処理によって， ``theorem foo`` を ``example`` に置き換えると最初の例は失敗してしまいます．これは定義的な削減を過度に信頼することの落とし穴を示しています．これは便利なことも多いですが，手動で定義を展開しなければならないこともあります．
+Leanの独特な入力に対する処理によって， ``theorem foo`` を ``example`` に置き換えると最初の例は失敗してしまいます．これは定義的簡約を過度に信頼することの落とし穴を示しています．定義的簡約は便利なことも多いですが，手動で定義を展開しなければならないこともあります．
 
 TEXT. -/
 /- OMIT:
@@ -132,7 +132,7 @@ Since ``x ∈ s ∪ t`` unfolds to ``x ∈ s ∨ x ∈ t``,
 we can also use the ``cases`` tactic to force a definitional reduction.
 OMIT. -/
 /- TEXT:
-合併を扱うには， ``Set.union_def`` と ``Set.mem_union`` を使うことができます． ``x ∈ s ∪ t`` は ``x ∈ s ∨ x ∈ t`` に展開されるため， ``cases`` タクティクを使って強制的に定義を減らすこともできます．
+合併を扱うには， ``Set.union_def`` と ``Set.mem_union`` を使うことができます． ``x ∈ s ∪ t`` は ``x ∈ s ∨ x ∈ t`` に展開されるため， ``cases`` タクティクを使って強制的に定義的簡約を行うこともできます．
 TEXT. -/
 -- QUOTE:
 example : s ∩ (t ∪ u) ⊆ s ∩ t ∪ s ∩ u := by
@@ -168,7 +168,7 @@ example : s ∩ (t ∪ u) ⊆ s ∩ t ∪ s ∩ u := by
 As an exercise, try proving the other inclusion:
 OMIT. -/
 /- TEXT:
-練習問題として，もう一方の包含を証明してみましょう:
+演習問題として，もう一方の包含を証明してみましょう:
 BOTH: -/
 -- QUOTE:
 example : s ∩ t ∪ s ∩ u ⊆ s ∩ (t ∪ u) := by
@@ -203,7 +203,7 @@ but the following two proofs of the same inclusion
 show how to avoid using them.
 OMIT. -/
 /- TEXT:
-ライブラリでは ``s \ t`` で示される差集合も定義されています．ここでバックスラッシュは ``\\`` で入力される特別なUnicode文字です．式 ``x ∈ s \ t`` は ``x ∈ s ∧ x ∉ t`` に展開されます．（ ``∉`` は ``\notin`` で入力できます．）この定義は ``Set.diff_eq`` と ``dsimp`` か ``Set.mem_diff``  を使って手動で書き直すこともできますが，以下の同じ包含の2つの証明でこれらを使用しない方法を示します．
+ライブラリでは ``s \ t`` で示される差集合も定義されています．ここでバックスラッシュは ``\\`` で入力される特別なUnicode文字です．式 ``x ∈ s \ t`` は ``x ∈ s ∧ x ∉ t`` に展開されます．（ ``∉`` は ``\notin`` で入力できます．）この定義は ``Set.diff_eq`` と ``dsimp`` か ``Set.mem_diff``  を使って手動で書き直すこともできますが，以下の同じ包含についての2つの証明でこれらを使用しない方法を示します．
 TEXT. -/
 -- QUOTE:
 example : (s \ t) \ u ⊆ s \ (t ∪ u) := by
@@ -229,7 +229,7 @@ example : (s \ t) \ u ⊆ s \ (t ∪ u) := by
 As an exercise, prove the reverse inclusion:
 OMIT. -/
 /- TEXT:
-練習問題として，反対向きの包含を証明してみましょう:
+演習問題として，反対向きの包含を証明してみましょう:
 BOTH: -/
 -- QUOTE:
 example : s \ (t ∪ u) ⊆ (s \ t) \ u := by
@@ -255,7 +255,7 @@ and, unsurprisingly,
 the ``ext`` tactic is equipped to handle it.
 OMIT. -/
 /- TEXT:
-2つの集合が等しいことを証明するには，一方の集合のすべての要素がもう片方の集合の要素であることを示せば十分です．この原理は「外延性」として知られており，名前としてはそのまま ``ext`` タクティクでこれを扱うことができます．
+2つの集合が等しいことを証明するには，一方の集合のすべての要素がもう片方の集合の要素であることを示せば十分です．この原理は「外延性（extensionality）」として知られており，名前としてはそのまま ``ext`` タクティクでこれを扱うことができます．
 TEXT. -/
 -- QUOTE:
 example : s ∩ t = t ∩ s := by
@@ -273,7 +273,7 @@ In fact, if you like inscrutable proof terms,
 the following one-line proof is for you:
 OMIT. -/
 /- TEXT:
-改めてお伝えしますが， ``simp only [mem_inter_iff]`` の行を削除しても証明には影響しません．実際，証明項による複雑な証明が好きな人にとっては次のような1行の証明が向いているでしょう:
+繰り返しになりますが， ``simp only [mem_inter_iff]`` の行を削除しても証明には影響しません．実際，証明項による難解な証明が好きな人にとっては次のような1行の証明が向いているでしょう:
 TEXT. -/
 -- QUOTE:
 example : s ∩ t = t ∩ s :=
@@ -285,7 +285,7 @@ Here is an even shorter proof,
 using the simplifier:
 OMIT. -/
 /- TEXT:
-以下は簡約化を使ったさらに短い証明です:
+以下は単純化を使ったさらに短い証明です:
 TEXT. -/
 -- QUOTE:
 example : s ∩ t = t ∩ s := by ext x; simp [and_comm]
@@ -337,7 +337,7 @@ TEXT. -/
 Here are some set-theoretic identities you might enjoy proving:
 OMIT. -/
 /- TEXT:
-以下の集合論的な恒等式の証明は楽しいかもしれません:
+以下の集合論的な等式の証明は楽しいかもしれません:
 TEXT. -/
 -- QUOTE:
 example : s ∩ (s ∪ t) = s := by
@@ -452,7 +452,7 @@ and confirm that the proof still works.
 
 OMIT. -/
 /- TEXT:
-この証明を順を追って見て，何が起こっているのか理解してください．そして ``rw [evens, odds]`` の行を削除して証明がまだ機能することを確認してください．
+この証明を順を追って見て，何が起こっているのか理解してください．そして ``rw [evens, odds]`` の行を削除しても証明がまだ機能することを確認してください．
 
 TEXT. -/
 /- OMIT:
@@ -486,7 +486,7 @@ two definitions when needed. In the second one,
 ``trivial`` is the canonical proof of ``True`` in the library.
 OMIT. -/
 /- TEXT:
-``∅`` と ``univ`` についてはどういう型なのかをLeanが正しく推論できないため，明示的に型を示す必要があります．以下の例では，Leanが必要に応じて最後の2つの定義をどのように展開するかを示しています．2つ目の例で用いられている ``trivial`` はライブラリにおいて ``True`` の標準的な証明です．
+``∅`` と ``univ`` についてはどの型についてのものなのかをLeanが正しく推論できないため，明示的に型を示す必要があります．以下の例では，Leanが必要に応じて最後の2つの定義をどのように展開するかを示しています．2つ目の例で用いられている ``trivial`` はライブラリにおいて ``True`` の標準的な証明です．
 TEXT. -/
 -- QUOTE:
 example (x : ℕ) (h : x ∈ (∅ : Set ℕ)) : False :=
@@ -505,7 +505,7 @@ We also recommend using the theorems
 ``Nat.Prime.eq_two_or_odd`` and ``Nat.even_iff``.
 OMIT. -/
 /- TEXT:
-練習問題として，以下の包含を証明しましょう．その際にはまず ``intro n`` を使って部分集合の定義を展開し，そして簡約化を使って集合論的な構成を論理に落とし込みます．また定理 ``Nat.Prime.eq_two_or_odd`` と ``Nat.even_iff`` を使うことをお勧めします．
+演習問題として，以下の包含を証明しましょう．その際にはまず ``intro n`` を使って部分集合の定義を展開し，そして単純化を使って集合論的な構成を論理に落とし込みます．また定理 ``Nat.Prime.eq_two_or_odd`` と ``Nat.even_iff`` を使うことをお勧めします．
 TEXT. -/
 -- QUOTE:
 example : { n | Nat.Prime n } ∩ { n | n > 2 } ⊆ { n | ¬Even n } := by
@@ -533,7 +533,7 @@ Fortunately, there is a theorem that says that in the specific case,
 the two notions agree, so you can always rewrite one to the other.
 OMIT. -/
 /- TEXT:
-少し混乱するかもしれませんが，ライブラリには ``Prime`` という述語に複数のバージョンを持たせている点に注意してください．最も一般的な定義では，零要素を持つ任意の可換モノイドで使うことができます．これに対し ``Nat.Prime`` は自然数専用の述語です．幸いなことに，特定のケースではこの2つの概念が一致するという定理があるため，いつでも一方を他方に書き換えることができます．
+少し混乱するかもしれませんが，ライブラリでは ``Prime`` という述語に複数のバージョンを持たせている点に注意してください．最も一般的な定義では，零要素を持つ任意の可換モノイドで使うことができます．これに対し ``Nat.Prime`` は自然数専用の述語です．幸いなことに，特定のケースではこの2つの概念が一致するという定理があるため，いつでも一方を他方に書き換えることができます．
 TEXT. -/
 -- QUOTE:
 #print Prime
@@ -554,7 +554,7 @@ OMIT. -/
 /- TEXT:
 .. index:: rwa, tactics ; rwa
 
-`rwa` タクティクはassumptionタクティクを伴って書き換えを行います．
+`rwa` タクティクは `assumption` タクティクを伴って書き換えを行います．
 TEXT. -/
 -- QUOTE:
 example (n : ℕ) (h : Prime n) : Nat.Prime n := by
@@ -587,7 +587,7 @@ OMIT. -/
 /- TEXT:
 .. index:: bounded quantifiers
 
-Leanは「 ``s`` のすべての要素 ``x`` について，」を意味する ``∀ x, x ∈ s → ...`` の省略形として ``∀ x ∈ s, ...`` という記法を導入しています．またこれと同じように「 ``s`` の要素でとある ``x`` が存在し，」に対する ``∃ x ∈ s, ...,`` という表記も導入します．これらは *束縛演算子* と呼ばれることがあります．これはこの構文がその意味を集合 ``s`` に限定する役割を果たすからです．このため，これらの記法を用いるライブラリ中の定理の名前にはしばしば ``ball`` や ``bex`` がふくまれます． ``∃ x ∈ s, ...`` が ``∃ x, x ∈ s ∧ ...,`` は定理 ``bex_def`` で等価であることが主張されていますが，この定理を用いずとも ``rintro`` と ``use`` ，そして無名コンストラクタを用いることでこの2つはほぼ同じ挙動を示します．そのため通常 ``bex_def`` を使って明示的に変換する必要はありません．以下は上記の記法の使用例です:
+Leanは「 ``s`` のすべての要素 ``x`` について，」を意味する ``∀ x, x ∈ s → ...`` の省略形として ``∀ x ∈ s, ...`` という記法を導入しています．またこれと同じように「 ``s`` の要素でとある ``x`` が存在し，」に対する ``∃ x ∈ s, ...,`` という表記も導入します．これらは *束縛演算子* と呼ばれることがあります．これはこの構文がその意味を集合 ``s`` に限定する役割を果たすからです．このため，これらの記法を用いるライブラリ中の定理の名前にはしばしば ``ball`` や ``bex`` がふくまれます． ``∃ x ∈ s, ...`` が ``∃ x, x ∈ s ∧ ...,`` と等価であることは定理 ``bex_def`` で主張されていますが，この定理を用いずとも ``rintro`` と ``use`` ，そして無名コンストラクタを用いることでこの2つはほぼ同じ挙動を示します．そのため通常 ``bex_def`` を使って明示的に変換する必要はありません．以下は上記の記法の使用例です:
 TEXT. -/
 -- BOTH:
 section
@@ -714,7 +714,7 @@ We recommend using ``by_cases xs : x ∈ s``
 at an appropriate point in the proof.
 OMIT. -/
 /- TEXT:
-次の恒等式を証明してみましょう．一つの方向は古典論理が必要となります！適当なところで ``by_cases xs : x ∈ s`` を使うことをお勧めします．
+次の等式を証明してみましょう．この証明は2方向から行いますが，片方は古典論理が必要となります！適切なところで ``by_cases xs : x ∈ s`` を使うと良いでしょう．
 TEXT. -/
 -- QUOTE:
 
@@ -753,7 +753,7 @@ As the following examples show,
 Lean's simplifier carries out these replacements as well.
 OMIT. -/
 /- TEXT:
-またMathlibは束縛された量化子に似た束縛された合併と共通集合を持っています．これらの意味は ``mem_iUnion₂`` と ``mem_iInter₂`` から紐解くことができます．以下の例で示すように，Leanの簡約化はこれらの置換も行ってくれます．
+またMathlibは束縛された量化子に似た束縛された合併と共通集合を持っています．これらの意味は ``mem_iUnion₂`` と ``mem_iInter₂`` から紐解くことができます．以下の例で示すように，Leanの単純化はこれらの置換も行ってくれます．
 TEXT. -/
 -- QUOTE:
 -- BOTH:
