@@ -53,7 +53,7 @@ Here, ``inl`` is short for "introduction left" and
 ``inr`` is short for "introduction right."
 OMIT. -/
 /- TEXT:
-「または」についての証明を組み立てるにあたって無名コンストラクタを使うことはできません．というのも仮に用いた場合，選言で証明したい方をLeanに推測してもらわなければいけないことになるからです．選言の証明項を書く際には ``Or.inl`` と ``Or.inr`` を使って明示的に選択することができます．ここで ``inl`` は「introduction left」の略で， ``inr`` は「introduction right」の略です．
+「または」についての証明を組み立てるにあたって無名コンストラクタを使うことはできません．選言でどちらを証明したいのか，Leanが推測することはできないからです．選言の証明項を書く方法には，明示的に選択する以外にも ``Or.inl`` と ``Or.inr`` を使う方法があります．ここで ``inl`` は「introduction left」の略で， ``inr`` は「introduction right」の略です．
 TEXT. -/
 -- QUOTE:
 example (h : y > 0) : y > 0 ∨ y < -1 :=
@@ -84,7 +84,7 @@ In the next example, we tell Lean
 to use the name ``h`` on each branch.
 OMIT. -/
 /- TEXT:
-選言の証明がどちらか片方だけを証明するというのは奇妙に思われるかもしれません．実際には，どちらのケースが成り立つかどうかは通常，仮定とデータに暗黙的・明示的に含まれるケースがどう分割されるかに依存します． ``rcases`` タクティクは ``A ∨ B`` の形式の仮定を利用できるようにしてくれます．連言や存在量化子を使う場合の ``rcases`` の使用方法とは異なり，ここでは ``rcases`` は *2つの* ゴールを生成します．このゴールはどちらも同じ結論ですが，1つ目のケースでは ``A`` が真だと仮定され，2つ目のケースでは ``B`` が真だと仮定されます．つまり，名前の通り， ``rcases`` タクティクはケースによる証明を行ってくれます．いつものように，この仮定についてどのような名前を使うかをLeanに指示することができます．次の例では，Leanに各ブランチで ``h`` という名前を使うように指示しています．
+選言を証明するために，どちらか片方だけを証明するというのは奇妙に思われるかもしれません．実際には，どちらのケースが成り立つかは通常，仮定とデータに暗黙的・明示的に含まれるケース分割に依存します． ``rcases`` タクティクは ``A ∨ B`` の形式の仮定を利用できるようにしてくれます．連言や存在量化子を使う場合の ``rcases`` の使用方法とは異なり，ここでは ``rcases`` は *2つの* ゴールを生成します．どちらのゴールも結論は同じですが，1つ目のケースでは ``A`` が真だと仮定され，2つ目のケースでは ``B`` が真だと仮定されます．つまり，名前の通り， ``rcases`` タクティクは場合分けによる証明を行ってくれます．いつものように，この仮定についてどのような名前を使うかをLeanに指示することができます．次の例では，各ブランチで ``h`` という名前を使っています．
 TEXT. -/
 -- QUOTE:
 example : x < |y| → x < y ∨ x < -y := by
@@ -106,7 +106,7 @@ to use the same name, ``h``, in each case.
 
 OMIT. -/
 /- TEXT:
-パターンが連言のケース ``⟨h₀, h₁⟩`` から選言のケースである ``h₀ | h₁`` に変わっていることに注意してください．先に出した連言のパターンは ``h₀`` と ``h₁`` の *両方* を含むデータに対してのマッチングだったのに対して，2つ目のパターンは縦棒を用いて ``h₀`` か ``h₁`` の *どちらか* を含むデータに対してのマッチングであると考えてください．この場合，2つのゴールは別々になるため，両方で同じ名前 ``h`` を使用することにしています．
+パターンが連言での ``⟨h₀, h₁⟩`` から選言では ``h₀ | h₁`` に変わっていることに注意してください．先に出した連言のパターンは ``h₀`` と ``h₁`` の *両方* を含むデータに対してのマッチングだったのに対して，2つ目の縦棒を用いたパターンは ``h₀`` か ``h₁`` の *どちらか* を含むデータに対してのマッチングであると考えてください．この場合，2つのゴールは別々になるため，両方で同じ名前 ``h`` を使用することにしています．
 
 TEXT. -/
 /- OMIT:
@@ -120,7 +120,7 @@ allowing us to split on those two cases.
 
 OMIT. -/
 /- TEXT:
-絶対値の関数は ``x ≥ 0`` が ``|x| = x`` （これが定理 ``abs_of_nonneg`` のことです）を， ``x < 0`` が ``|x| = -x`` （こちらは ``abs_of_neg`` です）を導くことを即座に証明できるように定義されています．式 ``le_or_gt 0 x`` は ``0 ≤ x ∨ x < 0`` を成立させるので，この2つのケースに分けることができます．
+絶対値関数に対して ``x ≥ 0`` ならば ``|x| = x`` （これが定理 ``abs_of_nonneg`` のことです）， ``x < 0`` ならば ``|x| = -x`` （こちらは ``abs_of_neg`` です）がそれぞれ成り立ち，証明は定義から直ちに導くことができます．式 ``le_or_gt 0 x`` は ``0 ≤ x ∨ x < 0`` の証明で，正負の場合分けを行うことができます．
 
 TEXT. -/
 /- OMIT:
@@ -130,7 +130,7 @@ because it allows us to name each ``case``, and name the hypothesis
 that is introduced closer to where it is used.
 OMIT. -/
 /- TEXT:
-Leanは計算機科学者のパターンマッチの構文による論理和もサポートしています．この点で ``cases`` タクティクはより魅力的です．なぜならそれぞれの ``case`` に名前をつけることができ，導入された仮定が使用される場所の近くに名前をつけることができるからです．
+Leanでは選言を計算機科学におけるパターンマッチ構文を使って扱うこともできます．この場合 ``cases`` タクティクはより魅力的です．なぜならそれぞれの ``case`` に名前をつけることができ，導入された仮定が使用される場所の近くで名前をつけることができるからです．
 TEXT. -/
 -- QUOTE:
 example : x < |y| → x < y ∨ x < -y := by
@@ -151,7 +151,7 @@ If you don't care about that, you can use ``next``, or ``match``,
 or even a pattern-matching ``have``.
 OMIT. -/
 /- TEXT:
-``inl`` と ``inr`` はそれぞれ 「intro left」と「intro right」の略です． ``case`` を用いると，どちらの順番でもケースを証明できるという利点があります．Leanはタグを見て関連するゴールを選びます．これらの利点が気にならなければ， ``next`` や ``match`` ，あるいはパターンマッチの ``have`` を使用することができます．
+``inl`` と ``inr`` はそれぞれ 「intro left」と「intro right」の略です． ``case`` を用いると，任意の順番で証明ができるという利点があります．タグに一致するゴールが選択されます．これらの利点が必要でなければ， ``next`` や ``match`` ，あるいは ``have`` によるパターンマッチを使用することができます．
 TEXT. -/
 -- QUOTE:
 example : x < |y| → x < y ∨ x < -y := by
@@ -182,7 +182,7 @@ cases of a disjunction.
 
 OMIT. -/
 /- TEXT:
-``match`` の場合，選言を証明する正規の方法であるフルネーム ``Or.inl`` と ``Or.inr`` を使う必要があります．この教科書では，一般的に ``rcases`` を使って論理和のケースを分割するようにします．
+``match`` の場合，選言を証明する正規の方法であるフルネーム ``Or.inl`` と ``Or.inr`` を使う必要があります．本書では，基本的に選言の場合分けには ``rcases`` を使うことにします．
 
 TEXT. -/
 /- OMIT:
@@ -191,7 +191,7 @@ first two theorems in the next snippet.
 They are given the same names they have in Mathlib.
 OMIT. -/
 /- TEXT:
-次のコード片の最初の2つの定理を使って三角不等式を証明してみよう．これらはMathlibにあるのと同じ名前が与えられています．
+次のコードの最初の2つの定理を使って三角不等式を証明してみましょう．これらはMathlibにあるのと同じ名前が与えられています．
 TEXT. -/
 -- BOTH:
 -- QUOTE:
@@ -234,7 +234,7 @@ you want more practice with disjunction,
 try these.
 OMIT. -/
 /- TEXT:
-これらのケースを楽しめたのなら（ダジャレのつもりです）さらに選言の練習がほしいことでしょう．以下を試してみてください．
+場合分けによる証明を楽しめましたか？もっと練習をすることができます．以下を試してみてください．
 TEXT. -/
 -- QUOTE:
 theorem lt_abs : x < |y| ↔ x < y ∨ x < -y := by
@@ -297,7 +297,7 @@ When these result in a genuine case split with multiple goals,
 the patterns for each new goal are separated by a vertical bar.
 OMIT. -/
 /- TEXT:
-``rcases`` と ``rintro`` を入れ子になった選言中でも使うことができます．このケース分割の結果複数のゴールになる場合，それぞれの新しいゴールのパターンは縦棒で区切られます．
+``rcases`` と ``rintro`` は入れ子になった選言に対しても使うことができます．このケース分割の結果複数のゴールが作られる場合，それぞれの新しいゴールのパターンは縦棒で区切られます．
 TEXT. -/
 -- QUOTE:
 example {x : ℝ} (h : x ≠ 0) : x < 0 ∨ x > 0 := by
@@ -313,7 +313,7 @@ You can still nest patterns and use the ``rfl`` keyword
 to substitute equations:
 OMIT. -/
 /- TEXT:
-パターンをネストさせたり， ``rfl`` キーワードによる等式の書き換えも可能です:
+パターンをネストさせたり， ``rfl`` キーワードによって等式を代入したりすることも可能です:
 TEXT. -/
 -- QUOTE:
 example {m n k : ℕ} (h : m ∣ n ∨ m ∣ k) : m ∣ n * k := by
@@ -330,7 +330,7 @@ Use ``rcases`` to unpack the hypotheses and split on cases,
 and use a semicolon and ``linarith`` to solve each branch.
 OMIT. -/
 /- TEXT:
-以下を（長い）1行で証明できるか試してみましょう． ``rcases`` を使って仮定を展開してケースを分け，セミコロンと ``linarith`` を用いて各分岐を解いてみましょう．
+以下を（長い）1行で証明できるか試してみましょう． ``rcases`` を使って仮定を展開して場合分けを行い，セミコロンと ``linarith`` を用いて各分岐を解いてみましょう．
 TEXT. -/
 -- QUOTE:
 example {z : ℝ} (h : ∃ x y, z = x ^ 2 + y ^ 2 ∨ z = x ^ 2 + y ^ 2 + 1) : z ≥ 0 := by
@@ -349,7 +349,7 @@ and it is another nice example of how a disjunction can arise.
 See if you can use it to prove the following:
 OMIT. -/
 /- TEXT:
-実数上において，等式 ``x * y = 0`` は ``x = 0`` か ``y = 0`` のどちらかを意味します．Mathlibにおいて，この事実は ``eq_zero_or_eq_zero_of_mul_eq_zero`` として知られており，どのように選言が生じるかを見るにあたっての別の良い例です．これを使って次のことを証明してみましょう:
+実数上において，等式 ``x * y = 0`` は ``x = 0`` か ``y = 0`` のどちらかを意味します．Mathlibにおいて，この事実は ``eq_zero_or_eq_zero_of_mul_eq_zero`` として知られており，どのように選言が生じるかを示す良い例です．これを使って次のことを証明してみましょう:
 TEXT. -/
 -- QUOTE:
 example {x : ℝ} (h : x ^ 2 = 1) : x = 1 ∨ x = -1 := by
@@ -407,7 +407,7 @@ Your proofs of the two theorems above should work equally well
 in any integral domain:
 OMIT. -/
 /- TEXT:
-任意の環 :math:`R` において，ある非ゼロ :math:`y` に対して :math:`x y = 0` を満たすような元 :math:`x` を *左零因子* と呼び，またある非ゼロ :math:`y` に対して :math:`y x = 0` を満たすような元 :math:`x` を *右零因子* と呼び，左零因子もしくは右零因子のいずれかである要素を単に *零因子* と呼びます．定理 ``eq_zero_or_eq_zero_of_mul_eq_zero`` は実数には自明でない零因子がないことを述べています．この性質を持つ可換環は *整域* と呼ばれます．上の2つの定理の証明はどのような整域でも同じようにうまくいくはずです:
+任意の環 :math:`R` において，あるゼロではない要素 :math:`y` に対して :math:`x y = 0` を満たすような元 :math:`x` を *左零因子* と呼び，またあるゼロではない要素 :math:`y` に対して :math:`y x = 0` を満たすような元 :math:`x` を *右零因子* と呼び，左零因子または右零因子である要素を単に *零因子* と呼びます．定理 ``eq_zero_or_eq_zero_of_mul_eq_zero`` は実数には0以外に零因子がないことを述べています．この性質を持つ可換環は *整域* と呼ばれます．上の2つの定理の証明はどのような整域でも同じようにうまくいくはずです:
 TEXT. -/
 -- BOTH:
 section
@@ -470,7 +470,7 @@ For any proposition ``P``, we can use
 The name ``em`` is short for "excluded middle."
 OMIT. -/
 /- TEXT:
-証明の中で，ある文が真かそうでないかによって場合を分けたいことがあります．任意の命題 ``P`` に対して， ``em P : P ∨ ¬ P`` を使うことができます．この ``em`` という名前は「排中律(excluded middle)」の略です．
+証明の中で，ある文が真かそうでないかによって場合分けを行いたいことがあります．任意の命題 ``P`` に対して， ``em P : P ∨ ¬ P`` で実現できます．この ``em`` という名前は「排中律(excluded middle)」の略です．
 TEXT. -/
 -- QUOTE:
 example (P : Prop) : ¬¬P → P := by
@@ -511,7 +511,7 @@ Try proving the following equivalence,
 using ``by_cases`` to establish one direction.
 OMIT. -/
 /- TEXT:
-``by_cases`` タクティクでは各分岐で導入される仮定のラベルを指定できることに注意してください．この場合，1つは ``h' : P`` で，もう1つは ``h' : ¬ P`` です．ラベルを省略した場合，Leanはデフォルトで ``h`` を使用します． ``by_cases`` を使って片方向を確立して以下の等価性を証明してみてください．
+``by_cases`` タクティクでは各分岐で導入される仮定のラベルを指定できることに注意してください．この場合，1つは ``h' : P`` で，もう1つは ``h' : ¬ P`` です．ラベルを省略した場合，デフォルトで ``h`` という名前になります．以下の等価性を証明では，片方向で ``by_cases`` を使います．
 TEXT. -/
 -- QUOTE:
 example (P Q : Prop) : P → Q ↔ ¬P ∨ Q := by
