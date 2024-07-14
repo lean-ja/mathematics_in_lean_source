@@ -151,7 +151,7 @@ If you don't care about that, you can use ``next``, or ``match``,
 or even a pattern-matching ``have``.
 OMIT. -/
 /- TEXT:
-``inl`` と ``inr`` はそれぞれ 「intro left」と「intro right」の略です． ``case`` を用いると，任意の順番で証明ができるという利点があります．タグに一致するゴールが選択されます．これらの利点が必要でなければ， ``next`` や ``match`` ，あるいは ``have`` によるパターンマッチを使用することができます．
+``inl`` と ``inr`` はそれぞれ 「intro left」と「intro right」の略です． ``case`` を用いると，任意の順番で証明ができるという利点があります．この場合，タグに一致するゴールが選択されます．これらの利点が必要でなければ， ``next`` や ``match`` ，あるいは ``have`` によるパターンマッチを使用することができます．
 TEXT. -/
 -- QUOTE:
 example : x < |y| → x < y ∨ x < -y := by
