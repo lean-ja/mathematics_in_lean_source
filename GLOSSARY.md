@@ -38,6 +38,7 @@
 | lattice | 束 |
 | least common multiple | 最小公倍数 |
 | least upper bound | 最小上界 |
+| library | Mathlib（Mathlibを指していることが明白である場合） |
 | logical connective | 論理結合子 |
 | measure theory | 測度論 |
 | meet | 交わり |
@@ -53,6 +54,7 @@
 | sequence | 数列 |
 | set-builder notation | 内包表記 |
 | simplify | 単純化 |
+| simplifier | ``simp``  |
 | statement | 命題 |
 | strict partial order | 狭義半順序 |
 | subset | 部分集合 |
