@@ -431,7 +431,7 @@ In both cases, calling the simplifier with ``simp [sb_aux]``
 applies the corresponding defining equation of ``sb_aux``.
 OMIT. -/
 /- TEXT:
-ここでもまた，以下の証明を見て欠けている部分を埋めてみましょう．タクティク ``cases n with n`` は ``g y ∈ sb_aux f g 0`` と ``g y ∈ sb_aux f g n.succ`` の2つの場合に分かれます．どちらの場合も， ``simp [sb_aux]`` で単純化器を呼び出すと， ``sbAux`` の対応する定義の等式が適用されます．
+ここでもまた，以下の証明を見て欠けている部分を埋めてみましょう．タクティク ``cases n with n`` は ``g y ∈ sb_aux f g 0`` と ``g y ∈ sb_aux f g n.succ`` の2つの場合に分かれます．どちらの場合も， ``simp [sb_aux]`` で単純化すると， ``sbAux`` の対応する定義の等式が適用されます．
 BOTH: -/
 -- QUOTE:
 theorem sb_surjective (hf : Injective f) (hg : Injective g) : Surjective (sbFun f g) := by
