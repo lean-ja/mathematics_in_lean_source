@@ -25,7 +25,7 @@ The expression ``x ∈ f ⁻¹' p`` reduces to ``f x ∈ p``.
 This is often convenient, as in the following example:
 OMIT. -/
 /- TEXT:
-``f : α → β`` が関数で ``p`` が ``β`` 型の集合である時，ライブラリには ``{x | f x ∈ p}`` を意味し， ``f ⁻¹' p`` と表記される ``preimage f p`` が定義されています．式 ``x ∈ f ⁻¹' p`` は ``f x ∈ p`` に簡約されます．これはしばしば便利であり，例えば以下のように使うことができます:
+``f : α → β`` が関数で ``p`` が ``β`` 型の集合である時，Mathlibには ``{x | f x ∈ p}`` を意味し， ``f ⁻¹' p`` と表記される ``preimage f p`` が定義されています．式 ``x ∈ f ⁻¹' p`` は ``f x ∈ p`` に簡約されます．これはしばしば便利であり，例えば以下のように使うことができます:
 TEXT. -/
 -- BOTH:
 section
@@ -57,7 +57,7 @@ The ``rfl`` tag in the ``rintro`` tactic (see :numref:`the_existential_quantifie
 for this sort of situation.
 OMIT. -/
 /- TEXT:
-また ``s`` が ``α`` 型の集合である時， ``{y | ∃ x, x ∈ s ∧ f x = y}`` を意味し， ``f '' s`` と表記される ``image f s`` もライブラリに定義されています．よって仮定 ``y ∈ f '' s`` は ``⟨x, xs, xeq⟩`` の3つへと分解されます．これは ``x : α`` が仮定 ``xs : x ∈ s`` と ``xeq : f x = y`` を満たすことを意味しています． ``rintro`` タクティク内で用いられている ``rfl`` タグ（ :numref:`the_existential_quantifier` 参照）はまさにこのような状況のために設計されています．
+また ``s`` が ``α`` 型の集合である時， ``{y | ∃ x, x ∈ s ∧ f x = y}`` を意味し， ``f '' s`` と表記される ``image f s`` もMathlibに定義されています．よって仮定 ``y ∈ f '' s`` は ``⟨x, xs, xeq⟩`` の3つへと分解されます．これは ``x : α`` が仮定 ``xs : x ∈ s`` と ``xeq : f x = y`` を満たすことを意味しています． ``rintro`` タクティク内で用いられている ``rfl`` タグ（ :numref:`the_existential_quantifier` 参照）はまさにこのような状況のために設計されています．
 TEXT. -/
 -- QUOTE:
 example : f '' (s ∪ t) = f '' s ∪ f '' t := by
@@ -143,7 +143,7 @@ decomposing an existential quantifier.
 
 OMIT. -/
 /- TEXT:
-上記は ``image f`` と ``preimage f`` がそれぞれ部分集合の関係において半順序をなす ``Set α`` と ``Set β`` の間の *ガロア接続(Galois connection)* として知られているインスタンスであることを示しています．ライブラリでは，この同値性は ``image_subset_iff`` と名付けられています．実際に使う場合には右辺がより便利な表現であることが多いです．なぜなら， ``y ∈ f ⁻¹' t`` は ``f y ∈ t`` に展開されるのに対し， ``x ∈ f '' s`` を扱うには存在量化子を分解する必要があるからです．
+上記は ``image f`` と ``preimage f`` がそれぞれ部分集合の関係において半順序をなす ``Set α`` と ``Set β`` の間の *ガロア接続(Galois connection)* として知られているインスタンスであることを示しています．Mathlibでは，この同値性は ``image_subset_iff`` と名付けられています．実際に使う場合には右辺がより便利な表現であることが多いです．なぜなら， ``y ∈ f ⁻¹' t`` は ``f y ∈ t`` に展開されるのに対し， ``x ∈ f '' s`` を扱うには存在量化子を分解する必要があるからです．
 
 TEXT. -/
 /- OMIT:
@@ -397,7 +397,7 @@ identity ``(x + y) / z = x / z + y / z`` holds for every
 
 OMIT. -/
 /- TEXT:
-しかし，Leanでは除算は ``ℝ → ℝ → ℝ`` 型を持つので第2引数が0のときにも値を返さなければなりません．このような問題に対してライブラリでは，このような関数の自然な定義域外にある便利な値を代入する戦略が一般的に取られています．例えば， ``x / 0`` を ``0`` と定義することはすべての ``x`` ， ``y`` ， ``z`` に対して， ``(x + y) / z = x / z + y / z`` という等式が成り立つことを意味します．
+しかし，Leanでは除算は ``ℝ → ℝ → ℝ`` 型を持つので第2引数が0のときにも値を返さなければなりません．このような問題に対してMathlibでは，このような関数の自然な定義域外にある便利な値を代入する戦略が一般的に取られています．例えば， ``x / 0`` を ``0`` と定義することはすべての ``x`` ， ``y`` ， ``z`` に対して， ``(x + y) / z = x / z + y / z`` という等式が成り立つことを意味します．
 
 TEXT. -/
 /- OMIT:
@@ -466,7 +466,7 @@ The library defines a predicate ``InjOn f s`` to say that
 It is defined as follows:
 OMIT. -/
 /- TEXT:
-ライブラリでは ``f`` が ``s`` 上で単射であることを示す ``InjOn f s`` という述語を定義しています．これは以下のように定義されています:
+Mathlibでは ``f`` が ``s`` 上で単射であることを示す ``InjOn f s`` という述語を定義しています．これは以下のように定義されています:
 TEXT. -/
 -- QUOTE:
 example : InjOn f s ↔ ∀ x₁ ∈ s, ∀ x₂ ∈ s, f x₁ = f x₂ → x₁ = x₂ :=
@@ -490,7 +490,7 @@ the statements to a subset of the domain type.
 
 OMIT. -/
 /- TEXT:
-``Injective f`` は ``InjOn f univ`` に等価であることが証明可能です．同様にライブラリは ``range f`` を ``{x | ∃y, f y = x}`` と定義しているため， ``range f`` と ``f '' univ`` と等しいことも証明可能です．これはMathlibではよく見られる方針です．関数の多くの特性は定義域全体に対して定義されますが，なかには定理の内容を定義域の部分集合に制限する相対化されたバージョンも存在します．
+``Injective f`` は ``InjOn f univ`` に等価であることが証明可能です．同様にMathlibは ``range f`` を ``{x | ∃y, f y = x}`` と定義しているため， ``range f`` と ``f '' univ`` と等しいことも証明可能です．これはMathlibではよく見られる方針です．関数の多くの特性は定義域全体に対して定義されますが，なかには定理の内容を定義域の部分集合に制限する相対化されたバージョンも存在します．
 
 TEXT. -/
 /- OMIT:
