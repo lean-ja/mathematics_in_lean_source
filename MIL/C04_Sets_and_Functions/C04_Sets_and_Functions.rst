@@ -25,7 +25,7 @@
 .. Lean and Mathlib provide ways of defining new types,
 .. and ways of defining objects of those types.
 
-Leanは集合の代わりに *型* という原始的な概念を基礎にしており，型の間には関数を定義することができます．Leanではすべての式が型を持ちます: 例えば自然数，実数，実数から実数への関数，群，ベクトル空間などはすべて型を持ちます．式の中には型 *そのもの* であるものもあり，それらの型は ``Type`` です．LeanとMathlibは新しい型や，それらの型のオブジェクトを定義する方法を提供しています．
+Leanは集合の代わりに *型* という原始的な概念を基礎にしており，型の間には関数を定義することができます．Leanではすべての式が型を持ちます: 例えば自然数，実数，実数から実数への関数，群，ベクトル空間などはすべて型です．式の中には型 *そのもの* であるものもあり，それらの型は ``Type`` です．LeanとMathlibは新しい型や，それらの型のオブジェクトを定義する方法を提供しています．
 
 .. Conceptually, you can think of a type as just a set of objects.
 .. Requiring every object to have a type has some advantages.
@@ -37,7 +37,7 @@ Leanは集合の代わりに *型* という原始的な概念を基礎にして
 .. apply a function to the wrong number of arguments,
 .. or apply a function to arguments of the wrong type.
 
-概念的には，型はオブジェクトの単なる集まりと考えることができます．すべてのオブジェクトに型を要求することには複数の利点があります．例えば， ``+`` のような記法をオーバーロードできるようになりますし，またLeanがオブジェクトの型から多くの情報を推測できるようになり、入力をより簡潔にすることができます．また，型システムによって，関数に渡す引数の数を間違えたり，関数の引数の型を間違えた場合にLeanにエラーとして教えてもらうことができるようになります．
+概念的には，型はオブジェクトの単なる集まりと考えることができます．すべてのオブジェクトに型を要求することには複数の利点があります．例えば， ``+`` のような記法をオーバーロードできるようになり，またLeanがオブジェクトの型から多くの情報を推測できるようになり，入力をより簡潔にすることができます．また，型システムによって，関数に渡す引数の数を間違えたり，関数の引数の型を間違えた場合にLeanにエラーとして教えてもらうことができるようになります．
 
 .. Lean's library does define elementary set-theoretic notions.
 .. In contrast to set theory,
