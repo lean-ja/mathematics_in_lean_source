@@ -25,7 +25,7 @@ The expression ``x ∈ f ⁻¹' p`` reduces to ``f x ∈ p``.
 This is often convenient, as in the following example:
 OMIT. -/
 /- TEXT:
-``f : α → β`` が関数で ``p`` が ``β`` 型の集合である時，Mathlibには ``{x | f x ∈ p}`` を意味し， ``f ⁻¹' p`` と表記される ``preimage f p`` が定義されています．式 ``x ∈ f ⁻¹' p`` は ``f x ∈ p`` に簡約されます．これはしばしば便利であり，例えば以下のように使うことができます:
+``f : α → β`` が関数で ``p`` が ``β`` 型の項の集合であるとします．このとき ``p`` の ``f`` による逆像を考えることができますが，これはMathlibでは ``preimage f p`` と呼ばれ，``{x | f x ∈ p}`` として定義され，``f ⁻¹' p`` と表記されます．式 ``x ∈ f ⁻¹' p`` は ``f x ∈ p`` に簡約されます．次の例のようにこれはしばしば便利です:
 TEXT. -/
 -- BOTH:
 section
@@ -57,7 +57,7 @@ The ``rfl`` tag in the ``rintro`` tactic (see :numref:`the_existential_quantifie
 for this sort of situation.
 OMIT. -/
 /- TEXT:
-また ``s`` が ``α`` 型の集合である時， ``{y | ∃ x, x ∈ s ∧ f x = y}`` を意味し， ``f '' s`` と表記される ``image f s`` もMathlibに定義されています．よって仮定 ``y ∈ f '' s`` は ``⟨x, xs, xeq⟩`` の3つへと分解されます．これは ``x : α`` が仮定 ``xs : x ∈ s`` と ``xeq : f x = y`` を満たすことを意味しています． ``rintro`` タクティク内で用いられている ``rfl`` タグ（ :numref:`the_existential_quantifier` 参照）はまさにこのような状況のために設計されています．
+また ``s`` が ``α`` 型の集合であるとします．このとき ``s`` の ``f`` による像が考えられますが，これはMathlibでは ``image f s`` と呼ばれ，``{y | ∃ x, x ∈ s ∧ f x = y}`` で定義され，``f '' s`` と表記されます．よって仮定 ``y ∈ f '' s`` は ``⟨x, xs, xeq⟩`` という３つ組に分解できます．これは ``x : α`` が仮定 ``xs : x ∈ s`` と ``xeq : f x = y`` を満たすことを意味しています． ``rintro`` タクティク内で用いられている ``rfl`` タグ（ :numref:`the_existential_quantifier` 参照）はまさにこのような状況のために設計されています．
 TEXT. -/
 -- QUOTE:
 example : f '' (s ∪ t) = f '' s ∪ f '' t := by
@@ -103,14 +103,14 @@ of an existential quantifier is often convenient.
 
 OMIT. -/
 /- TEXT:
-``use x, xs`` の行について，ここで示している事実専用として設計された定理 ``mem_image_of_mem f xs`` で置き換えることもできます．しかし，像が存在量化子で定義されていることを知っていると何かと便利なことが多いものです．
+``use x, xs`` という行は，まさに ``f x ∈ f '' s`` を示すための専用の定理 ``mem_image_of_mem f xs`` で置き換えることもできます．しかし，像が存在量化子で定義されていることを知っていると何かと便利なことが多いものです．
 
 TEXT. -/
 /- OMIT:
 The following equivalence is a good exercise:
 OMIT. -/
 /- TEXT:
-次の同値は良い演習です．
+次の同値を示すことは良い演習問題になるでしょう．
 TEXT. -/
 -- QUOTE:
 example : f '' s ⊆ v ↔ s ⊆ f ⁻¹' v := by
@@ -143,7 +143,7 @@ decomposing an existential quantifier.
 
 OMIT. -/
 /- TEXT:
-上記は ``image f`` と ``preimage f`` がそれぞれ部分集合の関係において半順序をなす ``Set α`` と ``Set β`` の間の *ガロア接続(Galois connection)* として知られているインスタンスであることを示しています．Mathlibでは，この同値性は ``image_subset_iff`` と名付けられています．実際に使う場合には右辺がより便利な表現であることが多いです．なぜなら， ``y ∈ f ⁻¹' t`` は ``f y ∈ t`` に展開されるのに対し， ``x ∈ f '' s`` を扱うには存在量化子を分解する必要があるからです．
+この命題は ``image f`` と ``preimage f`` が一種の *ガロア接続(Galois connection)* であることを主張しています．ガロア接続は半順序集合の間の順序を保つ関数についての性質ですが，ここではベキ集合 ``Set α`` と ``Set β`` が部分集合の包含関係に関して半順序集合になっています．Mathlibでは，この同値性は ``image_subset_iff`` と名付けられています．実際に使う場合には右辺がより便利な表現であることが多いです．なぜなら， ``y ∈ f ⁻¹' t`` は ``f y ∈ t`` に展開されるのに対し， ``x ∈ f '' s`` を扱うには存在量化子を分解する必要があるからです．
 
 TEXT. -/
 /- OMIT:
@@ -154,7 +154,7 @@ do a few of them,
 and set the rest aside for a rainy day.
 OMIT. -/
 /- TEXT:
-ここで読者のお楽しみとして集合についての等式をたくさん用意しました．これらすべてを一度にやる必要はありません．いくつかやったら，残りは雨の日のためにとっておきましょう．
+読者に楽しんでいただくためにここに集合についての等式をたくさん用意しました．これらすべてを一度にやる必要はありません．いくつかやったら，残りは雨の日のためにとっておきましょう．
 TEXT. -/
 -- QUOTE:
 example (h : Injective f) : f ⁻¹' (f '' s) ⊆ s := by
