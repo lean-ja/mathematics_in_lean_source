@@ -51,6 +51,7 @@
 | natural domain | 自然な定義域 |
 | norm | ノルム |
 | number theory | 数論 |
+| operator | 演算子（中置記法の定義等なにかしら特殊な記法が用意されている場合）、関数（それ以外） |
 | preimage | 逆像 |
 | partial order | 半順序 |
 | proof term | 証明項 |
