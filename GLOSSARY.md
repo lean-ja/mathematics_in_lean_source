@@ -7,6 +7,7 @@
 | arguments | 引数 |
 | arithmetic | 算術 |
 | associativity | 結合性 |
+| axiom of choice | 選択公理 |
 | bi-implication | 双方向の含意 |
 | chapter | 章 |
 | codomain | 終域 |
@@ -25,11 +26,14 @@
 | ex falso | 爆発律 |
 | existential quantifier | 存在量化子 |
 | extensionality | 外延性 |
+| Galois connection | ガロア接続 |
 | greatest common divisor | 最大公約数 |
 | greatest lower bound | 最大下界 |
 | identity | 恒等式, 等式 |
+| identity | 恒等式, 等式 |
 | if-and-only-if statement | 同値性を主張する文 |
 | iff | 必要十分条件 |
+| image | 像 |
 | inclusion | 包含 |
 | infimum | 下限 |
 | integral domain | 整域 |
@@ -44,8 +48,11 @@
 | meet | 交わり |
 | metric space | 距離空間 |
 | monotone | 単調 |
+| natural domain | 自然な定義域 |
 | norm | ノルム |
 | number theory | 数論 |
+| operator | 演算子（中置記法の定義等なにかしら特殊な記法が用意されている場合）、関数（それ以外） |
+| preimage | 逆像 |
 | partial order | 半順序 |
 | proof term | 証明項 |
 | proof by contradiction | 背理法 |
