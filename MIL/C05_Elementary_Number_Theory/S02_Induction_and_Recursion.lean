@@ -10,7 +10,7 @@ OMIT. -/
 /- TEXT:
 .. _section_induction_and_recursion:
 
-帰納と再帰
+帰納法と再帰
 -------------
 
 TEXT. -/
@@ -170,7 +170,7 @@ induction hypothesis.
 Step through the next example to see what is going on.
 OMIT. -/
 /- TEXT:
-``induction`` タクティクは賢いため，帰納変数に依存する仮定を帰納仮定の一部に含めることができます．これがどういうことなのか，次の例で見てみましょう．
+``induction`` タクティクは賢いため，帰納法の変数に依存する仮定を帰納法の仮定の一部に含めることができます．これがどういうことなのか，次の例で見てみましょう．
 EXAMPLES: -/
 -- QUOTE:
 theorem dvd_fac {i n : ℕ} (ipos : 0 < i) (ile : i ≤ n) : i ∣ fac n := by
