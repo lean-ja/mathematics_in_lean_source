@@ -71,8 +71,10 @@
 | set-builder notation | 内包表記 |
 | simplify | 単純化 |
 | simplifier | ``simp``  |
+| singleton | 単集合 |
 | statement | 命題 |
 | strict partial order | 狭義半順序 |
+| strong induction | 強帰納法 |
 | subset | 部分集合 |
 | support | 台 |
 | supremum | 上限 |
