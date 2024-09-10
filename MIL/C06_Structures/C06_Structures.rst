@@ -31,4 +31,6 @@ Leanはこのような構造に対する形式的な定義方法と，その扱�
 .. For more technical detail, you can consult `Theorem Proving in Lean <https://leanprover.github.io/theorem_proving_in_lean/>`_,
 .. and a paper by Anne Baanen, `Use and abuse of instance parameters in the Lean mathematical library <https://arxiv.org/abs/2202.01629>`_.
 
-技術的詳細を知りたい場合は， `Theorem Proving in Lean <https://leanprover.github.io/theorem_proving_in_lean/>`_ とAnne Baanenによる記事 `Use and abuse of instance parameters in the Lean mathematical library <https://arxiv.org/abs/2202.01629>`_ にあたるとよいでしょう．
+技術的詳細を知りたい場合は， `Theorem Proving in Lean <https://leanprover.github.io/theorem_proving_in_lean/>`_ [#f01]_ とAnne Baanenによる記事 `Use and abuse of instance parameters in the Lean mathematical library <https://arxiv.org/abs/2202.01629>`_ にあたるとよいでしょう．
+
+.. [#f01] 訳注: 日本語訳は <https://aconite-ac.github.io/theorem_proving_in_lean4_ja/>
