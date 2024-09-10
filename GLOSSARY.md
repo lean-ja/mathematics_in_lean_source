@@ -16,6 +16,7 @@
 | context | コンテキスト |
 | continuum hypothesis | 連続体仮説 |
 | convergence | 収束 |
+| coprime | 互いに素 |
 | curly brackets | 波括弧 |
 | dependent type theory | 依存型理論 |
 | disjunction | 選言 |
@@ -35,11 +36,15 @@
 | iff | 必要十分条件 |
 | image | 像 |
 | inclusion | 包含 |
+| induction | 帰納法 |
 | infimum | 下限 |
 | integral domain | 整域 |
 | intersection | 共通部分 |
+| irrational | 無理数 |
+| irreducible | 既約元 |
 | join | 結び |
 | lattice | 束 |
+| lowest term | 既約分数 |
 | least common multiple | 最小公倍数 |
 | least upper bound | 最小上界 |
 | library | Mathlib（Mathlibを指していることが明白である場合） |
@@ -50,6 +55,7 @@
 | monotone | 単調 |
 | natural domain | 自然な定義域 |
 | norm | ノルム |
+| number systems | 数体系 |
 | number theory | 数論 |
 | operator | 演算子（中置記法の定義等なにかしら特殊な記法が用意されている場合）、関数（それ以外） |
 | preimage | 逆像 |
@@ -57,6 +63,7 @@
 | proof term | 証明項 |
 | proof by contradiction | 背理法 |
 | reflexivity | 反射性 |
+| root | 根 |
 | section | 節 |
 | sequence | 数列 |
 | set-builder notation | 内包表記 |
@@ -65,6 +72,7 @@
 | statement | 命題 |
 | strict partial order | 狭義半順序 |
 | subset | 部分集合 |
+| support | 台 |
 | supremum | 上限 |
 | surjective | 全射 |
 | total order | 全順序 |
