@@ -23,6 +23,7 @@
 | distributive lattice | 分配束 |
 | divisibility relation | 整除関係 |
 | domain | 始域 |
+| eta-reduction | η簡約 |
 | excluded middle | 排中律 |
 | exercises | 演習 |
 | ex falso | 爆発律 |
@@ -63,6 +64,7 @@
 | partial order | 半順序 |
 | proof term | 証明項 |
 | proof by contradiction | 背理法 |
+| r-simplex | r単体 |
 | reflexivity | 反射性 |
 | recursion | 再帰 |
 | root | 根 |
