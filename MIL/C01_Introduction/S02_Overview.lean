@@ -24,11 +24,11 @@ Some expressions have types like `ℕ` or `ℕ → ℕ`.
 These are mathematical objects.
 OMIT. -/
 /- TEXT:
-一言で言うならば，Leanは *依存型理論* と呼ばれる形式言語を用いて複雑な式を構築するためのツールです．
+一言で言うならば，Leanは **依存型理論** （dependent type theory）と呼ばれる形式言語を用いて複雑な式を構築するためのツールです．
 
 .. index:: check, commands ; check
 
-それぞれの式は *型* を持ち，そしてそれは `#check` コマンドで表示することができます．例えば `ℕ` や `ℕ → ℕ` のような型があります．これらは数学的な対象です．
+それぞれの式は **型** （type）を持ち，そしてそれは `#check` コマンドで表示することができます．例えば `ℕ` や `ℕ → ℕ` のような型があります．これらは数学的な対象です．
 TEXT. -/
 -- These are pieces of data.
 -- QUOTE:
@@ -104,7 +104,7 @@ it makes more sense to start here and refer back to
 
 OMIT. -/
 /- TEXT:
-本書は同種のチュートリアルである `Theorem Proving in Lean <https://leanprover.github.io/theorem_proving_in_lean4/>`_ を補完するものです．[#f2]_ あちらはLeanの根幹にある論理フレームワークとコア構文についてより包括的に説明しています． *Theorem Proving in Lean* は新しい食洗器を使う前に取説を隅から隅まで読みたい人向けです．もし読者がとりあえず *スタート* ボタンを押してから食洗器内の洗浄ブラシがどう動くのかみてみたいタイプであるならば，本書から始めて必要に応じて *Theorem Proving in Lean* を参照する方が理にかなっているでしょう．
+本書は同種のチュートリアルである `Theorem Proving in Lean <https://leanprover.github.io/theorem_proving_in_lean4/>`_ を補完するものです．[#f2]_ あちらはLeanの根幹にある論理フレームワークとコア構文についてより包括的に説明しています． *Theorem Proving in Lean* は新しい食洗器を使う前に取説を隅から隅まで読みたい人向けです．もし読者がとりあえず **スタート** ボタンを押してから食洗器内の洗浄ブラシがどう動くのかみてみたいタイプであるならば，本書から始めて必要に応じて *Theorem Proving in Lean* を参照する方が理にかなっているでしょう．
 
 TEXT. -/
 /- OMIT:
@@ -120,7 +120,7 @@ For example, the following expression represents a proof of the fact that
 if ``n`` is even then so is ``m * n``:
 OMIT. -/
 /- TEXT:
-*Mathematics in Lean* と *Theorem Proving in Lean* のもう一つの違いは，本書では *タクティク* の使用にずっと重点を置いていることです．Leanで複雑な式を作り上げたい時，2種類の方法があります:1つ目は式を直接書き下す方法．（これはテキストの記述に向いています）2つ目はLeanに式をどのように構成するかを *指示* する方法です．例えば以下の式は ``n`` が偶数なら ``m * n`` も偶数であることの証明を表しています．
+*Mathematics in Lean* と *Theorem Proving in Lean* のもう一つの違いは，本書では **タクティク** （tactic）の使用にずっと重点を置いていることです．Leanで複雑な式を作り上げたい時，2種類の方法があります:1つ目は式を直接書き下す方法．（これはテキストの記述に向いています）2つ目はLeanに式をどのように構成するかを **指示** する方法です．例えば以下の式は ``n`` が偶数なら ``m * n`` も偶数であることの証明を表しています．
 TEXT. -/
 -- Here are some proofs.
 -- QUOTE:
@@ -133,7 +133,7 @@ example : ∀ m n : Nat, Even n → Even (m * n) := fun m n ⟨k, (hk : n = k + 
 The *proof term* can be compressed to a single line:
 OMIT. -/
 /- TEXT:
-この *証明項* は1行に圧縮することができます:
+この **証明項** （proof term）は1行に圧縮することができます:
 TEXT. -/
 -- QUOTE:
 example : ∀ m n : Nat, Even n → Even (m * n) :=
@@ -145,7 +145,7 @@ The following is, instead, a *tactic-style* proof of the same theorem, where lin
 starting with ``--`` are comments, hence ignored by Lean:
 OMIT. -/
 /- TEXT:
-以下は，同じ定理を証明項の代わりに *タクティクスタイル* で証明したものです．ここで ``--`` で始まる行はコメントで，Leanに無視されます．
+以下は，同じ定理を証明項の代わりに **タクティクスタイル** （tactic-style）で証明したものです．ここで ``--`` で始まる行はコメントで，Leanに無視されます．
 TEXT. -/
 -- QUOTE:
 example : ∀ m n : Nat, Even n → Even (m * n) := by
@@ -185,7 +185,7 @@ and the ``ring`` tactic solves the resulting goal ``m * (2 * k) = 2 * (m * k)``.
 
 OMIT. -/
 /- TEXT:
-VSCode上でこのような証明の各行にカーソルを合わせると，Leanは *証明の状態* を別画面に表示し，その時点までで証明をどこまで構築したか，そして目指す定理のためにあと何を示せばよいかを教えてくれます．また，Leanはカーソル位置での証明の状態を表示し続けるので，VSCode上で証明を一行一行たどることで，証明を追いかけることができます．この例では，証明の1行目で ``m`` と ``n`` （必要があればここで別の名前にすることもできます）を導入し，そして ``Even n`` を ``k`` と仮定 ``n = 2 * k`` の二つに分割しています．2行目の ``use m * k`` では ``m * n`` が偶数であることを ``m * n = 2 * (m * k)`` を示すことで証明していくと宣言しています．次の行では ``rewrite`` タクティクを用いてゴール中の ``n`` を ``2 * k`` に置換しています．そして ``ring`` タクティクで ``m * (2 * k) = 2 * (m * k)`` を解いています．[#f1]_
+VSCode上でこのような証明の各行にカーソルを合わせると，Leanは **証明の状態** （proof state）を別画面に表示し，その時点までで証明をどこまで構築したか，そして目指す定理のためにあと何を示せばよいかを教えてくれます．また，Leanはカーソル位置での証明の状態を表示し続けるので，VSCode上で証明を一行一行たどることで，証明を追いかけることができます．この例では，証明の1行目で ``m`` と ``n`` （必要があればここで別の名前にすることもできます）を導入し，そして ``Even n`` を ``k`` と仮定 ``n = 2 * k`` の二つに分割しています．2行目の ``use m * k`` では ``m * n`` が偶数であることを ``m * n = 2 * (m * k)`` を示すことで証明していくと宣言しています．次の行では ``rewrite`` タクティクを用いてゴール中の ``n`` を ``2 * k`` に置換しています．そして ``ring`` タクティクで ``m * (2 * k) = 2 * (m * k)`` を解いています．[#f1]_
 
 TEXT. -/
 /- OMIT:

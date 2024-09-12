@@ -51,7 +51,7 @@ the identifier ``Nat.Coprime``.
 The ``norm_num`` tactic is smart enough to compute concrete values.
 OMIT. -/
 /- TEXT:
-:math:`a / b` が既約分数であるということは， :math:`a` と :math:`b` は共通の因数がない，つまり *互いに素* であることを意味します．Mathlibは述語 ``Nat.coprime m n`` を ``Nat.gcd m n = 1`` と定義しています．Leanの無名の射影による記法を使うと， ``s`` と ``t`` が ``Nat`` 型の式であれば， ``Nat.coprime s t`` の代わりに ``s.coprime t`` と書くことができます．これは ``Nat.gcd`` についても同様です．いつものように，Leanはしばしば ``Nat.coptime`` の定義を必要に応じて自動的に展開しますが， ``Nat.coprime`` 識別子を用いて手動で書き換えや単純化することもできます． ``norm_num`` タクティクは具体的な値を計算するにあたって十分な賢さを備えています．
+:math:`a / b` が既約分数であるということは， :math:`a` と :math:`b` は共通の因数がない，つまり **互いに素** （coprime）であることを意味します．Mathlibは述語 ``Nat.coprime m n`` を ``Nat.gcd m n = 1`` と定義しています．Leanの無名の射影による記法を使うと， ``s`` と ``t`` が ``Nat`` 型の式であれば， ``Nat.coprime s t`` の代わりに ``s.coprime t`` と書くことができます．これは ``Nat.gcd`` についても同様です．いつものように，Leanはしばしば ``Nat.coptime`` の定義を必要に応じて自動的に展開しますが， ``Nat.coprime`` 識別子を用いて手動で書き換えや単純化することもできます． ``norm_num`` タクティクは具体的な値を計算するにあたって十分な賢さを備えています．
 EXAMPLES: -/
 -- QUOTE:
 #print Nat.Coprime
@@ -129,7 +129,7 @@ giving rise to the theorem ``Nat.Prime.dvd_mul``.
 
 OMIT: -/
 /- TEXT:
-自然数において，素数は自明ではない因数の積として書けないという性質を持っています．より広い数学的な文脈では，この性質を持つ環の元は *既約元* と呼ばれます．環のある元が *素数* であるとは，この元が積を割れる時，必ずその積の因数のいずれかを割ることができることを指します．この2つの概念は一致し，自然数の重要な性質として定理 ``Nat.Prime.dvd_mul`` に集約されます．
+自然数において，素数は自明ではない因数の積として書けないという性質を持っています．より広い数学的な文脈では，この性質を持つ環の元は **既約元** （irreducible）と呼ばれます．環のある元が **素数** （prime）であるとは，この元が積を割れる時，必ずその積の因数のいずれかを割ることができることを指します．この2つの概念は一致し，自然数の重要な性質として定理 ``Nat.Prime.dvd_mul`` に集約されます．
 
 TEXT. -/
 /- OMIT:
