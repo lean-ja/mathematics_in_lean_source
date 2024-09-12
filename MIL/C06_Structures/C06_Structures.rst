@@ -1,6 +1,6 @@
 .. _structures:
 
-構造
+構造体
 ==========
 
 .. Structures
