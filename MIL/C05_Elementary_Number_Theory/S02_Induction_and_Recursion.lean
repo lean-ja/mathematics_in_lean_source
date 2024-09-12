@@ -24,7 +24,7 @@ which are types generated inductively by a given list of
 In Lean, the natural numbers are declared as follows.
 OMIT. -/
 /- TEXT:
-自然数の集合 :math:`\mathbb{N} = \{ 0, 1, 2, \ldots \}` はその性質から数学の基礎において重要なだけでなく，新たな数学的対象の構成においても主要な役割を演じます．Leanの基礎では *帰納型* を宣言することができます．これは *コンストラクタ* のリストによって帰納的に生成される型です．Leanでは自然数は次のように宣言されます．
+自然数の集合 :math:`\mathbb{N} = \{ 0, 1, 2, \ldots \}` はその性質から数学の基礎において重要なだけでなく，新たな数学的対象の構成においても主要な役割を演じます．Leanの基礎では **帰納型** （inductive type）を宣言することができます．これは **コンストラクタ** （constructor）のリストによって帰納的に生成される型です．Leanでは自然数は次のように宣言されます．
 OMIT: -/
 namespace hidden
 
@@ -446,7 +446,7 @@ that subtracts one from any nonzero number and fixes zero.
 The function ``pred`` can be defined by a simple instance of recursion.
 OMIT. -/
 /- TEXT:
-もしこれらを考えることが本当に *楽しい* と感じたら，切り捨てる引き算と指数を定義し，それらの性質をいくつか証明してみましょう．切り捨て減算はゼロで切り捨てる計算方法です．これを定義するためには0ではない数から1を引き，0を固定する先行関数 ``pred`` を定義するのが便利です．関数 ``pred`` は単純な再帰のインスタンスで定義できます．
+もしこれらを考えることが本当に **楽しい** と感じたら，切り捨てる引き算と指数を定義し，それらの性質をいくつか証明してみましょう．切り捨て減算はゼロで切り捨てる計算方法です．これを定義するためには0ではない数から1を引き，0を固定する先行関数 ``pred`` を定義するのが便利です．関数 ``pred`` は単純な再帰のインスタンスで定義できます．
 BOTH: -/
 -- QUOTE:
 inductive MyNat

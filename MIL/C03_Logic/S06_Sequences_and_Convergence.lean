@@ -28,7 +28,7 @@ that is, there is a number :math:`N` such that for every
 In Lean, we can render this as follows:
 OMIT. -/
 /- TEXT:
-これで本格的な数学ができる準備が整いました．Leanでは実数上の数列 :math:`s_0, s_1, s_2, \ldots` は関数 ``s : ℕ → ℝ`` で表すことができます．すべての :math:`\varepsilon > 0` に対して，数列上のある点以降の点がすべて :math:`a` から :math:`\varepsilon > 0` 以内の範囲に収まる場合，この数列は :math:`a` に *収束* すると言います．つまり，すべての :math:`n \ge N` に対して :math:`| s_n - a | < \varepsilon` となるような数 :math:`N` が存在するということです．Leanではこれは次のように表現できます．
+これで本格的な数学ができる準備が整いました．Leanでは実数上の数列 :math:`s_0, s_1, s_2, \ldots` は関数 ``s : ℕ → ℝ`` で表すことができます．すべての :math:`\varepsilon > 0` に対して，数列上のある点以降の点がすべて :math:`a` から :math:`\varepsilon > 0` 以内の範囲に収まる場合，この数列は :math:`a` に **収束** （converge）すると言います．つまり，すべての :math:`n \ge N` に対して :math:`| s_n - a | < \varepsilon` となるような数 :math:`N` が存在するということです．Leanではこれは次のように表現できます．
 BOTH: -/
 -- QUOTE:
 def ConvergesTo (s : ℕ → ℝ) (a : ℝ) :=

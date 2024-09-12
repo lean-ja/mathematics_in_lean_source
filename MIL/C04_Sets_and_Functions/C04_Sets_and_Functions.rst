@@ -25,7 +25,7 @@
 .. Lean and Mathlib provide ways of defining new types,
 .. and ways of defining objects of those types.
 
-Leanは集合の代わりに *型* という原始的な概念を基礎にしており，型の間には関数を定義することができます．Leanではすべての式が型を持ちます: 例えば自然数，実数，実数から実数への関数，群，ベクトル空間などはすべて型です．式の中には型 *そのもの* であるものもあり，それらの型は ``Type`` です．LeanとMathlibは新しい型や，それらの型のオブジェクトを定義する方法を提供しています．
+Leanは集合の代わりに **型** という原始的な概念を基礎にしており，型の間には関数を定義することができます．Leanではすべての式が型を持ちます: 例えば自然数，実数，実数から実数への関数，群，ベクトル空間などはすべて型です．式の中には型 **そのもの** であるものもあり，それらの型は ``Type`` です．LeanとMathlibは新しい型や，それらの型のオブジェクトを定義する方法を提供しています．
 
 .. Conceptually, you can think of a type as just a set of objects.
 .. Requiring every object to have a type has some advantages.
