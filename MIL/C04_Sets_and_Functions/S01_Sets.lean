@@ -103,7 +103,7 @@ Lean is forced to expand the definitions.
 The following examples also illustrate the phenomenon:
 OMIT. -/
 /- TEXT:
-ここで行われたことは *定義に基づく簡約(definitional reduction)* として知られるもので， ``intro`` コマンドとその後の無名コンストラクタの意味が通るようにLeanが定義を自動で展開しています．下記の例でも同じ現象が発生しています:
+ここで行われたことは **定義に基づく簡約** （definitional reduction）として知られるもので， ``intro`` コマンドとその後の無名コンストラクタの意味が通るようにLeanが定義を自動で展開しています．下記の例でも同じ現象が発生しています:
 TEXT. -/
 -- QUOTE:
 theorem foo (h : s ⊆ t) : s ∩ u ⊆ t ∩ u :=
