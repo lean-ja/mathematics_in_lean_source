@@ -29,7 +29,7 @@ like ``≤`` on the real numbers.
 Lean knows about partial orders:
 OMIT. -/
 /- TEXT:
-:numref:`proving_identities_in_algebraic_structures` では，実数上で成り立つ多くの一般的な恒等式が，可換環のようなより一般的な代数的構造のクラスでも成り立つことを確認しました．等式だけでなく，代数的構造を記述するために必要な公理はなんでも表現することができます．例えば *半順序* は実数上の ``≤`` のような，集合上の反射的で推移的な二項関係のことです．Leanはこの半順序を表現できます:
+:numref:`proving_identities_in_algebraic_structures` では，実数上で成り立つ多くの一般的な恒等式が，可換環のようなより一般的な代数的構造のクラスでも成り立つことを確認しました．等式だけでなく，代数的構造を記述するために必要な公理はなんでも表現することができます．例えば **半順序** （partial order）は実数上の ``≤`` のような，集合上の反射的で推移的な二項関係のことです．Leanはこの半順序を表現できます:
 TEXT. -/
 section
 -- QUOTE:
@@ -68,7 +68,7 @@ is equivalent to saying that it is less-than-or-equal to ``y``
 and not equal to ``y``.
 OMIT. -/
 /- TEXT:
-一般の半順序 ``≤`` に関連して，実数上における ``<`` のような働きをする *狭義半順序* ``<`` も存在します．この順序関係において ``x`` が ``y`` より小さいというのは ``y`` 以下でかつ ``y`` と等しくないということと同じです．
+一般の半順序 ``≤`` に関連して，実数上における ``<`` のような働きをする **狭義半順序** （strict partial order） ``<`` も存在します．この順序関係において ``x`` が ``y`` より小さいというのは ``y`` 以下でかつ ``y`` と等しくないということと同じです．
 TEXT. -/
 -- QUOTE:
 #check x < y
@@ -93,7 +93,7 @@ has the properties indicated.
 
 OMIT. -/
 /- TEXT:
-この例では，記号 ``∧`` は「かつ」を表し， ``¬`` は「否定」を， ``x ≠ y`` は ``¬ (x = y)`` の省略形をそれぞれ表しています．:numref:`Chapter %s <logic>` では，これらの論理結合子を用いて ``<`` が上記で示された性質を持っていることを *証明* する方法を学びます．
+この例では，記号 ``∧`` は「かつ」を表し， ``¬`` は「否定」を， ``x ≠ y`` は ``¬ (x = y)`` の省略形をそれぞれ表しています．:numref:`Chapter %s <logic>` では，これらの論理結合子を用いて ``<`` が上記で示された性質を持っていることを **証明** する方法を学びます．
 
 .. index:: lattice
 
@@ -104,7 +104,7 @@ order with operations ``⊓`` and ``⊔`` that are
 analogous to ``min`` and ``max`` on the real numbers:
 OMIT. -/
 /- TEXT:
-半順序集合の構造に加えて，実数上の ``min`` と ``max`` に対応するような演算子 ``⊓`` と ``⊔`` を持つ構造を *束* と呼びます:
+半順序集合の構造に加えて，実数上の ``min`` と ``max`` に対応するような演算子 ``⊓`` と ``⊔`` を持つ構造を **束** （lattice）と呼びます:
 TEXT. -/
 -- BOTH:
 section
@@ -138,7 +138,7 @@ you have to keep the following dictionary in mind:
 
 OMIT. -/
 /- TEXT:
-``⊓`` と ``⊔`` はその特徴からそれぞれ *最大下界* と *最小上界* と呼ばれます．VSCodeでは ``\glb`` と ``\lub`` と打ち込むことで使用できます．またこれらの記号はしばしば *下限* と *上限* と呼ばれ，Mathlibの定理名では ``inf`` や ``sup`` と書かれます．さらにややこしいことに，これらは *交わり* と *結び* とも呼ばれます．そのため，束を扱う際には以下の辞書を頭に入れておく必要があります:
+``⊓`` と ``⊔`` はその特徴からそれぞれ **最大下界** （greatest lower bound）と **最小上界** （least upper bound）と呼ばれます．VSCodeでは ``\glb`` と ``\lub`` と打ち込むことで使用できます．またこれらの記号はしばしば **下限** （infimum）と **上限** （supremum）と呼ばれ，Mathlibの定理名では ``inf`` や ``sup`` と書かれます．さらにややこしいことに，これらは **交わり** （meet）と **結び** （join）とも呼ばれます．そのため，束を扱う際には以下の辞書を頭に入れておく必要があります:
 
 TEXT. -/
 /- OMIT:
@@ -146,7 +146,7 @@ TEXT. -/
 
 OMIT. -/
 /- TEXT:
-* ``⊓`` は *最大下界* ， *下限* ， *交わり* のこと
+* ``⊓`` は **最大下界** ， **下限** ， **交わり** のこと
 
 TEXT. -/
 /- OMIT:
@@ -154,7 +154,7 @@ TEXT. -/
 
 OMIT. -/
 /- TEXT:
-* ``⊔`` は *最小上界* ， *上限* ， *結び* のこと
+* ``⊔`` は **最小上界** ， **上限** ， **結び** のこと
 
 TEXT. -/
 /- OMIT:
@@ -314,7 +314,7 @@ Another good exercise is to prove the *absorption laws*
 using only those axioms:
 OMIT. -/
 /- TEXT:
-これらの公理のみを用いて *吸収則* を証明するのもまたいい演習となるでしょう:
+これらの公理のみを用いて **吸収則** （absorption laws）を証明するのもまたいい演習となるでしょう:
 TEXT. -/
 -- QUOTE:
 theorem absorb1 : x ⊓ (x ⊔ y) = x := by
@@ -357,7 +357,7 @@ A lattice that satisfies the additional identities
 is called a *distributive lattice*. Lean knows about these too:
 OMIT. -/
 /- TEXT:
-束の中でも追加で ``x ⊓ (y ⊔ z) = (x ⊓ y) ⊔ (x ⊓ z)`` と ``x ⊔ (y ⊓ z) = (x ⊔ y) ⊓ (x ⊔ z)`` を満たすものを *分配束* と呼びます．Leanはこれらも表現できます:
+束の中でも追加で ``x ⊓ (y ⊔ z) = (x ⊓ y) ⊔ (x ⊓ z)`` と ``x ⊔ (y ⊓ z) = (x ⊔ y) ⊓ (x ⊔ z)`` を満たすものを **分配束** （distributive lattice）と呼びます．Leanはこれらも表現できます:
 TEXT. -/
 -- BOTH:
 section
@@ -419,7 +419,7 @@ satisfying additional axioms that say that the ring operations
 are compatible with the order:
 OMIT. -/
 /- TEXT:
-公理に基づく構造をより大きい構造に組み込むことも可能です．例えば *狭義順序環* は半順序が定義された可換環であり，かつその順序が環の和と積に対して整合的であるという追加の公理を満たすものです:
+公理に基づく構造をより大きい構造に組み込むことも可能です．例えば **狭義順序環** （strict ordered ring）は半順序が定義された可換環であり，かつその順序が環の和と積に対して整合的であるという追加の公理を満たすものです:
 TEXT. -/
 -- BOTH:
 section
@@ -492,7 +492,7 @@ OMIT. -/
 /- TEXT:
 .. index:: metric space
 
-最後にもう一つ例を挙げましょう． *距離空間* とは，集合とその集合上の距離と呼ばれる，任意の2つの要素 ``x, y`` から実数 ``dist x y`` を対応させる写像の組のことです．距離関数は以下の公理を満たすものとします:
+最後にもう一つ例を挙げましょう． **距離空間** （metric space）とは，集合とその集合上の距離と呼ばれる，任意の2つの要素 ``x, y`` から実数 ``dist x y`` を対応させる写像の組のことです．距離関数は以下の公理を満たすものとします:
 TEXT. -/
 -- BOTH:
 section
