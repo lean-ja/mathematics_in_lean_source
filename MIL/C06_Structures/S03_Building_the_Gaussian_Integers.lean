@@ -24,7 +24,7 @@ and show that they are an instance of the Euclidean domain structure.
 
 OMIT. -/
 /- TEXT:
-ここで重要な数学的対象である *ガウス整数* を構成し，そしてこれがユークリッド整域であることを示すことでLeanにおける代数的な階層の使い方を説明しましょう．これまで使ってきた用語に従って言い換えると，ガウス整数を定義し，それがユークリッド整域構造のインスタンスであることを示します．
+ここで重要な数学的対象である **ガウス整数** （Gaussian integers）を構成し，そしてこれがユークリッド整域であることを示すことでLeanにおける代数的な階層の使い方を説明しましょう．これまで使ってきた用語に従って言い換えると，ガウス整数を定義し，それがユークリッド整域構造のインスタンスであることを示します．
 
 TEXT. -/
 /- OMIT:
@@ -36,7 +36,7 @@ representing a Gaussian integer as a pair of integers, which we think of as the
 *real* and *imaginary* parts.
 OMIT. -/
 /- TEXT:
-通常の数学用語では，ガウス整数の集合 :math:`\Bbb{Z}[i]` は複素数の集合 :math:`\{ a + b i \mid a, b \in \Bbb{Z}\}` のことです．しかしこの集合を複素数の部分集合として定義するのではなく，複素数をそれ自体のデータ型として定義することがここでの目標です．これにあたってガウス整数を2つの整数の組をそれぞれ *実部* と *虚部* と考えることで表現します．
+通常の数学用語では，ガウス整数の集合 :math:`\Bbb{Z}[i]` は複素数の集合 :math:`\{ a + b i \mid a, b \in \Bbb{Z}\}` のことです．しかしこの集合を複素数の部分集合として定義するのではなく，複素数をそれ自体のデータ型として定義することがここでの目標です．これにあたってガウス整数を2つの整数の組をそれぞれ **実部** （real）と **虚部** （imaginary）と考えることで表現します．
 BOTH: -/
 -- QUOTE:
 @[ext]
@@ -131,7 +131,7 @@ It is also useful to name the rules that compute the real and imaginary
 parts, and to declare them to the simplifier.
 OMIT. -/
 /- TEXT:
-また実部と虚部を計算する規則に名前をつけ，簡約化で用いるよう宣言することも有益です．
+また実部と虚部を計算する規則に名前をつけ，単純化で用いるよう宣言することも有益です．
 BOTH: -/
 -- QUOTE:
 @[simp]
@@ -186,7 +186,7 @@ extends the notational structures ``Zero``, ``One``, ``Add``,
 
 OMIT. -/
 /- TEXT:
-ガウス整数が可換環のインスタンスであることを示すのは驚くほど簡単です．秘訣は構造の概念にあります．それぞれのガウス整数は ``gaussInt`` 構造体のインスタンスであり， ``gaussInt`` 型自体と関連する演算は ``CommRing`` 構造体のインスタンスです．この ``CommRing`` 構造体は ``Zero`` と ``One`` ， ``Add`` ， ``Neg`` ， ``Mul`` という表記構造を拡張したものです．
+ガウス整数が可換環のインスタンスであることを示すのは驚くほど簡単です．秘訣は構造体の概念にあります．それぞれのガウス整数は ``gaussInt`` 構造体のインスタンスであり， ``gaussInt`` 型自体と関連する演算は ``CommRing`` 構造体のインスタンスです．この ``CommRing`` 構造体は ``Zero`` と ``One`` ， ``Add`` ， ``Neg`` ， ``Mul`` という表記構造を拡張したものです．
 
 TEXT. -/
 /- OMIT:
@@ -202,7 +202,7 @@ simplifying, and, if necessary, carrying out the relevant ring calculation in
 the integers.
 OMIT. -/
 /- TEXT:
-もし ``instance : CommRing gaussInt := _`` と入力してvscodeに表示される電球マークをクリックし，Leanに構造体定義のスケルトンを埋めてもらうと，おびただしい数の項目が表示されます．しかし，構造体の定義に飛ぶと，多くのフィールドにはデフォルトの定義があり，これらはLeanが自動的に埋めてくれます．重要なものは以下の定義にあります．それぞれの場合に置いて，関連する恒等式は定義を展開し， ``ext`` を使って恒等式を実部と虚部に戻し，簡約し，必要であれば整数で関連する環の計算を行うことで証明されます．
+もし ``instance : CommRing gaussInt := _`` と入力してvscodeに表示される電球マークをクリックし，Leanに構造体定義のスケルトンを埋めてもらうと，おびただしい数の項目が表示されます．しかし，構造体の定義に飛ぶと，多くのフィールドにはデフォルトの定義があり，これらはLeanが自動的に埋めてくれます．重要なものは以下の定義にあります．それぞれの場合に置いて，関連する恒等式は定義を展開し， ``ext`` を使って恒等式を実部と虚部に戻し，単純化し，必要であれば整数で関連する環の計算を行うことで証明されます．
 BOTH: -/
 -- QUOTE:
 instance instCommRing : CommRing gaussInt where
@@ -281,7 +281,7 @@ function :math:`N : R \to \mathbb{N}` with the following two properties:
 
 OMIT. -/
 /- TEXT:
-ここでガウス整数が追加で重要な性質を持つことを示します． *ユークリッド整域* とは以下の2つの性質を持つ *ノルム* 関数 :math:`N : R \to \mathbb{N}` を備えた環 :math:`R` のことです:
+ここでガウス整数が追加で重要な性質を持つことを示します． **ユークリッド整域** （Euclidean domain）とは以下の2つの性質を持つ **ノルム** （norm）関数 :math:`N : R \to \mathbb{N}` を備えた環 :math:`R` のことです:
 
 TEXT. -/
 /- OMIT:
@@ -335,7 +335,7 @@ in other rings this property can fail. In the ring
 
 OMIT. -/
 /- TEXT:
-任意の環において，元 :math:`a` が :math:`1` を割る場合，その元は *単位* であると言います．0ではない元 :math:`a` がどちらも単位ではない :math:`b` と :math:`c` を用いて :math:`a = bc` の形で書けない場合， :math:`a` は *既約* であるといいます．つまり，整数においては :math:`a` が積 :math:`bc` を割るときは必ず :math:`b` か :math:`c` のどちらかを割ることになるため，すべての既約元 :math:`a` は *素数* のことです．しかし他の環ではこの性質が破綻することがあります．環 :math:`\Bbb{Z}[\sqrt{-5}]` では次のようになります．
+任意の環において，元 :math:`a` が :math:`1` を割る場合，その元は **単元** （unit）であると言います．0ではない元 :math:`a` がどちらも単元ではない :math:`b` と :math:`c` を用いて :math:`a = bc` の形で書けない場合， :math:`a` は **既約** （irreducible）であるといいます．つまり，整数においては :math:`a` が積 :math:`bc` を割るときは必ず :math:`b` か :math:`c` のどちらかを割ることになるため，すべての既約元 :math:`a` は **素元** （prime）のことです．しかし他の環ではこの性質が破綻することがあります．環 :math:`\Bbb{Z}[\sqrt{-5}]` では次のようになります．
 
 .. math::
 
@@ -352,7 +352,7 @@ elements in more than one way.
 
 OMIT. -/
 /- TEXT:
-そして元 :math:`2` と :math:`3` ， :math:`1 + \sqrt{-5}` ， :math:`1 - \sqrt{-5}` はすべて既約元ですが，素数ではありません．例えば :math:`2` は積 :math:`(1 + \sqrt{-5})(1 - \sqrt{-5})` を割りますが，どちらの因数も割ることができません．もっと言うなら数 :math:`6` が複数の方法で既約元の因数に分解できることから，もはや一意な因数分解もできません．
+そして元 :math:`2` と :math:`3` ， :math:`1 + \sqrt{-5}` ， :math:`1 - \sqrt{-5}` はすべて既約元ですが，素元ではありません．例えば :math:`2` は積 :math:`(1 + \sqrt{-5})(1 - \sqrt{-5})` を割りますが，どちらの因数も割ることができません．もっと言うなら数 :math:`6` が複数の方法で既約元の因数に分解できることから，もはや一意な因数分解もできません．
 
 TEXT. -/
 /- OMIT:
@@ -367,7 +367,7 @@ into irreducible elements is unique up to multiplication by units.
 
 OMIT. -/
 /- TEXT:
-これと対照的に，すべてのユークリッド整域は一意に因数分解ができる領域です．これはすべての既約元が素数であることを意味します．ユークリッド整域の公理はどんな0でない元も既約元の有限積として書けることを課します．またユークリッドの互助法を使って任意の2つの非零元 ``a`` と ``b`` の最大公約数，つまり他の公約数すべてを割り切れる元を求められることも要求します．このことは既約元への因数分解は単位の冪まで一意であることを意味します．
+これと対照的に，すべてのユークリッド整域は一意に因数分解ができる領域です．これはすべての既約元が素元であることを意味します．ユークリッド整域の公理はどんな0でない元も既約元の有限積として書けることを課します．またユークリッドの互助法を使って任意の2つの非零元 ``a`` と ``b`` の最大公約数，つまり他の公約数すべてを割り切れる元を求められることも要求します．このことは既約元への因数分解は単元の冪まで一意であることを意味します．
 
 TEXT. -/
 /- OMIT:
@@ -379,7 +379,7 @@ we have :math:`N(xy) = N(x)N(y)`.
 
 OMIT. -/
 /- TEXT:
-ここでガウス整数は :math:`N(a + bi) = (a + bi)(a - bi) = a^2 + b^2` で定義されるノルムを持つユークリッド整域であることを示します．ガウス整数 :math:`a - bi` は :math:`a + bi` の *共役* と呼ばれます．任意の複素数 :math:`x` と :math:`y` に対して :math:`N(xy) = N(x)N(y)` が成り立つことを確認するのは難しくありません．
+ここでガウス整数は :math:`N(a + bi) = (a + bi)(a - bi) = a^2 + b^2` で定義されるノルムを持つユークリッド整域であることを示します．ガウス整数 :math:`a - bi` は :math:`a + bi` の **共役** （conjugate）と呼ばれます．任意の複素数 :math:`x` と :math:`y` に対して :math:`N(xy) = N(x)N(y)` が成り立つことを確認するのは難しくありません．
 
 TEXT. -/
 /- OMIT:
@@ -391,7 +391,7 @@ numbers, carry out the division
 
 OMIT. -/
 /- TEXT:
-このノルムの定義で複素数がユークリッド整域となることを見るにあたっては，最初の性質だけが難しいです．例えば適当な:math:`q` と :math:`r` に対して :math:`a + bi = (c + di)q + r` と書きたいとしましょう． :math:`a + bi` と :math:`c + di` は複素数であるとして次の除算を行います．
+このノルムの定義で複素数がユークリッド整域となることを見るにあたっては，最初の性質だけが難しいです．例えば適当な :math:`q` と :math:`r` に対して :math:`a + bi = (c + di)q + r` と書きたいとしましょう． :math:`a + bi` と :math:`c + di` は複素数であるとして次の除算を行います．
 
 .. math::
 
@@ -456,7 +456,7 @@ See the file `GaussianInt.lean
 
 OMIT. -/
 /- TEXT:
-ここまでの議論はガウス整数を複素数の部分集合としてみることを要求しています．したがって，これをLeanで形式化する1つの選択肢は，ガウス整数を複素数の中に埋め込み，整数をガウス整数の中に埋め込み，実数から整数への丸め関数を定義し，これらの数系の間を適切に行き来するよう細心の注意を払うことです．実際，これはMathlibで行われているアプローチと全く同じで，ガウス整数そのものは *二次体の整数* の環の特殊な場合として構成されています．詳しくはファイル `GaussianInt.lean <https://github.com/leanprover-community/mathlib4/blob/master/Mathlib/NumberTheory/Zsqrtd/GaussianInt.lean>`_ を見てください．
+ここまでの議論はガウス整数を複素数の部分集合としてみることを要求しています．したがって，これをLeanで形式化する1つの選択肢は，ガウス整数を複素数の中に埋め込み，整数をガウス整数の中に埋め込み，実数から整数への丸め関数を定義し，これらの数系の間を適切に行き来するよう細心の注意を払うことです．実際，これはMathlibで行われているアプローチと全く同じで，ガウス整数そのものは **二次体の整数** （quadratic integers）の環の特殊な場合として構成されています．詳しくはファイル `GaussianInt.lean <https://github.com/leanprover-community/mathlib4/blob/master/Mathlib/NumberTheory/Zsqrtd/GaussianInt.lean>`_ を見てください．
 
 TEXT. -/
 /- OMIT:
@@ -845,7 +845,7 @@ An immediate payoff is that we now know that, in the Gaussian integers,
 the notions of being prime and being irreducible coincide.
 OMIT. -/
 /- TEXT:
-これらのことから直ちに得られる成果は，ガウス整数に置いて素数であることと既約数であることが一致するということです．
+これらのことから直ちに得られる成果は，ガウス整数に置いて素元であることと既約元であることが一致するということです．
 BOTH: -/
 -- QUOTE:
 example (x : gaussInt) : Irreducible x ↔ Prime x :=
