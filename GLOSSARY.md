@@ -30,6 +30,8 @@
 | divisibility relation | 整除関係 |
 | domain | 始域 |
 | eta-reduction | η簡約 |
+| Euclidean algorithm | ユークリッドの互助法 |
+| Euclidean domain | ユークリッド整域 |
 | excluded middle | 排中律 |
 | exercises | 演習 |
 | ex falso | 爆発律 |
@@ -37,6 +39,7 @@
 | extensionality | 外延性 |
 | factorial | 階乗 |
 | Galois connection | ガロア接続 |
+| gaussian integer | ガウス整数 |
 | greatest common divisor | 最大公約数 |
 | greatest lower bound | 最大下界 |
 | identity | 恒等式, 等式 |
@@ -73,6 +76,7 @@
 | partially bundled structure | 部分的に束ねられた構造体 |
 | proof term | 証明項 |
 | proof by contradiction | 背理法 |
+| quadratic integers | 二次体の整数 |
 | r-simplex | r単体 |
 | real analysis | 実解析 |
 | reflexivity | 反射性 |
@@ -95,8 +99,9 @@
 | total order | 全順序 |
 | transitivity | 推移性 |
 | triangle inequality | 三角不等式 |
-| well-formed | 合法 |
 | union | 合併, 非交和 |
 | universal quantifier | 全称量化子 |
+| well-founded | 整礎関係 |
+| well-formed | 合法 |
 | well-formed formula | 論理式 |
 | zero divisor | 零因子 |
