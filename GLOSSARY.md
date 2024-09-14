@@ -8,7 +8,7 @@
 | arithmetic | 算術 |
 | associativity | 結合性 |
 | axiom of choice | 選択公理 |
-| bijection | 双射 |
+| bijection | 全単射 |
 | bi-implication | 双方向の含意 |
 | bipartite graph | 2部グラフ |
 | canonical topology | 正準位相 |
