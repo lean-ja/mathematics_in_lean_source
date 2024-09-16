@@ -106,7 +106,7 @@ make sure it is displayed almost invisibly in the tactic state, simply by a ``�
 
 OMIT. -/
 /- TEXT:
-もちろん，どこでも ``toFun`` を打ち込みたいわけではないので， ``CoeFun`` タイプクラスを使って型強制を登録します．最初の引数は関数に強制したい型です．第2引数には対照となる関数の型を指定します．この場合，すべての ``f : MonoidHom₁ G H`` に対して常に ``G → H`` とします．また， ``MonoidHom₁.toFun`` には ``coe`` 属性のタグを付け， ``↑`` 接頭辞をつけるだけでタクティクモードではほとんど ``toFun`` の存在が見えないようになるようにしています．
+もちろん，全ての利用箇所で ``toFun`` を打ち込みたいわけではないので， ``CoeFun`` 型クラスを使って型強制を登録します．最初の引数は関数に強制したい型です．第2引数には対象となる関数の型を指定します．この場合，すべての ``f : MonoidHom₁ G H`` に対して常に ``G → H`` とします．また， ``MonoidHom₁.toFun`` には ``coe`` 属性のタグを付け， ``↑`` 接頭辞をつけるだけでタクティクモードではほとんど ``toFun`` の存在が見えないようになるようにしています．
 BOTH: -/
 -- QUOTE:
 instance [Monoid G] [Monoid H] : CoeFun (MonoidHom₁ G H) (fun _ ↦ G → H) where
@@ -280,7 +280,7 @@ procedure won't be looking for functions, it will be looking for either
 
 OMIT. -/
 /- TEXT:
-一見すると， ``MonoidHom₁`` をクラスにするという昔の悪いアイデアに戻ったように見えるかもしれません．しかしそうではありません．すべて抽象度が1つ上がっているのです．型クラス解決プロセスは関数を探すのではなく， ``MonoidHom₁`` か ``RingHom₁`` のどちらかを探すことに成ります．
+一見すると， ``MonoidHom₁`` をクラスにするという昔の悪いアイデアに戻ったように見えるかもしれません．しかしそうではありません．すべて抽象度が1つ上がっているのです．型クラス解決プロセスは関数を探すのではなく， ``MonoidHom₁`` か ``RingHom₁`` のどちらかを探すことになります．
 
 TEXT. -/
 /- OMIT:
