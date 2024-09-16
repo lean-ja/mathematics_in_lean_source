@@ -20,7 +20,7 @@
 .. as :math:`x` tends to :math:`a`.
 .. We have already begun to consider such notions in :numref:`sequences_and_convergence`.
 
-微積分は関数の概念に基づいており，互いに依存しあう量をモデル化するのに用いられます．例えば，時間とともに変化する量についての研究は一般的です．また *極限* という概念も基本的なものです．関数 :math:`f(x)` の極限は :math:`x` の値が :math:`a` に近づくにつれて :math:`b` になる，あるいは :math:`f(x)` は :math:`x` が :math:`a` に近づくにつれて :math:`b` に *収束する* と言うことができます．同様に， :math:`f(x)` は :math:`x` が :math:`a` に近づくにつれて :math:`b` に近づく，あるいは :math:`x` が :math:`a` に近づくにつれて :math:`b` に *限りなく近づく* と言うこともできます．このような概念について :numref:`sequences_and_convergence` で既に考察しています．
+微積分は関数の概念に基づいており，互いに依存しあう量をモデル化するのに用いられます．例えば，時間とともに変化する量についての研究は一般的です．また **極限** （limit）という概念も基本的なものです．関数 :math:`f(x)` の極限は :math:`x` の値が :math:`a` に近づくにつれて :math:`b` になる，あるいは :math:`f(x)` は :math:`x` が :math:`a` に近づくにつれて :math:`b` に **収束する** （converges to）と言うことができます．同様に， :math:`f(x)` は :math:`x` が :math:`a` に近づくにつれて :math:`b` に近づく，あるいは :math:`x` が :math:`a` に近づくにつれて :math:`b` に **限りなく近づく** （tends to）と言うこともできます．このような概念について :numref:`sequences_and_convergence` で既に考察しています．
 
 .. *Topology* is the abstract study of limits and continuity.
 .. Having covered the essentials of formalization in Chapters :numref:`%s <basics>`
@@ -30,7 +30,7 @@
 .. but that also, somewhat paradoxically, make it easier to reason about limits
 .. and continuity in concrete instances.
 
-*位相* は極限と連続性についての抽象的な研究です． :numref:`%s <basics>` 章から :numref:`%s <structures>` 章までで形式化の要点を説明しましたが，この章ではMathlibで位相的な概念がそのように形式化されているかを説明します．位相的な抽象化は，より一般的に適用できるだけでなく，逆説的ではありますが，具体的な事例における極限や連続性についての推論を容易にします．
+**位相** （Topology）は極限と連続性についての抽象的な研究です． :numref:`%s <basics>` 章から :numref:`%s <structures>` 章までで形式化の要点を説明しましたが，この章ではMathlibで位相的な概念がそのように形式化されているかを説明します．位相的な抽象化は，より一般的に適用できるだけでなく，逆説的ではありますが，具体的な事例における極限や連続性についての推論を容易にします．
 
 .. Topological notions build on quite a few layers of mathematical structure.
 .. The first layer is naive set theory,
@@ -40,7 +40,7 @@
 .. the theories of *topological spaces*, *metric spaces*, and a slightly more exotic
 .. intermediate notion called a *uniform space*.
 
-位相的な概念は，数学的な構造のかなり多くのレイヤーの上に成り立っています．最初の層は素朴な集合論で， :numref:`Chapter %s <sets_and_functions>` で説明しています．次の層は :numref:`filters` で説明する *フィルタ* の理論です．その上に *位相空間* ， *距離空間* ，そして少し独特的な中間概念である *一様空間* の理論を重ねます．
+位相的な概念は，数学的な構造のかなり多くのレイヤーの上に成り立っています．最初の層は素朴な集合論で， :numref:`Chapter %s <sets_and_functions>` で説明しています．次の層は :numref:`filters` で説明する **フィルタ** （filter）の理論です．その上に **位相空間** （topological spaces）， **距離空間** （metric spaces），そして少し独特的な中間概念である **一様空間** （uniform space）の理論を重ねます．
 
 .. Whereas previous chapters relied on mathematical notions that were likely
 .. familiar to you,
@@ -90,4 +90,4 @@
 .. fully explicit, and that is exactly what Bourbaki's theory of filters
 .. manages to do.
 
-極限にかかわる補題となると問題はさらに複雑になります．例えば，極限は次のように合成されます: ``x`` が ``x₀`` に限りなく近づくときに ``f x`` が ``y₀`` に限りなく近づき，また ``y`` が ``y₀`` に限りなく近づくとき ``g y`` が ``z₀`` に限りなく近づくならば， ``g ∘ f x`` は ``x`` が ``x₀`` に限りなく近づくとき ``z₀`` に限りなく近づきます．ここでは3つの「限りなく近づく」概念が働いており，それぞれ前の段落で説明した8つの方法のいずれかでインスタンス化することができます．この結果，512の補題が生まれ，ライブラリに追加しなければならなくなります!非形式的には，数学者は一般的にこれらのうち2つか3つを証明し，残りは「同じ方法で」証明できることを示すだけです．数学を形式化するには，この「同じ」という概念を完全に明示する必要があり，これこそブルバキのフィルタ理論が取り扱うことです．
+極限にかかわる補題となると問題はさらに複雑になります．例えば，極限は次のように合成されます: ``x`` が ``x₀`` に限りなく近づくときに ``f x`` が ``y₀`` に限りなく近づき，また ``y`` が ``y₀`` に限りなく近づくとき ``g y`` が ``z₀`` に限りなく近づくならば， ``g ∘ f x`` は ``x`` が ``x₀`` に限りなく近づくとき ``z₀`` に限りなく近づきます．ここでは3つの「限りなく近づく」概念が働いており，それぞれ前の段落で説明した8つの方法のいずれかでインスタンス化することができます．この結果，512の補題が生まれ，ライブラリに追加しなければならなくなります！非形式的には，数学者は一般的にこれらのうち2つか3つを証明し，残りは「同様の方法で」証明できることを示すだけです．数学を形式化するには，この「同じ」という概念を完全に明示する必要があり，これこそブルバキのフィルタ理論が取り扱うことです．
