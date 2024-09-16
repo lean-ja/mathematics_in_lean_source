@@ -42,6 +42,7 @@
 | gaussian integer | ガウス整数 |
 | greatest common divisor | 最大公約数 |
 | greatest lower bound | 最大下界 |
+| higher-order unification | 高階ユニフィケーション |
 | identity | 恒等式, 等式 |
 | if-and-only-if statement | 同値性を主張する文 |
 | iff | 必要十分条件 |
@@ -66,6 +67,7 @@
 | metric space topology | 距離空間位相 |
 | module | 加群 |
 | monotone | 単調 |
+| morphism | 射 |
 | natural domain | 自然な定義域 |
 | norm | ノルム |
 | number systems | 数体系 |
