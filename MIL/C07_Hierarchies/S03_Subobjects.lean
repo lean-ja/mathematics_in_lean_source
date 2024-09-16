@@ -3,12 +3,19 @@ import Mathlib.GroupTheory.QuotientGroup.Basic
 
 set_option autoImplicit true
 
-/- TEXT:
-.. _section_hierarchies_subobjects:
-
+/- OMIT:
 Sub-objects
 -----------
 
+OMIT. -/
+/- TEXT:
+.. _section_hierarchies_subobjects:
+
+部分対象
+-----------
+
+TEXT. -/
+/- OMIT:
 After defining some algebraic structure and its morphisms, the next step is to consider sets
 that inherit this algebraic structure, for instance subgroups or subrings.
 This largely overlaps with our previous topic. Indeed a set in ``X`` is implemented as a function from
@@ -19,6 +26,9 @@ to ``X → Prop``. Instead there is a ``SetLike`` class. Instead of wrapping an 
 function type, that class wraps an injection into a ``Set`` type and defines the corresponding
 coercion and ``Membership`` instance.
 
+OMIT. -/
+/- TEXT:
+ある代数構造とその射を定義した後の次なるステップとして，この代数構造を継承する集合，例えば部分群や部分環を考えましょう．これは前回の話題とほぼ重複します．実際， ``X`` の集合は ``X`` から ``Prop`` への関数として実装されるので，部分対象はある述語を満たす関数です．したがって， ``FunLike`` クラスとその子孫のクラスを生み出した多くのアイデアを再利用できます． ``FunLike`` 自体は再利用しません．これをしてしまうと集合 ``X`` から ``X → Prop`` への抽象化の壁を壊してしまうためです．その代わりに ``SetLike`` クラスが存在します．関数型への埋め込みをラップする代わりに，このクラスは ``Set`` 型への埋め込みをラップし，対応する型強制と ``Membership`` インスタンスを定義します．
 BOTH: -/
 
 -- QUOTE:
@@ -38,10 +48,13 @@ instance [Monoid M] : SetLike (Submonoid₁ M) M where
 
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 Equipped with the above ``SetLike`` instance, we can already state naturally that
 a submonoid ``N`` contains ``1`` without using ``N.carrier``.
 We can also silently treat ``N`` as a set in ``M`` as take its direct image under a map.
+OMIT. -/
+/- TEXT:
+上記の ``SetLike`` インスタンスがあれば， ``N.carrier`` を使わなくても，部分モノイド ``N`` が ``1`` を含むことを自然に示すことができます．また， ``N`` を ``M`` の集合として扱い，写像の像を直接取ることもできます．
 BOTH: -/
 
 -- QUOTE:
@@ -50,22 +63,28 @@ example [Monoid M] (N : Submonoid₁ M) : 1 ∈ N := N.one_mem
 example [Monoid M] (N : Submonoid₁ M) (α : Type) (f : M → α) := f '' N
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 We also have a coercion to ``Type`` which uses ``Subtype`` so, given a submonoid ``N`` we can write
 a parameter ``(x : N)`` which can be coerced to an element of ``M`` belonging to ``N``.
 
+OMIT. -/
+/- TEXT:
+また ``SubType`` を使うことで ``Type`` への型強制も行え得るため，部分モノイド ``N`` に対して， ``N`` に属する ``M`` の要素へと強制できるようなパラメータ ``(x : N)`` を書くことができます．
 BOTH: -/
 
 -- QUOTE:
 example [Monoid M] (N : Submonoid₁ M) (x : N) : (x : M) ∈ N := x.property
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 Using this coercion to ``Type`` we can also tackle the task of equipping a submonoid with a
 monoid structure. We will use the coercion from the type associated to ``N`` as above, and the
 lemma ``SetCoe.ext`` asserting this coercion is injective. Both are provided by the ``SetLike``
 instance.
 
+OMIT. -/
+/- TEXT:
+この ``Type`` への強制を使って，部分モノイドにモノイド構造を持たせることもできます．上記のように ``N`` に関連する型からの強制と，この型強制が単射であることを保証する補題 ``SetCoe.ext`` を使用します．どちらも ``SetLike`` インスタンスによって提供されます．
 BOTH: -/
 
 -- QUOTE:
@@ -77,10 +96,13 @@ instance SubMonoid₁Monoid [Monoid M] (N : Submonoid₁ M) : Monoid N where
   mul_one := fun x ↦ SetCoe.ext (mul_one (x : M))
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 Note that, in the above instance, instead of using the coercion to ``M`` and calling the
 ``property`` field, we could have used destructuring binders as follows.
 
+OMIT. -/
+/- TEXT:
+上記の例では， ``M`` への型強制の使用と ``property`` フィールドを呼び出す代わりに，以下のように分解しながらの束縛を使用することができたことに注意してください．
 BOTH: -/
 
 -- QUOTE:
@@ -92,11 +114,14 @@ example [Monoid M] (N : Submonoid₁ M) : Monoid N where
   mul_one := fun ⟨x, _⟩ ↦ SetCoe.ext (mul_one x)
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 
 In order to apply lemmas about submonoids to subgroups or subrings, we need a class, just
 like for morphisms. Note this class take a ``SetLike`` instance as a parameter so it does not need
 a carrier field and can use the membership notation in its fields.
+OMIT. -/
+/- TEXT:
+部分モノイドに関する補題を部分群や部分環に適用するには，射と同じようにクラスが必要です．このクラスは ``SetLike`` インスタンスをパラメータとして受け取るので，carrierフィールドを必要とせず，フィールドに帰属の表記を使うことができます．
 BOTH: -/
 
 -- QUOTE:
@@ -109,11 +134,15 @@ instance [Monoid M] : SubmonoidClass₁ (Submonoid₁ M) M where
   one_mem := Submonoid₁.one_mem
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 
 As an exercise you should define a ``Subgroup₁`` structure, endow it with a ``SetLike`` instance
 and a ``SubmonoidClass₁`` instance, put a ``Group`` instance on the subtype associated to a
 ``Subgroup₁`` and define a ``SubgroupClass₁`` class.
+
+OMIT. -/
+/- TEXT:
+演習として， ``Subgroup₁`` 構造体を定義し，それに ``SetLike`` インスタンスと ``SubmonoidClass₁`` インスタンスを与え， ``Subgroup₁`` に関連付けられた部分型に ``Group`` インスタンスを置き， ``SubgroupClass₁`` クラスを定義してください．
 
 SOLUTIONS: -/
 @[ext]
@@ -144,12 +173,15 @@ instance [Group G] : SubgroupClass₁ (Subgroup₁ G) G :=
 { (inferInstance : SubmonoidClass₁ (Subgroup₁ G) G) with
   inv_mem := Subgroup₁.inv_mem }
 
-/- TEXT:
+/- OMIT:
 Another very important thing to know about subobjects of a given algebraic object in Mathlib
 always form a complete lattice, and this structure is used a lot. For instance you may look for
 the lemma saying that an intersection of submonoids is a submonoid. But this won't be a lemma,
 this will be an infimum construction. Let us do the case of two submonoids.
 
+OMIT. -/
+/- TEXT:
+知っておくべき点としてもう一つ重要なこととして，Mathlibでは所与の代数オブジェクトの部分対象は完備束を構成し，この構造はよく使われるということです．例えば，「部分モノイド同士の共通部分も部分モノイドである」という補題を探したい場合を考えましょう．しかし，これは補題ではなく，下限の構成です．2つの部分モノイドの場合を考えてみましょう．
 BOTH: -/
 
 -- QUOTE:
@@ -160,8 +192,12 @@ instance [Monoid M] : Inf (Submonoid₁ M) :=
       mul_mem := fun ⟨hx, hx'⟩ ⟨hy, hy'⟩ ↦ ⟨S₁.mul_mem hx hy, S₂.mul_mem hx' hy'⟩ }⟩
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 This allows to get the intersections of two submonoids as a submonoid.
+
+OMIT. -/
+/- TEXT:
+これにより，2つの部分モノイドの共通部分を部分モノイドとして得ることができます．
 
 BOTH: -/
 
@@ -169,7 +205,7 @@ BOTH: -/
 example [Monoid M] (N P : Submonoid₁ M) : Submonoid₁ M := N ⊓ P
 -- QUOTE.
 
-/- TEXT:
+/- OMIT:
 You may think it's a shame that we had to use the inf symbol ``⊓`` in the above example instead
 of the intersection symbol ``∩``. But think about the supremum. The union of two submonoids is not
 a submonoid. However submonoids still form a lattice (even a complete one). Actually ``N ⊔ P`` is
@@ -182,16 +218,31 @@ emphasizing the anecdotal fact that elements of ``E ⊔ F`` can be written as a 
 ``E`` and an element of ``F`` instead of emphasizing the fundamental fact that ``E ⊔ F`` is the
 smallest vector subspace containing both ``E`` and ``F``.
 
+OMIT. -/
+/- TEXT:
+上の例で共通部分の記号 ``∩`` の代わりに下限の記号 ``⨅`` を使わなければならなかったのは残念だと思うかもしれません．しかし，上限の場合について考えてみましょう．2つの部分モノイドの合併は部分モノイドになりません．しかし，部分モノイドは束を（特に完備であるものを）形成します．実際には， ``N ⨆ P`` は ``N`` と ``P`` の合併によって生成される部分モノイドであり，もちろんこれを ``N ∪ P`` で表すのは非常に紛らわしくなります．したがって，上記で ``N ⊓ P`` を使うほうが一貫性があることがわかるでしょう．また，この書き方は様々な種類の代数構造に対してもより一貫性があります．2つのベクトル部分空間 ``E`` と ``F`` の和を ``E + F`` ではなく， ``E ⊔ F`` と表記するのは最初は少し奇妙に見えるかもしれません．しかしすぐに慣れるでしょう．そしてすぐに ``E + F`` という表記が， ``E ⊔ F`` が ``E`` と ``F`` の両方を含む最小のベクトル部分空間であるという基本的な事実よりも ``E ⊔ F`` の要素が ``E`` と ``F`` の要素の和として書けるというわかりやすい事実を強調する気休めのようなものだと考えるようになるでしょう．
+
+TEXT. -/
+/- OMIT:
 Our last topic for this chapter is that of quotients. Again we want to explain how
 convenient notation are built and code duplication is avoided in Mathlib. Here the main device
 is the ``HasQuotient`` class which allows notations like ``M ⧸ N``. Beware the quotient symbol
 ``⧸`` is a special unicode character, not a regular ASCII division symbol.
 
+OMIT. -/
+/- TEXT:
+この章の最後の話題は商についてです．ここでもMathlibで便利な表記法がどのように構築され，コードの重複がどのように回避されているかを説明していきます．ここでの主な工夫は ``HasQuotient`` クラスで， ``M ⧸ N`` のように書き表すことができます．この商の記号 ``⧸`` は特殊なUnicode文字で，通常のASCIIの除算記号ではないので注意してください．
+
+TEXT. -/
+/- OMIT:
 As an example, we will build the quotient of a commutative monoid by a submonoid, leave proofs
 to you. In the last example, you can use ``Setoid.refl`` but it won't automatically pick up
 the relevant ``Setoid`` structure. You can fix this issue by providing all arguments using
 the ``@`` syntax, as in ``@Setoid.refl M N.Setoid``.
 
+OMIT. -/
+/- TEXT:
+例として，可換モノイドの部分モノイドによる商を作ることにしましょう．最後の例では， ``Setoid.refl`` を使うことができますが，その際に適切な ``Setoid`` 構造が自動的に選ばれてはくれません．この問題は ``@Setoid.refl M N.Setoid`` のようにすべての引数を ``@`` 構文で指定することで解決できます．
 BOTH: -/
 
 -- QUOTE:
