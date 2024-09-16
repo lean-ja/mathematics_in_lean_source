@@ -69,7 +69,7 @@ a parameter ``(x : N)`` which can be coerced to an element of ``M`` belonging to
 
 OMIT. -/
 /- TEXT:
-また ``SubType`` を使うことで ``Type`` への型強制も行え得るため，部分モノイド ``N`` に対して， ``N`` に属する ``M`` の要素を ``(x : N)`` に強制したパラメータを書くことができます．
+また ``SubType`` を使うことで ``Type`` への型強制も行え得るため，部分モノイド ``N`` に対して， ``N`` に属する ``M`` の要素へと強制できるようなパラメータ ``(x : N)`` を書くことができます．
 BOTH: -/
 
 -- QUOTE:
@@ -143,6 +143,7 @@ and a ``SubmonoidClass₁`` instance, put a ``Group`` instance on the subtype as
 OMIT. -/
 /- TEXT:
 演習として， ``Subgroup₁`` 構造体を定義し，それに ``SetLike`` インスタンスと ``SubmonoidClass₁`` インスタンスを与え， ``Subgroup₁`` に関連付けられた部分型に ``Group`` インスタンスを置き， ``SubgroupClass₁`` クラスを定義してください．
+
 SOLUTIONS: -/
 @[ext]
 structure Subgroup₁ (G : Type) [Group G] extends Submonoid₁ G where
@@ -180,7 +181,7 @@ this will be an infimum construction. Let us do the case of two submonoids.
 
 OMIT. -/
 /- TEXT:
-知っておくべき点としてもう一つ重要なこととして，Mathlibでは与えられた代数オブジェクトの部分対象は完備束を構成し，この構造はよく使われるということです．例えば，「部分モノイド同士の共通部分も部分モノイドである」という補題を探したい場合を考えましょう．しかし，これは補題ではなく，下限の構成です．2つの部分モノイドの場合を考えてみましょう．
+知っておくべき点としてもう一つ重要なこととして，Mathlibでは所与の代数オブジェクトの部分対象は完備束を構成し，この構造はよく使われるということです．例えば，「部分モノイド同士の共通部分も部分モノイドである」という補題を探したい場合を考えましょう．しかし，これは補題ではなく，下限の構成です．2つの部分モノイドの場合を考えてみましょう．
 BOTH: -/
 
 -- QUOTE:
@@ -197,6 +198,7 @@ This allows to get the intersections of two submonoids as a submonoid.
 OMIT. -/
 /- TEXT:
 これにより，2つの部分モノイドの共通部分を部分モノイドとして得ることができます．
+
 BOTH: -/
 
 -- QUOTE:
