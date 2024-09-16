@@ -18,6 +18,7 @@
 | chapter | 章 |
 | codomain | 終域 |
 | coercion | 型の強制 |
+| complete lattice | 完備束 |
 | conjunction | 連言 |
 | context | コンテキスト |
 | continuum hypothesis | 連続体仮説 |
@@ -80,6 +81,7 @@
 | proof term | 証明項 |
 | proof by contradiction | 背理法 |
 | quadratic integers | 二次体の整数 |
+| quotient | 商 |
 | r-simplex | r単体 |
 | real analysis | 実解析 |
 | reflexivity | 反射性 |
@@ -94,6 +96,7 @@
 | statement | 命題 |
 | strict partial order | 狭義半順序 |
 | strong induction | 強帰納法 |
+| sub-object | 部分対象 |
 | subset | 部分集合 |
 | support | 台 |
 | supremum | 上限 |
