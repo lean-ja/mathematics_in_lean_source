@@ -64,6 +64,7 @@
 | meet | 交わり |
 | metric space | 距離空間 |
 | metric space topology | 距離空間位相 |
+| module | 加群 |
 | monotone | 単調 |
 | natural domain | 自然な定義域 |
 | norm | ノルム |
