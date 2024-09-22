@@ -8,6 +8,7 @@
 | arithmetic | 算術 |
 | associativity | 結合性 |
 | axiom of choice | 選択公理 |
+| ball | 球体 |
 | bijection | 全単射 |
 | bi-implication | 双方向の含意 |
 | bipartite graph | 2部グラフ |
@@ -15,6 +16,9 @@
 | cardinality | 濃度 |
 | carrier set | 台集合 |
 | carrier type | 台の型 |
+| cauchy sequence | コーシー列 |
+| closed sets | 閉集合 |
+| closure | 閉包 |
 | chapter | 章 |
 | codomain | 終域 |
 | coercion | 型の強制 |
@@ -79,6 +83,7 @@
 | number systems | 数体系 |
 | number theory | 数論 |
 | open interval | 開区間 |
+| open sets | 開集合 |
 | operator | 演算子（中置記法の定義等なにかしら特殊な記法が用意されている場合）、関数（それ以外） |
 | ordered ring | 順序環 |
 | preimage | 逆像 |
@@ -98,6 +103,7 @@
 | root | 根 |
 | section | 節 |
 | sequence | 数列 |
+| segment | 線分 |
 | set-builder notation | 内包表記 |
 | simplify | 単純化 |
 | simplifier | ``simp``  |
@@ -116,6 +122,7 @@
 | total order | 全順序 |
 | transitivity | 推移性 |
 | triangle inequality | 三角不等式 |
+| uniformly continuous | 一様連続 |
 | uniform space | 一様空間 |
 | union | 合併, 非交和 |
 | universal quantifier | 全称量化子 |
