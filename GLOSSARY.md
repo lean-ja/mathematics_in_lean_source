@@ -22,14 +22,17 @@
 | conjunction | 連言 |
 | context | コンテキスト |
 | continuum hypothesis | 連続体仮説 |
+| contravariant | 反変 |
 | convergence | 収束 |
 | coprime | 互いに素 |
 | curly brackets | 波括弧 |
 | dependent type theory | 依存型理論 |
+| direct image | 順像 |
 | disjunction | 選言 |
 | distributive lattice | 分配束 |
 | divisibility relation | 整除関係 |
 | domain | 始域 |
+| entourage | 近縁 |
 | eta-reduction | η簡約 |
 | Euclidean algorithm | ユークリッドの互助法 |
 | Euclidean domain | ユークリッド整域 |
@@ -39,6 +42,8 @@
 | existential quantifier | 存在量化子 |
 | extensionality | 外延性 |
 | factorial | 階乗 |
+| filter | フィルタ |
+| filter basis | フィルタ基底 |
 | Galois connection | ガロア接続 |
 | gaussian integer | ガウス整数 |
 | greatest common divisor | 最大公約数 |
@@ -73,13 +78,17 @@
 | norm | ノルム |
 | number systems | 数体系 |
 | number theory | 数論 |
+| open interval | 開区間 |
 | operator | 演算子（中置記法の定義等なにかしら特殊な記法が用意されている場合）、関数（それ以外） |
 | ordered ring | 順序環 |
 | preimage | 逆像 |
 | partial order | 半順序 |
 | partially bundled structure | 部分的に束ねられた構造体 |
+| principal filter | 主フィルタ |
 | proof term | 証明項 |
 | proof by contradiction | 背理法 |
+| pullback | 引き戻し |
+| pushforward | 押し出し |
 | quadratic integers | 二次体の整数 |
 | quotient | 商 |
 | r-simplex | r単体 |
@@ -101,10 +110,13 @@
 | support | 台 |
 | supremum | 上限 |
 | surjective | 全射 |
+| tend to ~ | ~に収束する |
+| topological group | 位相群 |
 | topological space | 位相空間 |
 | total order | 全順序 |
 | transitivity | 推移性 |
 | triangle inequality | 三角不等式 |
+| uniform space | 一様空間 |
 | union | 合併, 非交和 |
 | universal quantifier | 全称量化子 |
 | well-founded | 整礎関係 |
