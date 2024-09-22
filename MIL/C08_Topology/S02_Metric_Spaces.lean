@@ -51,7 +51,7 @@ They are called ``EMetricSpace``, ``PseudoMetricSpace`` and ``PseudoEMetricSpace
 
 OMIT. -/
 /- TEXT:
-また，距離が無限大になるものや， ``a = b`` とならずに ``dist a b`` が0になるもの，あるいはその療法が存在するものもあります．これらはそれぞれ ``EMetricSpace`` ， ``PseudoMetricSpace`` ， ``PseudoEMetricSpace`` と呼ばれます（ここで"e"は"extends"を表します）．
+また，距離が無限大になるものや， ``a = b`` でなくとも ``dist a b`` が0になるもの，あるいはその両方が存在するものもあります．これらはそれぞれ ``EMetricSpace`` ， ``PseudoMetricSpace`` ， ``PseudoEMetricSpace`` と呼ばれます（ここで"e"は"extends"を表します）．
 BOTH: -/
 -- Note the next three lines are not quoted, their purpose is to make sure those things don't get renamed while we're looking elsewhere.
 #check EMetricSpace
@@ -489,7 +489,7 @@ And ``K`` is clearly closed (use ``isClosed_le``) hence compact since ``X`` is c
 
 OMIT. -/
 /- TEXT:
-``φ : X × X → ℝ := fun p ↦ dist (f p.1) (f p.2)`` と ``K := { p : X × X | ε ≤ φ p }`` を仮定します． ``f`` と距離は連続であるため， ``φ`` は連続です．また， ``K`` は明らかに閉じている（ ``isClosed_le`` を使います）ので， ``X`` はコンパクトです．
+``φ : X × X → ℝ := fun p ↦ dist (f p.1) (f p.2)`` と ``K := { p : X × X | ε ≤ φ p }`` を仮定します． ``f`` と距離は連続であるため， ``φ`` は連続です．また， ``K`` は明らかに閉じている（ ``isClosed_le`` を使います）ので， ``X`` はコンパクトであることから ``K`` はコンパクトになります．
 
 TEXT. -/
 /- OMIT:
@@ -556,7 +556,7 @@ spaces.
 
 OMIT. -/
 /- TEXT:
-距離空間におけるコーシー列とは，各項がどんどん互いに近づいていく数列のことです．この考え方にはいくつかの等価な言い方があります．特に収束する数列はコーシー列です．その逆はいわゆる *完全(complete)* 空間においてのみ成り立ちます．
+距離空間におけるコーシー列とは，各項がどんどん互いに近づいていく数列のことです．この考え方にはいくつかの等価な言い方があります．特に収束する数列はコーシー列です．その逆はいわゆる **完全** （complete）空間においてのみ成り立ちます．
 BOTH: -/
 -- QUOTE:
 example (u : ℕ → X) :
