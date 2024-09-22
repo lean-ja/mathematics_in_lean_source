@@ -122,7 +122,7 @@ example {f : ℝ → ℝ} {a b : ℝ} (hab : a < b) (hfc : ContinuousOn f (Icc a
 Of course, this trick does not work for the general mean value theorem.
 OMIT. -/
 /- TEXT:
-もちろん，このトリックは一般的な平均値の定理には通用しません．
+もちろん，この技法は一般的な平均値の定理には通用しません．
 EXAMPLES: -/
 -- QUOTE:
 example (f : ℝ → ℝ) {a b : ℝ} (hab : a < b) (hf : ContinuousOn f (Icc a b))
