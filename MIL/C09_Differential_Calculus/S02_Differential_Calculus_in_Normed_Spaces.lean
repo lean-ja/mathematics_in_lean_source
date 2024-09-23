@@ -44,7 +44,7 @@ group equipped with a real-valued norm function
 satisfying the following conditions.
 OMIT. -/
 /- TEXT:
-微分は，方向と距離の両方を備えた *ノルム線形空間* の概念を用いることで ``ℝ`` を超えて一般化することができます．まず *ノルム化された群* の概念から始めましょう．これは以下の条件を満たす実数値ノルム関数を備えた加法可換群です．
+微分は，方向と距離の両方を備えた **ノルム線形空間** （normed vector space）の概念を用いることで ``ℝ`` を超えて一般化することができます．まず **ノルム化された群** （normed group）の概念から始めましょう．これは以下の条件を満たす実数値ノルム関数を備えた加法可換群です．
 EXAMPLES: -/
 section
 
@@ -98,7 +98,7 @@ A complete normed space is known as a *Banach space*.
 Every finite-dimensional vector space is complete.
 OMIT. -/
 /- TEXT:
-完備なノルム空間は *バナッハ空間* として知られています．すべての有限次元ベクトル空間は完備です．
+完備なノルム空間は **バナッハ空間** （Banach space）として知られています．すべての有限次元ベクトル空間は完備です．
 EXAMPLES: -/
 -- QUOTE:
 example [FiniteDimensional ℝ E] : CompleteSpace E := by infer_instance
@@ -113,7 +113,7 @@ not every element has norm zero or one
 (equivalently, there is an element whose norm is bigger than one).
 OMIT. -/
 /- TEXT:
-これまでの例はすべてベースの体として実数を使いました．より一般的には，任意の *非自明なノルム化された体* 上のベクトル空間を使って微積分を理解することができます．これは乗法的ですべての要素のノルムが0か1ではない（つまり，ノルムが1より大きい要素が存在する）という性質を持つ実数値ノルムを備えた体です．
+これまでの例はすべてベースの体として実数を使いました．より一般的には，任意の **非自明なノルム化された体** （nontrivially normed field）上のベクトル空間を使って微積分を理解することができます．これは乗法的ですべての要素のノルムが0か1ではない（つまり，ノルムが1より大きい要素が存在する）という性質を持つ実数値ノルムを備えた体です．
 EXAMPLES: -/
 -- QUOTE:
 example (𝕜 : Type*) [NontriviallyNormedField 𝕜] (x y : 𝕜) : ‖x * y‖ = ‖x‖ * ‖y‖ :=
@@ -160,7 +160,7 @@ Lean will insert a coercion so that a continuous linear map can be treated
 as a function.
 OMIT. -/
 /- TEXT:
-次にノルム空間の圏における射，つまり連続線形写像について説明します．Mathlibでは，ノルム空間 ``E`` と ``F`` の間の ``𝕜`` 線形連続写像の型を ``E →L[𝕜] F`` と表記します．これらは *束縛写像* として実装されます．束縛写像とは，この型の要素が関数そのものと線形で連続であるという性質を含む構造を持つことを意味します．Leanは連続線形写像を関数として扱えるように型強制を備えています．
+次にノルム空間の圏における射，つまり連続線形写像について説明します．Mathlibでは，ノルム空間 ``E`` と ``F`` の間の ``𝕜`` 線形連続写像の型を ``E →L[𝕜] F`` と表記します．これらは **束縛写像** （bundled maps）として実装されます．束縛写像とは，この型の要素が関数そのものと線形で連続であるという性質を含む構造を持つことを意味します．Leanは連続線形写像を関数として扱えるように型強制を備えています．
 EXAMPLES: -/
 section
 
@@ -209,7 +209,7 @@ Their type of such isomorphisms is ``E ≃L[𝕜] F``.
 
 OMIT. -/
 /- TEXT:
-また束縛された連続線形 *同型* という概念が存在します．この型は ``E ≃L[𝕜] F`` です．
+また束縛された連続線形 **同型** （isomorphism）という概念が存在します．この型は ``E ≃L[𝕜] F`` です．
 
 TEXT. -/
 /- OMIT:
@@ -362,7 +362,7 @@ Here the letter
 "f" stands for *Fréchet*.
 OMIT. -/
 /- TEXT:
-これでノルム空間のあいだの微分可能な関数について議論する準備が整いました．初等的な一次元の場合になぞらえて，Mathlibでは ``HasFDerivAt`` という述語と ``fderiv`` という関数と定義しています．ここで ``f`` は *フレシェ(Fréchet)* を表します．
+これでノルム空間のあいだの微分可能な関数について議論する準備が整いました．初等的な一次元の場合になぞらえて，Mathlibでは ``HasFDerivAt`` という述語と ``fderiv`` という関数と定義しています．ここで ``f`` は **フレシェ** （Fréchet）を表します．
 EXAMPLES: -/
 section
 
