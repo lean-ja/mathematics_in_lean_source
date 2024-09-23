@@ -72,8 +72,8 @@ def make_lean_user_main_import_file():
         import_file.write(f"import MIL.Common\n")
 
 index_file_start = """
-Mathematics in Lean
-===================
+Mathematics in Lean 日本語訳
+============================
 
 .. toctree::
    :numbered:
@@ -86,6 +86,23 @@ index_file_end = """
    :hidden:
 
    genindex
+
+この翻訳について
+----------------
+
+この翻訳は有志による **非公式** 翻訳です．翻訳に際して分かりやすさのために表現を大きく変えた箇所があります．また，用語の訳が一般的でない・誤りを含む可能性があります．必要に応じて原文 `Mathematics in Lean <https://leanprover-community.github.io/mathematics_in_lean/index.html>`_ ( `GitHub <https://github.com/avigad/mathematics_in_lean_source>`_ )をご覧ください．
+
+原文にはライセンスが無かったため，原著者より許諾をいただいて翻訳させていただいています．（ `Zulip chat <https://leanprover.zulipchat.com/#narrow/stream/270676-lean4/topic/.E2.9C.94.20Translating.20.60Mathematics.20in.20Lean.60.20to.20Japanese/near/395294386>`_ ）
+
+誤字脱字・内容の誤りの指摘・フォークからのPull Request・フォークによる翻訳の改変等歓迎いたします．ご指摘は `当該リポジトリ <https://github.com/lean-ja/mathematics_in_lean_source>`_ にてIssue・Pull Requestで受け付けております．
+
+翻訳に際して，機械翻訳サービス `DeepL翻訳 <https://www.deepl.com/ja/translator>`_ を参考にしました．
+
+バージョン情報
+--------------
+
+この翻訳は原文のcommit `2bba5592ebfb3075ca1fd4d12843d2bf197bb0d1 <https://github.com/lean-ja/mathematics_in_lean_source/commit/2bba5592ebfb3075ca1fd4d12843d2bf197bb0d1>`_ に基づいています．
+
 """
 
 def make_sphinx_index_file():
