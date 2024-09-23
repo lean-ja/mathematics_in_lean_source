@@ -12,6 +12,7 @@
 | bijection | 全単射 |
 | bi-implication | 双方向の含意 |
 | bipartite graph | 2部グラフ |
+| bundled maps | 束縛写像 |
 | canonical topology | 正準位相 |
 | cardinality | 濃度 |
 | carrier set | 台集合 |
@@ -23,6 +24,7 @@
 | cluster point | 集積点 |
 | codomain | 終域 |
 | coercion | 型の強制 |
+| complete | 完備 |
 | complete lattice | 完備束 |
 | conjunction | 連言 |
 | context | コンテキスト |
@@ -84,14 +86,18 @@
 | module | 加群 |
 | monotone | 単調 |
 | morphism | 射 |
+| multilinear maps | 多重線形写像 |
 | natural domain | 自然な定義域 |
 | neighborhood basic | 基本近傍 |
 | norm | ノルム |
+| normed space | ノルム空間 |
+| normed vector space | ノルム線形空間 |
 | number systems | 数体系 |
 | number theory | 数論 |
 | open interval | 開区間 |
 | open sets | 開集合 |
 | operator | 演算子（中置記法の定義等なにかしら特殊な記法が用意されている場合）、関数（それ以外） |
+| operator norm | 作用素ノルム |
 | ordered ring | 順序環 |
 | preimage | 逆像 |
 | partial order | 半順序 |
@@ -116,6 +122,7 @@
 | simplifier | ``simp``  |
 | singleton | 単集合 |
 | statement | 命題 |
+| strictly differentiable | 狭義微分可能 |
 | strict partial order | 狭義半順序 |
 | strong induction | 強帰納法 |
 | sub-object | 部分対象 |
@@ -130,6 +137,7 @@
 | transitivity | 推移性 |
 | triangle inequality | 三角不等式 |
 | uncountable | 不可算 |
+| Uniform Boundedness Principle | 一様有界性原理 |
 | uniformly continuous | 一様連続 |
 | uniform space | 一様空間 |
 | union | 合併, 非交和 |
