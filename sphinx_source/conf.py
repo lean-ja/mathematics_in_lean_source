@@ -16,7 +16,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Mathematics in Lean'
+project = 'Mathematics in Lean 日本語訳'
 copyright = '2020, Jeremy Avigad, Patrick Massot'
 author = 'Jeremy Avigad, Patrick Massot'
 
