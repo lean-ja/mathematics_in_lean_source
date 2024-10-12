@@ -51,7 +51,7 @@ the identifier ``Nat.Coprime``.
 The ``norm_num`` tactic is smart enough to compute concrete values.
 OMIT. -/
 /- TEXT:
-:math:`a / b` が既約分数であるということは， :math:`a` と :math:`b` は共通の因数がない，つまり **互いに素** （coprime）であることを意味します．Mathlibは述語 ``Nat.coprime m n`` を ``Nat.gcd m n = 1`` と定義しています．Leanの無名の射影による記法を使うと， ``s`` と ``t`` が ``Nat`` 型の式であれば， ``Nat.coprime s t`` の代わりに ``s.coprime t`` と書くことができます．これは ``Nat.gcd`` についても同様です．いつものように，Leanはしばしば ``Nat.coptime`` の定義を必要に応じて自動的に展開しますが， ``Nat.coprime`` 識別子を用いて手動で書き換えや単純化することもできます． ``norm_num`` タクティクは具体的な値を計算するにあたって十分な賢さを備えています．
+:math:`a / b` が既約分数であるということは， :math:`a` と :math:`b` は共通の因数がない，つまり **互いに素** （coprime）であることを意味します．Mathlibは述語 ``Nat.Coprime m n`` を ``Nat.gcd m n = 1`` と定義しています．Leanの無名の射影による記法を使うと， ``s`` と ``t`` が ``Nat`` 型の式であれば， ``Nat.Coprime s t`` の代わりに ``s.coprime t`` と書くことができます．これは ``Nat.gcd`` についても同様です．いつものように，Leanはしばしば ``Nat.Coprime`` の定義を必要に応じて自動的に展開しますが， ``Nat.Coprime`` 識別子を用いて手動で書き換えや単純化することもできます． ``norm_num`` タクティクは具体的な値を計算するにあたって十分な賢さを備えています．
 EXAMPLES: -/
 -- QUOTE:
 #print Nat.Coprime
@@ -84,7 +84,7 @@ to the natural numbers.
 
 OMIT: -/
 /- TEXT:
-関数 ``gcd`` についてはすでに :numref:`more_on_order_and_divisibility` で説明しました． ``gcd`` には整数用のバージョンも存在します．このような異なる数体系間の関係については後述します．また ``gcd`` 関数や ``Prime`` ， ``coprime`` にはさらに一般的な概念も存在し，一般的な代数構造で意味を持ちます．Leanがこの一般性をどのように管理しているかについては次の章で説明します．それまでにこの節では自然数に限定して説明しましょう．
+関数 ``gcd`` についてはすでに :numref:`more_on_order_and_divisibility` で説明しました． ``gcd`` には整数用のバージョンも存在します．このような異なる数体系間の関係については後述します．また ``gcd`` 関数や ``Prime`` ， ``Coprime`` にはさらに一般的な概念も存在し，一般的な代数構造で意味を持ちます．Leanがこの一般性をどのように管理しているかについては次の章で説明します．それまでにこの節では自然数に限定して説明しましょう．
 
 TEXT. -/
 /- OMIT:
@@ -141,7 +141,7 @@ but for reasons that will become clear below,
 we will simply use ``2 ∣ m`` to express that ``m`` is even.
 OMIT. -/
 /- TEXT:
-この事実は上記で行った議論の重要な性質を確立することができます．すなわちある数の2乗が偶数であれば，その数も偶数であるということです．Mathlibは ``Data.Nat.Parity`` にて述語 ``Even`` を定義していますが，後ほど説明する理由から，ここでは ``m`` が偶数であることを表現するために ``2 ∣ m`` を使用します．
+この事実は上記で行った議論の重要な性質を確立することができます．すなわちある数の2乗が偶数であれば，その数も偶数であるということです．Mathlibは ``Algebra.Group.Even`` にて述語 ``Even`` を定義していますが，後ほど説明する理由から，ここでは ``m`` が偶数であることを表現するために ``2 ∣ m`` を使用します．
 EXAMPLES: -/
 -- QUOTE:
 #check Nat.Prime.dvd_mul
@@ -313,7 +313,7 @@ and that if ``n`` is equal to the product of another list of prime numbers,
 then that list is a permutation of ``Nat.primeFactorsList n``.
 OMIT. -/
 /- TEXT:
-素因数分解の一意性とは，0以外の自然数は素数の積として一意に書けるというものです．Mathlibにはこの定理が正式に含まれており， ``Nat.factors`` という関数で表現され，与えられた数の素因数を小さい順に並べたリストを返します．Mathlibは ``Nat.primeFactorsList n`` のすべての要素が素数であること，0より大きい ``n`` はその因数の積に等しいこと，そして ``n`` が他の素数のリストの積に等しい場合，そのリストは ``Nat.primeFactorsList n`` の結果を順列に並べ替えたものであることを証明します．
+素因数分解の一意性とは，0以外の自然数は素数の積として一意に書けるというものです．Mathlibにはこの定理が正式に含まれており， ``Nat.primeFactorsList`` という関数で表現され，与えられた数の素因数を小さい順に並べたリストを返します．Mathlibは ``Nat.primeFactorsList n`` のすべての要素が素数であること，0より大きい ``n`` はその因数の積に等しいこと，そして ``n`` が他の素数のリストの積に等しい場合，そのリストは ``Nat.primeFactorsList n`` の結果を順列に並べ替えたものであることを証明します．
 EXAMPLES: -/
 -- QUOTE:
 #check Nat.primeFactorsList
@@ -428,7 +428,7 @@ establishes ``r + 1 ≠ 0`` (``succ`` stands for successor).
 
 OMIT: -/
 /- TEXT:
-``Nat.count_factors_mul_of_pos`` を ``r * n^k`` と一緒に使うには， ``r`` が正であることを知っている必要があります．しかし ``r`` が0の場合，以下の定理は自明であり， ``simp`` で簡単に証明できます．そこで証明は場合分けして行うことにします．一つは ``r`` を ``0`` に置き換えるもので，もう一つは ``r`` を ``r.succ`` に置き換えるものです．後者の場合，定理 ``r.succ_ne_zero`` を使うことができ， ``r.succ ≠ 0`` が成立します．
+``Nat.count_factors_mul_of_pos`` を ``r * n^k`` と一緒に使うには， ``r`` が正であることを知っている必要があります．しかし ``r`` が0の場合，以下の定理は自明であり， ``simp`` で簡単に証明できます．そこで証明は場合分けして行うことにします． ``rcases r with _ | r`` の行ではゴールを2つのバージョンへと置き換えています；一つは ``r`` を ``0`` に置き換えるもので，もう一つは ``r`` を ``r + 1`` に置き換えるものです．後者の場合，定理 ``r.succ_ne_zero`` を使うことができ， ``r + 1 ≠ 0`` が成立します（ ``succ`` は後続を意味します）．
 
 TEXT. -/
 /- OMIT:

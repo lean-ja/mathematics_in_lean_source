@@ -101,9 +101,9 @@ OMIT. -/
 
 1. ``ctrl+shift+P`` (Macの場合は ``command+shift+P`` )を押します．
 
-2. 上記手順で現れたバーで ``Lean 4: Open Documentation View`` と打ち込み，エンターキーを押します．（もしくはメニュー内で上記の文字列が選択されてハイライトされている場合はそのままエンターキーを押しても良いです．）
+2. 上記手順で現れたバーで ``Lean 4: Docs: Show Documentation Resources`` と打ち込み，エンターキーを押します．（もしくはメニュー内で上記の文字列が選択されてハイライトされている場合はそのままエンターキーを押しても良いです．）
 
-3. これで開いたウィンドウで ``Open documentation of current project`` をクリックします．
+3. これで開いたウィンドウで ``Mathematics in Lean`` をクリックします．
 
 TEXT. -/
 /- OMIT:

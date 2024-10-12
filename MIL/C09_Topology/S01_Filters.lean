@@ -536,7 +536,7 @@ Putting these pieces together gives us essentially the notion of convergence
 that we used in :numref:`sequences_and_convergence`.
 OMIT. -/
 /- TEXT:
-またフィルタ ``atTop`` に対する良い基底もあります．補題 ``Filter.has_basis.tendsto_iff`` を使えば， ``F`` と ``G`` の基底が与えられたときに， ``Tendsto f F G`` という形の文を再形式化することができます．これらをまとめると， :numref:`sequences_and_convergence` で取り扱った収束の本質的な概念が得られます．
+またフィルタ ``atTop`` に対する良い基底もあります．補題 ``Filter.HasBasis.tendsto_iff`` を使えば， ``F`` と ``G`` の基底が与えられたときに， ``Tendsto f F G`` という形の文を再形式化することができます．これらをまとめると， :numref:`sequences_and_convergence` で取り扱った収束の本質的な概念が得られます．
 EXAMPLES: -/
 -- QUOTE:
 example (u : ℕ → ℝ) (x₀ : ℝ) :

@@ -29,7 +29,7 @@ like ``≤`` on the real numbers.
 Lean knows about partial orders:
 OMIT. -/
 /- TEXT:
-:numref:`proving_identities_in_algebraic_structures` では，実数上で成り立つ多くの一般的な恒等式が，可換環のようなより一般的な代数的構造のクラスでも成り立つことを確認しました．等式だけでなく，代数的構造を記述するために必要な公理はなんでも表現することができます．例えば **半順序** （partial order）は実数上の ``≤`` のような，集合上の反射的で推移的な二項関係のことです．Leanはこの半順序を表現できます:
+:numref:`proving_identities_in_algebraic_structures` では，実数上で成り立つ多くの一般的な恒等式が，可換環のようなより一般的な代数的構造のクラスでも成り立つことを確認しました．等式だけでなく，代数的構造を記述するために必要な公理はなんでも表現することができます．例えば **半順序** （partial order）は実数上の ``≤`` のような，集合上の反射的で推移的かつ反対称的な二項関係のことです．Leanはこの半順序を表現できます:
 TEXT. -/
 section
 -- QUOTE:
