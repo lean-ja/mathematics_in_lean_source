@@ -101,7 +101,7 @@ index_file_end = """
 バージョン情報
 --------------
 
-この翻訳は原文のcommit `2bba5592ebfb3075ca1fd4d12843d2bf197bb0d1 <https://github.com/lean-ja/mathematics_in_lean_source/commit/2bba5592ebfb3075ca1fd4d12843d2bf197bb0d1>`_ に基づいています．
+この翻訳は原文のcommit `dd607c678b229e26cd6c8dbe43e56f5455b39210 <https://github.com/lean-ja/mathematics_in_lean_source/commit/dd607c678b229e26cd6c8dbe43e56f5455b39210>`_ に基づいています．
 
 """
 

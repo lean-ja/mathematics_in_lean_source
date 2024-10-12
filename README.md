@@ -97,28 +97,36 @@
 | S02_Morphisms.lean | [s-taiga](https://github.com/s-taiga)  |
 | S03_Subobjects.lean | [s-taiga](https://github.com/s-taiga)  |
 
-* C08_Topology
+* C08_Groups_and_Rings
 
 | 章名 | 担当 |
 | --- | --- |
-| C08_Topology.rst | [s-taiga](https://github.com/s-taiga) |
+| C08_Groups_and_Rings.rst | [s-taiga](https://github.com/s-taiga) |
+| S01_Groups.lean | [s-taiga](https://github.com/s-taiga) |
+| S02_Rings.lean | [s-taiga](https://github.com/s-taiga) |
+
+* C09_Topology
+
+| 章名 | 担当 |
+| --- | --- |
+| C09_Topology.rst | [s-taiga](https://github.com/s-taiga) |
 | S01_Filters.lean | [s-taiga](https://github.com/s-taiga)  |
 | S02_Metric_Spaces.lean | [s-taiga](https://github.com/s-taiga)  |
 | S03_Topological_Spaces.lean | [s-taiga](https://github.com/s-taiga)  |
 
-* C09_Differential_Calculus
+* C10_Differential_Calculus
 
 | 章名 | 担当 |
 | --- | --- |
-| C09_Differential_Calculus.rst | [s-taiga](https://github.com/s-taiga) |
+| C10_Differential_Calculus.rst | [s-taiga](https://github.com/s-taiga) |
 | S01_Elementary_Differential_Calculus.lean | [s-taiga](https://github.com/s-taiga) |
 | S02_Differential_Calculus_in_Normed_Spaces.lean | [s-taiga](https://github.com/s-taiga) |
 
-* C10_Integration_and_Measure_Theory
+* C11_Integration_and_Measure_Theory
 
 | 章名 | 担当 |
 | --- | --- |
-| C10_Integration_and_Measure_Theory.rst | [s-taiga](https://github.com/s-taiga) |
+| C11_Integration_and_Measure_Theory.rst | [s-taiga](https://github.com/s-taiga) |
 | S01_Elementary_Integration.lean | [s-taiga](https://github.com/s-taiga) |
 | S02_Measure_Theory.lean | [s-taiga](https://github.com/s-taiga) |
 | S03_Integration.lean | [s-taiga](https://github.com/s-taiga) |

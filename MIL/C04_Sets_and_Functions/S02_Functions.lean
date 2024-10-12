@@ -660,7 +660,7 @@ meets the first part of this specification.
 
 OMIT. -/
 /- TEXT:
-``noncomputable section`` と ``open Classical`` の行は古典論理を本質的な意味で使っているため必要です．入力 ``y`` に対して，関数 ``inverse f`` は ``f x = y`` を満たす ``x`` の値があればそれを返し，なければ ``α`` のデフォルトの要素を返します．これは **依存的なif** （dependent if）による構成の例になっています．というのも条件が真の場合，返される値 ``Classical.choose h`` は仮定 ``h`` に依存するからです．条件式 ``if h : e then a else b`` は，等式 ``dif_pos h`` によって ``h : e`` が与えられると ``a`` に書き換えられ，同様に ``dif_neg h`` によって ``h : ¬ e`` が与えられると ``b`` に書き換えられます．定理 ``inverse_spec`` は ``inverse f`` が if 式の条件を満たすことを述べています．
+``noncomputable section`` と ``open Classical`` の行は古典論理を本質的な意味で使っているため必要です．入力 ``y`` に対して，関数 ``inverse f`` は ``f x = y`` を満たす ``x`` の値があればそれを返し，なければ ``α`` のデフォルトの要素を返します．これは **依存的なif** （dependent if）による構成の例になっています．というのも条件が真の場合，返される値 ``Classical.choose h`` は仮定 ``h`` に依存するからです．条件式 ``if h : e then a else b`` は，等式 ``dif_pos h`` によって ``h : e`` が与えられると ``a`` に書き換えられ，同様に ``dif_neg h`` によって ``h : ¬ e`` が与えられると ``b`` に書き換えられます．また似たものとして ``if_pos`` と ``if_neg`` というものもあり，これは非依存なifの構成で機能し，これは次節で用いられます．定理 ``inverse_spec`` は ``inverse f`` が if 式の条件を満たすことを述べています．
 
 TEXT. -/
 /- OMIT:

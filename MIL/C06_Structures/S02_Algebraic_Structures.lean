@@ -31,7 +31,7 @@ TEXT. -/
 
 OMIT. -/
 /- TEXT:
-#. **半順序集合** （partially ordered set）は集合 :math:`P` と推移律と反対称律を持った :math:`P` 上の二項演算子 :math:`\le` からなります．
+#. **半順序集合** （partially ordered set）は集合 :math:`P` と推移律と反射律を持った :math:`P` 上の二項演算子 :math:`\le` からなります．
 
 TEXT. -/
 /- OMIT:
@@ -268,7 +268,7 @@ to add it to the definition.
 
 OMIT. -/
 /- TEXT:
-ここで型 ``α`` は ``group₁`` の定義における **パラメータ** （parameter）であることに注意してください．したがってオブジェクト ``struc : Group₁ α`` は ``α`` 上の群構造であると考えると良いでしょう．他の群の公理から ``mul_left_inv`` と対になる ``mul_right_inv`` が成り立つことは :numref:`proving_identities_in_algebraic_structures` で見たため，定義に追加する必要はありません．
+ここで型 ``α`` は ``group₁`` の定義における **パラメータ** （parameter）であることに注意してください．したがってオブジェクト ``struc : Group₁ α`` は ``α`` 上の群構造であると考えると良いでしょう．他の群の公理から ``inv_mul_cancel`` と対になる ``mul_inv_cancel`` が成り立つことは :numref:`proving_identities_in_algebraic_structures` で見たため，定義に追加する必要はありません．
 
 TEXT. -/
 /- OMIT:
@@ -890,7 +890,7 @@ You can find more information in :numref:`hierarchies` and in a
 
 OMIT. -/
 /- TEXT:
-ここで挙げた例は危険です．なぜなら，Leanのライブラリには ``Group (Equiv.Perm α)`` のインスタンスもあり，乗算は任意の群で定義されているからです．そのため，どちらのインスタンスが見つかるかは曖昧です．実際，Leanは明示的に優先順位を指定しない限り，より新しい宣言を優先します．また，ある構造体が別の構造体のインスタンスであることをLeanに伝えるには， ``extends`` キーワードを使う方法もあります．これは例えばMathlibにおいてすべての可換環が環であることの指定に使われています．より詳しい情報は *Theorem Proving in Lean* のクラス推論に関する節 `section on class inference <https://leanprover.github.io/theorem_proving_in_lean4/type_classes.html#managing-type-class-inference>`_ にあります． [#f21]_
+ここで挙げた例は危険です．なぜなら，Leanのライブラリには ``Group (Equiv.Perm α)`` のインスタンスもあり，乗算は任意の群で定義されているからです．そのため，どちらのインスタンスが見つかるかは曖昧です．実際，Leanは明示的に優先順位を指定しない限り，より新しい宣言を優先します．また，ある構造体が別の構造体のインスタンスであることをLeanに伝えるには， ``extends`` キーワードを使う方法もあります．これは例えばMathlibにおいてすべての可換環が環であることの指定に使われています．より詳しい情報は :numref:`hierarchies` の節および *Theorem Proving in Lean* のクラス推論に関する節 `section on class inference <https://leanprover.github.io/theorem_proving_in_lean4/type_classes.html#managing-type-class-inference>`_ にあります． [#f21]_
 
 TEXT. -/
 /- OMIT:
