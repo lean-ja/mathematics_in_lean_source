@@ -89,7 +89,7 @@ index that would be useful to distinguish between several unknown things). Anoth
 to avoid this issue would be to use a type annotation, as in:
 OMIT. -/
 /- TEXT:
-もう一つの注意点は，Leanが ``α`` がなんであるかを知っている場合にのみ，この操作は機能するという点です．上の例で全体の型 ``: α`` を省略すると ``typeclass instance problem is stuck, it is often due to metavariables One₁ (?m.263 α)`` というようなエラーメッセージが表示されます．ここで ``?m.263 α`` は「 ``α`` に依存する何らかの型」を意味します．（263は単に自動生成されたインデックスで，未知のものを区別するのに便利です）この問題を避けるもう一つの方法は，次のように型注釈を使うことです:
+もう一つの注意点は，Leanが ``α`` がなんであるかを知っている場合にのみ，この操作は機能するという点です．上の例で型アスクリプション ``: α`` を省略すると ``typeclass instance problem is stuck, it is often due to metavariables One₁ (?m.263 α)`` というようなエラーメッセージが表示されます．ここで ``?m.263 α`` は「 ``α`` に依存する何らかの型」を意味します．（263は単に自動生成されたインデックスで，未知のものを区別するのに便利です）この問題を避けるもう一つの方法は，次のように型注釈を使うことです:
 BOTH: -/
 -- QUOTE:
 example (α : Type) [One₁ α] := (One₁.one : α)
