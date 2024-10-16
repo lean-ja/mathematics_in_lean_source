@@ -21,6 +21,7 @@
 | cauchy sequence | コーシー列 |
 | closed sets | 閉集合 |
 | closure | 閉包 |
+| closure property | 閉性 |
 | change-of-variables | 変数変換 |
 | chapter | 章 |
 | cluster point | 集積点 |
@@ -35,6 +36,7 @@
 | convergence | 収束 |
 | coprime | 互いに素 |
 | curly brackets | 波括弧 |
+| cycle | 巡回置換 |
 | dense | 稠密 |
 | dependent type theory | 依存型理論 |
 | derivative function | 導関数 |
@@ -58,11 +60,15 @@
 | filter | フィルタ |
 | filter basis | フィルタ基底 |
 | first countability | 第一可算 |
+| free group | 自由群 |
 | functoriality | 関手性 |
+| full subgroup | 完全部分群 |
 | Galois connection | ガロア接続 |
 | gaussian integer | ガウス整数 |
 | greatest common divisor | 最大公約数 |
 | greatest lower bound | 最大下界 |
+| group action | 群作用 |
+| group presentation | 群の表示 |
 | higher-order unification | 高階ユニフィケーション |
 | identity | 恒等式, 等式 |
 | if-and-only-if statement | 同値性を主張する文 |
@@ -85,6 +91,7 @@
 | mass | 体積量 |
 | measure theory | 測度論 |
 | meet | 交わり |
+| membership | 帰属 |
 | metric space | 距離空間 |
 | metric space topology | 距離空間位相 |
 | module | 加群 |
@@ -102,10 +109,12 @@
 | open sets | 開集合 |
 | operator | 演算子（中置記法の定義等なにかしら特殊な記法が用意されている場合）、関数（それ以外） |
 | operator norm | 作用素ノルム |
+| orbit | 軌道（群論） |
 | ordered ring | 順序環 |
 | preimage | 逆像 |
 | partial order | 半順序 |
 | partially bundled structure | 部分的に束ねられた構造体 |
+| permutations | 置換 |
 | principal filter | 主フィルタ |
 | proof term | 証明項 |
 | proof by contradiction | 背理法 |
@@ -125,6 +134,7 @@
 | simplify | 単純化 |
 | simplifier | ``simp``  |
 | singleton | 単集合 |
+| stabilizer | 固定部分群（群論） |
 | statement | 命題 |
 | strictly differentiable | 狭義微分可能 |
 | strict partial order | 狭義半順序 |
@@ -134,17 +144,21 @@
 | support | 台 |
 | supremum | 上限 |
 | surjective | 全射 |
+| symmetric group | 対称群 |
 | tend to ~ | ~に収束する |
 | topological group | 位相群 |
 | topological space | 位相空間 |
 | total order | 全順序 |
 | transitivity | 推移性 |
+| translation | 移動作用（群論） |
 | triangle inequality | 三角不等式 |
+| type ascription | 型アスクリプション |
 | uncountable | 不可算 |
 | Uniform Boundedness Principle | 一様有界性原理 |
 | uniformly continuous | 一様連続 |
 | uniform space | 一様空間 |
 | union | 合併, 非交和 |
+| universal property | 普遍性 |
 | universal quantifier | 全称量化子 |
 | well-founded | 整礎関係 |
 | well-formed | 合法 |
