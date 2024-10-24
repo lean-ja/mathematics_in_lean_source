@@ -105,6 +105,16 @@
 | S01_Groups.lean | [s-taiga](https://github.com/s-taiga) |
 | S02_Rings.lean | [s-taiga](https://github.com/s-taiga) |
 
+* C09_Linear_Algebra
+
+| 章名 | 担当 |
+| --- | --- |
+| C09_Linear_Algebra.rst | [s-taiga](https://github.com/s-taiga) |
+| S01_Vector_Spaces.lean | [s-taiga](https://github.com/s-taiga) |
+| S02_Subspaces.lean | [s-taiga](https://github.com/s-taiga) |
+| S03_Endomorphisms.lean | [s-taiga](https://github.com/s-taiga) |
+| S04_Bases.lean | [s-taiga](https://github.com/s-taiga) |
+
 * C09_Topology
 
 | 章名 | 担当 |
