@@ -48,6 +48,7 @@
 | divisibility relation | 整除関係 |
 | domain | 始域 |
 | dominated convergence theorem | 優収束定理 |
+| endomorphisms | 自己準同型 |
 | entourage | 近縁 |
 | eta-reduction | η簡約 |
 | Euclidean algorithm | ユークリッドの互助法 |
