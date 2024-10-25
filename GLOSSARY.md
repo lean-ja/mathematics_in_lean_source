@@ -80,6 +80,7 @@
 | induction | 帰納法 |
 | infimum | 下限 |
 | integral domain | 整域 |
+| internal direct sum | 内部直和 |
 | intersection | 共通部分 |
 | irrational | 無理数 |
 | irreducible | 既約元 |
