@@ -138,6 +138,7 @@
 | simplify | 単純化 |
 | simplifier | ``simp``  |
 | singleton | 単集合 |
+| span | 空間を張る |
 | stabilizer | 固定部分群（群論） |
 | statement | 命題 |
 | strictly differentiable | 狭義微分可能 |
