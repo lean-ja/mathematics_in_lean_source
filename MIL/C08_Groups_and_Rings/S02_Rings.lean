@@ -246,7 +246,7 @@ enough to make the corresponding quotients equal. However, the universal propert
 an isomorphism in this case.
 OMIT. -/
 /- TEXT:
-微妙な点として，型 ``R ⧸ I`` は実際に ``I`` に（定義上の同値を除いて）依存するため，2つのイデアル ``I`` と ``J`` が等しいことを証明するだけでは対応する商を等しくすることができません．しかし，普遍性はこの場合に同型性を提供します．
+微妙な点として，型 ``R ⧸ I`` は実際に ``I`` に（定義上の等しさを除いて）依存するため，2つのイデアル ``I`` と ``J`` が等しいことを証明するだけでは対応する商を等しくすることができません．しかし，普遍性はこの場合に同型性を提供します．
 EXAMPLES: -/
 -- QUOTE:
 example {R : Type*} [CommRing R] {I J : Ideal R} (h : I = J) : R ⧸ I ≃+* R ⧸ J :=

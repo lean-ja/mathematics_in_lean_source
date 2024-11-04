@@ -39,6 +39,7 @@
 | cycle | 巡回置換 |
 | dense | 稠密 |
 | dependent type theory | 依存型理論 |
+| definitional equality | 定義上の等しさ |
 | derivative function | 導関数 |
 | derivative of ~ | ~での微分係数 |
 | descend | （自然な全単射などへ）誘導される |
@@ -166,7 +167,7 @@
 | univariate polynomial | 一変数多項式 |
 | universal property | 普遍性 |
 | universal quantifier | 全称量化子 |
-| up to definitional equality | 定義上の同値を除いて（ベーシック圏論にてunique up to isomorphismを「同型を除いて一意」と訳されていることに合わせた） |
+| up to definitional equality | 定義上の等しさを除いて（ベーシック圏論にてunique up to isomorphismを「同型を除いて一意」と訳されていることに合わせた） |
 | well-founded | 整礎関係 |
 | well-formed | 合法 |
 | well-formed formula | 論理式 |

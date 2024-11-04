@@ -498,7 +498,7 @@ OMIT. -/
 /- TEXT:
 .. index:: rfl, reflexivity, tactics ; refl and reflexivity, definitional equality
 
-証明項 ``rfl`` は「反射性（reflexivity）」の略です．これを ``a - b = a + -b`` の証明として提示すると，Leanはその定義を展開し，両辺が同じであることを認識します．``rfl`` タクティクもこれと同様です．これは *definitional equality(定義からの等価性)* として知られているLeanの基礎にある論理の一例です．つまり ``sub_eq_add_neg`` を用いて等式 ``a - b = a + -b`` を示せるだけでなく，実数を扱うときなど文脈によってはこの等式の両辺を同じ意味で使うことができます．ここまでの情報で，例えば前節の定理 ``self_sub`` はもう証明できます:
+証明項 ``rfl`` は「反射性（reflexivity）」の略です．これを ``a - b = a + -b`` の証明として提示すると，Leanはその定義を展開し，両辺が同じであることを認識します．``rfl`` タクティクもこれと同様です．これは *definitional equality(定義上の等しさ)* として知られているLeanの基礎にある論理の一例です．つまり ``sub_eq_add_neg`` を用いて等式 ``a - b = a + -b`` を示せるだけでなく，実数を扱うときなど文脈によってはこの等式の両辺を同じ意味で使うことができます．ここまでの情報で，例えば前節の定理 ``self_sub`` はもう証明できます:
 
 TEXT. -/
 -- BOTH:

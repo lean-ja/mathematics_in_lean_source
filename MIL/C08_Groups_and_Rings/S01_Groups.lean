@@ -1079,7 +1079,7 @@ is not enough to make the corresponding quotients equal. However the universal p
 an isomorphism in this case.
 OMIT. -/
 /- TEXT:
-1つ気に留めるべき微妙な点は型 ``G ⧸ N`` は ``N`` に（定義上の同値を除いて）本当に依存しているということであり，そのため2つの正規部分群 ``N`` と ``M`` が等しいことを証明するだけでは対応する商を等しくすることができません．しかし，普遍性はこの場合に同型を与えます．
+1つ気に留めるべき微妙な点は型 ``G ⧸ N`` は ``N`` に（定義上の等しさを除いて）本当に依存しているということであり，そのため2つの正規部分群 ``N`` と ``M`` が等しいことを証明するだけでは対応する商を等しくすることができません．しかし，普遍性はこの場合に同型を与えます．
 EXAMPLES: -/
 -- QUOTE:
 example {G : Type*} [Group G] {M N : Subgroup G} [M.Normal]
